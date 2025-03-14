@@ -1,0 +1,24 @@
+.page {
+  font-family: var(--font-geist-sans);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  grid-row-start: 2;
+}
+
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+  background-color: red;
+}
+
