@@ -1,0 +1,24 @@
+@mixin button_reset {
+  background-color: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+}
+
+.button {
+  @include button_reset;
+  padding: 0.5rem;
+}
+
+.primary {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}

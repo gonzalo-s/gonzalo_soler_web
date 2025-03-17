@@ -3,10 +3,12 @@ import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <Navigation />
-      <main className={styles.main}>MAIN</main>
-      <footer className={styles.footer}>FOOTER</footer>
-    </div>
+    <section className={styles.page_wrapper}>
+      <div className={styles.content}>
+        <Navigation />
+        <main className={styles.main}>MAIN</main>
+        <footer className={styles.footer}>FOOTER</footer>
+      </div>
+    </section>
   );
 }
