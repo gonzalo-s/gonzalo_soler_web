@@ -20,17 +20,18 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+# ✨ Welcome to My Digital Resume! ✨
 
-To learn more about Next.js, take a look at the following resources:
+## About This Page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Hey there! 👋 This is my online resume – think of it as a chill space where I'll be showcasing all the awesome projects I've been a part of. 🚀
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## What You'll Find Here
 
-## Deploy on Vercel
+- **Projects:** Check out the projects I've been involved in.
+- **Skills:** Discover some of my favorite skills.
+- **Example Work:** This page itself is a little sneak peek into my work! 😉
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## My Goal
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Basically, I'm hoping you'll find something cool and interesting here. 🤩 Feel free to take a look around and let me know what you think! ✌️
