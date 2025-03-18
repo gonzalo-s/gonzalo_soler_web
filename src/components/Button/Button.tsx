@@ -1,29 +1,48 @@
-import Link from "next/link";
-import { getButtonClasses } from "./buttonUtils";
+import Link from 'next/link';
+import clsx from 'clsx';
 
-export type ButtonVariant = "primary" | "secondary" | "tertiary";
+import { getButtonClasses } from './buttonUtils';
 
-type ButtonProps = {
+export type ButtonVariant = 'primary' | 'secondary';
+
+type InternalHref = { internal: string };
+type ExternalHref = { external: string };
+
+export type ButtonProps = {
   text: string;
   disabled?: boolean;
   icon?: boolean; // later we can add icon to the button
   variant?: ButtonVariant;
-  href?: string;
+  href?: InternalHref | ExternalHref;
 };
 
 function Button(props: ButtonProps) {
   if (props.href) {
+    if (isExternal(props.href)) {
+      return (
+        <a
+          href={props.href.external}
+          className={clsx(getButtonClasses(props))}
+        >
+          {props.text}
+        </a>
+      );
+    }
     return (
-      <Link href={props.href} className={getButtonClasses(props)}>
+      <Link href={props.href.internal} className={clsx(getButtonClasses(props))}>
         {props.text}
       </Link>
     );
   }
   return (
-    <button disabled={props.disabled} className={getButtonClasses(props)}>
+    <button disabled={props.disabled} className={clsx(getButtonClasses(props))}>
       {props.text}
     </button>
   );
 }
 
 export default Button;
+
+function isExternal(href: InternalHref | ExternalHref): href is ExternalHref {
+  return (href as ExternalHref).external !== undefined;
+}

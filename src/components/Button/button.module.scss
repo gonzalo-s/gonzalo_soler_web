@@ -1,24 +1,79 @@
-@mixin button_reset {
+@use "../../styles/variables.scss" as *;
+
+@mixin button-reset {
   background-color: none;
   border: none;
-  padding: 0;
+  padding: 0.5rem 1rem;
   margin: 0;
   font: inherit;
   color: inherit;
   cursor: pointer;
   outline: none;
   appearance: none;
+  white-space: nowrap;
 }
 
-.button {
-  @include button_reset;
-  padding: 0.5rem;
-}
+.link {
+  @include button-reset;
 
-.primary {
+  color: $accent;
+  text-decoration: none;
   display: flex;
   gap: 1rem;
   align-items: center;
   justify-content: center;
   background-color: transparent;
+  transition: color 0.2s ease;
+
+  &_primary,
+  &_secondary {
+    &:hover {
+      color: $primary;
+    }
+  }
+}
+
+.button {
+  @include button-reset;
+
+  color: $accent;
+  padding: 0.5rem 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba($background, 1);
+  border-radius: 1rem;
+  outline: 1px solid $primary;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &_primary {
+    &::before {
+      content: "";
+      position: absolute;
+      top: -20%;
+      left: -100%;
+      width: 100%;
+      height: 150%;
+      transform: rotate(0deg);
+      background: linear-gradient(120deg, transparent, rgba($primary, 0.2), transparent);
+      transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    &:hover::before {
+      left: 100%;
+    }
+  }
+
+  &_secondary {
+    transition: background 0.5s;
+    transition: color 0.5s;
+
+    &:hover {
+      background-color: $foreground;
+      color: $secondary;
+    }
+  }
 }

@@ -3,7 +3,7 @@ import styles from "./page.module.scss";
 
 export default function Home() {
   return (
-    <section className={styles.page_wrapper}>
+    <section className={styles["page-wrapper"]}>
       <div className={styles.content}>
         <Navigation />
         <main className={styles.main}>MAIN</main>
