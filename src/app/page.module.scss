@@ -4,6 +4,7 @@
 .page-wrapper {
   font-family: var(--font-geist-sans);
   display: flex;
+  padding: 0 2rem;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
@@ -39,6 +40,8 @@
   display: flex;
   min-height: 100%;
   flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .footer {

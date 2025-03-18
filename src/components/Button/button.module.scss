@@ -3,7 +3,7 @@
 @mixin button-reset {
   background-color: none;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 0;
   margin: 0;
   font: inherit;
   color: inherit;
@@ -25,10 +25,23 @@
   background-color: transparent;
   transition: color 0.2s ease;
 
-  &_primary,
-  &_secondary {
+  &:focus-visible {
+    border-radius: $border-radius-1;
+    outline: 1px solid $primary;
+    outline-offset: 0.5rem;
+  }
+
+  &_primary {
     &:hover {
       color: $primary;
+    }
+  }
+
+  &_secondary {
+    color: $primary;
+
+    &:hover {
+      color: $accent;
     }
   }
 }
@@ -43,7 +56,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba($background, 1);
-  border-radius: 1rem;
+  border-radius: $border-radius-1;
   outline: 1px solid $primary;
   overflow: hidden;
   position: relative;

@@ -3,9 +3,16 @@ $background: #0a0a0a;
 $foreground: #fff;
 $primary: #b8b8b8;
 $secondary: #0a0a0a;
+$tertiary: #757575;
 $accent: #fff;
+
+// Spacing
+$vertical-gap: 1rem;
+
+// Radius
+$border-radius-1: 1rem;
 
 // Breakpoints for responsive design
 $mobile: 640px;
 $tablet: 768px;
-$desktop: 1280px;
+$desktop: 1100px;

@@ -1,0 +1,75 @@
+@use "../../styles/variables.scss" as *;
+@use "../../styles/mixins.scss" as *;
+
+@mixin reset-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.footer {
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1.5rem 0;
+        gap: $vertical-gap;
+        flex-direction: column;
+
+        @include tablet {
+            flex-direction: row;
+        }
+
+        @include desktop {
+            flex-direction: row;
+        }
+
+        &__details {
+            display: flex;
+            flex-direction: column;
+            gap: $vertical-gap;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        &__list {
+            display: flex;
+            flex-direction: column;
+            gap: $vertical-gap;
+            align-items: flex-start;
+
+            @include reset-list;
+        }
+    }
+
+    &__bottom {
+        border-top: 1px solid $tertiary;
+        width: 100%;
+
+        @keyframes gradient-move {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            100% {
+                background-position: 100% 50%;
+            }
+        }
+
+        &__text {
+            background-image: linear-gradient(90deg, $primary, $secondary, $primary);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-move 100s both infinite;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            white-space: nowrap;
+            font-size: clamp(1rem, 10vw, 8rem);
+            text-align: center;
+            word-break: keep-all;
+        }
+    }
+}

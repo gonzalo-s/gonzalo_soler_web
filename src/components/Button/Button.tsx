@@ -1,7 +1,9 @@
-import Link from 'next/link';
+'use client';
+
 import clsx from 'clsx';
 
 import { getButtonClasses } from './buttonUtils';
+import { MouseEvent } from 'react';
 
 export type ButtonVariant = 'primary' | 'secondary';
 
@@ -17,21 +19,33 @@ export type ButtonProps = {
 };
 
 function Button(props: ButtonProps) {
+  function handleInternalClick(event: MouseEvent) {
+    event.preventDefault();
+
+    if (props?.href && !isExternal(props.href)) {
+      {
+        const targetId = props.href?.internal.replace('#', '');
+        const targetElement = document.getElementById(targetId!);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }
+    }
+  }
+
   if (props.href) {
     if (isExternal(props.href)) {
       return (
-        <a
-          href={props.href.external}
-          className={clsx(getButtonClasses(props))}
-        >
+        <a href={props.href.external} className={clsx(getButtonClasses(props))}>
           {props.text}
         </a>
       );
     }
     return (
-      <Link href={props.href.internal} className={clsx(getButtonClasses(props))}>
+      <a href={props.href.internal} className={clsx(getButtonClasses(props))} onClick={handleInternalClick}>
         {props.text}
-      </Link>
+      </a>
     );
   }
   return (
