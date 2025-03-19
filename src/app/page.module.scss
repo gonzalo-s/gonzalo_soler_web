@@ -4,12 +4,20 @@
 .page-wrapper {
   font-family: var(--font-geist-sans);
   display: flex;
-  padding: 0 2rem;
+  padding: 0;
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
   background-color: $background;
   color: $foreground;
+
+  @include tablet {
+    padding: 0 2rem;
+  }
+
+  @include desktop {
+    padding: 0 2rem;
+  }
 }
 
 .content {

@@ -1,13 +1,92 @@
+@use "../../styles/mixins.scss" as *;
+@use "../../styles/variables.scss" as *;
+
 .navigation {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1.5rem 2rem;
+  background-color: $background-light;
+  position: relative;
+  border-bottom: 1px solid $quaternary;
+
+  @include tablet {
+    background-color: $background;
+  }
+
+  @include desktop {
+    background-color: $background;
+  }
 }
 
-.links {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1.5rem;
+.desktop {
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  display: none;
+}
+
+.mobile {
+  display: block;
+
+  @include tablet {
+    display: none;
+  }
+
+  @include desktop {
+    display: none;
+  }
+
+  &__button {
+    @include button-reset;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    background-color: $background-light;
+    gap: 1.5rem;
+    border-bottom: 1px solid $quaternary;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+    transition:
+      opacity 0.3s ease-in-out,
+      transform 0.3s ease-in-out;
+  }
+
+  &__menu__show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  &__menu__hide {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+  }
 }
