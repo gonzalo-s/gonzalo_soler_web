@@ -67,6 +67,6 @@ export const LOGO: ButtonProps = {
 
 export const FOOTER_DETAILS: FooterProps['details'] = {
   logo: LOGO,
-  description: 'Frontend Developer',
+  description: "I'm a Frontend Developer focused on details and user experience.",
   email: 'gonzalosoler@gmail.com',
 };

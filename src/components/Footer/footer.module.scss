@@ -12,7 +12,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 1.5rem 0;
+        padding: 1.5rem 0 3.5rem;
         gap: $vertical-gap;
         flex-direction: column;
 
@@ -49,6 +49,7 @@
     &__bottom {
         border-top: 1px solid $tertiary;
         width: 100%;
+        padding: 2rem 0;
 
         @keyframes gradient-move {
             0% {
