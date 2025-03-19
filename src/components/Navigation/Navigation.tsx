@@ -1,17 +1,28 @@
-import Button from "../Button/Button";
-import styles from "./navigation.module.scss";
+import { Sections } from '@/constants/sections';
+import Button, { ButtonProps } from '../Button/Button';
+import styles from './navigation.module.scss';
 
-function Navigation() {
+type NavigationProps = {
+  logo: ButtonProps;
+  linkList: Sections;
+};
+
+function Navigation(props: NavigationProps) {
   return (
     <nav className={styles.navigation}>
-       <Button text="Gonzalo Soler" variant="primary" href={{ internal: "/" }} /> 
+      <Button {...props.logo} />
       <div className={styles.links}>
-        <Button text="Projects" variant="primary" href={{ internal: "/" }} />
-        <Button text="About Me" variant="primary" href={{ internal: "/" }} /> 
-        <Button text="Reach Out!" variant="primary" 
-        
-         href={{ internal: "/" }} 
-         />
+        {props.linkList.map((listLink) => {
+          return (
+            <Button
+              key={listLink.title}
+              text={listLink.title}
+              variant={listLink.buttonVariant}
+              icon={listLink.icon}
+              href={listLink.href}
+            />
+          );
+        })}
       </div>
     </nav>
   );

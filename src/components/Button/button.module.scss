@@ -19,7 +19,7 @@
   color: $accent;
   text-decoration: none;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
   background-color: transparent;
@@ -89,4 +89,10 @@
       color: $secondary;
     }
   }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

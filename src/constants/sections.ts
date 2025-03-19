@@ -1,6 +1,6 @@
-import { ButtonHref, ButtonVariant } from '@/components/Button/Button';
+import { ButtonHref, ButtonIcon, ButtonProps, ButtonVariant } from '@/components/Button/Button';
 import { ICONS } from './icons';
-import { JSX } from 'react';
+import { FooterProps } from '@/components/Footer/Footer';
 
 export type Sections = Array<{
   title: string;
@@ -9,7 +9,7 @@ export type Sections = Array<{
   buttonVariant: ButtonVariant;
   isNav?: boolean;
   isFooter?: boolean;
-  icon?: JSX.Element;
+  icon?: ButtonIcon;
   isMain?: boolean;
 }>;
 
@@ -45,15 +45,28 @@ export const SECTIONS: Sections = [
     isNav: true,
     isMain: true,
     type: 'Contact',
-    icon: ICONS.arrowAltRight,
+    icon: { pre: false, icon: ICONS.arrowAltRight },
     buttonVariant: 'primary',
   },
   {
     href: { external: 'https://www.linkedin.com/in/gonzalo-soler/' },
     title: 'Linkedin',
     isFooter: true,
-    icon: ICONS.linkedin,
+    icon: { pre: true, icon: ICONS.linkedin },
     type: 'Social',
     buttonVariant: 'primary',
   },
 ];
+
+export const LOGO: ButtonProps = {
+  text: 'Gonzalo Soler',
+  variant: 'primary',
+  href: { internal: '/' },
+  icon: { pre: true, icon: ICONS.logo },
+};
+
+export const FOOTER_DETAILS: FooterProps['details'] = {
+  logo: LOGO,
+  description: 'Frontend Developer',
+  email: 'gonzalosoler@gmail.com',
+};

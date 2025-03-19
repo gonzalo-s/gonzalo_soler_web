@@ -30,6 +30,10 @@
             gap: $vertical-gap;
             align-items: flex-start;
             justify-content: center;
+
+            &__description {
+                color: $primary;
+            }
         }
 
         &__list {

@@ -1,9 +1,14 @@
 import { Sections } from '@/constants/sections';
-import Button from '../Button/Button';
+import Button, { ButtonProps } from '../Button/Button';
 import styles from './footer.module.scss';
 
-type FooterProps = {
-  listLinks: Sections;
+export type FooterProps = {
+  linkList: Sections;
+  details: {
+    logo: ButtonProps;
+    description: string;
+    email: string;
+  };
 };
 
 function Footer(props: FooterProps) {
@@ -12,11 +17,12 @@ function Footer(props: FooterProps) {
       <div className={styles.footer__top}>
         <div className={styles.footer__top__details}>
           <Button text="Gonzalo Soler" variant="primary" href={{ internal: '/' }} />
-          SOME TEXT HERE
+          <p className={styles.footer__top__details__description}>{props.details.description}</p>
+          <Button text={props.details.email} variant="secondary" href={{ external: `mailto:${props.details.email}` }} />
         </div>
         <nav>
           <ul className={styles.footer__top__list}>
-            {props.listLinks.map((listLink) => {
+            {props.linkList.map((listLink) => {
               return (
                 <li key={listLink.title}>
                   <Button text={listLink.title} variant="secondary" icon={listLink.icon} href={listLink.href} />
@@ -27,7 +33,7 @@ function Footer(props: FooterProps) {
         </nav>
       </div>
       <div className={styles.footer__bottom}>
-        <span className={styles['footer__bottom__text']}>gonzalo soler </span>
+        <span className={styles['footer__bottom__text']}>gonzalo soler</span>
       </div>
     </footer>
   );
