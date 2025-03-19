@@ -3,19 +3,21 @@
 import clsx from 'clsx';
 
 import { getButtonClasses } from './buttonUtils';
-import { MouseEvent } from 'react';
+import { JSX, MouseEvent } from 'react';
+import { isExternal } from '@/components/utils/getHref';
+import Link from 'next/link';
 
 export type ButtonVariant = 'primary' | 'secondary';
-
 type InternalHref = { internal: string };
-type ExternalHref = { external: string };
+export type ExternalHref = { external: string };
+export type ButtonHref = InternalHref | ExternalHref;
 
 export type ButtonProps = {
   text: string;
   disabled?: boolean;
-  icon?: boolean; // later we can add icon to the button
+  icon?: JSX.Element;
   variant?: ButtonVariant;
-  href?: InternalHref | ExternalHref;
+  href?: ButtonHref;
 };
 
 function Button(props: ButtonProps) {
@@ -37,15 +39,20 @@ function Button(props: ButtonProps) {
   if (props.href) {
     if (isExternal(props.href)) {
       return (
-        <a href={props.href.external} className={clsx(getButtonClasses(props))}>
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href={props.href.external}
+          className={clsx(getButtonClasses(props))}
+        >
           {props.text}
         </a>
       );
     }
     return (
-      <a href={props.href.internal} className={clsx(getButtonClasses(props))} onClick={handleInternalClick}>
+      <Link href={props.href.internal} className={clsx(getButtonClasses(props))} onClick={handleInternalClick}>
         {props.text}
-      </a>
+      </Link>
     );
   }
   return (
@@ -56,7 +63,3 @@ function Button(props: ButtonProps) {
 }
 
 export default Button;
-
-function isExternal(href: InternalHref | ExternalHref): href is ExternalHref {
-  return (href as ExternalHref).external !== undefined;
-}

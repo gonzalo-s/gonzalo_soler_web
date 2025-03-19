@@ -2,6 +2,12 @@
   "extends": ["stylelint-config-standard-scss"],
   "rules": {
     "declaration-block-no-redundant-longhand-properties": null,
-    "selector-class-pattern": null
+    "selector-class-pattern": null,
+    "property-no-vendor-prefix": [
+      true,
+      {
+        "ignoreProperties": ["-webkit-background-clip", "-webkit-text-fill-color"]
+      }
+    ]
   }
 }

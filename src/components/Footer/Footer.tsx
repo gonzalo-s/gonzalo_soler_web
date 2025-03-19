@@ -1,9 +1,12 @@
+import { Sections } from '@/constants/sections';
 import Button from '../Button/Button';
 import styles from './footer.module.scss';
 
-function Footer() {
-  // TODO: use section object for keys and button text
+type FooterProps = {
+  listLinks: Sections;
+};
 
+function Footer(props: FooterProps) {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__top}>
@@ -13,15 +16,13 @@ function Footer() {
         </div>
         <nav>
           <ul className={styles.footer__top__list}>
-            <li key="Projects">
-              <Button text="Projects" variant="secondary" href={{ internal: '#projects' }} />
-            </li>
-            <li key="aboute-me">
-              <Button text="About Me" variant="secondary" href={{ internal: '/' }} />
-            </li>
-            <li key="linkedin">
-              <Button text="LinkedIn" variant="secondary" href={{ internal: '/' }} />
-            </li>
+            {props.listLinks.map((listLink) => {
+              return (
+                <li key={listLink.title}>
+                  <Button text={listLink.title} variant="secondary" icon={listLink.icon} href={listLink.href} />
+                </li>
+              );
+            })}
           </ul>
         </nav>
       </div>
