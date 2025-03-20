@@ -32,6 +32,23 @@
       color: $accent;
     }
   }
+
+  &_accent {
+    color: $accent;
+    padding: 1rem;
+    border: 1px solid $accent;
+    border-radius: $border-radius-2;
+    background-color: $background-light;
+    transition:
+      background-color 0.3s ease-in-out,
+      color 0.3s ease-in-out,
+      border-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $accent;
+      color: $quaternary;
+    }
+  }
 }
 
 .button {

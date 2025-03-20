@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
       {
         hostname: 'www.awxcdn.com',
       },
+      {
+        hostname: 'i.postimg.cc',
+      },
     ],
   },
 };

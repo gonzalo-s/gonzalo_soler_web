@@ -8,7 +8,7 @@ import { isExternal } from '@/components/utils/getHref';
 import Link from 'next/link';
 import styles from './button.module.scss';
 
-export type ButtonVariant = 'primary' | 'secondary';
+export type ButtonVariant = 'primary' | 'secondary' | 'accent';
 type InternalHref = { internal: string };
 export type ExternalHref = { external: string };
 export type ButtonHref = InternalHref | ExternalHref;
@@ -48,7 +48,9 @@ function Button(props: ButtonProps) {
           href={props.href.external}
           className={clsx(getButtonClasses(props))}
         >
+          {props.icon?.pre && props.icon.icon && <span className={styles.icon}>{props.icon.icon}</span>}
           {props.text}
+          {props.icon && !props.icon.pre && <span className={styles.icon}>{props.icon.icon}</span>}
         </a>
       );
     }

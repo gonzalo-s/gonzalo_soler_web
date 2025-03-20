@@ -26,10 +26,21 @@ export const SECTIONS: Sections = [
     isMain: true,
     type: 'Introduction',
     buttonVariant: 'primary',
-    image: { alt: '', src: 'https://www.awxcdn.com/adc-assets/images/hero/2/1920x450.jpg' },
+    image: {
+      alt: '',
+      src: 'https://i.postimg.cc/qRqcRJmZ/3dlego01-jpg-removebg-preview.png',
+    },
     description: {
       highlightText: 'Highligh text',
       text: 'Some other text with some more data and blah',
+    },
+    cta: {
+      text: 'Check my LinkedIn',
+      href: {
+        external: 'https://www.linkedin.com/in/gonzalo-soler/',
+      },
+      variant: 'accent',
+      icon: { icon: ICONS.arrowAltRight, pre: false },
     },
   },
   {

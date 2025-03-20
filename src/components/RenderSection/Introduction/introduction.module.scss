@@ -1,9 +1,38 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixins.scss" as *;
+
 .introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
     padding: 2rem;
-    background-color: #f4f4f4;
+    background-color: $background;
     text-align: center;
 
-    h2 {
-        color: #333;
+    &__text-wrapper {
+        display: block;
+        width: 50%;
+
+        &__highlight {
+            color: $accent;
+            font-size: 3rem;
+        }
+
+        &__text {
+            color: $primary;
+            font-size: 2.5rem;
+        }
+    }
+
+    &__image-wrapper {
+        position: relative;
+        width: 30vw;
+        height: 30vw;
+
+        img {
+            filter: drop-shadow(-1rem -1rem 2rem rgb(160, 0, 210, 0.3));
+        }
     }
 }
