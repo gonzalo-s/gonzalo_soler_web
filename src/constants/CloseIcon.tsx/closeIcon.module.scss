@@ -1,0 +1,34 @@
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.close_icon {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.slash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fade-in 0.5s ease-out forwards;
+}
+
+/* Rotate second slash to form "X" */
+.slash_rotated {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    animation: fade-in 0.5s ease-out forwards;
+    transform: rotate(100deg);
+}
