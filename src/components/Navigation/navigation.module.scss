@@ -55,6 +55,12 @@
     justify-content: center;
     align-items: center;
     background-color: transparent;
+
+    &:focus-visible {
+      border-radius: $border-radius-1;
+      outline: 1px solid $primary;
+      outline-offset: 0.5rem;
+    }
   }
 
   &__menu {
