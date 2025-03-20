@@ -12,7 +12,7 @@
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-        padding: 1.5rem 0 3.5rem;
+        padding: 1.5rem 2rem 3.5rem;
         gap: $vertical-gap;
         flex-direction: column;
 
@@ -47,39 +47,43 @@
     }
 
     &__bottom {
-        border-top: 1px solid $tertiary;
-        width: 100%;
         padding: 2rem 0;
 
         @keyframes gradient-move {
             0% {
-                background-position: 0% 50%;
-            }
-
-            50% {
-                background-position: 100% 50%;
+                background-position: -50% 50%;
             }
 
             100% {
-                background-position: 100% 50%;
+                background-position: 150% 50%;
             }
         }
 
-        &__text {
-            background-image: linear-gradient(120deg, $tertiary, $secondary, $tertiary);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: gradient-move 100s alternate infinite;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-transform: uppercase;
-            white-space: nowrap;
-            font-size: clamp(1rem, 10vw, 8rem);
-            text-align: center;
-            word-break: keep-all;
+        &__border-gradient {
+            border: 1px solid;
+            border-image-slice: 1;
+            border-width: 1px;
+            border-image-source: linear-gradient(120deg, $secondary, $quaternary, $secondary);
+            border-left: 0;
+            border-right: 0;
+            border-bottom: 0;
+
+            &__text {
+                background-image: linear-gradient(120deg, $tertiary, $secondary, $tertiary);
+                background-size: 200% auto;
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                animation: gradient-move 10s ease-in-out infinite;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-transform: uppercase;
+                white-space: nowrap;
+                font-size: clamp(1rem, 10vw, 8rem);
+                text-align: center;
+                word-break: keep-all;
+            }
         }
     }
 }

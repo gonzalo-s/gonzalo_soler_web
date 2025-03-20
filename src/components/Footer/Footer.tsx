@@ -1,6 +1,7 @@
 import { Sections } from '@/constants/sections';
 import Button, { ButtonProps } from '../Button/Button';
 import styles from './footer.module.scss';
+import clsx from 'clsx';
 
 export type FooterProps = {
   linkList: Sections;
@@ -32,8 +33,8 @@ function Footer(props: FooterProps) {
           </ul>
         </nav>
       </div>
-      <div className={styles.footer__bottom}>
-        <span className={styles['footer__bottom__text']}>gonzalo soler</span>
+      <div className={clsx(styles.footer__bottom, styles['footer__bottom__border-gradient'])}>
+        <span className={styles['footer__bottom__border-gradient__text']}>gonzalo soler</span>
       </div>
     </footer>
   );
