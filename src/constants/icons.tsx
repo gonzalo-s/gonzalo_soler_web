@@ -4,7 +4,7 @@ export const ICONS = {
   linkedin: <FaLinkedin />,
   github: <FaGithub />,
   arrowAltRight: <FaLongArrowAltRight style={{ transform: 'rotate(-45deg)' }} />,
-  logo: <FaCode />,
-  menuOpen: <FaBars />,
-  menuClose: <FaSlash />,
+  logo: <FaCode size="20px" />,
+  menuOpen: <FaBars size="20px" />,
+  menuClose: <FaSlash size="20px" />,
 };
