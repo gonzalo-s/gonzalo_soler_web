@@ -1,17 +1,23 @@
 import { ButtonHref, ButtonIcon, ButtonProps, ButtonVariant } from '@/components/Button/Button';
 import { ICONS } from './icons';
 import { FooterProps } from '@/components/Footer/Footer';
+import { IntroductionSection } from '@/components/RenderSection/Introduction/introduction';
+import { ProjectsSection } from '@/components/RenderSection/sections_components';
 
-export type Sections = Array<{
+export type SectionType = 'Introduction' | 'Projects' | 'AboutMe' | 'Contact' | 'Social';
+
+export type Section = {
   title: string;
-  type: 'Introduction' | 'Projects' | 'About me' | 'Contact' | 'Social';
+  type: SectionType;
   href: ButtonHref;
   buttonVariant: ButtonVariant;
   isNav?: boolean;
   isFooter?: boolean;
   icon?: ButtonIcon;
   isMain?: boolean;
-}>;
+};
+
+export type Sections = Array<IntroductionSection | ProjectsSection | Section>;
 
 export const SECTIONS: Sections = [
   {
@@ -20,6 +26,11 @@ export const SECTIONS: Sections = [
     isMain: true,
     type: 'Introduction',
     buttonVariant: 'primary',
+    image: { alt: '', src: 'https://www.awxcdn.com/adc-assets/images/hero/2/1920x450.jpg' },
+    description: {
+      highlightText: 'Highligh text',
+      text: 'Some other text with some more data and blah',
+    },
   },
   {
     href: { internal: 'projects' },
@@ -36,7 +47,7 @@ export const SECTIONS: Sections = [
     isNav: true,
     isFooter: true,
     isMain: true,
-    type: 'About me',
+    type: 'AboutMe',
     buttonVariant: 'primary',
   },
   {
