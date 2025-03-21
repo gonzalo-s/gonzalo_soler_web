@@ -3,7 +3,7 @@ import { SECTIONS } from '@/constants/sections';
 import { notFound } from 'next/navigation';
 
 type ProjectProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export default async function Project({ params }: ProjectProps) {
