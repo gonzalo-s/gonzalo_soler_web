@@ -7,3 +7,7 @@ export function isExternal(href: ButtonHref): href is ExternalHref {
 export function getHref(href: ButtonHref | undefined): string {
   return href ? (isExternal(href) ? href.external : href.internal) : '/';
 }
+
+export function getId(href: ButtonHref | undefined): string {
+  return href ? (isExternal(href) ? href.external : href.internal.replace('#', '')) : 'no id';
+}

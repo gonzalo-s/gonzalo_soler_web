@@ -6,16 +6,16 @@ type ProjectProps = {
   params: { slug: string };
 };
 
-export default function Project(props: ProjectProps) {
-  const { slug } = props.params;
+export default async function Project({ params }: ProjectProps) {
+  const { slug } = await params;
 
-  const projects = SECTIONS.find((section) => section.type === 'Projects');
+  const section = SECTIONS.find((s): s is ProjectsSection => s.type === 'Projects' && 'projects' in s);
 
-  if (!projects) {
-    return notFound();
-  }
+  if (!section) return notFound();
 
-  const project = (projects as ProjectsSection).projects.find((project) => project.title === slug);
+  const project = section.projects.find((p) => p.slug === slug);
 
-  return <div>Project Page</div>;
+  if (!project) return notFound();
+
+  return <div>Project Page: {project.description}</div>;
 }

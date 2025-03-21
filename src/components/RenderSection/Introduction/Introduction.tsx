@@ -1,6 +1,6 @@
 import { Section, SectionType } from '@/constants/sections';
 import styles from './introduction.module.scss';
-import { getHref } from '@/components/utils/getHref';
+import { getId } from '@/components/utils/getHref';
 import Image from 'next/image';
 import Button, { ButtonProps } from '@/components/Button/Button';
 
@@ -19,7 +19,7 @@ export type IntroductionSection = Section & {
 
 function Introduction(props: IntroductionSection) {
   return (
-    <section className={styles.introduction} id={getHref(props.href)}>
+    <section className={styles.introduction} id={getId(props.href)}>
       <h2 className={styles['introduction__text-wrapper']}>
         {props.description?.highlightText && (
           <span className={styles['introduction__text-wrapper__highlight']}>{props.description.highlightText}</span>
