@@ -9,8 +9,12 @@ const nextConfig: NextConfig = {
       {
         hostname: 'i.postimg.cc',
       },
+      {
+        hostname: 'fakeimg.pl',
+      },
     ],
   },
+  dangerouslyAllowSVG: true,
 };
 
 export default nextConfig;

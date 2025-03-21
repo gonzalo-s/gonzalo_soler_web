@@ -1,11 +1,9 @@
 import { Section } from '@/constants/sections';
 import Introduction from './Introduction';
+import Projects from './Projects';
 import { JSX } from 'react';
-import { IntroductionSection } from './Introduction/introduction';
-
-export type ProjectsSection = Section & {
-  num: number;
-};
+import { IntroductionSection } from './Introduction/Introduction';
+import { ProjectsSection } from './Projects/Projects';
 
 type SectionComponents = {
   Introduction?: (section: IntroductionSection) => JSX.Element;
@@ -17,4 +15,5 @@ type SectionComponents = {
 
 export const SECTIONS_COMPONENTS: SectionComponents = {
   Introduction,
+  Projects,
 };

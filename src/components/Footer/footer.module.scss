@@ -1,12 +1,6 @@
 @use "../../styles/variables.scss" as *;
 @use "../../styles/mixins.scss" as *;
 
-@mixin reset-list {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
 .footer {
     &__top {
         display: flex;
