@@ -2,7 +2,7 @@ import { ButtonHref, ButtonIcon, ButtonProps, ButtonVariant } from '@/components
 import { ICONS } from './icons';
 import { FooterProps } from '@/components/Footer/Footer';
 import { IntroductionSection } from '@/components/RenderSection/Introduction/Introduction';
-import { ProjectsSection } from '@/components/RenderSection/Projects/Projects';
+import { Project, ProjectsSection } from '@/components/RenderSection/Projects/Projects';
 
 export type SectionType = 'Introduction' | 'Projects' | 'AboutMe' | 'Contact' | 'Social';
 
@@ -18,6 +18,59 @@ export type Section = {
 };
 
 export type Sections = Array<IntroductionSection | ProjectsSection | Section>;
+
+const projects: Array<Project> = (
+  [
+    {
+      title: 'BSN SPORTS',
+      slug: 'bsn-sports',
+      description: 'Project 1 description',
+      image: {
+        src: 'https://i.postimg.cc/QCCvxRPJ/bsn-sports.png',
+        alt: 'Project 1',
+      },
+      cta: {
+        text: 'View Project 1',
+        href: { internal: '' },
+        variant: 'primary',
+        icon: { pre: false, icon: ICONS.arrowAltRight },
+      },
+    },
+    {
+      title: 'CAA QUEBEC',
+      slug: 'caa-quebec',
+      description: 'Project 2 description',
+      image: {
+        src: 'https://i.postimg.cc/tJcw1BGQ/caa-quebec.png',
+        alt: 'Project 2',
+      },
+      cta: {
+        text: 'View Project 2',
+        href: { internal: '' },
+        variant: 'primary',
+        icon: { pre: false, icon: ICONS.arrowAltRight },
+      },
+    },
+    {
+      title: 'US GAMES',
+      slug: 'us-games',
+      description: 'Project 3 description',
+      image: {
+        src: 'https://i.postimg.cc/ryZvYw0n/us-games.png',
+        alt: 'Project 3',
+      },
+      cta: {
+        text: 'View Project 3',
+        href: { internal: '' },
+        variant: 'primary',
+        icon: { pre: false, icon: ICONS.arrowAltRight },
+      },
+    },
+  ] as const
+).map((project) => {
+  const internalWithSlug = `/projects/${project.slug}`;
+  return { ...project, cta: { ...project.cta, href: { internal: internalWithSlug } } };
+});
 
 export const SECTIONS: Sections = [
   {
@@ -52,50 +105,7 @@ export const SECTIONS: Sections = [
     type: 'Projects',
     buttonVariant: 'primary',
     description: 'A collection of my featured projects showcasing my work and skills.',
-    projects: [
-      {
-        title: 'BSN SPORTS',
-        description: 'Project 1 description',
-        image: {
-          src: 'https://i.postimg.cc/QCCvxRPJ/bsn-sports.png',
-          alt: 'Project 1',
-        },
-        cta: {
-          text: 'View Project 1',
-          href: { internal: '/projects/project-1' },
-          variant: 'primary',
-          icon: { pre: false, icon: ICONS.arrowAltRight },
-        },
-      },
-      {
-        title: 'CAA QUEBEC',
-        description: 'Project 2 description',
-        image: {
-          src: 'https://i.postimg.cc/tJcw1BGQ/caa-quebec.png',
-          alt: 'Project 2',
-        },
-        cta: {
-          text: 'View Project 2',
-          href: { internal: '/projects/project-2' },
-          variant: 'primary',
-          icon: { pre: false, icon: ICONS.arrowAltRight },
-        },
-      },
-      {
-        title: 'US GAMES',
-        description: 'Project 3 description',
-        image: {
-          src: 'https://i.postimg.cc/ryZvYw0n/us-games.png',
-          alt: 'Project 3',
-        },
-        cta: {
-          text: 'View Project 3',
-          href: { internal: '/projects/project-3' },
-          variant: 'primary',
-          icon: { pre: false, icon: ICONS.arrowAltRight },
-        },
-      },
-    ],
+    projects: projects,
   },
 
   {
