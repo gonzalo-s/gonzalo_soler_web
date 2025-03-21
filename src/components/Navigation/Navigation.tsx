@@ -13,7 +13,6 @@ type NavigationProps = {
 };
 
 function Navigation(props: NavigationProps) {
-  console.log('BUTTON ; ', props.logo);
   return (
     <nav className={styles.navigation}>
       <Button {...props.logo} />

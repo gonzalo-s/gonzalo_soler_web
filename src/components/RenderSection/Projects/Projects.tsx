@@ -22,8 +22,6 @@ export type ProjectsSection = Section & {
 };
 
 function Projects(props: ProjectsSection) {
-  console.log('🚀 ~ Projects ~ props:', props);
-
   return (
     <section id={getHref(props.href)} className={styles['projects-wrapper']}>
       <h2 className={styles['projects-wrapper__title']}>{props.title}</h2>
