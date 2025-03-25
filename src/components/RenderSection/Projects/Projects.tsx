@@ -42,7 +42,6 @@ function Projects(props: ProjectsSection) {
 export default Projects;
 
 function Card(props: ProjectsSection['projects'][0]) {
-  console.log('🚀 ~ Card ~ props:', props);
   return (
     <li className={styles.card}>
       <Link className={styles.card__content} href={getHref(props.cta?.href)}>
