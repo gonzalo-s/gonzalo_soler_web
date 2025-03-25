@@ -1,5 +1,5 @@
-import StackIconLib from 'tech-stack-icons';
 import styles from './stackIcon.module.scss';
+import StackIcon2 from './lib';
 
 type StackIconName = 'reactjs' | 'js' | 'nextjs2' | 'typescript' | 'html5' | 'css3' | 'sass' | 'jest';
 
@@ -21,7 +21,7 @@ const sizeMap = {
 function StackIcon(props: StackIconProps) {
   return (
     <span className={styles['stack-icon']}>
-      <StackIconLib
+      <StackIcon2
         name={props.stackIconName}
         style={{ width: sizeMap[props.size], height: sizeMap[props.size] }}
         grayscale={props?.grayscale}
