@@ -1,6 +1,6 @@
 import { FaLinkedin, FaGithub, FaArrowRight, FaCode, FaHandSpock } from 'react-icons/fa';
-import CloseIcon from './CloseIcon.tsx/CloseIcon';
-import OpenIcon from './OpenIcon.tsx/OpenIcon';
+import CloseIcon from './CloseIcon/CloseIcon';
+import OpenIcon from './OpenIcon/OpenIcon';
 
 export const ICONS = {
   linkedin: <FaLinkedin />,

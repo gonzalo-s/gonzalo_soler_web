@@ -19,58 +19,83 @@ export type Section = {
 
 export type Sections = Array<IntroductionSection | ProjectsSection | Section>;
 
-const projects: Array<Project> = (
-  [
-    {
-      title: 'BSN SPORTS',
-      slug: 'bsn-sports',
-      description: 'Project 1 description',
-      image: {
-        src: 'https://i.postimg.cc/QCCvxRPJ/bsn-sports.png',
-        alt: 'Project 1',
-      },
-      cta: {
-        text: 'View Project 1',
-        href: { internal: '' },
-        variant: 'primary',
-        icon: { pre: false, icon: ICONS.arrowAltRight },
-      },
+const projects: Array<Project> = [
+  {
+    title: 'BSN SPORTS',
+    slug: 'bsn-sports',
+    description: 'Project 1 description',
+    shortDescription: 'Project 1 short description',
+    stack: [
+      { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
+      { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
+      { stackIconName: 'typescript', displayName: 'Typescript', size: 'small' },
+      { stackIconName: 'html5', displayName: 'HTML5', size: 'small' },
+      { stackIconName: 'sass', displayName: 'SASS', size: 'small' },
+      { stackIconName: 'js', displayName: 'JS', size: 'small' },
+      { stackIconName: 'jest', displayName: 'Jest', size: 'small' },
+    ],
+    image: {
+      src: 'https://i.postimg.cc/QCCvxRPJ/bsn-sports.png',
+      alt: 'Project 1',
     },
-    {
-      title: 'CAA QUEBEC',
-      slug: 'caa-quebec',
-      description: 'Project 2 description',
-      image: {
-        src: 'https://i.postimg.cc/tJcw1BGQ/caa-quebec.png',
-        alt: 'Project 2',
-      },
-      cta: {
-        text: 'View Project 2',
-        href: { internal: '' },
-        variant: 'primary',
-        icon: { pre: false, icon: ICONS.arrowAltRight },
-      },
+    cta: {
+      text: 'View Project 1',
+      href: { internal: '/projects/bsn-sports' },
+      variant: 'primary',
+      icon: { pre: false, icon: ICONS.arrowAltRight },
     },
-    {
-      title: 'US GAMES',
-      slug: 'us-games',
-      description: 'Project 3 description',
-      image: {
-        src: 'https://i.postimg.cc/ryZvYw0n/us-games.png',
-        alt: 'Project 3',
-      },
-      cta: {
-        text: 'View Project 3',
-        href: { internal: '' },
-        variant: 'primary',
-        icon: { pre: false, icon: ICONS.arrowAltRight },
-      },
+  },
+  {
+    title: 'CAA QUEBEC',
+    slug: 'caa-quebec',
+    description: 'Project 2 description',
+    shortDescription: 'Project 2 short description',
+    stack: [
+      { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
+      { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
+      { stackIconName: 'typescript', displayName: 'Typescript', size: 'small' },
+      { stackIconName: 'html5', displayName: 'HTML5', size: 'small' },
+      { stackIconName: 'sass', displayName: 'SASS', size: 'small' },
+      { stackIconName: 'js', displayName: 'JS', size: 'small' },
+      { stackIconName: 'jest', displayName: 'Jest', size: 'small' },
+    ],
+    image: {
+      src: 'https://i.postimg.cc/tJcw1BGQ/caa-quebec.png',
+      alt: 'Project 2',
     },
-  ] as const
-).map((project) => {
-  const internalWithSlug = `/projects/${project.slug}`;
-  return { ...project, cta: { ...project.cta, href: { internal: internalWithSlug } } };
-});
+    cta: {
+      text: 'View Project 2',
+      href: { internal: '/projects/caa-quebec' },
+      variant: 'primary',
+      icon: { pre: false, icon: ICONS.arrowAltRight },
+    },
+  },
+  {
+    title: 'US GAMES',
+    slug: 'us-games',
+    description: 'Project 3 description',
+    shortDescription: 'Project 3 short description',
+    stack: [
+      { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
+      { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
+      { stackIconName: 'typescript', displayName: 'Typescript', size: 'small' },
+      { stackIconName: 'html5', displayName: 'HTML5', size: 'small' },
+      { stackIconName: 'sass', displayName: 'SASS', size: 'small' },
+      { stackIconName: 'js', displayName: 'JS', size: 'small' },
+      { stackIconName: 'jest', displayName: 'Jest', size: 'small' },
+    ],
+    image: {
+      src: 'https://i.postimg.cc/ryZvYw0n/us-games.png',
+      alt: 'Project 3',
+    },
+    cta: {
+      text: 'View Project 3',
+      href: { internal: '/projects/us-games' },
+      variant: 'primary',
+      icon: { pre: false, icon: ICONS.arrowAltRight },
+    },
+  },
+];
 
 export const SECTIONS: Sections = [
   {
@@ -104,7 +129,7 @@ export const SECTIONS: Sections = [
     isMain: true,
     type: 'Projects',
     buttonVariant: 'primary',
-    description: 'A collection of my featured projects showcasing my work and skills.',
+    description: 'Some of my coolest projects!',
     projects: projects,
   },
 
