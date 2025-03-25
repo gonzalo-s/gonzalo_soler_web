@@ -3,6 +3,7 @@ import { ICONS } from './icons';
 import { FooterProps } from '@/components/Footer/Footer';
 import { IntroductionSection } from '@/components/RenderSection/Introduction/Introduction';
 import { Project, ProjectsSection } from '@/components/RenderSection/Projects/Projects';
+import { AboutMeSection } from '@/components/RenderSection/AboutMe';
 
 export type SectionType = 'Introduction' | 'Projects' | 'AboutMe' | 'Contact' | 'Social';
 
@@ -17,7 +18,7 @@ export type Section = {
   isMain?: boolean;
 };
 
-export type Sections = Array<IntroductionSection | ProjectsSection | Section>;
+export type Sections = Array<IntroductionSection | ProjectsSection | AboutMeSection | Section>;
 
 const projects: Array<Project> = [
   {
@@ -141,6 +142,15 @@ export const SECTIONS: Sections = [
     isMain: true,
     type: 'AboutMe',
     buttonVariant: 'primary',
+    header: {
+      highlightText: 'About Me',
+      text: 'Frontend Developer',
+    },
+    description: {
+      highlightText:
+        'With hands-on experience in composable commerce and a strong foundation in React and modern JavaScript libraries. Proficient in creating dynamic, user-focused web applications while adapting to diverse business requirements. Experienced in demonstrating new features to clients.',
+      text: 'Eager to leverage my expertise in responsive design, cross-browser compatibility, and performance optimization to drive innovative solutions in a forward-thinking team. Committed to continuous learning and applying best practices in software development to contribute significantly to the success of visionary tech initiatives.',
+    },
   },
   {
     href: { internal: '#contact' },
