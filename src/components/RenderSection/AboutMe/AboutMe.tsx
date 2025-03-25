@@ -1,4 +1,3 @@
-import { ButtonProps } from '@/components/Button/Button';
 import { getId } from '@/components/utils/getHref';
 import { Section, SectionType } from '@/constants/sections';
 import styles from './aboutMe.module.scss';
