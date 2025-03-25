@@ -4,8 +4,9 @@ import { FooterProps } from '@/components/Footer/Footer';
 import { IntroductionSection } from '@/components/RenderSection/Introduction/Introduction';
 import { Project, ProjectsSection } from '@/components/RenderSection/Projects/Projects';
 import { AboutMeSection } from '@/components/RenderSection/AboutMe';
+import { TechnologiesSection } from '@/components/RenderSection/Technologies';
 
-export type SectionType = 'Introduction' | 'Projects' | 'AboutMe' | 'Contact' | 'Social';
+export type SectionType = 'Introduction' | 'Projects' | 'AboutMe' | 'Contact' | 'Social' | 'Technologies';
 
 export type Section = {
   title: string;
@@ -18,7 +19,7 @@ export type Section = {
   isMain?: boolean;
 };
 
-export type Sections = Array<IntroductionSection | ProjectsSection | AboutMeSection | Section>;
+export type Sections = Array<IntroductionSection | ProjectsSection | AboutMeSection | TechnologiesSection | Section>;
 
 const projects: Array<Project> = [
   {
@@ -98,6 +99,10 @@ const projects: Array<Project> = [
   },
 ];
 
+const TECHNOLOGIES = Array.from(
+  new Map(projects.flatMap((project) => project.stack).map((tech) => [tech.displayName, tech])).values(),
+);
+
 export const SECTIONS: Sections = [
   {
     href: { internal: '#introduction' },
@@ -151,6 +156,14 @@ export const SECTIONS: Sections = [
         'With hands-on experience in composable commerce and a strong foundation in React and modern JavaScript libraries. Proficient in creating dynamic, user-focused web applications while adapting to diverse business requirements. Experienced in demonstrating new features to clients.',
       text: 'Eager to leverage my expertise in responsive design, cross-browser compatibility, and performance optimization to drive innovative solutions in a forward-thinking team. Committed to continuous learning and applying best practices in software development to contribute significantly to the success of visionary tech initiatives.',
     },
+  },
+  {
+    type: 'Technologies',
+    buttonVariant: 'primary',
+    href: { internal: '#technologies' },
+    title: 'Technologies',
+    isMain: true,
+    stack: TECHNOLOGIES,
   },
   {
     href: { internal: '#contact' },

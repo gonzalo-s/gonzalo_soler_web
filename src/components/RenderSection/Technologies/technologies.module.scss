@@ -1,0 +1,39 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixins.scss" as *;
+
+.technologies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    background-color: $background;
+
+    &__list {
+        @include reset-list;
+
+        display: flex;
+        gap: 2rem;
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 1rem;
+        border: 1px solid $quaternary;
+        border-radius: $border-radius-1;
+        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        mask-repeat: no-repeat;
+        mask-size: 100% 100%;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+
+        &:-webkit-scrollbar {
+            display: none;
+        }
+
+        &__item {
+            flex: 0 0 auto;
+            white-space: nowrap;
+        }
+    }
+}
