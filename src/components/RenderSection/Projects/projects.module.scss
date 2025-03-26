@@ -88,6 +88,7 @@
 
         &__stack {
             @include reset-list;
+            @include mask-image-vertical;
 
             display: flex;
             flex-direction: column;
@@ -103,7 +104,6 @@
             height: 100%;
 
             &:hover {
-                // scroll smoothly to the bottom of the list
                 overflow-y: scroll;
                 scroll-behavior: smooth;
                 scrollbar-width: thin;

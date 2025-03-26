@@ -13,6 +13,7 @@
 
     &__list {
         @include reset-list;
+        @include mask-image-horizontal;
 
         cursor: grab;
 
@@ -27,11 +28,6 @@
         padding: 1rem;
         border: 1px solid $quaternary;
         border-radius: $border-radius-1;
-        mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        /* stylelint-disable-next-line property-no-vendor-prefix */
-        -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-        mask-repeat: no-repeat;
-        mask-size: 100% 100%;
         scrollbar-width: none;
         -ms-overflow-style: none;
 
