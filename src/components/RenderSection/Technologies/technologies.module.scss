@@ -10,6 +10,7 @@
     overflow: hidden;
     background-color: $background;
     user-select: none;
+    padding: 2rem;
 
     &__list {
         @include reset-list;
