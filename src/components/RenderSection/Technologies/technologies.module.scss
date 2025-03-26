@@ -9,9 +9,16 @@
     flex-wrap: nowrap;
     overflow: hidden;
     background-color: $background;
+    user-select: none;
 
     &__list {
         @include reset-list;
+
+        cursor: grab;
+
+        &:active {
+            cursor: grabbing;
+        }
 
         display: flex;
         gap: 2rem;
@@ -21,6 +28,7 @@
         border: 1px solid $quaternary;
         border-radius: $border-radius-1;
         mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        /* stylelint-disable-next-line property-no-vendor-prefix */
         -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
         mask-repeat: no-repeat;
         mask-size: 100% 100%;
