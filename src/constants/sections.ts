@@ -35,6 +35,9 @@ const projects: Array<Project> = [
       { stackIconName: 'sass', displayName: 'SASS', size: 'small' },
       { stackIconName: 'js', displayName: 'JS', size: 'small' },
       { stackIconName: 'jest', displayName: 'Jest', size: 'small' },
+      { stackIconName: 'commercetools', displayName: 'Commercetools', size: 'small' },
+      { stackIconName: 'algolia', displayName: 'Algolia', size: 'small' },
+      { stackIconName: 'contentstack', displayName: 'Contentstack', size: 'small' },
     ],
     image: {
       src: 'https://i.postimg.cc/QCCvxRPJ/bsn-sports.png',

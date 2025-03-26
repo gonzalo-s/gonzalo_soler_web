@@ -1,7 +1,18 @@
 import styles from './stackIcon.module.scss';
 import StackIcon2 from './lib';
 
-type StackIconName = 'reactjs' | 'js' | 'nextjs2' | 'typescript' | 'html5' | 'css3' | 'sass' | 'jest';
+type StackIconName =
+  | 'reactjs'
+  | 'js'
+  | 'nextjs2'
+  | 'typescript'
+  | 'html5'
+  | 'css3'
+  | 'sass'
+  | 'jest'
+  | 'contentstack'
+  | 'algolia'
+  | 'commercetools';
 
 export type Size = 'small' | 'medium' | 'large';
 
