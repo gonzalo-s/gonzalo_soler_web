@@ -11,8 +11,8 @@ export type SectionType = 'Introduction' | 'Projects' | 'AboutMe' | 'Contact' | 
 export type Section = {
   title: string;
   type: SectionType;
-  href: ButtonHref;
-  buttonVariant: ButtonVariant;
+  href?: ButtonHref;
+  buttonVariant?: ButtonVariant;
   isNav?: boolean;
   isFooter?: boolean;
   icon?: ButtonIcon;
@@ -25,8 +25,10 @@ const projects: Array<Project> = [
   {
     title: 'BSN SPORTS',
     slug: 'bsn-sports',
-    description: 'Project 1 description',
-    shortDescription: 'Project 1 short description',
+    // we also used commercetools in this project
+    description:
+      'BSN Sports is a major marketer, manufacturer, and distributor of sporting goods, including apparel, footwear, equipment, and team uniforms. Headquartered in Dallas, Texas, the company primarily serves institutional and team sports customers across the United States, such as colleges, universities, middle and high schools, and recreational programs. Its main purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services to support their needs. \n \n  I was part of the team that developed the new website for BSN Sports. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data.',
+    shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
       { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
@@ -53,8 +55,9 @@ const projects: Array<Project> = [
   {
     title: 'CAA QUEBEC',
     slug: 'caa-quebec',
-    description: 'Project 2 description',
-    shortDescription: 'Project 2 short description',
+    description:
+      'CAA-Québec is a not-for-profit organization that serves members within the Canadian province of Quebec. Originating from the merging of earlier automobile clubs, its history traces back to the early 1900s, with formal unification occurring in 1984. Headquartered in Quebec City, the company delivers a broad spectrum of services, including roadside assistance, insurance, travel planning, and automotive services. Their focus is on providing reliable support and benefits to their members throughout Quebec. \n \n I was part of the team that developed the new website for CAA-Québec. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using a headless CMS, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data',
+    shortDescription: 'B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
       { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
@@ -80,8 +83,9 @@ const projects: Array<Project> = [
   {
     title: 'US GAMES',
     slug: 'us-games',
-    description: 'Project 3 description',
-    shortDescription: 'Project 3 short description',
+    description:
+      'US Games (sports equipment) is a line of physical education and recreational sports equipment. 1  While not a standalone, headquartered company in the traditional sense, its products are distributed by major sporting goods providers, notably BSN Sports. Its main purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports. \n \n I was part of the team that developed the new website for US Games. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data.',
+    shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
       { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
@@ -167,8 +171,6 @@ export const SECTIONS: Sections = [
   },
   {
     type: 'Technologies',
-    buttonVariant: 'primary',
-    href: { internal: '#technologies' },
     title: 'Technologies',
     isMain: true,
     stack: TECHNOLOGIES,
