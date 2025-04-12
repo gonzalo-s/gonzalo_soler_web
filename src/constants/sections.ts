@@ -35,9 +35,8 @@ const projects: Array<Project> = [
   {
     title: 'BSN SPORTS',
     slug: 'bsn-sports',
-    // we also used commercetools in this project
     description:
-      'BSN Sports is a major marketer, manufacturer, and distributor of sporting goods, including apparel, footwear, equipment, and team uniforms. Headquartered in Dallas, Texas, the company primarily serves institutional and team sports customers across the United States, such as colleges, universities, middle and high schools, and recreational programs. Its main purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services to support their needs. \n \n  I was part of the team that developed the new website for BSN Sports. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data.',
+      'BSN Sports is a major marketer, manufacturer, and distributor of sporting goods, including apparel, footwear, equipment, and team uniforms. Headquartered in Dallas, Texas, the company primarily serves institutional and team sports customers across the United States, such as colleges, universities, middle and high schools, and recreational programs. Its main purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services to support their needs. \n \n  I was part of the team that developed the new website for BSN Sports. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data.  \n \n  Demonstrated proficiency in managing extensive datasets from diverse services within a Next.js application, leveraging a variety of technologies and state management solutions. Experienced in utilizing TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams through the application of Scrum methodology. Maintained clear and consistent communication in English with both team members and stakeholders. Possesses practical experience working with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Contributed to team growth by mentoring junior developers.',
     shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -61,12 +60,32 @@ const projects: Array<Project> = [
       variant: 'primary',
       icon: { pre: false, icon: ICONS.arrowAltRight },
     },
+    goalsList: [
+      '✔️ In charge of developing responsive mobile & desktop navigation with a strong emphasis on accessibility (a11y), UX, and UI best practices.',
+      '✔️ Developed product card components ( a11y, UX, UI best practices).',
+      '✔️ Managed extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Collaborated closely with QA teams using Scrum methodology.',
+      '✔️ Communicated daily in English with team members.',
+      '✔️ Worked with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
+    ],
+    exampleLinks: [
+      {
+        text: 'Athletic Connection',
+        href: { external: 'https://www.athleticconnection.com/' },
+        variant: 'primary',
+      },
+      {
+        text: 'BSN Sports',
+        href: { external: 'https://www.bsnsports.com/' },
+        variant: 'primary',
+      },
+    ],
   },
   {
     title: 'CAA QUEBEC',
     slug: 'caa-quebec',
     description:
-      'CAA-Québec is a not-for-profit organization that serves members within the Canadian province of Quebec. Originating from the merging of earlier automobile clubs, its history traces back to the early 1900s, with formal unification occurring in 1984. Headquartered in Quebec City, the company delivers a broad spectrum of services, including roadside assistance, insurance, travel planning, and automotive services. Their focus is on providing reliable support and benefits to their members throughout Quebec. \n \n I was part of the team that developed the new website for CAA-Québec. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using a headless CMS, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data',
+      'CAA-Québec is a not-for-profit organization that serves members within the Canadian province of Quebec. Originating from the merging of earlier automobile clubs, its history traces back to the early 1900s, with formal unification occurring in 1984. Headquartered in Quebec City, the company delivers a broad spectrum of services, including roadside assistance, insurance, travel planning, and automotive services. Their focus is on providing reliable support and benefits to their members throughout Quebec. \n \n I was part of the team that developed the new website for CAA-Québec. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using a headless CMS, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data. \n \n  Primarily focused on the comprehensive management of Contentstack within a Next.js environment, utilizing a range of relevant technologies and state management approaches. Proficient in the application of TypeScript and ReactJS. Worked closely with quality assurance teams, adhering to Scrum principles for effective collaboration. Communicated regularly and clearly in English with both colleagues and relevant stakeholders. Also gained practical experience with SaaS platforms such as Bloomreach and Algolia. Actively participated in the iterative development cycle by presenting feature increments to clients for their review and input.',
     shortDescription: 'B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -89,12 +108,29 @@ const projects: Array<Project> = [
       variant: 'primary',
       icon: { pre: false, icon: ICONS.arrowAltRight },
     },
+    goalsList: [
+      '✔️ In charge of developing responsive mobile & desktop navigation',
+      '✔️ In charge of form accessibility and validation',
+      '✔️ Managed extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Collaborated closely with QA teams using Scrum methodology.',
+      '✔️ Communicated regularly in English with team members and stakeholders.',
+      '✔️ Experienced in designing and working with in-depth and complex queries in Contentstack',
+      '✔️ Presented sprint features to clients for feedback.',
+      '✔️ Effectively managed the integration and execution of API calls on both the server and client sides of the application.',
+    ],
+    exampleLinks: [
+      {
+        text: 'CAA Quebec',
+        href: { external: 'https://www.caaquebec.com/fr' },
+        variant: 'primary',
+      },
+    ],
   },
   {
     title: 'US GAMES',
     slug: 'us-games',
     description:
-      'US Games (sports equipment) is a line of physical education and recreational sports equipment. 1  While not a standalone, headquartered company in the traditional sense, its products are distributed by major sporting goods providers, notably BSN Sports. Its main purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports. \n \n I was part of the team that developed the new website for US Games. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data.',
+      'US Games (sports equipment) is a line of physical education and recreational sports equipment. 1  While not a standalone, headquartered company in the traditional sense, its products are distributed by major sporting goods providers, notably BSN Sports. Its main purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports. \n \n I was part of the team that developed the new website for US Games. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data. \n \n  Demonstrated proficiency in managing extensive datasets from diverse services within a Next.js application, leveraging a variety of technologies and state management solutions. Experienced in utilizing TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams through the application of Scrum methodology. Maintained clear and consistent communication in English with both team members and stakeholders. Possesses practical experience working with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Contributed to team growth by mentoring junior developers.',
     shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -118,6 +154,26 @@ const projects: Array<Project> = [
       variant: 'primary',
       icon: { pre: false, icon: ICONS.arrowAltRight },
     },
+    goalsList: [
+      '✔️ In charge of developing responsive mobile & desktop navigation with a strong emphasis on accessibility (a11y), UX, and UI best practices.',
+      '✔️ Developed product card components ( a11y, UX, UI best practices).',
+      '✔️ Managed extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Collaborated closely with QA teams using Scrum methodology.',
+      '✔️ Communicated daily in English with team members.',
+      '✔️ Worked with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
+    ],
+    exampleLinks: [
+      {
+        text: 'Athletic Connection',
+        href: { external: 'https://www.athleticconnection.com/' },
+        variant: 'primary',
+      },
+      {
+        text: 'US Games',
+        href: { external: 'https://www.usgames.com/' },
+        variant: 'primary',
+      },
+    ],
   },
 ];
 
@@ -250,7 +306,7 @@ export const FOOTER_DETAILS: FooterProps['details'] = {
 //   '✔️ Presented sprint features to clients for feedback.',
 //   '✔️ Participated in the Composable Commerce Academy (Oct 2022 - Feb 2023).',
 // ],
-// links: [
+// exampleLinks: [
 //   {
 //     text: 'Athletic Connection',
 //     href: { external: 'https://www.athleticconnection.com/' },
