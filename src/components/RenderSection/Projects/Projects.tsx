@@ -17,6 +17,8 @@ export type Project = {
     alt: string;
   };
   cta: ButtonProps;
+  goalsList?: Array<string>;
+  exampleLinks?: Array<ButtonProps>;
 };
 
 export type ProjectsSection = Section & {
