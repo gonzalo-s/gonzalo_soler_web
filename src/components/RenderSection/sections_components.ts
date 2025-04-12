@@ -4,6 +4,7 @@ import Projects, { ProjectsSection } from './Projects';
 import Introduction, { IntroductionSection } from './Introduction';
 import AboutMe, { AboutMeSection } from './AboutMe';
 import Technologies, { TechnologiesSection } from './Technologies';
+import Experience, { ExperienceSection } from './Experience';
 
 type SectionComponents = {
   Introduction?: (section: IntroductionSection) => JSX.Element;
@@ -12,6 +13,7 @@ type SectionComponents = {
   Contact?: (section: Section) => JSX.Element;
   Social?: (section: Section) => JSX.Element;
   Technologies?: (section: TechnologiesSection) => JSX.Element;
+  Experience?: (section: ExperienceSection) => JSX.Element;
 };
 
 export const SECTIONS_COMPONENTS: SectionComponents = {
@@ -19,4 +21,5 @@ export const SECTIONS_COMPONENTS: SectionComponents = {
   Projects,
   AboutMe,
   Technologies,
+  Experience,
 };

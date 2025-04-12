@@ -1,0 +1,49 @@
+@use "../../../styles/variables.scss" as *;
+@use "../../../styles/mixins.scss" as *;
+
+.experience {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    width: 90%;
+
+    &__header {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__list {
+        @include reset-list;
+
+        display: flex;
+        flex-direction: column;
+
+        &__item {
+            display: flex;
+            border-bottom: 1px solid $quaternary;
+            padding: 2rem 0;
+            justify-content: space-between;
+
+            &__right {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                white-space: pre-line;
+                color: $tertiary;
+            }
+
+            &__left {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+            }
+        }
+    }
+}

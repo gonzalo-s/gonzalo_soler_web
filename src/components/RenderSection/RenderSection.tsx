@@ -5,6 +5,7 @@ import { JSX } from 'react';
 import { ProjectsSection } from './Projects/Projects';
 import { AboutMeSection } from './AboutMe/AboutMe';
 import { TechnologiesSection } from './Technologies';
+import { ExperienceSection } from './Experience';
 
 function RenderSection(section: Section) {
   return SectionToRender(section);
@@ -29,6 +30,10 @@ function SectionToRender(section: Section): JSX.Element | null {
     case 'Technologies': {
       const TypedComponent = SECTIONS_COMPONENTS['Technologies'];
       return TypedComponent ? <TypedComponent {...(section as TechnologiesSection)} /> : null;
+    }
+    case 'Experience': {
+      const TypedComponent = SECTIONS_COMPONENTS['Experience'];
+      return TypedComponent ? <TypedComponent {...(section as ExperienceSection)} /> : null;
     }
     default:
       return null;
