@@ -21,6 +21,7 @@ export type ButtonProps = {
   icon?: ButtonIcon;
   variant?: ButtonVariant;
   href?: ButtonHref;
+  id?: string;
 };
 
 function Button(props: ButtonProps) {
@@ -42,6 +43,7 @@ function Button(props: ButtonProps) {
     if (isExternal(props.href)) {
       return (
         <a
+          id={props?.id}
           target="_blank"
           rel="noopener noreferrer"
           href={props.href.external}
@@ -59,7 +61,12 @@ function Button(props: ButtonProps) {
       props.href.internal.startsWith('#') && pathname !== '/' ? '/' + props.href.internal : props.href.internal;
 
     return (
-      <Link href={internalLinkFixed} className={clsx(getButtonClasses(props))} onClick={handleInternalClick}>
+      <Link
+        id={props?.id}
+        href={internalLinkFixed}
+        className={clsx(getButtonClasses(props))}
+        onClick={handleInternalClick}
+      >
         {props.icon?.pre && props.icon.icon && <span className={styles.icon}>{props.icon.icon}</span>}
         {props.text}
         {props.icon && !props.icon.pre && <span className={styles.icon}>{props.icon.icon}</span>}
@@ -69,7 +76,7 @@ function Button(props: ButtonProps) {
 
   // button without link
   return (
-    <button disabled={props.disabled} className={clsx(getButtonClasses(props))}>
+    <button id={props?.id} disabled={props.disabled} className={clsx(getButtonClasses(props))}>
       {props.icon?.pre && props.icon.icon && <span className={styles.icon}>{props.icon.icon}</span>}
       {props.text}
       {props.icon && !props.icon.pre && <span className={styles.icon}>{props.icon.icon}</span>}

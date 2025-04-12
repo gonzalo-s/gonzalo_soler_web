@@ -293,44 +293,5 @@ export const LOGO: ButtonProps = {
 export const FOOTER_DETAILS: FooterProps['details'] = {
   logo: LOGO,
   description: "I'm a Frontend Developer focused on details and user experience.",
-  email: 'gonzalosoler@gmail.com',
+  email: ['gonzalosoler', 'gmail.com'],
 };
-
-// goalsList: [
-//   '✔️ Managed extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
-//   '✔️ Utilized TypeScript and ReactJS in a CI/CD pipeline.',
-//   '✔️ Collaborated closely with QA teams using Scrum methodology.',
-//   '✔️ Communicated regularly in English with team members and stakeholders.',
-//   '✔️ Worked with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
-//   '✔️ Mentored junior developers.',
-//   '✔️ Presented sprint features to clients for feedback.',
-//   '✔️ Participated in the Composable Commerce Academy (Oct 2022 - Feb 2023).',
-// ],
-// exampleLinks: [
-//   {
-//     text: 'Athletic Connection',
-//     href: { external: 'https://www.athleticconnection.com/' },
-//     variant: 'primary',
-//   },
-//   {
-//     text: 'US Games',
-//     href: { external: 'https://www.usgames.com/' },
-//     variant: 'primary',
-//   },
-//   {
-//     text: 'BSN Sports',
-//     href: { external: 'https://www.bsnsports.com/' },
-//     variant: 'primary',
-//   },
-//   {
-//     text: 'CAA Quebec',
-//     href: { external: 'https://www.caaquebec.com/fr' },
-//     variant: 'primary',
-//   },
-// ],
-
-// CAA descrioption:
-// Primarily focused on the comprehensive management of Contentstack within a Next.js environment, utilizing a range of relevant technologies and state management approaches. Proficient in the application of TypeScript and ReactJS. Worked closely with quality assurance teams, adhering to Scrum principles for effective collaboration. Communicated regularly and clearly in English with both colleagues and relevant stakeholders. Also gained practical experience with SaaS platforms such as Bloomreach and Algolia. Actively participated in the iterative development cycle by presenting feature increments to clients for their review and input.
-
-// bsn description:
-// Demonstrated proficiency in managing extensive datasets from diverse services within a Next.js application, leveraging a variety of technologies and state management solutions. Experienced in utilizing TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams through the application of Scrum methodology. Maintained clear and consistent communication in English with both team members and stakeholders. Possesses practical experience working with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Contributed to team growth by mentoring junior developers. Further enhanced professional skills through participation in the Composable Commerce Academy (October 2022 - February 2023)
