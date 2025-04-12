@@ -138,7 +138,7 @@ const EXPERIENCE: ExperienceSection['experience'] = [
     company: 'Freelance',
     position: 'Front-End Developer',
     duration: 'Oct 2019 - Apr 2020',
-    description: `Designed responsive websites using JavaScript, HTML, React.js, Styled-Components, and Next.js, focusing on learning different aspects of frontend development.`,
+    description: `Dedicated to crafting responsive websites through the application of JavaScript, HTML, React.js, Styled-Components, and Next.js, with a strong focus on expanding my understanding of diverse frontend development aspects. \n \n Gained valuable experience collaborating with various independent clients, primarily within the commerce and service sectors, to deliver tailored web solutions.`,
   },
 ];
 
