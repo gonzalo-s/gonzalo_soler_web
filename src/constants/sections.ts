@@ -196,6 +196,12 @@ const EXPERIENCE: ExperienceSection['experience'] = [
     duration: 'Oct 2019 - Apr 2020',
     description: `Dedicated to crafting responsive websites through the application of JavaScript, HTML, React.js, Styled-Components, and Next.js, with a strong focus on expanding my understanding of diverse frontend development aspects. \n \n Gained valuable experience collaborating with various independent clients, primarily within the commerce and service sectors, to deliver tailored web solutions.`,
   },
+  {
+    company: 'LGC Recording Studio',
+    position: 'Studio Manager',
+    duration: 'Oct 2012 - Apr 2019',
+    description: `Directed recording studio projects, proactively shifting between roles (recorder, mixer, producer) to align with the specific needs of bands, independent musicians, and producers. Also formally taught audio recording and mixing to students. \n \n  This combination of direct professional interaction and educational instruction fostered crucial soft skills such as active listening (to understand client and student needs), problem-solving (in diverse creative and technical scenarios), and effective communication and presentation (both in project discussions and in the classroom).`,
+  },
 ];
 
 export const SECTIONS: Sections = [
@@ -210,8 +216,8 @@ export const SECTIONS: Sections = [
       src: 'https://i.postimg.cc/qRqcRJmZ/3dlego01-jpg-removebg-preview.png',
     },
     description: {
-      highlightText: 'Highligh text',
-      text: 'Some other text with some more data and blah',
+      highlightText: 'Frontend Developer',
+      text: '/ Responsive & Innovative App Development',
     },
     cta: {
       text: 'Check my LinkedIn',
@@ -248,7 +254,7 @@ export const SECTIONS: Sections = [
     },
     description: {
       highlightText:
-        'With hands-on experience in composable commerce and a strong foundation in React and modern JavaScript libraries. Proficient in creating dynamic, user-focused web applications while adapting to diverse business requirements.',
+        'With hands-on experience in composable commerce and a strong foundation in React, Typescript and modern JavaScript libraries. Proficient in creating dynamic, user-focused web applications while adapting to diverse business requirements.',
       text: 'Eager to leverage my expertise in responsive design, cross-browser compatibility, and performance optimization to drive innovative solutions in a forward-thinking team. Committed to continuous learning and applying best practices in software development to contribute significantly to the success of visionary tech initiatives.',
     },
   },
