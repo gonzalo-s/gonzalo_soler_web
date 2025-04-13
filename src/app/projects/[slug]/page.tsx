@@ -4,11 +4,11 @@ import { notFound } from 'next/navigation';
 import Project from '@/components/Project/Project';
 
 type ProjectProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
-export default function ProjectPage({ params }: ProjectProps) {
-  const { slug } = params;
+export default async function ProjectPage({ params }: ProjectProps) {
+  const { slug } = await params;
 
   const section = SECTIONS.find((s): s is ProjectsSection => s.type === 'Projects' && 'projects' in s);
   const foundProject = section?.projects.find((p) => p.slug === slug);
