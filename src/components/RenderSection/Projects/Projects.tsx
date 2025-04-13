@@ -20,6 +20,7 @@ export type Project = {
   goalsDetail: string;
   goalsList?: Array<string>;
   exampleLinks?: Array<ButtonProps>;
+  highlightWords?: Array<string>;
 };
 
 export type ProjectsSection = Section & {

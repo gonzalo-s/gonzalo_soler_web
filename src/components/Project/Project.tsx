@@ -6,6 +6,7 @@ import Image from 'next/image';
 import styles from './project.module.scss';
 import Button from '@/components/Button/Button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
+import { useHighlightWords } from '@/hooks/useHighlightWords';
 
 export default function Project({ project }: { project: ProjectsSection['projects'][0] }) {
   const [setHeaderRef, isHeaderVisible] = useIntersectionObserver();
@@ -14,6 +15,8 @@ export default function Project({ project }: { project: ProjectsSection['project
   const [setGoalsRef, isGoalsVisible] = useIntersectionObserver();
   const [setGoalsDetailsRef, isGoalsDetailsVisible] = useIntersectionObserver();
   const [setLinksRef, isLinksVisible] = useIntersectionObserver();
+
+  useHighlightWords(project?.highlightWords, styles.highlight);
 
   return (
     <div className={styles['project-page']}>

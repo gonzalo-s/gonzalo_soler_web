@@ -31,12 +31,57 @@ export type Sections = Array<
   IntroductionSection | ProjectsSection | AboutMeSection | TechnologiesSection | ExperienceSection | Section
 >;
 
+const highlightWords = [
+  'BSN Sports',
+  'CAA Quebec',
+  'US Games',
+  'Composable Commerce',
+  'Next.js',
+  'React',
+  'Typescript',
+  'Algolia',
+  'Contentstack',
+  'SASS',
+  'HTML5',
+  'Jest',
+  'Bloomreach',
+  'Commercetools',
+  'Scrum',
+  'CI/CD',
+  'SaaS',
+  'Zod',
+  'Zustand',
+  'Git',
+  'GitHub',
+  'GitLab',
+  'Figma',
+  'Jira',
+  'Confluence',
+  'Google Tag Manager',
+  'Google Analytics',
+  'Headless CMS',
+  'Headless Commerce',
+  'CMS',
+  'cool',
+  'a11y',
+  'UX',
+  'UI',
+  'best practices',
+  'accessibility',
+  'user experience',
+  'user interface',
+  'CAA-Québec',
+  'ReactJS',
+  'validation',
+  'in-depth ',
+];
+
 const projects: Array<Project> = [
   {
     title: 'BSN SPORTS',
     slug: 'bsn-sports',
     description:
-      "BSN Sports, a major marketer, manufacturer, and distributor of sporting goods headquartered in Dallas, Texas, primarily serves institutional and team sports customers across the United States. Its purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services. \n \n I was part of the team that developed BSN Sports' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team.",
+      "BSN Sports, a major marketer, manufacturer, and distributor of sporting goods headquartered in Dallas, Texas, primarily serves institutional and team sports customers across the United States. Its purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services. \n \n I was part of the team that developed BSN Sports' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including Commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team.",
     shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -68,7 +113,7 @@ const projects: Array<Project> = [
       '✔️ Manage extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
       '✔️ Collaborate closely with QA teams using Scrum methodology.',
       '✔️ Communicate daily in English with team members.',
-      '✔️ Work with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
+      '✔️ Work with SaaS solutions: Commercetools, Bloomreach, Contentstack, Algolia.',
     ],
     exampleLinks: [
       {
@@ -82,6 +127,7 @@ const projects: Array<Project> = [
         variant: 'primary',
       },
     ],
+    highlightWords: highlightWords,
   },
   {
     title: 'CAA QUEBEC',
@@ -129,12 +175,13 @@ const projects: Array<Project> = [
         variant: 'primary',
       },
     ],
+    highlightWords: highlightWords,
   },
   {
     title: 'US GAMES',
     slug: 'us-games',
     description:
-      "US Games is a line of physical education and recreational sports equipment distributed by major sporting goods providers, notably BSN Sports. Its purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports.  \n \n I was part of the team that developed US Games' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis.  \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team",
+      "US Games is a line of physical education and recreational sports equipment distributed by major sporting goods providers, notably BSN Sports. Its purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports.  \n \n I was part of the team that developed US Games' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis.  \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including Commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team",
     shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -166,7 +213,7 @@ const projects: Array<Project> = [
       '✔️ Manage extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
       '✔️ Collaborate closely with QA teams using Scrum methodology.',
       '✔️ Communicate daily in English with team members.',
-      '✔️ Work with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
+      '✔️ Work with SaaS solutions: Commercetools, Bloomreach, Contentstack, Algolia.',
     ],
     exampleLinks: [
       {
@@ -180,6 +227,7 @@ const projects: Array<Project> = [
         variant: 'primary',
       },
     ],
+    highlightWords: highlightWords,
   },
 ];
 

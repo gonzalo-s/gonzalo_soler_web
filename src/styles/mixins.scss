@@ -19,6 +19,10 @@
   }
 }
 
+@mixin highlight {
+  font-weight: bold;
+}
+
 @mixin button-reset {
   background-color: none;
   border: none;
