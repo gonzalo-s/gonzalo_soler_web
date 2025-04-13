@@ -9,6 +9,7 @@
   background-color: $background-light;
   position: relative;
   border-bottom: 1px solid $quaternary;
+  z-index: 10;
 
   @include tablet {
     background-color: $background;
