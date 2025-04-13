@@ -1,0 +1,10 @@
+@use "@/styles/animations.scss" as *;
+
+.section {
+    @include appear-animation(1s, cubic-bezier(0.25, 0.1, 0.25, 1));
+}
+
+.section--visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}

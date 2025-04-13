@@ -10,7 +10,7 @@ type ProjectProps = {
   params: Promise<{ slug: string }>;
 };
 
-export default async function Project({ params }: ProjectProps) {
+export default async function ProjectPage({ params }: ProjectProps) {
   const { slug } = await params;
 
   const section = SECTIONS.find((s): s is ProjectsSection => s.type === 'Projects' && 'projects' in s);
