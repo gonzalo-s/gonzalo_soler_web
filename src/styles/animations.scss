@@ -1,4 +1,4 @@
-@mixin appear-animation($duration: 1s, $easing: cubic-bezier(0.25, 0.1, 0.25, 1)) {
+@mixin appear-animation($duration: 0.5s, $easing: cubic-bezier(0.25, 0.1, 0.25, 1)) {
     opacity: 0;
     transform: translateY(30px) scale(0.95);
     transition:

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 
 export function useIntersectionObserver(
-  options: IntersectionObserverInit = { threshold: 0.2 },
+  options: IntersectionObserverInit = { threshold: 0.15 },
 ): [(node: Element | null) => void, boolean] {
   const [isVisible, setIsVisible] = useState(false);
   const [element, setElement] = useState<Element | null>(null);
