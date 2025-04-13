@@ -1,14 +1,14 @@
-@use "../../../styles/variables.scss" as *;
-@use "../../../styles/mixins.scss" as *;
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixins.scss" as *;
 
 .about-me {
+    @include section-base;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 2rem;
-    padding: 2rem;
-    background-color: $background;
     text-align: center;
 
     &__text-wrapper {
@@ -71,16 +71,12 @@
         }
 
         @include tablet {
-            width: 80%;
-
             .about-me__description__highlight {
                 font-size: 2rem;
             }
         }
 
         @include desktop {
-            width: 90%;
-
             .about-me__description__highlight {
                 font-size: 2rem;
             }

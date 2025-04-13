@@ -1,21 +1,21 @@
-@use "../../../styles/variables.scss" as *;
-@use "../../../styles/mixins.scss" as *;
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixins.scss" as *;
 
 .technologies {
+    @include section-base;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     flex-wrap: nowrap;
     overflow: hidden;
-    background-color: $background;
     user-select: none;
-    padding: 2rem;
 
     &__list {
         @include reset-list;
         @include mask-image-horizontal;
 
+        width: 100%;
         cursor: grab;
 
         &:active {

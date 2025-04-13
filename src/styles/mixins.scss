@@ -53,3 +53,9 @@
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
 }
+
+@mixin section-base {
+  padding: 2rem;
+  background-color: $background;
+  width: 100%;
+}

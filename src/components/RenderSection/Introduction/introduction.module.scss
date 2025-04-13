@@ -1,14 +1,14 @@
-@use "../../../styles/variables.scss" as *;
-@use "../../../styles/mixins.scss" as *;
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixins.scss" as *;
 
 .introduction {
+    @include section-base;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 5rem;
-    padding: 2rem;
-    background-color: $background;
     text-align: center;
 
     &__text-wrapper {
