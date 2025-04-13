@@ -1,40 +1,18 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 import { ProjectsSection } from '@/components/RenderSection/Projects/Projects';
 import Technologies from '@/components/RenderSection/Technologies';
-import { SECTIONS } from '@/constants/sections';
 import Image from 'next/image';
 import styles from './project.module.scss';
 import Button from '@/components/Button/Button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
-export default function Project({ slug }: { slug: string }) {
-  const router = useRouter();
-  const [project, setProject] = useState<ProjectsSection['projects'][0] | null>(null);
-
-  useEffect(() => {
-    // Find the section and project
-    const section = SECTIONS.find((s): s is ProjectsSection => s.type === 'Projects' && 'projects' in s);
-    const foundProject = section?.projects.find((p) => p.slug === slug);
-
-    if (!foundProject) {
-      router.push('/404');
-    } else {
-      setProject(foundProject);
-    }
-  }, [slug, router]);
-
+export default function Project({ project }: { project: ProjectsSection['projects'][0] }) {
   const [setHeaderRef, isHeaderVisible] = useIntersectionObserver();
   const [setOverviewRef, isOverviewVisible] = useIntersectionObserver();
   const [setStackRef, isStackVisible] = useIntersectionObserver();
   const [setGoalsRef, isGoalsVisible] = useIntersectionObserver();
   const [setLinksRef, isLinksVisible] = useIntersectionObserver();
-
-  if (!project) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <div className={styles['project-page']}>
@@ -56,7 +34,7 @@ export default function Project({ slug }: { slug: string }) {
         <p className={styles['project-page__overview__description']}>{project.description}</p>
       </section>
       <section ref={setStackRef} className={`${styles['project-page__stack']} ${isStackVisible ? styles.visible : ''}`}>
-        <h2 className={styles['project-page__stack__title']}>🧰 Stack used in this project 👇</h2>
+        <h2 className={styles['project-page__stack__title']}>🧰 Stack used in this project</h2>
         <Technologies stack={project.stack} type="Technologies" title={'Technologies'} />
       </section>
       {project?.goalsList && (
