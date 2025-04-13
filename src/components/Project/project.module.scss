@@ -6,19 +6,32 @@
     gap: 2rem;
 }
 
+@mixin section-padding {
+    padding: 0.5rem;
+
+    @include tablet {
+        padding: 2rem;
+    }
+
+    @include desktop {
+        padding: 2rem;
+    }
+}
+
 .project-page {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 4rem;
-    padding: 2rem;
     background-color: $background;
     width: 100%;
+    padding: 2rem;
 
     &__header {
         @include section-gap;
         @include appear-animation(1s, cubic-bezier(0.25, 0.1, 0.25, 1)); // Apply animation
+        @include section-padding;
 
         display: flex;
         flex-direction: column;
@@ -61,12 +74,12 @@
     &__overview {
         @include section-gap;
         @include appear-animation(1s, cubic-bezier(0.25, 0.1, 0.25, 1)); // Apply animation
+        @include section-padding;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        padding: 2rem;
 
         &__description {
             color: $primary;
@@ -78,29 +91,23 @@
     &__stack {
         @include section-gap;
         @include appear-animation(1s, cubic-bezier(0.25, 0.1, 0.25, 1)); // Apply animation
+        @include section-padding;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-
-        &__title {
-            padding: 0 2rem;
-        }
     }
 
     &__goals {
         @include section-gap;
         @include appear-animation(1s, cubic-bezier(0.25, 0.1, 0.25, 1)); // Apply animation
+        @include section-padding;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-
-        &__title {
-            padding: 0 2rem;
-        }
 
         &__list {
             @include reset-list;
@@ -109,7 +116,6 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 1rem;
-            padding: 0 2rem;
 
             &__item {
                 color: $primary;
@@ -122,15 +128,12 @@
     &__example-links {
         @include section-gap;
         @include appear-animation(1s, cubic-bezier(0.25, 0.1, 0.25, 1)); // Apply animation
+        @include section-padding;
 
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-
-        &__title {
-            padding: 0 2rem;
-        }
 
         &__list {
             @include reset-list;
@@ -139,7 +142,6 @@
             flex-direction: column;
             align-items: flex-start;
             gap: 1rem;
-            padding: 0 2rem;
         }
     }
 }
