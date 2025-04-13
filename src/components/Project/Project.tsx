@@ -12,6 +12,7 @@ export default function Project({ project }: { project: ProjectsSection['project
   const [setOverviewRef, isOverviewVisible] = useIntersectionObserver();
   const [setStackRef, isStackVisible] = useIntersectionObserver();
   const [setGoalsRef, isGoalsVisible] = useIntersectionObserver();
+  const [setGoalsDetailsRef, isGoalsDetailsVisible] = useIntersectionObserver();
   const [setLinksRef, isLinksVisible] = useIntersectionObserver();
 
   return (
@@ -52,6 +53,14 @@ export default function Project({ project }: { project: ProjectsSection['project
           </ul>
         </section>
       )}
+      <section
+        ref={setGoalsDetailsRef}
+        className={`${styles['project-page__goalsDetails']} ${isGoalsDetailsVisible ? styles.visible : ''}`}
+      >
+        <h2>📊 This project involved several challenging tasks:</h2>
+        <p className={styles['project-page__goalsDetails__description']}>{project.goalsDetail}</p>
+      </section>
+
       {project?.exampleLinks && (
         <section
           ref={setLinksRef}

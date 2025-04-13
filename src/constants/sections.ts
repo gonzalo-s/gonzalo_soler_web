@@ -36,7 +36,7 @@ const projects: Array<Project> = [
     title: 'BSN SPORTS',
     slug: 'bsn-sports',
     description:
-      'BSN Sports is a major marketer, manufacturer, and distributor of sporting goods, including apparel, footwear, equipment, and team uniforms. Headquartered in Dallas, Texas, the company primarily serves institutional and team sports customers across the United States, such as colleges, universities, middle and high schools, and recreational programs. Its main purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services to support their needs. \n \n  I was part of the team that developed the new website for BSN Sports. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data.  \n \n  Demonstrated proficiency in managing extensive datasets from diverse services within a Next.js application, leveraging a variety of technologies and state management solutions. Experienced in utilizing TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams through the application of Scrum methodology. Maintained clear and consistent communication in English with both team members and stakeholders. Possesses practical experience working with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Contributed to team growth by mentoring junior developers.',
+      "BSN Sports, a major marketer, manufacturer, and distributor of sporting goods headquartered in Dallas, Texas, primarily serves institutional and team sports customers across the United States. Its purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services. \n \n I was part of the team that developed BSN Sports' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team.",
     shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -52,7 +52,7 @@ const projects: Array<Project> = [
     ],
     image: {
       src: 'https://i.postimg.cc/QCCvxRPJ/bsn-sports.png',
-      alt: 'Project 1',
+      alt: 'Screenshot of the BSN Sports website homepage',
     },
     cta: {
       text: 'View Project 1',
@@ -60,13 +60,15 @@ const projects: Array<Project> = [
       variant: 'primary',
       icon: { pre: false, icon: ICONS.arrowAltRight },
     },
+    goalsDetail:
+      'Ensured universal accessibility (a11y) and pixel-perfect implementation of Figma designs for all components.\n\nDeveloped a highly detailed and accessible navigation system for both mobile and desktop platforms.\n\nArchitected product cards with content sourced from multiple locations (CMS, Algolia) and implemented robust caching mechanisms to minimize API calls and improve user experience.\n\nManaged the complexities of CMS data, including branch merging and the creation of structured content models and entries.',
     goalsList: [
-      '✔️ In charge of developing responsive mobile & desktop navigation with a strong emphasis on accessibility (a11y), UX, and UI best practices.',
-      '✔️ Developed product card components ( a11y, UX, UI best practices).',
-      '✔️ Managed extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
-      '✔️ Collaborated closely with QA teams using Scrum methodology.',
-      '✔️ Communicated daily in English with team members.',
-      '✔️ Worked with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
+      '✔️ Develop responsive mobile & desktop navigation with a strong emphasis on accessibility (a11y), UX, and UI best practices.',
+      '✔️ Develop product card components ( a11y, UX, UI best practices).',
+      '✔️ Manage extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Collaborate closely with QA teams using Scrum methodology.',
+      '✔️ Communicate daily in English with team members.',
+      '✔️ Work with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
     ],
     exampleLinks: [
       {
@@ -85,7 +87,7 @@ const projects: Array<Project> = [
     title: 'CAA QUEBEC',
     slug: 'caa-quebec',
     description:
-      'CAA-Québec is a not-for-profit organization that serves members within the Canadian province of Quebec. Originating from the merging of earlier automobile clubs, its history traces back to the early 1900s, with formal unification occurring in 1984. Headquartered in Quebec City, the company delivers a broad spectrum of services, including roadside assistance, insurance, travel planning, and automotive services. Their focus is on providing reliable support and benefits to their members throughout Quebec. \n \n I was part of the team that developed the new website for CAA-Québec. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using a headless CMS, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data. \n \n  Primarily focused on the comprehensive management of Contentstack within a Next.js environment, utilizing a range of relevant technologies and state management approaches. Proficient in the application of TypeScript and ReactJS. Worked closely with quality assurance teams, adhering to Scrum principles for effective collaboration. Communicated regularly and clearly in English with both colleagues and relevant stakeholders. Also gained practical experience with SaaS platforms such as Bloomreach and Algolia. Actively participated in the iterative development cycle by presenting feature increments to clients for their review and input.',
+      "CAA-Québec is a not-for-profit organization serving members within Quebec. Originating from merged automobile clubs with roots in the early 1900s and formally unified in 1984, the Quebec City-based company offers a broad range of services including roadside assistance, insurance, travel planning, and automotive services. Their focus is on providing reliable support and benefits to members across Quebec.  \n \n I was part of the team that developed CAA-Québec's new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating a headless CMS (Contentstack) and Algolia to deliver a fast and reliable search experience. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis.  \n \n Primarily focused on the comprehensive management of Contentstack within a Next.js environment, utilizing a range of relevant technologies and state management approaches. Proficient in the application of TypeScript and ReactJS. Collaborated closely with quality assurance teams, adhering to Scrum principles for effective collaboration. Communicated regularly and clearly in English with colleagues and stakeholders. Also gained practical experience with SaaS platforms such as Bloomreach and Algolia. Actively participated in the iterative development cycle by presenting feature increments for client review and input.",
     shortDescription: 'B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -100,7 +102,7 @@ const projects: Array<Project> = [
     ],
     image: {
       src: 'https://i.postimg.cc/tJcw1BGQ/caa-quebec.png',
-      alt: 'Project 2',
+      alt: 'Screenshot of the CAA Quebec website homepage',
     },
     cta: {
       text: 'View Project 2',
@@ -108,15 +110,17 @@ const projects: Array<Project> = [
       variant: 'primary',
       icon: { pre: false, icon: ICONS.arrowAltRight },
     },
+    goalsDetail:
+      'Foundation & Standards: Established and maintained a project-wide commitment to a11y standards and Figma styling for all components.\n\nIntricate Checkout Systems: Developed five distinct checkout flows, each with unique business logic, step-by-step implementation, specific styling, and dedicated state management using Zustand slices. Implemented server-side cookie tracking for user flow and step progression, enabling dynamic redirection and data persistence.\n\nDynamic Content & Navigation: Engineered a detailed and accessible site navigation for mobile and desktop. Developed product cards and a "card tiles grid component" that leveraged advanced CMS querying for complex data retrieval. Created a flexible "comparator component" with sophisticated querying to fulfill specific client requirements.\n\nUser Flow & Data Management: Managed user redirections based on various user characteristics and flow status, ensuring data integrity by clearing form data upon completion or abandonment. Managed CMS data, including content model creation.\n\nForm Standardization: Developed and enforced consistent patterns for form management, validation (using Zod), and error handling throughout the project, adhering to a11y guidelines and utilizing form actions.\n\nClient Handoff: Conducted comprehensive knowledge transfer to the client at the project\'s conclusion.',
     goalsList: [
-      '✔️ In charge of developing responsive mobile & desktop navigation',
-      '✔️ In charge of form accessibility and validation',
-      '✔️ Managed extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
-      '✔️ Collaborated closely with QA teams using Scrum methodology.',
-      '✔️ Communicated regularly in English with team members and stakeholders.',
-      '✔️ Experienced in designing and working with in-depth and complex queries in Contentstack',
-      '✔️ Presented sprint features to clients for feedback.',
-      '✔️ Effectively managed the integration and execution of API calls on both the server and client sides of the application.',
+      '✔️ Develop responsive mobile & desktop navigation',
+      '✔️ Develop form accessibility and validation',
+      '✔️ Manage extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Collaborate closely with QA teams using Scrum methodology.',
+      '✔️ Communicate regularly in English with team members and stakeholders.',
+      '✔️ Develop in-depth and complex queries in Contentstack',
+      '✔️ Present sprint features to clients for feedback.',
+      '✔️ Effectively manage the integration and execution of API calls on both the server and client sides of the application.',
     ],
     exampleLinks: [
       {
@@ -130,7 +134,7 @@ const projects: Array<Project> = [
     title: 'US GAMES',
     slug: 'us-games',
     description:
-      'US Games (sports equipment) is a line of physical education and recreational sports equipment. 1  While not a standalone, headquartered company in the traditional sense, its products are distributed by major sporting goods providers, notably BSN Sports. Its main purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports. \n \n I was part of the team that developed the new website for US Games. The project was built using Next.js and React, with TypeScript as the main language. The website was designed to be fully responsive and accessible, with a focus on performance and SEO. The project was developed using CommerceTools, Contentstack, and a search engine, Algolia, to provide a fast and reliable search experience for users. The website was also integrated with Google Analytics and Google Tag Manager to track user interactions and gather data. \n \n  Demonstrated proficiency in managing extensive datasets from diverse services within a Next.js application, leveraging a variety of technologies and state management solutions. Experienced in utilizing TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams through the application of Scrum methodology. Maintained clear and consistent communication in English with both team members and stakeholders. Possesses practical experience working with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Contributed to team growth by mentoring junior developers.',
+      "US Games is a line of physical education and recreational sports equipment distributed by major sporting goods providers, notably BSN Sports. Its purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports.  \n \n I was part of the team that developed US Games' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis.  \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team",
     shortDescription: 'B2B - B2C - Composable commerce',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
@@ -154,13 +158,15 @@ const projects: Array<Project> = [
       variant: 'primary',
       icon: { pre: false, icon: ICONS.arrowAltRight },
     },
+    goalsDetail:
+      'Ensured universal accessibility (a11y) and pixel-perfect implementation of Figma designs for all components.\n\nDeveloped a highly detailed and accessible navigation system for both mobile and desktop platforms.\n\nArchitected product cards with content sourced from multiple locations (CMS, Algolia) and implemented robust caching mechanisms to minimize API calls and improve user experience.\n\nManaged the complexities of CMS data, including branch merging and the creation of structured content models and entries.',
     goalsList: [
-      '✔️ In charge of developing responsive mobile & desktop navigation with a strong emphasis on accessibility (a11y), UX, and UI best practices.',
-      '✔️ Developed product card components ( a11y, UX, UI best practices).',
-      '✔️ Managed extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
-      '✔️ Collaborated closely with QA teams using Scrum methodology.',
-      '✔️ Communicated daily in English with team members.',
-      '✔️ Worked with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
+      '✔️ Develop responsive mobile & desktop navigation with a strong emphasis on accessibility (a11y), UX, and UI best practices.',
+      '✔️ Develop product card components ( a11y, UX, UI best practices).',
+      '✔️ Manage extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Collaborate closely with QA teams using Scrum methodology.',
+      '✔️ Communicate daily in English with team members.',
+      '✔️ Work with SaaS solutions: commercetools, Bloomreach, Contentstack, Algolia.',
     ],
     exampleLinks: [
       {
@@ -200,7 +206,7 @@ const EXPERIENCE: ExperienceSection['experience'] = [
     company: 'LGC Recording Studio',
     position: 'Studio Manager',
     duration: 'Oct 2012 - Apr 2019',
-    description: `Directed recording studio projects, proactively shifting between roles (recorder, mixer, producer) to align with the specific needs of bands, independent musicians, and producers. Also formally taught audio recording and mixing to students. \n \n  This combination of direct professional interaction and educational instruction fostered crucial soft skills such as active listening (to understand client and student needs), problem-solving (in diverse creative and technical scenarios), and effective communication and presentation (both in project discussions and in the classroom).`,
+    description: `Directed recording studio projects, proactively shifting between roles (recorder, mixer, producer) to align with the specific needs of bands, independent musicians, and producers. Also formally taught audio recording and mixing to students. \n \n  This combination of direct professional interaction and educational instruction fostered crucial soft skills such as active listening (to understand client and student needs), problem-solving (in diverse creative and technical scenarios), and effective communication and presentation (both in project discussions and in various studio environments).`,
   },
 ];
 
@@ -212,7 +218,7 @@ export const SECTIONS: Sections = [
     type: 'Introduction',
     buttonVariant: 'primary',
     image: {
-      alt: '',
+      alt: 'Lego 3D figure working with a laptop, he kind of looks like me',
       src: 'https://i.postimg.cc/qRqcRJmZ/3dlego01-jpg-removebg-preview.png',
     },
     description: {

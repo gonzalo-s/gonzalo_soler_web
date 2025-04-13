@@ -17,6 +17,7 @@ export type Project = {
     alt: string;
   };
   cta: ButtonProps;
+  goalsDetail: string;
   goalsList?: Array<string>;
   exampleLinks?: Array<ButtonProps>;
 };
