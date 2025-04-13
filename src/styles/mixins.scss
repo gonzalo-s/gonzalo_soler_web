@@ -21,6 +21,7 @@
 
 @mixin highlight {
   font-weight: bold;
+  color: $highlight;
 }
 
 @mixin button-reset {
