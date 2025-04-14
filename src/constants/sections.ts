@@ -274,7 +274,7 @@ export const SECTIONS: Sections = [
     },
     description: {
       highlightText: 'Frontend Developer',
-      text: '/ Responsive & Innovative App Development',
+      text: 'Clean Code. Sharp UX. User-First. Always!',
     },
     cta: {
       text: 'Check my LinkedIn',

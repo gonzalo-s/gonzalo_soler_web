@@ -23,7 +23,8 @@ function Introduction(props: IntroductionSection) {
       <h2 className={styles['introduction__text-wrapper']}>
         {props.description?.highlightText && (
           <span className={styles['introduction__text-wrapper__highlight']}>{props.description.highlightText}</span>
-        )}{' '}
+        )}
+        <br />
         {props.description?.text && (
           <span className={styles['introduction__text-wrapper__text']}>{props.description.text}</span>
         )}
