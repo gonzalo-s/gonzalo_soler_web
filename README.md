@@ -26,6 +26,8 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 Hey there! 👋 This is my online resume – think of it as a chill space where I'll be showcasing all the awesome projects I've been a part of. 🚀
 
+This app is designed to present my professional journey, skills, and projects in a structured and visually appealing way. While it might seem like overkill to use a dedicated `sections.ts` file for managing content, this approach is intentional. It mimics the architecture I would use if the data were coming from a CMS, ensuring scalability and maintainability for future enhancements.
+
 ## What You'll Find Here
 
 - **Projects:** Check out the projects I've been involved in.
@@ -35,3 +37,25 @@ Hey there! 👋 This is my online resume – think of it as a chill space where 
 ## My Goal
 
 Basically, I'm hoping you'll find something cool and interesting here. 🤩 Feel free to take a look around and let me know what you think! ✌️
+
+## Libraries and Languages Used
+
+This project leverages the following technologies:
+
+### Languages
+
+- **TypeScript**: For type-safe JavaScript development.
+- **SCSS**: For styling with advanced CSS features.
+
+### Libraries and Frameworks
+
+- **Next.js**: A React framework for building server-rendered and statically generated web applications.
+- **React**: For building user interfaces.
+- **React Icons**: For including scalable vector icons.
+- **Sass**: For enhanced styling capabilities.
+
+### Tools
+
+- **ESLint**: For maintaining code quality and consistency.
+- **Prettier**: For code formatting.
+- **Vercel**: For deployment and hosting.
