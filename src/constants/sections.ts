@@ -117,6 +117,7 @@ const projects: Array<Project> = [
       '✔️ Collaborate closely with QA teams using Scrum methodology.',
       '✔️ Communicate daily in English with team members.',
       '✔️ Work with SaaS solutions: Commercetools, Bloomreach, Contentstack, Algolia.',
+      '✔️ Leverage design tokens synced with Figma to ensure consistent styling, scalability',
     ],
     exampleLinks: [
       {
@@ -170,6 +171,7 @@ const projects: Array<Project> = [
       '✔️ Develop in-depth and complex queries in Contentstack',
       '✔️ Present sprint features to clients for feedback.',
       '✔️ Effectively manage the integration and execution of API calls on both the server and client sides of the application.',
+      '✔️ Leverage design tokens synced with Figma to ensure consistent styling, scalability',
     ],
     exampleLinks: [
       {
@@ -217,6 +219,7 @@ const projects: Array<Project> = [
       '✔️ Collaborate closely with QA teams using Scrum methodology.',
       '✔️ Communicate daily in English with team members.',
       '✔️ Work with SaaS solutions: Commercetools, Bloomreach, Contentstack, Algolia.',
+      '✔️ Leverage design tokens synced with Figma to ensure consistent styling, scalability',
     ],
     exampleLinks: [
       {
