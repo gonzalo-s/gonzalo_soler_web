@@ -74,6 +74,9 @@ const highlightWords = [
   'ReactJS',
   'validation',
   'in-depth ',
+  'composable',
+  'commerce',
+  'architecture',
 ];
 
 const projects: Array<Project> = [
@@ -81,8 +84,8 @@ const projects: Array<Project> = [
     title: 'BSN SPORTS',
     slug: 'bsn-sports',
     description:
-      "BSN Sports, a major marketer, manufacturer, and distributor of sporting goods headquartered in Dallas, Texas, primarily serves institutional and team sports customers across the United States. Its purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services. \n \n I was part of the team that developed BSN Sports' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including Commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team.",
-    shortDescription: 'B2B - B2C - Composable commerce',
+      "BSN Sports, a major marketer, manufacturer, and distributor of sporting goods headquartered in Dallas, Texas, primarily serves institutional and team sports customers across the United States. Its purpose is to provide a comprehensive, one-stop shopping experience for athletic programs, offering a wide range of products and services. \n \n I was part of the team that developed BSN Sports' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. \n \n Unified diverse data sources into a cohesive experience, using Next.js and modern state management tools. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including Commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team.",
+    shortDescription: 'B2B - B2C - COMPOSABLE COMMERCE ARCHITECTURE',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
       { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
@@ -110,7 +113,7 @@ const projects: Array<Project> = [
     goalsList: [
       '✔️ Develop responsive mobile & desktop navigation with a strong emphasis on accessibility (a11y), UX, and UI best practices.',
       '✔️ Develop product card components ( a11y, UX, UI best practices).',
-      '✔️ Manage extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Streamlined data handling from several services, powering the Next.js app with efficient state and logic management.',
       '✔️ Collaborate closely with QA teams using Scrum methodology.',
       '✔️ Communicate daily in English with team members.',
       '✔️ Work with SaaS solutions: Commercetools, Bloomreach, Contentstack, Algolia.',
@@ -134,7 +137,7 @@ const projects: Array<Project> = [
     slug: 'caa-quebec',
     description:
       "CAA-Québec is a not-for-profit organization serving members within Quebec. Originating from merged automobile clubs with roots in the early 1900s and formally unified in 1984, the Quebec City-based company offers a broad range of services including roadside assistance, insurance, travel planning, and automotive services. Their focus is on providing reliable support and benefits to members across Quebec.  \n \n I was part of the team that developed CAA-Québec's new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating a headless CMS (Contentstack) and Algolia to deliver a fast and reliable search experience. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis.  \n \n Primarily focused on the comprehensive management of Contentstack within a Next.js environment, utilizing a range of relevant technologies and state management approaches. Proficient in the application of TypeScript and ReactJS. Collaborated closely with quality assurance teams, adhering to Scrum principles for effective collaboration. Communicated regularly and clearly in English with colleagues and stakeholders. Also gained practical experience with SaaS platforms such as Bloomreach and Algolia. Actively participated in the iterative development cycle by presenting feature increments for client review and input.",
-    shortDescription: 'B2C - Composable commerce',
+    shortDescription: 'B2C - COMPOSABLE COMMERCE ARCHITECTURE',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
       { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
@@ -161,7 +164,7 @@ const projects: Array<Project> = [
     goalsList: [
       '✔️ Develop responsive mobile & desktop navigation',
       '✔️ Develop form accessibility and validation',
-      '✔️ Manage extensive datasets from various services within a Next.js application using a diverse array of technologies and state management.',
+      '✔️ Designed and implemented systems to handle diverse service data efficiently, ensuring stability and performance in a Next.js application.',
       '✔️ Collaborate closely with QA teams using Scrum methodology.',
       '✔️ Communicate regularly in English with team members and stakeholders.',
       '✔️ Develop in-depth and complex queries in Contentstack',
@@ -181,8 +184,8 @@ const projects: Array<Project> = [
     title: 'US GAMES',
     slug: 'us-games',
     description:
-      "US Games is a line of physical education and recreational sports equipment distributed by major sporting goods providers, notably BSN Sports. Its purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports.  \n \n I was part of the team that developed US Games' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis.  \n \n Contributed to the project by managing extensive datasets from diverse services within the Next.js application, leveraging various technologies and state management solutions. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including Commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team",
-    shortDescription: 'B2B - B2C - Composable commerce',
+      "US Games is a line of physical education and recreational sports equipment distributed by major sporting goods providers, notably BSN Sports. Its purpose is to supply schools, recreational facilities, and individuals with a broad range of equipment designed to facilitate and encourage participation in physical activities and sports.  \n \n I was part of the team that developed US Games' new website, a fully responsive and accessible platform built with Next.js and React, using TypeScript. This solution prioritized performance and SEO, integrating CommerceTools, Contentstack, and Algolia to deliver a fast and reliable search experience. Every component and solution within this platform was developed to meet stringent a11y standards and adhere to styling from Figma designs. The website also incorporated Google Analytics and Google Tag Manager for user interaction tracking and data analysis.  \n \n Brought structure to sprawling datasets from multiple sources, wiring them seamlessly into a dynamic Next.js app. Utilized TypeScript and ReactJS within a CI/CD pipeline. Collaborated effectively with QA teams using Scrum methodology. Maintained clear communication in English with team members and stakeholders. Possess practical experience with SaaS solutions including Commercetools, Bloomreach, Contentstack, and Algolia. Mentored junior developers on the team",
+    shortDescription: 'B2B - B2C - COMPOSABLE COMMERCE ARCHITECTURE',
     stack: [
       { stackIconName: 'nextjs2', displayName: 'Next.js', size: 'small' },
       { stackIconName: 'reactjs', displayName: 'React', size: 'small' },
@@ -241,7 +244,7 @@ const EXPERIENCE: ExperienceSection['experience'] = [
     position: 'Front-End Developer',
     duration: 'Apr 2022 - Present',
     description: `Various Composable Commerce Projects, Clients Based in the United States and Canada. \n
-    Demonstrated proficiency in managing extensive datasets from diverse services within a Next.js application, leveraging a variety of technologies and state management solutions. Experienced in utilizing TypeScript and ReactJS within a CI/CD pipeline.\n \n Collaborated effectively with QA teams through the application of Scrum methodology. Maintained clear and consistent communication in English with both team members and stakeholders. Possesses practical experience working with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia.\n \n Contributed to team growth by mentoring junior developers. Actively engaged in the development process by presenting sprint features to clients to gather valuable feedback. Further enhanced professional skills through participation in the Composable Commerce Academy (October 2022 - February 2023).
+    Implemented scalable solutions for handling complex data interactions across services using Next.js and modern state management. Experienced in utilizing TypeScript and ReactJS within a CI/CD pipeline.\n \n Collaborated effectively with QA teams through the application of Scrum methodology. Maintained clear and consistent communication in English with both team members and stakeholders. Possesses practical experience working with SaaS solutions including commercetools, Bloomreach, Contentstack, and Algolia.\n \n Contributed to team growth by mentoring junior developers. Actively engaged in the development process by presenting sprint features to clients to gather valuable feedback. Further enhanced professional skills through participation in the Composable Commerce Academy (October 2022 - February 2023).
 `,
   },
   {
@@ -308,8 +311,11 @@ export const SECTIONS: Sections = [
     },
     description: {
       highlightText:
-        'With hands-on experience in composable commerce and a strong foundation in React, Typescript and modern JavaScript libraries. Proficient in creating dynamic, user-focused web applications while adapting to diverse business requirements.',
-      text: 'Eager to leverage my expertise in responsive design, cross-browser compatibility, and performance optimization to drive innovative solutions in a forward-thinking team. Committed to continuous learning and applying best practices in software development to contribute significantly to the success of visionary tech initiatives.',
+        'COMPOSABLE COMMERCE ARCHITECTURE with React and TypeScript is my jam😎. I turn vague ideas into intuitive, scalable web experiences that balance performance, usability, and adaptability.',
+      text: 'I thrive in fast-paced teams where I can take ownership, collaborate closely with product and design, and move with autonomy. Always learning, always iterating—I’m passionate about building thoughtful, future-ready solutions that work beautifully across browsers and devices.',
+      // highlightText:
+      //   'With hands-on experience in composable commerce architecture and a strong foundation in React, Typescript and modern JavaScript libraries. Proficient in creating dynamic, user-focused web applications while adapting to diverse business requirements.',
+      // text: 'Eager to leverage my expertise in responsive design, cross-browser compatibility, and performance optimization to drive innovative solutions in a forward-thinking team. Committed to continuous learning and applying best practices in software development to contribute significantly to the success of visionary tech initiatives.',
     },
   },
   {
