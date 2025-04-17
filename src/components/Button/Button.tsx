@@ -37,23 +37,17 @@ function Button(props: ButtonProps) {
     function animation(currentTime: number) {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
-      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+      const run = easeOutQuad(timeElapsed, startPosition, distance, duration);
       window.scrollTo(0, run);
       if (timeElapsed < duration) requestAnimationFrame(animation);
     }
 
-    function easeInOutQuad(elapsedTime: number, startValue: number, changeInValue: number, duration: number) {
-      let time = elapsedTime / (duration / 2);
-      if (time < 1) {
-        return (changeInValue / 2) * time * time + startValue;
-      }
-      time--;
-      return (-changeInValue / 2) * (time * (time - 2) - 1) + startValue;
+    function easeOutQuad(elapsedTime: number, startValue: number, changeInValue: number, duration: number) {
+      const time = elapsedTime / duration;
+      return -changeInValue * time * (time - 2) + startValue;
     }
 
-    setTimeout(() => {
-      requestAnimationFrame(animation);
-    }, 50);
+    requestAnimationFrame(animation);
   }
 
   function handleInternalClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
