@@ -51,7 +51,9 @@ function Button(props: ButtonProps) {
       return (-changeInValue / 2) * (time * (time - 2) - 1) + startValue;
     }
 
-    requestAnimationFrame(animation);
+    setTimeout(() => {
+      requestAnimationFrame(animation);
+    }, 50);
   }
 
   function handleInternalClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
