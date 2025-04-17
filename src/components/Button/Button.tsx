@@ -27,13 +27,45 @@ export type ButtonProps = {
 function Button(props: ButtonProps) {
   const pathname = usePathname();
 
-  function handleInternalClick() {
+  function smoothScrollTo(targetElement: HTMLElement) {
+    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 500; // Duration in milliseconds
+    let startTime: number | null = null;
+
+    function animation(currentTime: number) {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+    }
+
+    function easeInOutQuad(elapsedTime: number, startValue: number, changeInValue: number, duration: number) {
+      let time = elapsedTime / (duration / 2);
+      if (time < 1) {
+        return (changeInValue / 2) * time * time + startValue;
+      }
+      time--;
+      return (-changeInValue / 2) * (time * (time - 2) - 1) + startValue;
+    }
+
+    requestAnimationFrame(animation);
+  }
+
+  function handleInternalClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    event.preventDefault();
+
     if (props?.href && !isExternal(props.href)) {
       const targetId = props.href?.internal.replace('#', '');
       const targetElement = document.getElementById(targetId!);
 
       if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        console.log(`Scrolling to element with ID: ${targetId}`);
+        smoothScrollTo(targetElement);
+      } else {
+        console.warn(`Element with ID: ${targetId} not found.`);
       }
     }
   }
