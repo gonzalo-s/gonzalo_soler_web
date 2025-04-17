@@ -5,6 +5,7 @@ import Footer from '@/components/Footer/Footer';
 import { SECTIONS, LOGO, FOOTER_DETAILS } from '@/constants/sections';
 import './globals.css';
 import styles from './layout.module.scss';
+import { Analytics } from '@vercel/analytics/react';
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -38,6 +39,7 @@ export default function RootLayout({
             <Footer linkList={footerLinkList} details={FOOTER_DETAILS} />
           </div>
         </div>
+        <Analytics />
       </body>
     </html>
   );

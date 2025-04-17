@@ -59,3 +59,4 @@ This project leverages the following technologies:
 - **ESLint**: For maintaining code quality and consistency.
 - **Prettier**: For code formatting.
 - **Vercel**: For deployment and hosting.
+- **Vercel Analytics**: For tracking user interactions and analytics.
