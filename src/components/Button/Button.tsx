@@ -22,6 +22,7 @@ export type ButtonProps = {
   variant?: ButtonVariant;
   href?: ButtonHref;
   id?: string;
+  onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
 };
 
 function Button(props: ButtonProps) {
@@ -63,6 +64,10 @@ function Button(props: ButtonProps) {
       } else {
         console.warn(`Element with ID: ${targetId} not found.`);
       }
+    }
+
+    if (props.onClick) {
+      props.onClick(event);
     }
   }
 

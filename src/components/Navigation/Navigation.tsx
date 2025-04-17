@@ -67,8 +67,6 @@ function MobileNavigation(props: NavigationProps) {
   }, []);
 
   useEffect(() => {
-    // close menu when menu is at least 1 outside the view port
-
     if (!showMenu) return;
 
     const observer = new IntersectionObserver(
@@ -93,6 +91,11 @@ function MobileNavigation(props: NavigationProps) {
     };
   }, [showMenu]);
 
+  function handleLinkClick() {
+    setShowMenu(false);
+    setTimeout(() => {}, 300); // Adjust timeout to match menu close animation duration
+  }
+
   return (
     <div className={styles.mobile}>
       <button ref={buttonRef} className={styles.mobile__button} onClick={toggleMenu}>
@@ -111,6 +114,7 @@ function MobileNavigation(props: NavigationProps) {
               variant={listLink.buttonVariant}
               icon={listLink.icon}
               href={listLink.href}
+              onClick={handleLinkClick}
             />
           );
         })}
