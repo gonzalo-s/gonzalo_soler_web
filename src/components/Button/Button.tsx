@@ -52,14 +52,12 @@ function Button(props: ButtonProps) {
   }
 
   function handleInternalClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    event.preventDefault();
-
     if (props?.href && !isExternal(props.href)) {
       const targetId = props.href?.internal.replace('#', '');
       const targetElement = document.getElementById(targetId!);
 
       if (targetElement) {
-        console.log(`Scrolling to element with ID: ${targetId}`);
+        event.preventDefault(); // Prevent default only if the target element exists, to keep redirection behavior
         smoothScrollTo(targetElement);
       } else {
         console.warn(`Element with ID: ${targetId} not found.`);
