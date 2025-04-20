@@ -129,7 +129,7 @@ const projects: Array<Project> = [
         icon: { pre: true, icon: ICONS.caretRight },
       },
       {
-        text: 'BSN Sports tedst',
+        text: 'BSN Sports',
         href: { external: 'https://www.bsnsports.com/' },
         variant: 'primary',
         icon: { pre: true, icon: ICONS.caretRight },
