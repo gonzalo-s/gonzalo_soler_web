@@ -258,7 +258,7 @@ const EXPERIENCE: ExperienceSection['experience'] = [
   },
   {
     company: 'LGC Recording Studio',
-    position: 'Studio Manager',
+    position: 'Studio Owner / Engineer',
     duration: 'Oct 2012 - Apr 2019',
     description: `Directed recording studio projects, proactively shifting between roles (recorder, mixer, producer) to align with the specific needs of bands, independent musicians, and producers. Also formally taught audio recording and mixing to students. \n \n  This combination of direct professional interaction and educational instruction fostered crucial soft skills such as active listening (to understand client and student needs), problem-solving (in diverse creative and technical scenarios), and effective communication and presentation (both in project discussions and in various studio environments).`,
   },
@@ -334,7 +334,7 @@ export const SECTIONS: Sections = [
     experience: EXPERIENCE,
   },
   {
-    href: { internal: '#contact' },
+    href: { external: 'https://www.linkedin.com/in/gonzalo-soler/' },
     title: 'Contact',
     isNav: true,
     isMain: true,
