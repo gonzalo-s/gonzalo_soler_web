@@ -1,11 +1,11 @@
 'use client';
-import { PacmanLoader } from 'react-spinners';
+import Skeleton from 'react-loading-skeleton';
 import styles from './layout.module.scss';
 
 export default function Loading() {
   return (
     <div className={styles.loading}>
-      <PacmanLoader color={'#757575'} loading />
+      <Skeleton height={200} width={300} />
     </div>
   );
 }

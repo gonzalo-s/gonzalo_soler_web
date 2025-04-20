@@ -1,12 +1,14 @@
 'use client';
 
 import { ProjectsSection } from '@/components/RenderSection/Projects/Projects';
-import Technologies from '@/components/RenderSection/Technologies';
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import styles from './project.module.scss';
-import Button from '@/components/Button/Button';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { useHighlightWords } from '@/hooks/useHighlightWords';
+
+const Technologies = dynamic(() => import('@/components/RenderSection/Technologies'));
+const Button = dynamic(() => import('@/components/Button/Button'));
 
 export default function Project({ project }: { project: ProjectsSection['projects'][0] }) {
   const [setHeaderRef, isHeaderVisible] = useIntersectionObserver();
@@ -27,7 +29,7 @@ export default function Project({ project }: { project: ProjectsSection['project
         <h1>{project.title}</h1>
         <p className={styles['project-page__header__short-description']}>{project.shortDescription}</p>
         <div className={styles['project-page__header__image']}>
-          <Image src={project.image.src} alt={project.image.alt} fill />
+          <Image src={project.image.src} alt={project.image.alt} fill priority />
         </div>
       </section>
       <section
