@@ -6,6 +6,7 @@ import { SECTIONS, LOGO, FOOTER_DETAILS } from '@/constants/sections';
 import './globals.css';
 import styles from './layout.module.scss';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -40,6 +41,7 @@ export default function RootLayout({
           </div>
         </div>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
