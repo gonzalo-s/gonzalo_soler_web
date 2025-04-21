@@ -23,6 +23,7 @@ export type ButtonProps = {
   href?: ButtonHref;
   id?: string;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
+  fullWith?: boolean;
 };
 
 function Button(props: ButtonProps) {

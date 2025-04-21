@@ -9,5 +9,6 @@ export const getButtonClasses = (props: ButtonProps) => {
 
   return clsx(styles[type], styles[`${type}_${variant}`], {
     [styles.disabled]: props.disabled,
+    [styles.fullWidth]: props.fullWith,
   });
 };

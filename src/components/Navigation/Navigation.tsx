@@ -115,6 +115,7 @@ function MobileNavigation(props: NavigationProps) {
               icon={listLink.icon}
               href={listLink.href}
               onClick={handleLinkClick}
+              fullWith
             />
           );
         })}
