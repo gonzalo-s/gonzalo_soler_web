@@ -14,7 +14,7 @@ export type ExperienceSection = Section & {
 function Experience(props: ExperienceSection) {
   return (
     <section className={styles.experience}>
-      <h2 className={styles.experience__header}>💼 Experience</h2>
+      <h2 className={styles.experience__title}>💼 {props.title}</h2>
       <ul className={styles.experience__list}>
         {props.experience.map((exp, index) => (
           <li key={exp.company + index} className={styles.experience__list__item}>

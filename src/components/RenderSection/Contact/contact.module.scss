@@ -11,6 +11,10 @@
     gap: 2rem;
     text-align: center;
 
+    &__title {
+        @include primary-title;
+    }
+
     &__wrapper {
         display: flex;
         justify-content: center;

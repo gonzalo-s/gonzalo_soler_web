@@ -24,13 +24,11 @@
         }
 
         &__highlight {
-            color: $accent;
-            font-size: 3rem;
+            @include primary-title;
         }
 
         &__text {
-            color: $primary;
-            font-size: 2.5rem;
+            @include secondary-title;
         }
     }
 

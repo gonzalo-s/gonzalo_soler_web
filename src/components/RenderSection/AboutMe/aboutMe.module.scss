@@ -19,13 +19,11 @@
             width: 80%;
 
             .about-me__text-wrapper__highlight {
-                color: $accent;
-                font-size: 3rem;
+                @include primary-title;
             }
 
             .about-me__text-wrapper__text {
-                color: $primary;
-                font-size: 2.5rem;
+                @include secondary-title;
             }
         }
 
@@ -33,13 +31,11 @@
             width: 70%;
 
             .about-me__text-wrapper__highlight {
-                color: $accent;
-                font-size: 3rem;
+                @include primary-title;
             }
 
             .about-me__text-wrapper__text {
-                color: $primary;
-                font-size: 2rem;
+                @include secondary-title;
             }
         }
 

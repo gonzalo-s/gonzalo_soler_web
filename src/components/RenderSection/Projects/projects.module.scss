@@ -28,9 +28,7 @@
     text-align: center;
 
     &__title {
-        font-size: 2rem;
-        font-weight: 700;
-        color: $primary;
+        @include primary-title;
     }
 
     &__stack {
