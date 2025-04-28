@@ -1,0 +1,33 @@
+@use "@/styles/variables.scss" as *;
+@use "@/styles/mixins.scss" as *;
+
+.contact {
+    @include section-base;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+
+    &__wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+        width: 50%;
+
+        &__email {
+            color: $primary;
+            min-width: 10ch;
+            min-height: 1.25rem;
+            text-align: center;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+    }
+}

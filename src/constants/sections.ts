@@ -6,6 +6,7 @@ import { Project, ProjectsSection } from '@/components/RenderSection/Projects/Pr
 import { AboutMeSection } from '@/components/RenderSection/AboutMe';
 import { TechnologiesSection } from '@/components/RenderSection/Technologies';
 import { ExperienceSection } from '@/components/RenderSection/Experience';
+import { ContactSection } from '@/components/RenderSection/Contact';
 
 export type SectionType =
   | 'Introduction'
@@ -28,7 +29,13 @@ export type Section = {
 };
 
 export type Sections = Array<
-  IntroductionSection | ProjectsSection | AboutMeSection | TechnologiesSection | ExperienceSection | Section
+  | IntroductionSection
+  | ProjectsSection
+  | AboutMeSection
+  | TechnologiesSection
+  | ExperienceSection
+  | ContactSection
+  | Section
 >;
 
 const highlightWords = [
@@ -323,9 +330,6 @@ export const SECTIONS: Sections = [
       highlightText:
         'COMPOSABLE COMMERCE ARCHITECTURE with React and TypeScript is my jam😎. I turn vague ideas into intuitive, scalable web experiences that balance performance, usability, and adaptability.',
       text: 'I thrive in fast-paced teams where I can take ownership, collaborate closely with product and design, and move with autonomy. Always learning, always iterating—I’m passionate about building thoughtful, future-ready solutions that work beautifully across browsers and devices.',
-      // highlightText:
-      //   'With hands-on experience in composable commerce architecture and a strong foundation in React, Typescript and modern JavaScript libraries. Proficient in creating dynamic, user-focused web applications while adapting to diverse business requirements.',
-      // text: 'Eager to leverage my expertise in responsive design, cross-browser compatibility, and performance optimization to drive innovative solutions in a forward-thinking team. Committed to continuous learning and applying best practices in software development to contribute significantly to the success of visionary tech initiatives.',
     },
   },
   {
@@ -341,13 +345,21 @@ export const SECTIONS: Sections = [
     experience: EXPERIENCE,
   },
   {
-    href: { external: 'https://www.linkedin.com/in/gonzalo-soler/' },
-    title: 'Contact',
+    href: { internal: '#contact' },
+    title: 'Contact Me 🖖',
     isNav: true,
     isMain: true,
     type: 'Contact',
     icon: { pre: false, icon: ICONS.arrowAltRight },
     buttonVariant: 'primary',
+    email: ['gonzalosoler', 'gmail.com'],
+    description: 'If you have any questions, feel free to REACH OUT!',
+    cta: {
+      href: { external: 'https://www.linkedin.com/in/gonzalo-soler/' },
+      text: 'Linkedin',
+      icon: { pre: true, icon: ICONS.linkedin },
+      variant: 'secondary',
+    },
   },
   {
     href: { external: 'https://www.linkedin.com/in/gonzalo-soler/' },

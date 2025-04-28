@@ -11,6 +11,7 @@ import { TechnologiesSection } from './Technologies';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 
 import styles from './renderSection.module.scss';
+import { ContactSection } from './Contact';
 
 function RenderSection(section: Section) {
   return SectionToRender(section);
@@ -61,6 +62,14 @@ function SectionToRender(section: Section): JSX.Element | null {
       return TypedComponent ? (
         <div ref={setRef} className={sectionClassName}>
           <TypedComponent {...(section as ExperienceSection)} />
+        </div>
+      ) : null;
+    }
+    case 'Contact': {
+      const TypedComponent = SECTIONS_COMPONENTS['Contact'];
+      return TypedComponent ? (
+        <div ref={setRef} className={sectionClassName}>
+          <TypedComponent {...(section as ContactSection)} />
         </div>
       ) : null;
     }

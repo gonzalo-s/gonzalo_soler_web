@@ -5,12 +5,13 @@ import Introduction, { IntroductionSection } from './Introduction';
 import AboutMe, { AboutMeSection } from './AboutMe';
 import Technologies, { TechnologiesSection } from './Technologies';
 import Experience, { ExperienceSection } from './Experience';
+import Contact, { ContactSection } from './Contact';
 
 type SectionComponents = {
   Introduction?: (section: IntroductionSection) => JSX.Element;
   Projects?: (section: ProjectsSection) => JSX.Element;
   AboutMe?: (section: AboutMeSection) => JSX.Element;
-  Contact?: (section: Section) => JSX.Element;
+  Contact?: (section: ContactSection) => JSX.Element;
   Social?: (section: Section) => JSX.Element;
   Technologies?: (section: TechnologiesSection) => JSX.Element;
   Experience?: (section: ExperienceSection) => JSX.Element;
@@ -22,4 +23,5 @@ export const SECTIONS_COMPONENTS: SectionComponents = {
   AboutMe,
   Technologies,
   Experience,
+  Contact,
 };
