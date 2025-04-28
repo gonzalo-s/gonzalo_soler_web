@@ -346,7 +346,8 @@ export const SECTIONS: Sections = [
   },
   {
     href: { internal: '#contact' },
-    title: 'Contact Me 🖖',
+    title: 'Contact Me',
+    sectionTitle: 'Contact Me 🖖',
     isNav: true,
     isMain: true,
     type: 'Contact',

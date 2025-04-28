@@ -9,6 +9,7 @@ import Button, { ButtonProps } from '@/components/Button/Button';
 
 export type ContactSection = Section & {
   type: Extract<SectionType, 'Contact'>;
+  sectionTitle: string;
   email: Array<string>;
   cta: ButtonProps;
   description?: string;
@@ -19,7 +20,7 @@ export default function Contact(props: ContactSection) {
 
   return (
     <section className={styles.contact} id={getId(props.href)}>
-      <h2>{props.title}</h2>
+      <h2>{props.sectionTitle}</h2>
       {props?.description && <p>{props.description}</p>}
       <div className={styles.contact__wrapper}>
         <a className={clsx('contact-email', styles.contact__wrapper__email)} href="#"></a>
