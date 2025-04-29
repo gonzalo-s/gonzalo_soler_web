@@ -53,8 +53,6 @@ function Button(props: ButtonProps) {
   }
 
   function handleInternalClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    console.log('🚀 ~ handleInternalClick ~ event: SCROLLING', event);
-
     if (props?.href && !isExternal(props.href)) {
       const targetId = props.href?.internal.replace('#', '');
       const targetElement = document.getElementById(targetId!);

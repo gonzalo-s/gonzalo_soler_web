@@ -6,6 +6,7 @@ import styles from './navigation.module.scss';
 import React, { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import { ICONS } from '@/constants/icons';
+import { useTheme } from '@/contexts/themeContext';
 
 type NavigationProps = {
   logo: ButtonProps;
@@ -27,6 +28,7 @@ export default Navigation;
 function DesktopNavigation(props: NavigationProps) {
   return (
     <div className={styles.desktop}>
+      <ThemeSelector />
       {props.linkList.map((listLink) => {
         return (
           <Button
@@ -123,3 +125,13 @@ function MobileNavigation(props: NavigationProps) {
     </div>
   );
 }
+
+const ThemeSelector = () => {
+  const { theme, toggleTheme } = useTheme();
+
+  return (
+    <button onClick={toggleTheme} className={styles.themeSelector}>
+      {theme === 'light' ? '🌑' : '☀️'}
+    </button>
+  );
+};

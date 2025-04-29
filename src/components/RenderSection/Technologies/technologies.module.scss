@@ -27,7 +27,7 @@
         overflow-x: auto;
         white-space: nowrap;
         padding: 1rem;
-        border: 1px solid $quaternary;
+        border: 1px solid var(--quaternary);
         border-radius: $border-radius-1;
         scrollbar-width: none;
         -ms-overflow-style: none;

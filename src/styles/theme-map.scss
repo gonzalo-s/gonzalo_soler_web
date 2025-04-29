@@ -1,0 +1,38 @@
+$themes: (
+    dark: (
+        background: #0b0b0b,
+        background-light: #151515,
+        foreground: #e0e0e0,
+        primary: #bbb,
+        highlight: #999,
+        secondary: #1a1a1a,
+        tertiary: #777,
+        quaternary: #555,
+        accent: #e0e0e0,
+        shadow-color: #00bcd4,
+        shadow-color-a: #00bcd44d
+    ),
+    light: (
+        background: #e6f0ff,
+        background-light: #f2f7ff,
+        foreground: #000,
+        primary: #2c3e50,
+        highlight: #607d8b,
+        secondary: #dfe6e9,
+        tertiary: #546e7a,
+        quaternary: #b0bec5,
+        accent: #2c3e50,
+        shadow-color: #2196f3,
+        shadow-color-a: #2196f34d
+    )
+);
+
+@mixin generate-theme($themes) {
+    @each $theme-name, $theme-map in $themes {
+        [data-theme="#{$theme-name}"] {
+            @each $token, $value in $theme-map {
+                #{'--' + $token}: #{$value};
+            }
+        }
+    }
+}

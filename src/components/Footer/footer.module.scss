@@ -27,14 +27,14 @@
             justify-content: center;
 
             &__description {
-                color: $primary;
+                color: var(--primary);
             }
 
             &__email {
-                color: $primary;
+                color: var(--primary);
 
                 &:hover {
-                    color: $accent;
+                    color: var(--accent);
                 }
             }
         }
@@ -66,13 +66,13 @@
             border: 1px solid;
             border-image-slice: 1;
             border-width: 1px;
-            border-image-source: linear-gradient(120deg, $secondary, $quaternary, $secondary);
+            border-image-source: linear-gradient(120deg, var(--secondary), var(--quaternary), var(--secondary));
             border-left: 0;
             border-right: 0;
             border-bottom: 0;
 
             &__text {
-                background-image: linear-gradient(120deg, $tertiary, $secondary, $tertiary);
+                background-image: linear-gradient(120deg, var(--tertiary), var(--secondary), var(--tertiary));
                 background-size: 200% auto;
                 -webkit-background-clip: text;
                 background-clip: text;

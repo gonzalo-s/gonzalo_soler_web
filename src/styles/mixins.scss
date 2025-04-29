@@ -21,7 +21,7 @@
 
 @mixin highlight {
   font-weight: bolder;
-  color: $highlight;
+  color: var(--highlight);
 }
 
 @mixin button-reset {
@@ -61,12 +61,12 @@
 
 @mixin section-base {
   padding: 2rem;
-  background-color: $background;
+  background-color: var(--background);
   width: 100%;
 }
 
 @mixin primary-title {
-  color: $accent;
+  color: var(--accent);
   font-size: 2.5rem;
 
   & {
@@ -81,7 +81,7 @@
 }
 
 @mixin secondary-title {
-  color: $primary;
+  color: var(--primary);
   font-size: 2rem;
 
   & {
@@ -91,6 +91,18 @@
 
     @include desktop {
       font-size: 2rem;
+    }
+  }
+}
+
+@mixin theme($themeName) {
+  @if $themeName == "dark" {
+    :global([data-theme="dark"]) & {
+      @content;
+    }
+  } @else if $themeName == "light" {
+    :global([data-theme="light"]) & {
+      @content;
     }
   }
 }

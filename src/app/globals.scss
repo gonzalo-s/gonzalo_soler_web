@@ -1,3 +1,6 @@
+@use "../styles/theme-map" as theme;
+@include theme.generate-theme(theme.$themes);
+
 html,
 body {
   max-width: 100vw;

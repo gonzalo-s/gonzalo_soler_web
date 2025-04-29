@@ -27,7 +27,7 @@
 
         &__item {
             display: flex;
-            border-bottom: 1px solid $quaternary;
+            border-bottom: 1px solid var(--quaternary);
             padding: 2rem 0;
             justify-content: space-between;
 
@@ -47,7 +47,7 @@
                 gap: 1rem;
                 width: 100%;
                 white-space: pre-line;
-                color: $tertiary;
+                color: var(--tertiary);
             }
 
             &__left {

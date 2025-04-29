@@ -24,13 +24,13 @@
         width: 50%;
 
         &__email {
-            color: $primary;
+            color: var(--primary);
             min-width: 10ch;
             min-height: 1.25rem;
             text-align: center;
 
             &:hover {
-                color: $accent;
+                color: var(--accent);
             }
         }
     }

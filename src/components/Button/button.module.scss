@@ -4,7 +4,7 @@
 .link {
   @include button-reset;
 
-  color: $accent;
+  color: var(--accent);
   text-decoration: none;
   display: flex;
   gap: 0.5rem;
@@ -15,38 +15,38 @@
 
   &:focus-visible {
     border-radius: $border-radius-1;
-    outline: 1px solid $primary;
+    outline: 1px solid var(--primary);
     outline-offset: 0.5rem;
   }
 
   &_primary {
     &:hover {
-      color: $primary;
+      color: var(--primary);
     }
   }
 
   &_secondary {
-    color: $primary;
+    color: var(--primary);
 
     &:hover {
-      color: $accent;
+      color: var(--accent);
     }
   }
 
   &_accent {
-    color: $accent;
+    color: var(--accent);
     padding: 1rem;
-    border: 1px solid $accent;
+    border: 1px solid var(--accent);
     border-radius: $border-radius-2;
-    background-color: $background-light;
+    background-color: var(--background-light);
     transition:
       background-color 0.3s ease-in-out,
       color 0.3s ease-in-out,
       border-color 0.3s ease-in-out;
 
     &:hover {
-      background-color: $accent;
-      color: $quaternary;
+      background-color: var(--accent);
+      color: var(--quaternary);
     }
   }
 }
@@ -54,15 +54,15 @@
 .button {
   @include button-reset;
 
-  color: $accent;
+  color: var(--accent);
   padding: 0.5rem 1rem;
   display: flex;
   gap: 1rem;
   align-items: center;
   justify-content: center;
-  background-color: rgba($background, 1);
+  background-color: rgba(var(--background), 1);
   border-radius: $border-radius-1;
-  outline: 1px solid $primary;
+  outline: 1px solid var(--primary);
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -76,7 +76,7 @@
       width: 100%;
       height: 150%;
       transform: rotate(0deg);
-      background: linear-gradient(120deg, transparent, rgba($primary, 0.2), transparent);
+      background: linear-gradient(120deg, transparent, rgba(var(--primary), 0.2), transparent);
       transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     }
 
@@ -90,8 +90,8 @@
     transition: color 0.5s;
 
     &:hover {
-      background-color: $foreground;
-      color: $secondary;
+      background-color: var(--foreground);
+      color: var(--secondary);
     }
   }
 }

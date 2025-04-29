@@ -40,12 +40,12 @@
         }
 
         &__highlight {
-            color: $accent;
+            color: var(--accent);
             font-size: 2.5rem;
         }
 
         &__text {
-            color: $primary;
+            color: var(--primary);
             font-size: 2rem;
         }
     }
@@ -56,13 +56,13 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 2rem;
-        color: $primary;
+        color: var(--primary);
         font-size: 1.5rem;
         text-align: left;
         width: 100%;
 
         &__highlight {
-            color: $accent;
+            color: var(--accent);
             font-size: 1.5rem;
         }
 

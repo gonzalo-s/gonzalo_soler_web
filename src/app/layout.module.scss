@@ -8,8 +8,8 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background-color: $background;
-    color: $foreground;
+    background-color: var(--background);
+    color: var(--foreground);
     max-width: 100vw;
 
     @include tablet {
@@ -18,6 +18,16 @@
 
     @include desktop {
         padding: 0 2rem;
+    }
+
+    &[data-theme="dark"] {
+        background-color: var(--background);
+        color: var(--foreground);
+    }
+
+    &[data-theme="light"] {
+        background-color: var(--background-light);
+        color: var(--foreground);
     }
 }
 

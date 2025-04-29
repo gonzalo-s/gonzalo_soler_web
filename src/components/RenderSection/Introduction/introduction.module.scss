@@ -48,7 +48,7 @@
         }
 
         img {
-            filter: drop-shadow(-1rem -1rem 2rem $shadow-color-a);
+            filter: drop-shadow(-1rem -1rem 2rem var(--shadow-color-a));
         }
     }
 }

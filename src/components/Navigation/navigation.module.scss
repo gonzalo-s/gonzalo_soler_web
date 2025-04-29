@@ -6,17 +6,17 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: $background-light;
+  background-color: var(--background-light);
   position: relative;
-  border-bottom: 1px solid $quaternary;
+  border-bottom: 1px solid var(--quaternary);
   z-index: 10;
 
   @include tablet {
-    background-color: $background;
+    background-color: var(--background);
   }
 
   @include desktop {
-    background-color: $background;
+    background-color: var(--background);
   }
 }
 
@@ -59,7 +59,7 @@
 
     &:focus-visible {
       border-radius: $border-radius-1;
-      outline: 1px solid $primary;
+      outline: 1px solid var(--primary);
       outline-offset: 0.5rem;
     }
   }
@@ -74,9 +74,9 @@
     left: 0;
     width: 100%;
     padding: 1.5rem 2rem;
-    background-color: $background-light;
+    background-color: var(--background-light);
     gap: 1.5rem;
-    border-bottom: 1px solid $quaternary;
+    border-bottom: 1px solid var(--quaternary);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-20px);
