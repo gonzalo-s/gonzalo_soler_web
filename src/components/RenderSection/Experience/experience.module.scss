@@ -9,14 +9,14 @@
     gap: 1rem;
 
     &__title {
-        @include primary-title;
-
         display: flex;
         flex-direction: column;
         gap: 1rem;
         align-items: center;
         justify-content: center;
         width: 100%;
+
+        @include primary-title;
     }
 
     &__list {

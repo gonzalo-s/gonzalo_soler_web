@@ -1,5 +1,7 @@
 @use "../../styles/variables.scss" as *;
 
+// Ensure all @use declarations are at the top.
+
 .stack-icon {
     display: flex;
     justify-content: flex-start;

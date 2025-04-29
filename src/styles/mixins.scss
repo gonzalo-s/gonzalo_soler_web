@@ -69,12 +69,14 @@
   color: $accent;
   font-size: 2.5rem;
 
-  @include tablet {
-    font-size: 3rem;
-  }
+  & {
+    @include tablet {
+      font-size: 3rem;
+    }
 
-  @include desktop {
-    font-size: 3rem;
+    @include desktop {
+      font-size: 3rem;
+    }
   }
 }
 
@@ -82,11 +84,13 @@
   color: $primary;
   font-size: 2rem;
 
-  @include tablet {
-    font-size: 2.5rem;
-  }
+  & {
+    @include tablet {
+      font-size: 2.5rem;
+    }
 
-  @include desktop {
-    font-size: 2rem;
+    @include desktop {
+      font-size: 2rem;
+    }
   }
 }
