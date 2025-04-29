@@ -2,7 +2,7 @@
 /* stylelint-disable hue-degree-notation */
 /* stylelint-disable color-function-notation */
 
-:root {
+.themeSwitch {
     --hue: 223;
     --bg: hsl(var(--hue), 10%, 90%);
     --fg: hsl(var(--hue), 10%, 10%);
@@ -21,6 +21,7 @@
 .switch__icon,
 .switch__input {
     display: block;
+    cursor: pointer;
 }
 
 .switch__icon {
@@ -49,8 +50,8 @@
     background-color: hsl(210, 90%, 70%);
     border-radius: 0.75rem;
     box-shadow:
-        0 0 0 0.125rem hsla(var(--hue), 90%, 50%, 0),
-        0.125rem 0.125rem 0.25rem hsla(var(--hue), 90%, 10%, 0.2);
+        0 0 0 0.125rem hsla(var(--hue), 90%, 50%, 0%),
+        0.125rem 0.125rem 0.25rem hsla(var(--hue), 90%, 10%, 20%);
     outline: transparent;
     position: relative;
     width: 3rem;
@@ -66,7 +67,7 @@
 .switch__input:focus-visible {
     box-shadow:
         0 0 0 0.125rem hsl(var(--hue), 90%, 50%),
-        0.125rem 0.125rem 0.25rem hsla(var(--hue), 90%, 10%, 0.2);
+        0.125rem 0.125rem 0.25rem hsla(var(--hue), 90%, 10%, 20%);
 }
 
 .switch__input::before,
@@ -79,8 +80,8 @@
 .switch__input::before {
     background-color: hsl(50, 90%, 50%);
     border-radius: inherit;
-    mask-image: linear-gradient(120deg, hsl(0, 0%, 0%) 20%, hsla(0, 0%, 0%, 0) 80%);
-    -webkit-mask-image: linear-gradient(120deg, hsl(0, 0%, 0%) 20%, hsla(0, 0%, 0%, 0) 80%);
+    mask-image: linear-gradient(120deg, hsl(0, 0%, 0%) 20%, hsla(0, 0%, 0%, 0%) 80%);
+    -webkit-mask-image: linear-gradient(120deg, hsl(0, 0%, 0%) 20%, hsla(0, 0%, 0%, 0%) 80%);
     inset: 0;
     transition: background-color var(--trans-dur) var(--trans-timing);
 }
@@ -88,7 +89,7 @@
 .switch__input::after {
     background-color: hsl(0, 0%, 100%);
     border-radius: 50%;
-    box-shadow: 0.05rem 0.05rem 0.05rem hsla(var(--hue), 90%, 10%, 0.1);
+    box-shadow: 0.05rem 0.05rem 0.05rem hsla(var(--hue), 90%, 10%, 10%);
     top: 0.125rem;
     left: 0.125rem;
     width: 1.25rem;
