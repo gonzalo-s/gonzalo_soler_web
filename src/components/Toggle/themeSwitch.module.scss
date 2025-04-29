@@ -3,6 +3,10 @@
 /* stylelint-disable color-function-notation */
 
 .themeSwitch {
+    position: relative;
+    width: 3rem;
+    height: 1.5rem;
+
     --hue: 223;
     --bg: hsl(var(--hue), 10%, 90%);
     --fg: hsl(var(--hue), 10%, 10%);
@@ -15,7 +19,8 @@
 
 .switch {
     margin: auto;
-    position: relative;
+    width: 3rem;
+    height: 1.5rem;
 }
 
 .switch__icon,
@@ -53,7 +58,6 @@
         0 0 0 0.125rem hsla(var(--hue), 90%, 50%, 0%),
         0.125rem 0.125rem 0.25rem hsla(var(--hue), 90%, 10%, 20%);
     outline: transparent;
-    position: relative;
     width: 3rem;
     height: 1.5rem;
     -webkit-appearance: none;
