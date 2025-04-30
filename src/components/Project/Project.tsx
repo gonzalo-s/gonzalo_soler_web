@@ -32,6 +32,13 @@ export default function Project({ project }: { project: ProjectsSection['project
           <Image src={project.image.src} alt={project.image.alt} fill priority />
         </div>
       </section>
+      <ul className={styles['project-page__tech_list']}>
+        {project?.stack.map((tech) => (
+          <li key={tech.displayName} className={styles['project-page__tech_list__item']}>
+            <p>{tech.displayName}</p>
+          </li>
+        ))}
+      </ul>
       <section
         ref={setOverviewRef}
         className={`${styles['project-page__overview']} ${isOverviewVisible ? styles.visible : ''}`}
