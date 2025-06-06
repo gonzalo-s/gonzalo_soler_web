@@ -1,5 +1,3 @@
-'use client';
-
 import { Geist_Mono, Inter } from 'next/font/google';
 import Navigation from '@/components/Navigation/Navigation';
 import Footer from '@/components/Footer/Footer';
@@ -11,7 +9,6 @@ import { ThemeContextProvider } from '@/contexts/themeContext';
 import { loadAllSections } from '@/lib/services/loadAllSections';
 import parseFooterDetails from '@/lib/services/parsers/parseFooterDetails';
 import parseLogo from '@/lib/services/parsers/parseLogo';
-import { useEffect, useState } from 'react';
 import type { Section } from '@/constants/sections';
 import type { FooterProps } from '@/components/Footer/Footer';
 import type { ButtonProps } from '@/components/Button/Button';
@@ -25,59 +22,38 @@ const interSans = Inter({
   subsets: ['latin'],
 });
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [footerLinkList, setFooterLinkList] = useState<Array<Section>>([]);
-  const [navigationLinkList, setNavigationLinkList] = useState<Array<Section>>([]);
-  const [footerDetails, setFooterDetails] = useState<FooterProps['details']>({
-    logo: { text: '' },
-    description: '',
-    email: [],
-  });
-  const [logo, setLogo] = useState<ButtonProps>({ text: '' });
+  let navigationLinkList: Array<Section> = [];
+  let footerLinkList: Array<Section> = [];
+  let footerDetails: FooterProps['details'] = { logo: { text: '' }, description: '', email: [] };
+  let logo: ButtonProps = { text: '' };
 
-  useEffect(() => {
-    async function fetchData() {
-      let googleSheetData;
-      try {
-        googleSheetData = await loadAllSections();
-        if (!googleSheetData || !googleSheetData.length) {
-          throw new Error('No data found in Google Sheets.');
-        }
-        const footerLinkListFiltered = googleSheetData.filter((section) => section?.isFooter);
-        setFooterLinkList(footerLinkListFiltered);
-      } catch (error) {
-        console.error('Error fetching Google Sheets data:', error);
-        return;
-      }
-
-      try {
-        const navigationLinkList = googleSheetData.filter((section) => section?.isNav);
-        setNavigationLinkList(navigationLinkList);
-      } catch (error) {
-        console.error('Error filtering navigation links:', error);
-      }
-
-      try {
-        const footerDetails = await parseFooterDetails();
-        setFooterDetails(footerDetails);
-      } catch (error) {
-        console.error('Error parsing footer details:', error);
-      }
-
-      try {
-        const logo = await parseLogo();
-        setLogo(logo);
-      } catch (error) {
-        console.error('Error parsing logo:', error);
-      }
+  try {
+    const googleSheetData = await loadAllSections();
+    if (googleSheetData && googleSheetData.length) {
+      footerLinkList = googleSheetData.filter((section) => section?.isFooter);
+      navigationLinkList = googleSheetData.filter((section) => section?.isNav);
     }
+  } catch (error) {
+    console.error('Error fetching Google Sheets data:', error);
+  }
 
-    fetchData();
-  }, []);
+  try {
+    footerDetails = await parseFooterDetails();
+  } catch (error) {
+    console.error('Error parsing footer details:', error);
+  }
+
+  try {
+    logo = await parseLogo();
+  } catch (error) {
+    console.error('Error parsing logo:', error);
+  }
+
   return (
     <html lang="en">
       <body className={`${interSans.variable} ${geistMono.variable}`}>

@@ -17,6 +17,5 @@ export default async function parseFooterDetails(): Promise<FooterProps['details
     email: [`${row.email}@${row.emailLast}`],
   };
 
-  console.log('✅ FooterDetails parsed:', footerDetails);
   return footerDetails;
 }

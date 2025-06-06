@@ -23,6 +23,5 @@ export default async function parseSocialSection(): Promise<Section> {
     icon: row.iconName ? { pre: row.iconPre === 'TRUE', icon: ICONS[row.iconName] } : undefined,
   };
 
-  console.log('✅ SocialSection parsed:', section);
   return section;
 }

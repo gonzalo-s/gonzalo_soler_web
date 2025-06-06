@@ -16,7 +16,6 @@ export type FooterProps = {
 };
 
 function Footer(props: FooterProps) {
-  console.log('🚀 ~ Footer ~ props:', props);
   useSetEmail(props.details.email, 'footer-email');
 
   return (
