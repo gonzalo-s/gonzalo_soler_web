@@ -8,7 +8,6 @@ export default async function Home() {
   console.log('🚀 ~ Home ~ Home -2- googleSheetData');
 
   const mainSectionsFromGoogleSheet = googleSheetData.filter((section) => section.isMain);
-  console.log('🚀 ~ Home ~ Home -3-');
 
   return (
     <>

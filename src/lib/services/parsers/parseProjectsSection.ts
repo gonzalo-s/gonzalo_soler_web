@@ -3,21 +3,30 @@ import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import { ICONS } from '@/constants/icons';
 import { StackIconProps } from '@/constants/StackIcon/StackIcon';
+import type {
+  CsvProjectsSectionRow,
+  CsvProjectRow,
+  CsvProjectGoalRow,
+  CsvProjectStackRow,
+  CsvProjectExampleLinkRow,
+} from '../types/csvTypes';
 import parseHighlightWords from './parseHighlightWords';
+import { toBoolean } from '../utils/toBoolean';
+import getHrefGuard from '../utils/getHrefGuard';
 
 export default async function parseProjectsSection(): Promise<ProjectsSection> {
-  const projectsSectionRaw = await fetchCsv<any>(CSV_URLS.ProjectsSection);
-  const projectsRaw = await fetchCsv<any>(CSV_URLS.Project);
-  const projectGoalsRaw = await fetchCsv<any>(CSV_URLS.ProjectGoals);
-  const projectStackRaw = await fetchCsv<any>(CSV_URLS.ProjectStack);
-  const projectLinksRaw = await fetchCsv<any>(CSV_URLS.ProjectExampleLinks);
+  const projectsSectionRaw: CsvProjectsSectionRow[] = await fetchCsv(CSV_URLS.ProjectsSection);
+  const projectsRaw: CsvProjectRow[] = await fetchCsv(CSV_URLS.Project);
+  const projectGoalsRaw: CsvProjectGoalRow[] = await fetchCsv(CSV_URLS.ProjectGoals);
+  const projectStackRaw: CsvProjectStackRow[] = await fetchCsv(CSV_URLS.ProjectStack);
+  const projectLinksRaw: CsvProjectExampleLinkRow[] = await fetchCsv(CSV_URLS.ProjectExampleLinks);
   const projectHighlightWords = await parseHighlightWords();
 
   if (!projectsSectionRaw.length) throw new Error('No ProjectsSection rows found.');
 
   const sectionRow = projectsSectionRaw[0];
 
-  const projects: Project[] = projectsRaw.map((p) => {
+  const projects: Array<Project> = projectsRaw.map((p) => {
     const goalsList = projectGoalsRaw.filter((g) => g.projectId === p.projectId).map((g) => g.goal);
 
     const stack = projectStackRaw
@@ -32,9 +41,9 @@ export default async function parseProjectsSection(): Promise<ProjectsSection> {
       .filter((l) => l.projectId === p.projectId)
       .map((l) => ({
         text: l.text,
-        href: { [l.hrefType]: l.hrefValue },
+        href: getHrefGuard({ hrefType: l.hrefType, hrefValue: l.hrefValue }),
         variant: l.variant,
-        icon: { pre: l.iconPre === 'TRUE', icon: ICONS[l.iconName as keyof typeof ICONS] },
+        icon: l.iconName ? { pre: toBoolean(l.iconPre), icon: ICONS[l.iconName] } : undefined,
       }));
 
     return {
@@ -46,11 +55,9 @@ export default async function parseProjectsSection(): Promise<ProjectsSection> {
       image: { src: p.imageSrc, alt: p.imageAlt },
       cta: {
         text: p.ctaText,
-        href: p.ctaHrefValue ? { [p.ctaHrefType]: p.ctaHrefValue } : undefined,
+        href: getHrefGuard({ hrefType: p.ctaHrefType, hrefValue: p.ctaHrefValue }),
         variant: p.ctaVariant || undefined,
-        icon: p.ctaIconName
-          ? { pre: p.ctaIconPre === 'TRUE', icon: ICONS[p.ctaIconName as keyof typeof ICONS] }
-          : undefined,
+        icon: p.ctaIconName ? { pre: toBoolean(p.ctaIconPre), icon: ICONS[p.ctaIconName] } : undefined,
       },
       goalsList,
       stack,
@@ -63,10 +70,10 @@ export default async function parseProjectsSection(): Promise<ProjectsSection> {
     type: 'Projects',
     title: sectionRow.title,
     description: sectionRow.description,
-    href: sectionRow.hrefValue ? { [sectionRow.hrefType]: sectionRow.hrefValue } : undefined,
-    isMain: sectionRow.isMain === 'TRUE',
-    isNav: sectionRow.isNav === 'TRUE',
-    isFooter: sectionRow.isFooter === 'TRUE',
+    href: getHrefGuard({ hrefType: sectionRow.hrefType, hrefValue: sectionRow.hrefValue }),
+    isMain: toBoolean(sectionRow.isMain),
+    isNav: toBoolean(sectionRow.isNav),
+    isFooter: toBoolean(sectionRow.isFooter),
     buttonVariant: sectionRow.buttonVariant || undefined,
     projects,
   };

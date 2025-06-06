@@ -1,7 +1,7 @@
 import styles from './stackIcon.module.scss';
 import StackIcon2 from './lib';
 
-type StackIconName =
+export type StackIconName =
   | 'reactjs'
   | 'js'
   | 'nextjs2'

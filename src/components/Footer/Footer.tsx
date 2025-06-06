@@ -16,13 +16,14 @@ export type FooterProps = {
 };
 
 function Footer(props: FooterProps) {
+  console.log('🚀 ~ Footer ~ props:', props);
   useSetEmail(props.details.email, 'footer-email');
 
   return (
     <footer className={styles.footer}>
       <div className={styles.footer__top}>
         <div className={styles.footer__top__details}>
-          <Button text="Gonzalo Soler" variant="primary" href={{ internal: '/' }} />
+          <Button text={props.details.logo.text} variant={props.details.logo.variant} href={props.details.logo.href} />
           <p className={styles.footer__top__details__description}>{props.details.description}</p>
           <a className={clsx(styles.footer__top__details__email, 'footer-email')} href="#"></a>
         </div>

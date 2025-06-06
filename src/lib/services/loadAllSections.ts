@@ -11,6 +11,7 @@ import parseAboutMeSection from './parsers/parseAboutMeSection';
 import parseTechnologiesSection from './parsers/parseTechnologiesSection';
 import parseExperienceSection from './parsers/parseExperienceSection';
 import parseContactSection from './parsers/parseContactSection';
+import parseSocialSection from './parsers/parseSocialSection';
 
 export async function loadAllSections(): Promise<
   (
@@ -23,14 +24,15 @@ export async function loadAllSections(): Promise<
     | ContactSection
   )[]
 > {
-  const [intro, projects, aboutMe, tech, experience, contact] = await Promise.all([
+  const [intro, projects, aboutMe, tech, experience, contact, social] = await Promise.all([
     parseIntroductionSection(),
     parseProjectsSection(),
     parseAboutMeSection(),
     parseTechnologiesSection(),
     parseExperienceSection(),
     parseContactSection(),
+    parseSocialSection(),
   ]);
 
-  return [intro, projects, aboutMe, tech, experience, contact];
+  return [intro, projects, aboutMe, tech, experience, contact, social];
 }

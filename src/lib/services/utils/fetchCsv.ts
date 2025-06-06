@@ -1,10 +1,9 @@
 import Papa from 'papaparse';
-import { CsvAboutMeSectionRow } from '../types/csvTypes';
 
-export default async function fetchCsv(url: string): Promise<Array<CsvAboutMeSectionRow | any>> {
+// Accept a generic type for the row, defaulting to unknown to avoid 'any'
+export default async function fetchCsv<T = unknown>(url: string): Promise<T[]> {
   const response = await fetch(url);
   const text = await response.text();
-  const { data } = Papa.parse<string>(text, { header: true, skipEmptyLines: true });
-  console.log('🚀 ~ data:', data);
+  const { data } = Papa.parse<T>(text, { header: true, skipEmptyLines: true });
   return data;
 }

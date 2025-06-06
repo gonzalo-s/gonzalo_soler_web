@@ -27,6 +27,11 @@ const CSV_URLS = {
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vSQVXR-M3L9DKCC1GGmtOEE7VV0Gppw4ILTlI74CIQoq3SLCgYyL1f3dw_kHJLALGQGGDeVJR8NDtAA/pub?gid=1860395231&single=true&output=csv',
   HighlightWords:
     'https://docs.google.com/spreadsheets/d/e/2PACX-1vSQVXR-M3L9DKCC1GGmtOEE7VV0Gppw4ILTlI74CIQoq3SLCgYyL1f3dw_kHJLALGQGGDeVJR8NDtAA/pub?gid=1616027444&single=true&output=csv',
+  Logo: 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSQVXR-M3L9DKCC1GGmtOEE7VV0Gppw4ILTlI74CIQoq3SLCgYyL1f3dw_kHJLALGQGGDeVJR8NDtAA/pub?gid=1527964937&single=true&output=csv',
+  FooterDetail:
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vSQVXR-M3L9DKCC1GGmtOEE7VV0Gppw4ILTlI74CIQoq3SLCgYyL1f3dw_kHJLALGQGGDeVJR8NDtAA/pub?gid=1943365212&single=true&output=csv',
+  SocialSection:
+    'https://docs.google.com/spreadsheets/d/e/2PACX-1vSQVXR-M3L9DKCC1GGmtOEE7VV0Gppw4ILTlI74CIQoq3SLCgYyL1f3dw_kHJLALGQGGDeVJR8NDtAA/pub?gid=1530293584&single=true&output=csv',
 };
 
 export default CSV_URLS;
