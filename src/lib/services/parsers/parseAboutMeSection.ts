@@ -4,6 +4,7 @@ import CSV_URLS from '../config/csvUrls';
 import type { CsvAboutMeSectionRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
+import { replaceEscapedNewlines } from '../utils/replaceEscapedNewlines';
 
 export default async function parseAboutMeSection(): Promise<AboutMeSection> {
   const raw: Array<CsvAboutMeSectionRow> = await fetchCsv(CSV_URLS.AboutMeSection);
@@ -24,8 +25,8 @@ export default async function parseAboutMeSection(): Promise<AboutMeSection> {
       text: row?.headerText ?? undefined,
     },
     description: {
-      highlightText: row?.descriptionHighlightText ?? undefined,
-      text: row?.descriptionText ?? undefined,
+      highlightText: row?.descriptionHighlightText ? replaceEscapedNewlines(row.descriptionHighlightText) : undefined,
+      text: row?.descriptionText ? replaceEscapedNewlines(row.descriptionText) : undefined,
     },
   };
 

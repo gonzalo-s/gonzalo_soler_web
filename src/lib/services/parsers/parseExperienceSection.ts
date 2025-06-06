@@ -4,6 +4,7 @@ import CSV_URLS from '../config/csvUrls';
 import type { CsvExperienceSectionRow, CsvExperienceItemRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
+import { replaceEscapedNewlines } from '../utils/replaceEscapedNewlines';
 
 export default async function parseExperienceSection(): Promise<ExperienceSection> {
   const expSectionRaw: CsvExperienceSectionRow[] = await fetchCsv(CSV_URLS.ExperienceSection);
@@ -17,7 +18,7 @@ export default async function parseExperienceSection(): Promise<ExperienceSectio
     company: item.company,
     position: item.position,
     duration: item.duration,
-    description: item.description,
+    description: replaceEscapedNewlines(item.description),
   }));
 
   const section: ExperienceSection = {

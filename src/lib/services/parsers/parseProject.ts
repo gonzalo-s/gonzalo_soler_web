@@ -3,6 +3,7 @@ import { ICONS } from '@/constants/icons';
 import { StackIconProps } from '@/constants/StackIcon/StackIcon';
 import { toBoolean } from '../utils/toBoolean';
 import getHrefGuard from '../utils/getHrefGuard';
+import { replaceEscapedNewlines } from '../utils/replaceEscapedNewlines';
 import type { CsvProjectRow, CsvProjectGoalRow, CsvProjectStackRow, CsvProjectExampleLinkRow } from '../types/csvTypes';
 
 export function parseProject(
@@ -34,9 +35,9 @@ export function parseProject(
   return {
     title: p.title,
     slug: p.slug,
-    description: p.description,
+    description: replaceEscapedNewlines(p.description),
     shortDescription: p.shortDescription,
-    goalsDetail: p.goalsDetail,
+    goalsDetail: replaceEscapedNewlines(p.goalsDetail),
     image: { src: p.imageSrc, alt: p.imageAlt },
     cta: {
       text: p.ctaText,
