@@ -10,7 +10,7 @@ import styles from './button.module.scss';
 import { usePathname } from 'next/navigation';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'accent';
-type InternalHref = { internal: string };
+export type InternalHref = { internal: string };
 export type ExternalHref = { external: string };
 export type ButtonHref = InternalHref | ExternalHref;
 export type ButtonIcon = { pre: boolean; icon: JSX.Element };
