@@ -1,12 +1,14 @@
-import { SECTIONS } from '@/constants/sections';
 import RenderSection from '@/components/RenderSection/RenderSection';
+import { loadAllSections } from '@/lib/services/loadAllSections';
 
-export default function Home() {
-  const mainSections = SECTIONS.filter((section) => section.isMain);
+export default async function Home() {
+  const googleSheetData = await loadAllSections();
+
+  const mainSectionsFromGoogleSheet = googleSheetData.filter((section) => section.isMain);
 
   return (
     <>
-      {mainSections.map((section) => {
+      {mainSectionsFromGoogleSheet.map((section) => {
         return <RenderSection {...section} key={section.title} />;
       })}
     </>

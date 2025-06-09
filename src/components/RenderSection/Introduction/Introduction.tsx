@@ -1,4 +1,4 @@
-import { Section, SectionType } from '@/constants/sections';
+import { Section, SectionType } from '@/types/sections';
 import styles from './introduction.module.scss';
 import { getId } from '@/components/utils/getHref';
 import Image from 'next/image';

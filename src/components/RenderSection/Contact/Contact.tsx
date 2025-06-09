@@ -1,6 +1,6 @@
 'use client';
 
-import { Section, SectionType } from '@/constants/sections';
+import { Section, SectionType } from '@/types/sections';
 import styles from './contact.module.scss';
 import clsx from 'clsx';
 import { getId } from '@/components/utils/getHref';

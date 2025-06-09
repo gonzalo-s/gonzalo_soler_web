@@ -1,21 +1,35 @@
-import { ProjectsSection } from '@/components/RenderSection/Projects';
-import { SECTIONS } from '@/constants/sections';
-import { notFound } from 'next/navigation';
+import fetchCsv from '@/lib/services/utils/fetchCsv';
+import CSV_URLS from '@/lib/services/config/csvUrls';
+import type {
+  CsvProjectRow,
+  CsvProjectGoalRow,
+  CsvProjectStackRow,
+  CsvProjectExampleLinkRow,
+} from '@/lib/services/types/csvTypes';
 import Project from '@/components/Project/Project';
+import { notFound } from 'next/navigation';
+import { parseProject } from '@/lib/services/parsers/parseProject';
+import parseHighlightWords from '@/lib/services/parsers/parseHighlightWords';
 
-type ProjectProps = {
-  params: Promise<{ slug: string }>;
-};
+export async function generateStaticParams() {
+  const projectsRaw: Array<CsvProjectRow> = await fetchCsv(CSV_URLS.Project);
+  return projectsRaw.map((project) => ({ slug: project.slug }));
+}
 
-export default async function ProjectPage({ params }: ProjectProps) {
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
+  const [projectsRaw, projectGoalsRaw, projectStackRaw, projectLinksRaw, highlightWords] = await Promise.all([
+    fetchCsv<CsvProjectRow>(CSV_URLS.Project),
+    fetchCsv<CsvProjectGoalRow>(CSV_URLS.ProjectGoals),
+    fetchCsv<CsvProjectStackRow>(CSV_URLS.ProjectStack),
+    fetchCsv<CsvProjectExampleLinkRow>(CSV_URLS.ProjectExampleLinks),
+    parseHighlightWords(),
+  ]);
 
-  const section = SECTIONS.find((s): s is ProjectsSection => s.type === 'Projects' && 'projects' in s);
-  const foundProject = section?.projects.find((p) => p.slug === slug);
+  const p = projectsRaw.find((p) => p.slug === slug);
+  if (!p) notFound();
 
-  if (!foundProject) {
-    notFound();
-  }
+  const project = parseProject(p, projectGoalsRaw, projectStackRaw, projectLinksRaw, highlightWords);
 
-  return <Project project={foundProject} />;
+  return <Project project={project} />;
 }

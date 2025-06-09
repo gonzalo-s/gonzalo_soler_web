@@ -1,5 +1,5 @@
 import { getId } from '@/components/utils/getHref';
-import { Section, SectionType } from '@/constants/sections';
+import { Section, SectionType } from '@/types/sections';
 import styles from './aboutMe.module.scss';
 
 export type AboutMeSection = Section & {

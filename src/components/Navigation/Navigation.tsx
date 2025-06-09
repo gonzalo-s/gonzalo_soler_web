@@ -1,6 +1,6 @@
 'use client';
 
-import { Sections } from '@/constants/sections';
+import { Sections } from '@/types/sections';
 import Button, { ButtonProps } from '../Button/Button';
 import styles from './navigation.module.scss';
 import React, { useEffect, useRef, useState } from 'react';

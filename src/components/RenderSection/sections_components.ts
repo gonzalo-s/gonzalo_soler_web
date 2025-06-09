@@ -1,4 +1,4 @@
-import { Section } from '@/constants/sections';
+import { Section } from '@/types/sections';
 import { JSX } from 'react';
 import Projects, { ProjectsSection } from './Projects';
 import Introduction, { IntroductionSection } from './Introduction';
