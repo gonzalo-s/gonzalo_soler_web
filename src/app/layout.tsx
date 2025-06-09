@@ -9,7 +9,7 @@ import { ThemeContextProvider } from '@/contexts/themeContext';
 import { loadAllSections } from '@/lib/services/loadAllSections';
 import parseFooterDetails from '@/lib/services/parsers/parseFooterDetails';
 import parseLogo from '@/lib/services/parsers/parseLogo';
-import type { Section } from '@/constants/sections';
+import type { Section } from '@/types/sections';
 import type { FooterProps } from '@/components/Footer/Footer';
 import type { ButtonProps } from '@/components/Button/Button';
 

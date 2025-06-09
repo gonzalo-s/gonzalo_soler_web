@@ -1,6 +1,6 @@
 'use client';
 
-import { Section } from '@/constants/sections';
+import { Section } from '@/types/sections';
 import { SECTIONS_COMPONENTS } from './sections_components';
 import { JSX } from 'react';
 import { AboutMeSection } from './AboutMe';

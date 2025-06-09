@@ -1,4 +1,4 @@
-import { Section } from '@/constants/sections';
+import { Section } from '@/types/sections';
 import parseIntroductionSection from './parsers/parseIntroducttionSection';
 import { AboutMeSection } from '@/components/RenderSection/AboutMe';
 import { ContactSection } from '@/components/RenderSection/Contact';

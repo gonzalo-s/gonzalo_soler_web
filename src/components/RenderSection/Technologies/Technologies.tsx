@@ -1,6 +1,6 @@
 'use client';
 
-import { Section, SectionType } from '@/constants/sections';
+import { Section, SectionType } from '@/types/sections';
 import styles from './technologies.module.scss';
 import StackIcon, { StackIconProps } from '@/constants/StackIcon/StackIcon';
 import useDragScroll from '@/hooks/useDragScroll';

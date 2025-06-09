@@ -1,4 +1,4 @@
-import { Section, SectionType } from '@/constants/sections';
+import { Section, SectionType } from '@/types/sections';
 import styles from './experience.module.scss';
 
 export type ExperienceSection = Section & {

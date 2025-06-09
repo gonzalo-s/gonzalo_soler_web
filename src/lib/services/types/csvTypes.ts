@@ -39,6 +39,8 @@ export type CsvContactSectionRow = {
   ctaVariant: ButtonVariant;
   ctaIconPre: 'TRUE' | 'FALSE';
   ctaIconName?: keyof typeof ICONS;
+  iconPre: 'TRUE' | 'FALSE';
+  iconName?: keyof typeof ICONS;
 };
 
 export type CsvExperienceSectionRow = {

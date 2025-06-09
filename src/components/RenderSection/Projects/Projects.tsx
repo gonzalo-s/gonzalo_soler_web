@@ -1,6 +1,6 @@
 import { ButtonProps } from '@/components/Button/Button';
 import { getHref, getId } from '@/components/utils/getHref';
-import { Section } from '@/constants/sections';
+import { Section } from '@/types/sections';
 import Image from 'next/image';
 import styles from './projects.module.scss';
 import Link from 'next/link';

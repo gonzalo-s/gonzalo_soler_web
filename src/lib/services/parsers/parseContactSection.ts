@@ -17,6 +17,7 @@ export default async function parseContactSection(): Promise<ContactSection> {
     title: row.title,
     sectionTitle: row.sectionTitle,
     href: getHrefGuard({ hrefType: row.hrefType, hrefValue: row.hrefValue }),
+    icon: row.iconName ? { pre: toBoolean(row.iconPre), icon: ICONS[row.iconName] } : undefined,
     isMain: toBoolean(row.isMain),
     isNav: toBoolean(row.isNav),
     isFooter: toBoolean(row.isFooter),

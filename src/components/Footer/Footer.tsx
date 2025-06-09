@@ -1,6 +1,6 @@
 'use client';
 
-import { Sections } from '@/constants/sections';
+import { Sections } from '@/types/sections';
 import Button, { ButtonProps } from '../Button/Button';
 import styles from './footer.module.scss';
 import clsx from 'clsx';
