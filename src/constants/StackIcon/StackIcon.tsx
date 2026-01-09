@@ -12,7 +12,8 @@ export type StackIconName =
   | 'jest'
   | 'contentstack'
   | 'algolia'
-  | 'commercetools';
+  | 'commercetools'
+  | 'tailwindcss';
 
 export type Size = 'small' | 'medium' | 'large';
 
