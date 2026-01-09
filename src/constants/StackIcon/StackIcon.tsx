@@ -13,7 +13,8 @@ export type StackIconName =
   | 'contentstack'
   | 'algolia'
   | 'commercetools'
-  | 'tailwindcss';
+  | 'tailwindcss'
+  | 'ai';
 
 export type Size = 'small' | 'medium' | 'large';
 
