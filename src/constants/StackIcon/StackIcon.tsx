@@ -14,7 +14,10 @@ export type StackIconName =
   | 'algolia'
   | 'commercetools'
   | 'tailwindcss'
-  | 'ai';
+  | 'ai'
+  | 'github'
+  | 'bitbucket'
+  | 'vercel';
 
 export type Size = 'small' | 'medium' | 'large';
 

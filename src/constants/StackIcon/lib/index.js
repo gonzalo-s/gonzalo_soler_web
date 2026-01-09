@@ -6826,6 +6826,14 @@ var t = [
 </svg>
 `,
   },
+  {
+    name: 'vercel',
+    keywords: ['vercel', 'hosting', 'serverless', 'deployment'],
+    svg: `<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M50 0L100 100H0L50 0Z" fill="black"/>
+</svg>
+`,
+  },
 ];
 var g = `
   .tsi {
