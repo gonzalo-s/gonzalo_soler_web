@@ -1,4 +1,4 @@
-import { FaLinkedin, FaGithub, FaArrowRight, FaCode, FaHandSpock, FaCaretRight } from 'react-icons/fa';
+import { FaLinkedin, FaGithub, FaArrowRight, FaCode, FaHandSpock, FaCaretRight, FaVideo } from 'react-icons/fa';
 import CloseIcon from './CloseIcon/CloseIcon';
 import OpenIcon from './OpenIcon/OpenIcon';
 
@@ -11,4 +11,5 @@ export const ICONS = {
   menuClose: <CloseIcon />,
   handSpock: <FaHandSpock />,
   caretRight: <FaCaretRight />,
+  video: <FaVideo />,
 };
