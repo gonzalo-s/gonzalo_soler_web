@@ -2,8 +2,6 @@
 @use '../../styles/variables.scss' as *;
 
 .navigation {
-  @include glass-surface-strong($border-radius-2);
-
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,7 +10,14 @@
   top: 1rem;
   z-index: 10;
 
-  // Floating pill: detached from the edges so the rounded glass reads clearly.
+  // No background or border — just a subtle blur of the content scrolling
+  // behind, so the nav stays glassy without reading as a solid panel.
+  border-radius: $border-radius-2;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-backdrop-filter: blur($glass-blur) saturate(140%);
+  backdrop-filter: blur($glass-blur) saturate(140%);
+
+  // Floating: detached from the edges.
   margin: 1rem;
 
   @include tablet {
