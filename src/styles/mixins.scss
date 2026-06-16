@@ -61,8 +61,39 @@
 
 @mixin section-base {
   padding: 2rem;
-  background-color: var(--background);
+
+  // Transparent so the page-wrapper ambient backdrop shows through and the
+  // glass surfaces (cards, nav) have something to refract.
+  background-color: transparent;
   width: 100%;
+}
+
+// Frosted-glass surface. Lighter, more translucent fill — use for cards,
+// buttons and other content that sits over the ambient background.
+@mixin glass-surface($radius: $border-radius-1, $blur: $glass-blur) {
+  background-color: var(--glass-bg);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-backdrop-filter: blur($blur) saturate(160%);
+  backdrop-filter: blur($blur) saturate(160%);
+  border: 1px solid var(--glass-border);
+  border-radius: $radius;
+  box-shadow:
+    0 8px 32px var(--glass-shadow-color),
+    inset 0 1px 0 var(--glass-highlight);
+}
+
+// Stronger frosted glass with a more opaque fill — use for overlays that need
+// readable contrast on top (navbar, dropdown menus, modal-like surfaces).
+@mixin glass-surface-strong($radius: $border-radius-1, $blur: $glass-blur-strong) {
+  background-color: var(--glass-bg-strong);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-backdrop-filter: blur($blur) saturate(160%);
+  backdrop-filter: blur($blur) saturate(160%);
+  border: 1px solid var(--glass-border);
+  border-radius: $radius;
+  box-shadow:
+    0 8px 32px var(--glass-shadow-color),
+    inset 0 1px 0 var(--glass-highlight);
 }
 
 @mixin primary-title {

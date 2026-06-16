@@ -11,6 +11,11 @@ $themes: (
     accent: #e0e0e0,
     shadow-color: #00bcd4,
     shadow-color-a: #00bcd44d,
+    glass-bg: rgb(255 255 255 / 5%),
+    glass-bg-strong: rgb(21 21 21 / 60%),
+    glass-border: rgb(255 255 255 / 12%),
+    glass-highlight: rgb(255 255 255 / 14%),
+    glass-shadow-color: rgb(0 0 0 / 50%),
   ),
   light: (
     background: #e6f0ff,
@@ -24,6 +29,11 @@ $themes: (
     accent: #2c3e50,
     shadow-color: #2196f3,
     shadow-color-a: #2196f34d,
+    glass-bg: rgb(255 255 255 / 45%),
+    glass-bg-strong: rgb(255 255 255 / 70%),
+    glass-border: rgb(255 255 255 / 75%),
+    glass-highlight: rgb(255 255 255 / 90%),
+    glass-shadow-color: rgb(31 64 128 / 18%),
   ),
 );
 

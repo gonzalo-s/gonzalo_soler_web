@@ -6,18 +6,14 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background-color: var(--background-light);
-  position: relative;
-  border-bottom: 1px solid var(--quaternary);
+  position: sticky;
+  top: 0;
   z-index: 10;
-
-  @include tablet {
-    background-color: var(--background);
-  }
-
-  @include desktop {
-    background-color: var(--background);
-  }
+  background-color: var(--glass-bg-strong);
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-backdrop-filter: blur($glass-blur-strong) saturate(160%);
+  backdrop-filter: blur($glass-blur-strong) saturate(160%);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .desktop {
@@ -74,9 +70,12 @@
     left: 0;
     width: 100%;
     padding: 1.5rem 2rem;
-    background-color: var(--background-light);
+    background-color: var(--glass-bg-strong);
+    /* stylelint-disable-next-line property-no-vendor-prefix */
+    -webkit-backdrop-filter: blur($glass-blur-strong) saturate(160%);
+    backdrop-filter: blur($glass-blur-strong) saturate(160%);
     gap: 1.5rem;
-    border-bottom: 1px solid var(--quaternary);
+    border-bottom: 1px solid var(--glass-border);
     opacity: 0;
     pointer-events: none;
     transform: translateY(-20px);
