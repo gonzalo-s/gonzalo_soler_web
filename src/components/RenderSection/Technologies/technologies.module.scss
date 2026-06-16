@@ -1,44 +1,44 @@
-@use "@/styles/variables.scss" as *;
-@use "@/styles/mixins.scss" as *;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .technologies {
-    @include section-base;
+  @include section-base;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  user-select: none;
+
+  &__list {
+    @include reset-list;
+    @include mask-image-horizontal;
+
+    width: 100%;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-    overflow: hidden;
-    user-select: none;
+    gap: 2rem;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 1rem;
+    border: 1px solid var(--quaternary);
+    border-radius: $border-radius-1;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
 
-    &__list {
-        @include reset-list;
-        @include mask-image-horizontal;
-
-        width: 100%;
-        cursor: grab;
-
-        &:active {
-            cursor: grabbing;
-        }
-
-        display: flex;
-        gap: 2rem;
-        overflow-x: auto;
-        white-space: nowrap;
-        padding: 1rem;
-        border: 1px solid var(--quaternary);
-        border-radius: $border-radius-1;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-
-        &:-webkit-scrollbar {
-            display: none;
-        }
-
-        &__item {
-            flex: 0 0 auto;
-            white-space: nowrap;
-        }
+    &:-webkit-scrollbar {
+      display: none;
     }
+
+    &__item {
+      flex: 0 0 auto;
+      white-space: nowrap;
+    }
+  }
 }

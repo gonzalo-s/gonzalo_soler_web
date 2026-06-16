@@ -1,4 +1,4 @@
-@use "./variables.scss" as *;
+@use './variables.scss' as *;
 
 // Media query mixins
 @mixin mobile {
@@ -96,12 +96,12 @@
 }
 
 @mixin theme($themeName) {
-  @if $themeName == "dark" {
-    :global([data-theme="dark"]) & {
+  @if $themeName == 'dark' {
+    :global([data-theme='dark']) & {
       @content;
     }
-  } @else if $themeName == "light" {
-    :global([data-theme="light"]) & {
+  } @else if $themeName == 'light' {
+    :global([data-theme='light']) & {
       @content;
     }
   }

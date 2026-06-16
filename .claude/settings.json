@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Edit",
+      "Write",
+      "Bash(npm run lint)",
+      "Bash(npm run format)",
+      "Bash(npm run typecheck)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)"
+    ],
+    "deny": ["Bash(git push*)", "Bash(git reset --hard*)", "Bash(rm -rf*)", "Bash(npm publish*)"]
+  }
+}

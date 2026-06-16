@@ -1,5 +1,5 @@
-@use "../../styles/variables.scss" as *;
-@use "../../styles/mixins.scss" as *;
+@use '../../styles/variables.scss' as *;
+@use '../../styles/mixins.scss' as *;
 
 .link {
   @include button-reset;
@@ -69,7 +69,7 @@
 
   &_primary {
     &::before {
-      content: "";
+      content: '';
       position: absolute;
       top: -20%;
       left: -100%;

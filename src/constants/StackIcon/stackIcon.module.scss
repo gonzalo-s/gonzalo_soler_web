@@ -1,11 +1,11 @@
-@use "../../styles/variables.scss" as *;
+@use '../../styles/variables.scss' as *;
 
 // Ensure all @use declarations are at the top.
 
 .stack-icon {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
 }

@@ -1,54 +1,54 @@
-@use "@/styles/variables.scss" as *;
-@use "@/styles/mixins.scss" as *;
+@use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
 
 .introduction {
-    @include section-base;
+  @include section-base;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 5rem;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  text-align: center;
 
-    &__text-wrapper {
-        display: block;
-        width: 100%;
+  &__text-wrapper {
+    display: block;
+    width: 100%;
 
-        @include tablet {
-            width: 80%;
-        }
-
-        @include desktop {
-            width: 70%;
-        }
-
-        &__highlight {
-            @include primary-title;
-        }
-
-        &__text {
-            @include secondary-title;
-        }
+    @include tablet {
+      width: 80%;
     }
 
-    &__image-wrapper {
-        position: relative;
-        width: 50vw;
-        height: 50vw;
-
-        @include tablet {
-            width: 50vw;
-            height: 50vw;
-        }
-
-        @include desktop {
-            width: 30vw;
-            height: 30vw;
-        }
-
-        img {
-            filter: drop-shadow(0 0 1rem var(--shadow-color-a));
-        }
+    @include desktop {
+      width: 70%;
     }
+
+    &__highlight {
+      @include primary-title;
+    }
+
+    &__text {
+      @include secondary-title;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 50vw;
+    height: 50vw;
+
+    @include tablet {
+      width: 50vw;
+      height: 50vw;
+    }
+
+    @include desktop {
+      width: 30vw;
+      height: 30vw;
+    }
+
+    img {
+      filter: drop-shadow(0 0 1rem var(--shadow-color-a));
+    }
+  }
 }

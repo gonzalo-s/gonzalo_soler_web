@@ -1,4 +1,4 @@
-@use "../styles/theme-map" as theme;
+@use '../styles/theme-map' as theme;
 @include theme.generate-theme(theme.$themes);
 
 html,
