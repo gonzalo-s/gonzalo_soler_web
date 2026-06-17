@@ -42,7 +42,14 @@ export default function Project({ project }: { project: ProjectsSection['project
         <h1>{project.title}</h1>
         <p className={styles['project-page__header__short-description']}>{project.shortDescription}</p>
         <div className={styles['project-page__header__image']}>
-          <Image src={project.image.src} alt={project.image.alt} fill priority />
+          <Image
+            src={project.image.src}
+            alt={project.image.alt}
+            width={0}
+            height={0}
+            sizes="(min-width: 760px) 38rem, 80vw"
+            priority
+          />
         </div>
       </section>
       <ul className={styles['project-page__tech_list']}>
