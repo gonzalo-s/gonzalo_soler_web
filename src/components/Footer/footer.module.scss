@@ -66,13 +66,16 @@
       &__text {
         @include display-font;
 
-        background-image: var(--brand-gradient);
+        background-image: var(--brand-gradient-mirror);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
         color: transparent;
-        animation: gradient-pan 8s linear infinite;
+
+        // Slow one-way glow sweep. The mirrored gradient fades to the page
+        // background at both ends, so the repeating pan loops seamlessly.
+        animation: gradient-pan 16s linear infinite;
         display: block;
         width: 100%;
         text-transform: uppercase;
