@@ -30,6 +30,17 @@ export default async function parseContactSection(): Promise<ContactSection> {
       variant: row.ctaVariant || undefined,
       icon: row?.ctaIconName ? { pre: row.ctaIconPre === 'TRUE', icon: ICONS[row.ctaIconName] } : undefined,
     },
+    resume: row.resumeHrefValue
+      ? {
+          text: row.resumeText ?? 'Download Resume',
+          href: getHrefGuard({
+            hrefType: row.resumeHrefType ?? 'external',
+            hrefValue: row.resumeHrefValue,
+          }),
+          variant: row.resumeVariant || undefined,
+          icon: row.resumeIconName ? { pre: row.resumeIconPre === 'TRUE', icon: ICONS[row.resumeIconName] } : undefined,
+        }
+      : undefined,
   };
 
   return section;

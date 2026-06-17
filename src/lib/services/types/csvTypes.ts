@@ -41,6 +41,12 @@ export type CsvContactSectionRow = {
   ctaIconName?: keyof typeof ICONS;
   iconPre: 'TRUE' | 'FALSE';
   iconName?: keyof typeof ICONS;
+  resumeText?: string;
+  resumeHrefType?: HrefType;
+  resumeHrefValue?: string;
+  resumeVariant?: ButtonVariant;
+  resumeIconPre?: 'TRUE' | 'FALSE';
+  resumeIconName?: keyof typeof ICONS;
 };
 
 export type CsvExperienceSectionRow = {
