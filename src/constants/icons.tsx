@@ -1,4 +1,17 @@
-import { FaLinkedin, FaGithub, FaArrowRight, FaCode, FaHandSpock, FaCaretRight, FaVideo } from 'react-icons/fa';
+import {
+  FaLinkedin,
+  FaGithub,
+  FaArrowRight,
+  FaCode,
+  FaHandSpock,
+  FaCaretRight,
+  FaVideo,
+  FaBriefcase,
+  FaLayerGroup,
+  FaBullseye,
+  FaRegLightbulb,
+  FaLink,
+} from 'react-icons/fa';
 import CloseIcon from './CloseIcon/CloseIcon';
 import OpenIcon from './OpenIcon/OpenIcon';
 
@@ -12,4 +25,9 @@ export const ICONS = {
   handSpock: <FaHandSpock />,
   caretRight: <FaCaretRight />,
   video: <FaVideo />,
+  briefcase: <FaBriefcase />,
+  stack: <FaLayerGroup />,
+  target: <FaBullseye />,
+  overview: <FaRegLightbulb />,
+  link: <FaLink />,
 };

@@ -1,4 +1,5 @@
 @use '../styles/theme-map' as theme;
+@use '../styles/variables.scss' as *;
 @include theme.generate-theme(theme.$themes);
 
 html,
@@ -9,9 +10,21 @@ body {
 }
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:
+    var(--font-inter-sans),
+    system-ui,
+    -apple-system,
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+
+  // Dark canvas by default so there is no white flash before the theme
+  // provider hydrates and picks the user's preference.
+  background-color: #07070b;
+  color: #eaeaf2;
 }
 
 * {
@@ -20,7 +33,69 @@ body {
   margin: 0;
 }
 
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+// Brand-tinted text selection.
+::selection {
+  background-color: var(--brand);
+  color: #fff;
+}
+
+// Slim, theme-aware scrollbar.
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--quaternary);
+  border: 2px solid transparent;
+  border-radius: $radius-pill;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand);
+  background-clip: padding-box;
+}
+
+// Visible, on-brand focus ring for keyboard users everywhere.
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: $radius-sm;
+}
+
+// Respect users who prefer reduced motion (accessibility — CRITICAL).
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -8,45 +8,29 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 2.5rem;
   text-align: center;
 
   &__text-wrapper {
+    @include display-font;
+
     display: block;
     width: 100%;
-
-    @include tablet {
-      width: 80%;
-
-      .about-me__text-wrapper__highlight {
-        @include primary-title;
-      }
-
-      .about-me__text-wrapper__text {
-        @include secondary-title;
-      }
-    }
+    font-size: clamp(2rem, 6vw, 3.4rem);
 
     @include desktop {
-      width: 70%;
-
-      .about-me__text-wrapper__highlight {
-        @include primary-title;
-      }
-
-      .about-me__text-wrapper__text {
-        @include secondary-title;
-      }
+      width: 80%;
     }
 
     &__highlight {
-      color: var(--accent);
-      font-size: 2.5rem;
+      @include text-gradient;
+
+      font-weight: 700;
     }
 
     &__text {
-      color: var(--primary);
-      font-size: 2rem;
+      color: var(--accent);
+      font-weight: 500;
     }
   }
 
@@ -55,27 +39,26 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 1.5rem;
     color: var(--primary);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
     text-align: left;
     width: 100%;
-
-    &__highlight {
-      color: var(--accent);
-      font-size: 1.5rem;
-    }
+    max-width: 65ch;
 
     @include tablet {
-      .about-me__description__highlight {
-        font-size: 2rem;
-      }
+      font-size: 1.35rem;
     }
 
-    @include desktop {
-      .about-me__description__highlight {
-        font-size: 2rem;
-      }
+    &__highlight {
+      @include highlight;
+
+      font-size: inherit;
+    }
+
+    &__text {
+      color: var(--primary);
     }
   }
 }

@@ -1,46 +1,30 @@
 @use '@/styles/variables.scss' as *;
 @use '@/styles/mixins.scss' as *;
+@use '@/styles/animations.scss' as *;
 
 .introduction {
   @include section-base;
 
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 2rem;
   text-align: center;
+  min-height: calc(100dvh - 8rem);
 
-  &__text-wrapper {
-    display: block;
-    width: 100%;
+  // Contain the image to the hero as it parallax-drifts (no bleed into the
+  // section below).
+  overflow: clip;
 
-    @include tablet {
-      width: 80%;
-    }
-
-    @include desktop {
-      width: 70%;
-    }
-
-    &__highlight {
-      @include primary-title;
-    }
-
-    &__text {
-      @include secondary-title;
-    }
-  }
-
-  &__image-wrapper {
+  // Foreground image, sitting ABOVE the text in flow. z-index below the text
+  // so that, as it drifts down on scroll, it slips a bit behind the type.
+  &__avatar {
     position: relative;
+    z-index: 0;
     width: 50vw;
     height: 50vw;
-
-    @include tablet {
-      width: 50vw;
-      height: 50vw;
-    }
 
     @include desktop {
       width: 30vw;
@@ -48,7 +32,66 @@
     }
 
     img {
+      object-fit: cover;
       filter: drop-shadow(0 0 1rem var(--shadow-color-a));
     }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+
+    position: relative;
+    z-index: 1;
+
+    &__dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background-color: var(--brand-2);
+      box-shadow: 0 0 10px var(--brand-2);
+    }
+  }
+
+  &__text-wrapper {
+    @include display-font;
+
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+    font-size: clamp(2.8rem, 9vw, 6rem);
+
+    @include tablet {
+      width: 90%;
+    }
+
+    @include desktop {
+      width: 80%;
+    }
+
+    &__highlight {
+      @include text-gradient;
+
+      font-weight: 700;
+
+      // Slow shimmer that pans the aurora across the name.
+      background-size: 220% auto;
+      animation: gradient-pan 9s linear infinite;
+    }
+
+    &__text {
+      color: var(--primary);
+      font-weight: 500;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+      letter-spacing: -0.01em;
+    }
+  }
+
+  &__cta {
+    position: relative;
+    z-index: 1;
+    margin-top: 1rem;
   }
 }

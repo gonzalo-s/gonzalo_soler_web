@@ -1,8 +1,11 @@
+'use client';
+
 import { Section, SectionType } from '@/types/sections';
 import styles from './introduction.module.scss';
 import { getId } from '@/components/utils/getHref';
 import Image from 'next/image';
 import Button, { ButtonProps } from '@/components/Button/Button';
+import { useParallax } from '@/hooks/useParallax';
 
 export type IntroductionSection = Section & {
   type: Extract<SectionType, 'Introduction'>;
@@ -18,22 +21,30 @@ export type IntroductionSection = Section & {
 };
 
 function Introduction(props: IntroductionSection) {
+  // Top-anchored parallax: image starts in place (above the text) and only
+  // drifts downward — slipping a bit behind the text — as you scroll.
+  const avatarRef = useParallax<HTMLDivElement>(0.2, 'top');
+
   return (
     <section className={styles.introduction} id={getId(props.href)}>
-      <h2 className={styles['introduction__text-wrapper']}>
+      {props.image && (
+        <div ref={avatarRef} className={styles.introduction__avatar}>
+          <Image alt={props.image.alt || ''} src={props.image.src} fill priority />
+        </div>
+      )}
+
+      <h1 className={styles['introduction__text-wrapper']}>
         {props.description?.highlightText && (
           <span className={styles['introduction__text-wrapper__highlight']}>{props.description.highlightText}</span>
         )}
-        <br />
         {props.description?.text && (
           <span className={styles['introduction__text-wrapper__text']}>{props.description.text}</span>
         )}
-      </h2>
-      {props?.cta && <Button {...props.cta} />}
+      </h1>
 
-      {props?.image && (
-        <div className={styles['introduction__image-wrapper']}>
-          <Image alt="some" src={props.image.src} fill />
+      {props?.cta && (
+        <div className={styles.introduction__cta}>
+          <Button {...props.cta} />
         </div>
       )}
     </section>

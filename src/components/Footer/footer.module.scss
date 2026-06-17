@@ -1,15 +1,19 @@
 /* stylelint-disable property-no-vendor-prefix */
 @use '../../styles/variables.scss' as *;
 @use '../../styles/mixins.scss' as *;
+@use '../../styles/animations.scss' as *;
 
 .footer {
+  margin-top: 4rem;
+
   &__top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 1.5rem 2rem 3.5rem;
-    gap: $vertical-gap;
+    padding: 2.5rem 1.5rem 3.5rem;
+    gap: 2.5rem;
     flex-direction: column;
+    border-top: 1px solid var(--quaternary);
 
     @include tablet {
       flex-direction: row;
@@ -25,16 +29,20 @@
       gap: $vertical-gap;
       align-items: flex-start;
       justify-content: center;
+      max-width: 40ch;
 
       &__description {
-        color: var(--primary);
+        color: var(--tertiary);
+        line-height: 1.6;
       }
 
       &__email {
         color: var(--primary);
+        font-weight: 500;
+        transition: color $dur $ease-out;
 
         &:hover {
-          color: var(--accent);
+          color: var(--brand);
         }
       }
     }
@@ -42,7 +50,7 @@
     &__list {
       display: flex;
       flex-direction: column;
-      gap: $vertical-gap;
+      gap: 0.5rem;
       align-items: flex-start;
 
       @include reset-list;
@@ -50,42 +58,34 @@
   }
 
   &__bottom {
-    padding: 2rem 0;
-
-    @keyframes gradient-move {
-      0% {
-        background-position: -50% 50%;
-      }
-
-      100% {
-        background-position: 150% 50%;
-      }
-    }
+    // No overflow clipping here — the wordmark must be free to render fully
+    // and to drift with its scroll parallax without being cut off.
+    padding: 1.5rem 0;
 
     &__border-gradient {
-      border: 1px solid;
-      border-image-slice: 1;
-      border-width: 1px;
-      border-image-source: linear-gradient(120deg, var(--secondary), var(--quaternary), var(--secondary));
-      border-left: 0;
-      border-right: 0;
-      border-bottom: 0;
-
       &__text {
-        background-image: linear-gradient(120deg, var(--tertiary), var(--secondary), var(--tertiary));
+        @include display-font;
+
+        background-image: var(--brand-gradient);
         background-size: 200% auto;
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: gradient-move 10s ease-in-out infinite;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        color: transparent;
+        animation: gradient-pan 8s linear infinite;
+        display: block;
+        width: 100%;
         text-transform: uppercase;
         white-space: nowrap;
-        font-size: clamp(1rem, 10vw, 8rem);
+
+        // Sized to span the viewport width without overflowing "gonzalo soler".
+        font-size: clamp(2rem, 12vw, 8rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
         text-align: center;
         word-break: keep-all;
+        opacity: 0.92;
       }
     }
   }

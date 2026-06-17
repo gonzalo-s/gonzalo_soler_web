@@ -1,0 +1,60 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/animations.scss' as *;
+
+.aurora {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora__blob {
+  position: absolute;
+  will-change: transform;
+
+  &--violet {
+    top: -20vh;
+    left: -12vw;
+    width: 70vw;
+    height: 70vw;
+  }
+
+  &--cyan {
+    top: 8vh;
+    left: 48vw;
+    width: 62vw;
+    height: 62vw;
+  }
+
+  &--pink {
+    top: 60vh;
+    left: 8vw;
+    width: 66vw;
+    height: 66vw;
+  }
+}
+
+// The visible glow — breathes on its own; the wrapper handles parallax so the
+// two transforms compose cleanly.
+.aurora__inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  filter: blur(64px);
+
+  .aurora__blob--violet & {
+    background: radial-gradient(circle, var(--shadow-color-a), transparent 68%);
+    animation: aurora-drift 26s $ease-in-out infinite;
+  }
+
+  .aurora__blob--cyan & {
+    background: radial-gradient(circle, var(--glow-a), transparent 68%);
+    animation: aurora-drift 32s $ease-in-out infinite reverse;
+  }
+
+  .aurora__blob--pink & {
+    background: radial-gradient(circle, var(--glow-b), transparent 68%);
+    animation: aurora-drift 30s $ease-in-out infinite;
+  }
+}

@@ -100,7 +100,13 @@ function MobileNavigation(props: NavigationProps) {
 
   return (
     <div className={styles.mobile}>
-      <button ref={buttonRef} className={styles.mobile__button} onClick={toggleMenu}>
+      <button
+        ref={buttonRef}
+        className={styles.mobile__button}
+        onClick={toggleMenu}
+        aria-label={showMenu ? 'Close menu' : 'Open menu'}
+        aria-expanded={showMenu}
+      >
         {showMenu ? ICONS.menuClose : ICONS.menuOpen}
       </button>
 

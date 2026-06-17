@@ -19,9 +19,49 @@
   }
 }
 
+// Display font — Space Grotesk — used for all headings / hero type.
+@mixin display-font {
+  font-family: var(--font-space-grotesk), var(--font-inter-sans), system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.04;
+}
+
+// Monospace eyebrow / kicker label that sits above headings.
+@mixin eyebrow {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--brand);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+// Aurora gradient clipped to text.
+@mixin text-gradient {
+  background-image: var(--brand-gradient);
+  background-clip: text;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-background-clip: text;
+  color: transparent;
+  /* stylelint-disable-next-line property-no-vendor-prefix */
+  -webkit-text-fill-color: transparent;
+}
+
+// Soft brand glow halo.
+@mixin glow($spread: 3rem) {
+  box-shadow:
+    0 0 $spread var(--shadow-color-a),
+    0 0 calc(#{$spread} * 2) var(--glow-a);
+}
+
 @mixin highlight {
-  font-weight: bolder;
-  color: var(--highlight);
+  @include text-gradient;
+
+  font-weight: 700;
 }
 
 @mixin button-reset {
@@ -60,7 +100,11 @@
 }
 
 @mixin section-base {
-  padding: 2rem;
+  // Fluid padding via clamp() rather than nested media queries — keeps this
+  // mixin declaration-only so consumers can add declarations after it without
+  // tripping Sass's mixed-declarations deprecation.
+  padding: clamp(4rem, 9vw, 7rem) clamp(1rem, 4vw, 2rem);
+  scroll-margin-top: 6rem;
 
   // Transparent so the page-wrapper ambient backdrop shows through and the
   // glass surfaces (cards, nav) have something to refract.
@@ -97,33 +141,18 @@
 }
 
 @mixin primary-title {
+  @include display-font;
+
   color: var(--accent);
-  font-size: 2.5rem;
-
-  & {
-    @include tablet {
-      font-size: 3rem;
-    }
-
-    @include desktop {
-      font-size: 3rem;
-    }
-  }
+  font-size: clamp(2.4rem, 7vw, 4rem);
 }
 
 @mixin secondary-title {
+  @include display-font;
+
   color: var(--primary);
-  font-size: 2rem;
-
-  & {
-    @include tablet {
-      font-size: 2.5rem;
-    }
-
-    @include desktop {
-      font-size: 2rem;
-    }
-  }
+  font-weight: 500;
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
 }
 
 @mixin theme($themeName) {

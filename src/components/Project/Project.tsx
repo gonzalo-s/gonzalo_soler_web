@@ -6,6 +6,19 @@ import Image from 'next/image';
 import styles from './project.module.scss';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { useHighlightWords } from '@/hooks/useHighlightWords';
+import { ICONS } from '@/constants/icons';
+import type { ReactNode } from 'react';
+
+function SectionHeading({ icon, children }: { icon: ReactNode; children: ReactNode }) {
+  return (
+    <h2 className={styles['project-page__heading']}>
+      <span className={styles['project-page__heading__icon']} aria-hidden="true">
+        {icon}
+      </span>
+      {children}
+    </h2>
+  );
+}
 
 const Technologies = dynamic(() => import('@/components/RenderSection/Technologies'));
 const Button = dynamic(() => import('@/components/Button/Button'));
@@ -43,11 +56,11 @@ export default function Project({ project }: { project: ProjectsSection['project
         ref={setOverviewRef}
         className={`${styles['project-page__overview']} ${isOverviewVisible ? styles.visible : ''}`}
       >
-        <h2>📊 Project Overview:</h2>
+        <SectionHeading icon={ICONS.overview}>Project Overview</SectionHeading>
         <p className={styles['project-page__overview__description']}>{project.description}</p>
       </section>
       <section ref={setStackRef} className={`${styles['project-page__stack']} ${isStackVisible ? styles.visible : ''}`}>
-        <h2 className={styles['project-page__stack__title']}>🧰 Stack used in this project</h2>
+        <SectionHeading icon={ICONS.stack}>Stack used in this project</SectionHeading>
         <Technologies stack={project.stack} type="Technologies" title={'Technologies'} />
       </section>
       {project?.goalsList && (
@@ -55,7 +68,7 @@ export default function Project({ project }: { project: ProjectsSection['project
           ref={setGoalsRef}
           className={`${styles['project-page__goals']} ${isGoalsVisible ? styles.visible : ''}`}
         >
-          <h2 className={styles['project-page__goals__title']}>🎯 Goals of this project</h2>
+          <SectionHeading icon={ICONS.target}>Goals of this project</SectionHeading>
           <ul className={styles['project-page__goals__list']}>
             {project.goalsList.map((goal) => (
               <li key={goal} className={styles['project-page__goals__list__item']}>
@@ -69,7 +82,7 @@ export default function Project({ project }: { project: ProjectsSection['project
         ref={setGoalsDetailsRef}
         className={`${styles['project-page__goalsDetails']} ${isGoalsDetailsVisible ? styles.visible : ''}`}
       >
-        <h2>📊 This project involved several challenging tasks:</h2>
+        <SectionHeading icon={ICONS.overview}>This project involved several challenging tasks</SectionHeading>
         <p className={styles['project-page__goalsDetails__description']}>{project.goalsDetail}</p>
       </section>
 
@@ -78,7 +91,7 @@ export default function Project({ project }: { project: ProjectsSection['project
           ref={setLinksRef}
           className={`${styles['project-page__example-links']} ${isLinksVisible ? styles.visible : ''}`}
         >
-          <h2 className={styles['project-page__example-links__title']}>🔗 Check It Out 😉</h2>
+          <SectionHeading icon={ICONS.link}>Check it out</SectionHeading>
           <ul className={styles['project-page__example-links__list']}>
             {project.exampleLinks.map((link) => (
               <li key={link.text} className={styles['project-page__example-links__list__item']}>

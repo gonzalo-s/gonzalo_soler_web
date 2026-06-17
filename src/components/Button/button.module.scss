@@ -4,101 +4,112 @@
 .link {
   @include button-reset;
 
-  color: var(--accent);
-  text-decoration: none;
-  display: flex;
+  display: inline-flex;
   gap: 0.5rem;
   align-items: center;
   justify-content: center;
+  font-weight: 500;
   background-color: transparent;
-  transition: color 0.2s ease;
+  transition:
+    color $dur $ease-out,
+    background-color $dur $ease-out,
+    box-shadow $dur $ease-out,
+    transform $dur $ease-out;
 
-  &:focus-visible {
-    border-radius: $border-radius-1;
-    outline: 1px solid var(--primary);
-    outline-offset: 0.5rem;
-  }
-
+  // Nav / inline link — segmented pill that lights up on hover.
   &_primary {
+    color: var(--primary);
+    padding: 0.5rem 0.9rem;
+    border-radius: $radius-pill;
+
     &:hover {
-      color: var(--primary);
+      color: var(--accent);
+      background-color: var(--glass-bg);
     }
   }
 
   &_secondary {
-    color: var(--primary);
+    color: var(--tertiary);
+    padding: 0.4rem 0;
 
     &:hover {
       color: var(--accent);
     }
   }
 
+  // Primary CTA — the aurora gradient with a brand glow lift.
   &_accent {
-    @include glass-surface($border-radius-2);
+    position: relative;
+    color: #fff;
+    font-weight: 600;
+    padding: 0.85rem 1.6rem;
+    border-radius: $radius-pill;
+    background-image: var(--brand-gradient-soft);
+    box-shadow: 0 6px 24px var(--shadow-color-a);
+    overflow: hidden;
 
-    color: var(--accent);
-    padding: 1rem;
-    transition:
-      background-color 0.3s ease-in-out,
-      color 0.3s ease-in-out,
-      border-color 0.3s ease-in-out,
-      box-shadow 0.3s ease-in-out;
+    // Sheen sweep on hover.
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      transform: translateX(-120%);
+      background: linear-gradient(120deg, transparent, rgb(255 255 255 / 35%), transparent);
+      transition: transform 0.6s $ease-out;
+    }
 
     &:hover {
-      background-color: var(--accent);
-      border-color: var(--accent);
-      color: var(--quaternary);
+      transform: translateY(-2px);
+      box-shadow:
+        0 10px 34px var(--shadow-color-a),
+        0 0 32px var(--glow-a);
+    }
+
+    &:hover::before {
+      transform: translateX(120%);
+    }
+
+    &:active {
+      transform: translateY(0);
     }
   }
 }
 
 .button {
   @include button-reset;
-  @include glass-surface($border-radius-1);
+  @include glass-surface($radius-pill);
 
   color: var(--accent);
-  padding: 0.5rem 1rem;
-  display: flex;
-  gap: 1rem;
+  padding: 0.6rem 1.2rem;
+  display: inline-flex;
+  gap: 0.6rem;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
+  transition:
+    color $dur $ease-out,
+    background-color $dur $ease-out,
+    box-shadow $dur $ease-out;
 
-  &_primary {
-    &::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      left: -100%;
-      width: 100%;
-      height: 150%;
-      transform: rotate(0deg);
-      background: linear-gradient(120deg, transparent, var(--glass-highlight), transparent);
-      transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
+  &_accent {
+    background-image: var(--brand-gradient-soft);
+    color: #fff;
+    border-color: transparent;
 
-    &:hover::before {
-      left: 100%;
+    &:hover {
+      box-shadow: 0 0 28px var(--glow-a);
     }
   }
 
-  &_secondary {
-    transition: background 0.5s;
-    transition: color 0.5s;
-
-    &:hover {
-      background-color: var(--foreground);
-      color: var(--secondary);
-    }
+  &_secondary:hover {
+    color: var(--brand);
   }
 }
 
 .icon {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.1em;
 }
 
 .fullWidth {
@@ -106,4 +117,10 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+}
+
+.disabled {
+  opacity: 0.45;
+  pointer-events: none;
+  cursor: not-allowed;
 }
