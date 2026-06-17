@@ -25,6 +25,8 @@ export type ButtonProps = {
   id?: string;
   onClick?: (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void;
   fullWith?: boolean;
+  // For external links: download the target in place instead of opening a new tab.
+  download?: boolean;
 };
 
 function Button(props: ButtonProps) {
@@ -54,10 +56,12 @@ function Button(props: ButtonProps) {
       return (
         <a
           id={props?.id}
-          target="_blank"
-          rel="noopener noreferrer"
           href={props.href.external}
+          rel="noopener noreferrer"
           className={clsx(getButtonClasses(props))}
+          // Download links stay in the same tab so the browser triggers a download
+          // rather than navigating away; other external links open in a new tab.
+          {...(props.download ? { download: true } : { target: '_blank' })}
         >
           {props.icon?.pre && props.icon.icon && <span className={styles.icon}>{props.icon.icon}</span>}
           {props.text}
