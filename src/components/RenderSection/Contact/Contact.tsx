@@ -12,6 +12,7 @@ export type ContactSection = Section & {
   sectionTitle: string;
   email: Array<string>;
   cta: ButtonProps;
+  resume?: ButtonProps;
   description?: string;
 };
 
@@ -26,6 +27,7 @@ export default function Contact(props: ContactSection) {
         <a className={clsx('contact-email', styles.contact__wrapper__email)} href="#"></a>
         <div className={styles.contact__wrapper__cta}>
           <Button {...props.cta} />
+          {props.resume && <Button {...props.resume} />}
         </div>
       </div>
     </section>
