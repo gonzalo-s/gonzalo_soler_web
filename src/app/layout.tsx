@@ -61,7 +61,7 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${interSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}>
         <ThemeContextProvider>
           <div className={styles['page-wrapper']}>
