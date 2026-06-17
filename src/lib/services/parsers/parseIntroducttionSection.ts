@@ -4,7 +4,7 @@ import CSV_URLS from '../config/csvUrls';
 import type { CsvIntroductionSectionRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
-import { ICONS } from '@/constants/icons';
+import { buildIcon } from '../utils/resolveIcon';
 
 export default async function parseIntroductionSection(): Promise<IntroductionSection> {
   const raw: CsvIntroductionSectionRow[] = await fetchCsv(CSV_URLS.IntroductionSection);
@@ -28,7 +28,7 @@ export default async function parseIntroductionSection(): Promise<IntroductionSe
       text: row.ctaText,
       href: getHrefGuard({ hrefType: row.ctaHrefType, hrefValue: row.ctaHrefValue }),
       variant: row.ctaVariant || undefined,
-      icon: row.ctaIconName ? { pre: toBoolean(row.ctaIconPre), icon: ICONS[row.ctaIconName] } : undefined,
+      icon: await buildIcon(row.ctaIconName, row.ctaIconPre),
     },
     image: {
       src: row.imageSrc,

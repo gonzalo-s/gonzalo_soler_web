@@ -1,18 +1,17 @@
 import { Project } from '@/components/RenderSection/Projects';
-import { ICONS } from '@/constants/icons';
 import { StackIconProps } from '@/constants/StackIcon/StackIcon';
-import { toBoolean } from '../utils/toBoolean';
 import getHrefGuard from '../utils/getHrefGuard';
 import { replaceEscapedNewlines } from '../utils/replaceEscapedNewlines';
+import { buildIcon } from '../utils/resolveIcon';
 import type { CsvProjectRow, CsvProjectGoalRow, CsvProjectStackRow, CsvProjectExampleLinkRow } from '../types/csvTypes';
 
-export function parseProject(
+export async function parseProject(
   p: CsvProjectRow,
   projectGoalsRaw: Array<CsvProjectGoalRow>,
   projectStackRaw: Array<CsvProjectStackRow>,
   projectLinksRaw: Array<CsvProjectExampleLinkRow>,
   highlightWords: Array<string>,
-): Project {
+): Promise<Project> {
   const goalsList = projectGoalsRaw.filter((g) => g.projectId === p.projectId).map((g) => g.goal);
 
   const stack = projectStackRaw
@@ -23,14 +22,16 @@ export function parseProject(
       size: s.size,
     }));
 
-  const exampleLinks = projectLinksRaw
-    .filter((l) => l.projectId === p.projectId)
-    .map((l) => ({
-      text: l.text,
-      href: getHrefGuard({ hrefType: l.hrefType, hrefValue: l.hrefValue }),
-      variant: l.variant,
-      icon: l.iconName ? { pre: toBoolean(l.iconPre), icon: ICONS[l.iconName] } : undefined,
-    }));
+  const exampleLinks = await Promise.all(
+    projectLinksRaw
+      .filter((l) => l.projectId === p.projectId)
+      .map(async (l) => ({
+        text: l.text,
+        href: getHrefGuard({ hrefType: l.hrefType, hrefValue: l.hrefValue }),
+        variant: l.variant,
+        icon: await buildIcon(l.iconName, l.iconPre),
+      })),
+  );
 
   return {
     title: p.title,
@@ -43,7 +44,7 @@ export function parseProject(
       text: p.ctaText,
       href: getHrefGuard({ hrefType: p.ctaHrefType, hrefValue: p.ctaHrefValue }),
       variant: p.ctaVariant || undefined,
-      icon: p.ctaIconName ? { pre: toBoolean(p.ctaIconPre), icon: ICONS[p.ctaIconName] } : undefined,
+      icon: await buildIcon(p.ctaIconName, p.ctaIconPre),
     },
     goalsList,
     stack,

@@ -1,10 +1,10 @@
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
-import { ICONS } from '@/constants/icons';
 import { Section } from '@/types/sections';
 import type { CsvSocialSectionRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
+import { buildIcon } from '../utils/resolveIcon';
 
 export default async function parseSocialSection(): Promise<Section> {
   const raw: Array<CsvSocialSectionRow> = await fetchCsv(CSV_URLS.SocialSection);
@@ -20,7 +20,7 @@ export default async function parseSocialSection(): Promise<Section> {
     isNav: toBoolean(row.isNav),
     isFooter: toBoolean(row.isFooter),
     isMain: toBoolean(row.isMain),
-    icon: row.iconName ? { pre: row.iconPre === 'TRUE', icon: ICONS[row.iconName] } : undefined,
+    icon: await buildIcon(row.iconName, row.iconPre),
   };
 
   return section;
