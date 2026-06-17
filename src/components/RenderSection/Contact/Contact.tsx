@@ -11,10 +11,15 @@ import { toDriveDownloadUrl } from '@/components/utils/driveDownloadUrl';
 /** Turn the resume CTA into an in-place download (direct Drive link, same tab). */
 function toResumeDownload(resume: ButtonProps): ButtonProps {
   if (!resume.href || !isExternal(resume.href)) return resume;
+  const downloadUrl = toDriveDownloadUrl(resume.href.external);
+  // Only force same-tab download for direct-download URLs (served with an
+  // attachment disposition). Other cross-origin URLs ignore the `download`
+  // attribute and would just navigate away, so keep them as new-tab links.
+  if (!downloadUrl.includes('export=download')) return resume;
   return {
     ...resume,
     download: true,
-    href: { external: toDriveDownloadUrl(resume.href.external) },
+    href: { external: downloadUrl },
   };
 }
 
