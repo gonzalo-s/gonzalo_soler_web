@@ -1,5 +1,4 @@
 import { ButtonVariant, ExternalHref, InternalHref } from '@/components/Button/Button';
-import { ICONS } from '@/constants/icons';
 import { Size, StackIconName } from '@/constants/StackIcon/StackIcon';
 
 export type HrefType = keyof ExternalHref | keyof InternalHref;
@@ -38,15 +37,15 @@ export type CsvContactSectionRow = {
   ctaHrefValue: string;
   ctaVariant: ButtonVariant;
   ctaIconPre: 'TRUE' | 'FALSE';
-  ctaIconName?: keyof typeof ICONS;
+  ctaIconName?: string;
   iconPre: 'TRUE' | 'FALSE';
-  iconName?: keyof typeof ICONS;
+  iconName?: string;
   resumeText?: string;
   resumeHrefType?: HrefType;
   resumeHrefValue?: string;
   resumeVariant?: ButtonVariant;
   resumeIconPre?: 'TRUE' | 'FALSE';
-  resumeIconName?: keyof typeof ICONS;
+  resumeIconName?: string;
 };
 
 export type CsvExperienceSectionRow = {
@@ -113,7 +112,7 @@ export type CsvIntroductionSectionRow = {
   ctaHrefValue: string;
   ctaVariant: ButtonVariant;
   ctaIconPre: 'TRUE' | 'FALSE';
-  ctaIconName?: keyof typeof ICONS;
+  ctaIconName?: string;
   imageSrc: string;
   imageAlt: string;
 };
@@ -146,7 +145,7 @@ export type CsvProjectRow = {
   ctaHrefValue: string;
   ctaVariant: ButtonVariant;
   ctaIconPre: 'TRUE' | 'FALSE';
-  ctaIconName?: keyof typeof ICONS;
+  ctaIconName?: string;
 };
 
 export type CsvProjectGoalRow = {
@@ -171,7 +170,7 @@ export type CsvProjectExampleLinkRow = {
   hrefValue: string;
   variant: ButtonVariant;
   iconPre: 'TRUE' | 'FALSE';
-  iconName?: keyof typeof ICONS;
+  iconName?: string;
 };
 
 export type CsvLogoRow = {
@@ -180,7 +179,7 @@ export type CsvLogoRow = {
   hrefType: HrefType;
   hrefValue: string;
   iconPre: 'TRUE' | 'FALSE';
-  iconName?: keyof typeof ICONS;
+  iconName?: string;
 };
 
 export type CsvFooterDetailsRow = {
@@ -189,7 +188,7 @@ export type CsvFooterDetailsRow = {
   logoHrefType: HrefType;
   logoHrefValue: string;
   logoIconPre: 'TRUE' | 'FALSE';
-  logoIconName?: keyof typeof ICONS;
+  logoIconName?: string;
   description: string;
   email: string;
   emailLast: string;
@@ -206,5 +205,5 @@ export type CsvSocialSectionRow = {
   isFooter: 'TRUE' | 'FALSE';
   isMain: 'TRUE' | 'FALSE';
   iconPre: 'TRUE' | 'FALSE';
-  iconName?: keyof typeof ICONS;
+  iconName?: string;
 };

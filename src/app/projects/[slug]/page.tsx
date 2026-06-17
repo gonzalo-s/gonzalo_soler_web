@@ -29,7 +29,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
   const p = projectsRaw.find((p) => p.slug === slug);
   if (!p) notFound();
 
-  const project = parseProject(p, projectGoalsRaw, projectStackRaw, projectLinksRaw, highlightWords);
+  const project = await parseProject(p, projectGoalsRaw, projectStackRaw, projectLinksRaw, highlightWords);
 
   return <Project project={project} />;
 }

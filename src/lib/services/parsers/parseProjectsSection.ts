@@ -25,8 +25,8 @@ export default async function parseProjectsSection(): Promise<ProjectsSection> {
 
   const sectionRow = projectsSectionRaw[0];
 
-  const projects: Array<Project> = projectsRaw.map((p) =>
-    parseProject(p, projectGoalsRaw, projectStackRaw, projectLinksRaw, projectHighlightWords),
+  const projects: Array<Project> = await Promise.all(
+    projectsRaw.map((p) => parseProject(p, projectGoalsRaw, projectStackRaw, projectLinksRaw, projectHighlightWords)),
   );
 
   const section: ProjectsSection = {
