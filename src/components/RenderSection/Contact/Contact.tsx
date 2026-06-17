@@ -3,9 +3,20 @@
 import { Section, SectionType } from '@/types/sections';
 import styles from './contact.module.scss';
 import clsx from 'clsx';
-import { getId } from '@/components/utils/getHref';
+import { getId, isExternal } from '@/components/utils/getHref';
 import useSetEmail from '@/hooks/useSetEmail';
 import Button, { ButtonProps } from '@/components/Button/Button';
+import { toDriveDownloadUrl } from '@/components/utils/driveDownloadUrl';
+
+/** Turn the resume CTA into an in-place download (direct Drive link, same tab). */
+function toResumeDownload(resume: ButtonProps): ButtonProps {
+  if (!resume.href || !isExternal(resume.href)) return resume;
+  return {
+    ...resume,
+    download: true,
+    href: { external: toDriveDownloadUrl(resume.href.external) },
+  };
+}
 
 export type ContactSection = Section & {
   type: Extract<SectionType, 'Contact'>;
@@ -27,7 +38,7 @@ export default function Contact(props: ContactSection) {
         <a className={clsx('contact-email', styles.contact__wrapper__email)} href="#"></a>
         <div className={styles.contact__wrapper__cta}>
           <Button {...props.cta} />
-          {props.resume && <Button {...props.resume} />}
+          {props.resume && <Button {...toResumeDownload(props.resume)} />}
         </div>
       </div>
     </section>
