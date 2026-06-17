@@ -1,6 +1,7 @@
-import { Geist_Mono, Inter } from 'next/font/google';
+import { Geist_Mono, Inter, Space_Grotesk } from 'next/font/google';
 import Navigation from '@/components/Navigation/Navigation';
 import Footer from '@/components/Footer/Footer';
+import Aurora from '@/components/Aurora/Aurora';
 import './globals.scss';
 import styles from './layout.module.scss';
 import { Analytics } from '@vercel/analytics/react';
@@ -20,6 +21,11 @@ const geistMono = Geist_Mono({
 const interSans = Inter({
   variable: '--font-inter-sans',
   subsets: ['latin'],
+});
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
 });
 
 export default async function RootLayout({
@@ -55,10 +61,11 @@ export default async function RootLayout({
   }
 
   return (
-    <html lang="en">
-      <body className={`${interSans.variable} ${geistMono.variable}`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${interSans.variable} ${geistMono.variable} ${spaceGrotesk.variable}`}>
         <ThemeContextProvider>
           <div className={styles['page-wrapper']}>
+            <Aurora />
             <div className={styles.content}>
               {navigationLinkList.length > 0 && logo && <Navigation linkList={navigationLinkList} logo={logo} />}
               <main className={styles.main}>{children}</main>

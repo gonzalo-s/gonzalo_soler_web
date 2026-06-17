@@ -23,10 +23,7 @@ const eslintConfig = [
       // Use the TypeScript-aware version: the base `no-unused-vars` misfires on
       // type-signature parameter names. Underscore-prefixed args are ignored.
       'no-unused-vars': 'off',
-      '@typescript-eslint/no-unused-vars': [
-        'error',
-        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-      ],
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     },
   },
 ];

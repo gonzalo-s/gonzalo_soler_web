@@ -1,12 +1,60 @@
-@mixin appear-animation($duration: 0.5s, $easing: cubic-bezier(0.25, 0.1, 0.25, 1)) {
+// Scroll-reveal entrance — used by the IntersectionObserver-driven sections.
+// Declaration-only (the revealed `.visible` / `--visible` state is defined by
+// each consumer) so it never triggers Sass's mixed-declarations deprecation.
+@mixin appear-animation($duration: 0.7s, $easing: cubic-bezier(0.16, 1, 0.3, 1)) {
   opacity: 0;
-  transform: translateY(30px) scale(0.95);
+  transform: translateY(28px);
   transition:
     opacity $duration $easing,
     transform $duration $easing;
+}
 
-  &.visible {
-    opacity: 1;
-    transform: translateY(0) scale(1);
+// Slow drift for the ambient aurora glows behind the page.
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate3d(4%, -3%, 0) scale(1.08);
+  }
+
+  66% {
+    transform: translate3d(-3%, 4%, 0) scale(0.96);
+  }
+}
+
+// Infinite horizontal marquee for the tech strip.
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+// Gentle vertical float for hero accents.
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// Sliding sheen across the gradient footer wordmark.
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
   }
 }

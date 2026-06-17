@@ -1,29 +1,66 @@
+// ─────────────────────────────────────────────────────────────────────────
+// "Midnight Aurora" theme tokens.
+// Dark is the primary, signature experience: a near-black canvas lit by a
+// violet → cyan aurora. Light is a clean, high-contrast daylight counterpart.
+// Token NAMES are stable across both themes so components stay theme-agnostic.
+// ─────────────────────────────────────────────────────────────────────────
 $themes: (
   dark: (
-    background: #0b0b0b,
-    background-light: #151515,
-    foreground: #e0e0e0,
-    primary: #bbb,
-    highlight: #999,
-    secondary: #1a1a1a,
-    tertiary: #777,
-    quaternary: #555,
-    accent: #e0e0e0,
-    shadow-color: #00bcd4,
-    shadow-color-a: #00bcd44d,
+    background: #07070b,
+    background-light: #0e0e15,
+    surface: #14141d,
+    foreground: #eaeaf2,
+    primary: #c2c2d4,
+    highlight: #a78bfa,
+    secondary: #16161f,
+    tertiary: #8a8aa0,
+    quaternary: #272733,
+    accent: #f5f5fa,
+
+    // Brand identity — the aurora.
+    brand: #8b5cf6,
+    brand-2: #22d3ee,
+    brand-3: #f472b6,
+    brand-gradient: linear-gradient(120deg, #a78bfa 0%, #22d3ee 55%, #f472b6 100%),
+    brand-gradient-soft: linear-gradient(120deg, #8b5cf6, #22d3ee),
+    // Ambient glow.
+    shadow-color: #8b5cf6,
+    shadow-color-a: rgb(139 92 246 / 26%),
+    glow-a: rgb(34 211 238 / 20%),
+    glow-b: rgb(244 114 182 / 16%),
+    // Frosted glass.
+    glass-bg: rgb(255 255 255 / 4%),
+    glass-bg-strong: rgb(18 18 27 / 90%),
+    glass-border: rgb(255 255 255 / 10%),
+    glass-highlight: rgb(255 255 255 / 12%),
+    glass-shadow-color: rgb(0 0 0 / 55%),
   ),
   light: (
-    background: #e6f0ff,
-    background-light: #f2f7ff,
-    foreground: #000,
-    primary: #2c3e50,
-    highlight: #607d8b,
-    secondary: #dfe6e9,
-    tertiary: #546e7a,
-    quaternary: #b0bec5,
-    accent: #2c3e50,
-    shadow-color: #2196f3,
-    shadow-color-a: #2196f34d,
+    background: #f3f4fb,
+    background-light: #fbfbfe,
+    surface: #fff,
+    foreground: #0b0b12,
+    primary: #3a3a4a,
+    highlight: #6d28d9,
+    secondary: #ededf4,
+    tertiary: #5a5a6e,
+    quaternary: #dadae6,
+    accent: #0b0b12,
+
+    brand: #7c3aed,
+    brand-2: #0891b2,
+    brand-3: #db2777,
+    brand-gradient: linear-gradient(120deg, #7c3aed 0%, #0891b2 55%, #db2777 100%),
+    brand-gradient-soft: linear-gradient(120deg, #7c3aed, #0891b2),
+    shadow-color: #7c3aed,
+    shadow-color-a: rgb(124 58 237 / 16%),
+    glow-a: rgb(8 145 178 / 14%),
+    glow-b: rgb(219 39 119 / 12%),
+    glass-bg: rgb(255 255 255 / 55%),
+    glass-bg-strong: rgb(255 255 255 / 80%),
+    glass-border: rgb(255 255 255 / 85%),
+    glass-highlight: rgb(255 255 255 / 95%),
+    glass-shadow-color: rgb(40 30 90 / 14%),
   ),
 );
 

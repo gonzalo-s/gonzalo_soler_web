@@ -5,6 +5,7 @@ import Button, { ButtonProps } from '../Button/Button';
 import styles from './footer.module.scss';
 import clsx from 'clsx';
 import useSetEmail from '@/hooks/useSetEmail';
+import { useParallax } from '@/hooks/useParallax';
 
 export type FooterProps = {
   linkList: Sections;
@@ -17,6 +18,7 @@ export type FooterProps = {
 
 function Footer(props: FooterProps) {
   useSetEmail(props.details.email, 'footer-email');
+  const wordmarkRef = useParallax<HTMLSpanElement>(0.08);
 
   return (
     <footer className={styles.footer}>
@@ -39,7 +41,9 @@ function Footer(props: FooterProps) {
         </nav>
       </div>
       <div className={clsx(styles.footer__bottom, styles['footer__bottom__border-gradient'])}>
-        <span className={styles['footer__bottom__border-gradient__text']}>gonzalo soler</span>
+        <span ref={wordmarkRef} className={styles['footer__bottom__border-gradient__text']}>
+          gonzalo soler
+        </span>
       </div>
     </footer>
   );

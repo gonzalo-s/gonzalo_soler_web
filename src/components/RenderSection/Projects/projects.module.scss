@@ -1,24 +1,6 @@
 @use '../../../styles/variables.scss' as *;
 @use '../../../styles/mixins.scss' as *;
 
-@mixin hover-effect {
-  box-shadow: 0 0 5rem var(--shadow-color-a);
-
-  & {
-    .card__content__overlay {
-      opacity: 0.8;
-    }
-
-    .card__content__stack {
-      opacity: 1;
-    }
-
-    .card__content__image {
-      filter: grayscale(100%);
-    }
-  }
-}
-
 .projects-wrapper {
   @include section-base;
 
@@ -26,25 +8,40 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  text-align: center;
+  gap: 3rem;
 
-  &__title {
-    @include primary-title;
-  }
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
 
-  &__stack {
-    font-size: 1.5rem;
-    color: var(--secondary);
+    &__eyebrow {
+      @include eyebrow;
+    }
+
+    &__title {
+      @include primary-title;
+    }
   }
 
   &__cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 5rem;
-    padding: 1rem;
+    @include reset-list;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    width: 100%;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
   }
 }
 
@@ -52,107 +49,138 @@
   @include reset-list;
 
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 2rem;
-  background-color: transparent;
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity $dur-slow $ease-out,
+    transform $dur-slow $ease-out;
+  transition-delay: calc(var(--i, 0) * 90ms);
+
+  // Staggered reveal — cards lift and fade in one after another once the grid
+  // scrolls into view (delay driven by the inline --i index).
+  &--visible {
+    opacity: 1;
+    transform: none;
+  }
 
   &__content {
+    @include glass-surface($border-radius-2);
+
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
     position: relative;
-    gap: 2rem;
-    padding: 1rem;
-    border-radius: $border-radius-1;
-    background-color: var(--background-light);
-    box-shadow: 0 0 1rem rgba(var(--primary), 0.1);
-    width: 20rem;
-    height: 20rem;
-    transition: box-shadow 0.3s ease-in-out;
+    width: 100%;
     overflow: hidden;
+    transition:
+      transform $dur $ease-out,
+      box-shadow $dur $ease-out,
+      border-color $dur $ease-out;
 
-    &__overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
+    &__media {
+      position: relative;
       width: 100%;
-      height: 100%;
-      background-color: var(--background);
-      opacity: 0;
-      transition: opacity 0.3s ease-in-out;
-      z-index: 1;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+
+      &__image {
+        object-fit: cover;
+        filter: grayscale(60%) brightness(0.85);
+        transform: scale(1.02);
+        transition:
+          filter $dur-slow $ease-out,
+          transform $dur-slow $ease-out;
+      }
+
+      &__scrim {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, var(--background) 2%, transparent 55%);
+      }
+
+      &__stack {
+        @include reset-list;
+
+        position: absolute;
+        inset: auto 1rem 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        opacity: 0;
+        transform: translateY(8px);
+        transition:
+          opacity $dur $ease-out,
+          transform $dur $ease-out;
+
+        &__chip {
+          @include glass-surface-strong($radius-pill);
+
+          padding: 0.35rem 0.7rem;
+          font-size: 0.8rem;
+        }
+      }
     }
 
-    &__stack {
-      @include reset-list;
-      @include mask-image-vertical;
-
+    &__meta {
       display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
       align-items: flex-start;
+      justify-content: space-between;
       gap: 1rem;
-      opacity: 0;
-      font-size: 1rem;
-      color: var(--accent);
-      z-index: 2;
-      transition: opacity 0.3s ease-in-out;
-      width: 100%;
-      height: 100%;
+      padding: 1.5rem;
 
-      &:hover {
-        overflow-y: scroll;
-        scroll-behavior: smooth;
-        scrollbar-width: thin;
-        scrollbar-color: var(--accent) var(--quaternary);
-        height: 100%;
+      &__title {
+        @include display-font;
+
+        font-size: 1.5rem;
+        color: var(--accent);
+        margin-bottom: 0.35rem;
+      }
+
+      &__desc {
+        color: var(--tertiary);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+
+      &__arrow {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 2.75rem;
+        height: 2.75rem;
+        border-radius: 50%;
+        color: var(--accent);
+        background-color: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        transition:
+          background-color $dur $ease-out,
+          color $dur $ease-out,
+          transform $dur $ease-out;
       }
     }
 
-    &__image {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      filter: grayscale(0%);
-      transition: filter 0.3s ease-in-out;
-    }
+    &:hover,
+    &:focus-visible {
+      transform: translateY(-6px);
+      border-color: var(--brand);
+      box-shadow:
+        0 20px 50px var(--glass-shadow-color),
+        0 0 40px var(--shadow-color-a);
 
-    &:hover {
-      @include desktop {
-        @include hover-effect;
+      .card__content__media__image {
+        filter: grayscale(0%) brightness(1);
+        transform: scale(1.06);
       }
 
-      @include tablet {
-        @include hover-effect;
-      }
-    }
-  }
-
-  &__title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary);
-    z-index: 1;
-  }
-
-  &:focus-within {
-    outline: 2px solid var(--primary);
-    outline-offset: 1rem;
-    border-radius: $border-radius-1;
-
-    & .card__content {
-      @include desktop {
-        @include hover-effect;
+      .card__content__media__stack {
+        opacity: 1;
+        transform: translateY(0);
       }
 
-      @include tablet {
-        @include hover-effect;
+      .card__content__meta__arrow {
+        background-image: var(--brand-gradient-soft);
+        color: #fff;
+        transform: rotate(0deg) scale(1.05);
       }
     }
   }

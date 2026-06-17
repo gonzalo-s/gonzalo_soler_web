@@ -8,29 +8,64 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
   text-align: center;
+
+  // Inner glass panel with an aurora glow.
+  @include glass-surface($border-radius-2);
+
+  position: relative;
+  gap: 1.5rem;
+
+  // Override section-base padding for the contained glass panel, and add
+  // outer breathing room so it doesn't slam into neighbouring sections.
+  padding: 4rem 1.5rem;
+  margin: 3rem 0 5rem;
+  overflow: hidden;
+
+  @include tablet {
+    padding: 5rem 3rem;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -40% 20% auto;
+    height: 60%;
+    background: radial-gradient(circle, var(--shadow-color-a), transparent 70%);
+    filter: blur(40px);
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   &__title {
     @include primary-title;
+    @include text-gradient;
   }
 
   &__wrapper {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
-    width: 50%;
+    gap: 1.5rem;
+    width: 100%;
 
     &__email {
+      @include eyebrow;
+
       color: var(--primary);
-      min-width: 10ch;
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+      text-transform: none;
       min-height: 1.25rem;
-      text-align: center;
+      transition: color $dur $ease-out;
 
       &:hover {
-        color: var(--accent);
+        color: var(--brand);
       }
     }
   }
