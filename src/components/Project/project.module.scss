@@ -69,14 +69,15 @@
       position: relative;
       width: 80vw;
       max-width: 38rem;
-      aspect-ratio: 16 / 10;
       margin-top: 1rem;
       border-radius: $border-radius-2;
       overflow: hidden;
       border: 1px solid var(--glass-border);
 
       img {
-        object-fit: cover;
+        display: block;
+        width: 100%;
+        height: auto;
         filter: drop-shadow(0 0 2rem var(--shadow-color-a));
         transform: scale(1);
         transition: transform $dur-slow $ease-out;

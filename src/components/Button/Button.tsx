@@ -8,6 +8,7 @@ import { isExternal } from '@/components/utils/getHref';
 import Link from 'next/link';
 import styles from './button.module.scss';
 import { usePathname } from 'next/navigation';
+import { smoothScrollTo } from '@/components/utils/smoothScroll';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'accent';
 export type InternalHref = { internal: string };
@@ -28,29 +29,6 @@ export type ButtonProps = {
 
 function Button(props: ButtonProps) {
   const pathname = usePathname();
-
-  function smoothScrollTo(targetElement: HTMLElement) {
-    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-    const startPosition = window.pageYOffset;
-    const distance = targetPosition - startPosition;
-    const duration = 500; // Duration in milliseconds
-    let startTime: number | null = null;
-
-    function animation(currentTime: number) {
-      if (startTime === null) startTime = currentTime;
-      const timeElapsed = currentTime - startTime;
-      const run = easeOutQuad(timeElapsed, startPosition, distance, duration);
-      window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
-    }
-
-    function easeOutQuad(elapsedTime: number, startValue: number, changeInValue: number, duration: number) {
-      const time = elapsedTime / duration;
-      return -changeInValue * time * (time - 2) + startValue;
-    }
-
-    requestAnimationFrame(animation);
-  }
 
   function handleInternalClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
     if (props?.href && !isExternal(props.href)) {

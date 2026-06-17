@@ -1,4 +1,5 @@
 import RenderSection from '@/components/RenderSection/RenderSection';
+import HashScrollHandler from '@/components/utils/HashScrollHandler';
 import { loadAllSections } from '@/lib/services/loadAllSections';
 
 export default async function Home() {
@@ -8,6 +9,7 @@ export default async function Home() {
 
   return (
     <>
+      <HashScrollHandler />
       {mainSectionsFromGoogleSheet.map((section) => {
         return <RenderSection {...section} key={section.title} />;
       })}
