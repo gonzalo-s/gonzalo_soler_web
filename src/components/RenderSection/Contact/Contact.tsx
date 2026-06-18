@@ -7,6 +7,7 @@ import { getId, isExternal } from '@/components/utils/getHref';
 import useSetEmail from '@/hooks/useSetEmail';
 import Button, { ButtonProps } from '@/components/Button/Button';
 import { toDriveDownloadUrl } from '@/components/utils/driveDownloadUrl';
+import AudioPlayer from './AudioPlayer';
 
 /** Turn the resume CTA into an in-place download (direct Drive link, same tab). */
 function toResumeDownload(resume: ButtonProps): ButtonProps {
@@ -29,6 +30,7 @@ export type ContactSection = Section & {
   email: Array<string>;
   cta: ButtonProps;
   resume?: ButtonProps;
+  spokenResume?: { url: string; title: string; caption?: string };
   description?: string;
 };
 
@@ -45,6 +47,7 @@ export default function Contact(props: ContactSection) {
           <Button {...props.cta} />
           {props.resume && <Button {...toResumeDownload(props.resume)} />}
         </div>
+        {props.spokenResume && <AudioPlayer {...props.spokenResume} />}
       </div>
     </section>
   );

@@ -37,20 +37,14 @@
     }
 
     &__item {
-      @include glass-surface($radius-pill);
-
       flex: 0 0 auto;
       white-space: nowrap;
       padding: 0.6rem 1.1rem;
-      transition:
-        transform $dur $ease-out,
-        box-shadow $dur $ease-out,
-        border-color $dur $ease-out;
+      background-color: transparent;
+      transition: transform $dur $ease-out;
 
       &:hover {
         transform: translateY(-3px);
-        border-color: var(--brand);
-        box-shadow: 0 6px 22px var(--shadow-color-a);
       }
     }
   }

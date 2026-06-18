@@ -41,6 +41,11 @@ export default async function parseContactSection(): Promise<ContactSection> {
           icon: await buildIcon(row.resumeIconName, row.resumeIconPre),
         }
       : undefined,
+    spokenResume: {
+      url: row.spokenResumeUrl || '/Gonzalo_Soler.m4a',
+      title: row.spokenResumeTitle ?? 'Listen to my spoken Resume',
+      caption: row.spokenResumeCaption || undefined,
+    },
   };
 
   return section;

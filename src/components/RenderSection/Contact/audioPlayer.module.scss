@@ -1,0 +1,133 @@
+@use '@/styles/variables.scss' as *;
+@use '@/styles/mixins.scss' as *;
+
+.player {
+  // Same frosted-glass treatment as the floating nav pill, a touch more transparent.
+  @include glass-surface-strong($border-radius-1);
+
+  background-color: color-mix(in srgb, var(--glass-bg-strong) 80%, transparent);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  width: 100%;
+  max-width: 20rem;
+  padding: 0.85rem 0.95rem;
+  text-align: center;
+
+  &__head {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  &__title {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.8rem;
+  }
+
+  &__caption {
+    color: var(--tertiary);
+    font-size: 0.72rem;
+  }
+
+  &__wave {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    width: 100%;
+    height: 2rem;
+
+    &:focus-within {
+      outline: 2px solid var(--brand);
+      outline-offset: 4px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__bar {
+    flex: 1;
+    min-width: 0;
+    max-width: 4px;
+    min-height: 2px;
+    border-radius: $radius-pill;
+    background-color: var(--quaternary);
+    transition: background-color $dur-fast linear;
+
+    &--played {
+      background-color: var(--brand);
+    }
+
+    // Hover seek-preview: start → cursor, between played and unplayed.
+    &--preview {
+      background-color: color-mix(in srgb, var(--brand) 50%, var(--quaternary));
+    }
+  }
+
+  // Invisible native range overlay — keyboard + pointer seeking and screen-reader
+  // value, while the decorative bars above convey progress visually.
+  &__seek {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: var(--tertiary);
+    font-size: 0.72rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  &__button {
+    @include button-reset;
+
+    // Small icon, generous 44px invisible hit area for touch a11y.
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    background-color: transparent;
+    color: var(--primary);
+    transition: color $dur $ease-out;
+
+    &:hover {
+      color: var(--brand);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: -0.5rem;
+      border-radius: $radius-sm;
+    }
+
+    span {
+      display: inline-flex;
+    }
+
+    svg {
+      display: block;
+      width: 0.95rem;
+      height: 0.95rem;
+    }
+  }
+}

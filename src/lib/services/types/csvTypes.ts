@@ -46,6 +46,9 @@ export type CsvContactSectionRow = {
   resumeVariant?: ButtonVariant;
   resumeIconPre?: 'TRUE' | 'FALSE';
   resumeIconName?: string;
+  spokenResumeUrl?: string;
+  spokenResumeTitle?: string;
+  spokenResumeCaption?: string;
 };
 
 export type CsvExperienceSectionRow = {
