@@ -1,3 +1,5 @@
+[![AI Ready](https://img.shields.io/badge/AI--Ready-yes-brightgreen?style=flat)](https://github.com/johnpapa/ai-ready)
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
@@ -88,3 +90,12 @@ This project uses **Google Sheets as a headless CMS** to manage all site content
 ---
 
 For more details, see the code in `src/lib/services/parsers/`, `src/lib/services/types/csvTypes.ts`, and `src/types/sections.ts`.
+
+## Contributing
+
+1. Create a branch from `main`.
+2. Make the smallest scoped change, including the matching content types, parser, and registration files when changing a content-backed section.
+3. Run `npm run lint`, `npm run typecheck`, and `npm run build`.
+4. Open a pull request describing the change and its Google Sheets/content-model impact.
+
+See [AGENTS.md](./AGENTS.md) for project conventions and the full maintenance matrix.
