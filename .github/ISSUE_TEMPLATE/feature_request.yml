@@ -1,0 +1,22 @@
+name: Feature request
+description: Suggest an improvement to the portfolio or its content workflow.
+title: '[Feature]: '
+labels: ['enhancement']
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: content
+    attributes:
+      label: Google Sheets or content-model impact
+      description: List any rows, fields, or section types that would need to change.
