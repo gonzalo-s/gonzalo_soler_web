@@ -10,6 +10,7 @@ export type StackIconName =
   | 'css3'
   | 'sass'
   | 'jest'
+  | 'contentful'
   | 'contentstack'
   | 'algolia'
   | 'commercetools'
@@ -17,6 +18,8 @@ export type StackIconName =
   | 'ai'
   | 'github'
   | 'bitbucket'
+  | 'figma'
+  | 'jira'
   | 'vercel';
 
 export type Size = 'small' | 'medium' | 'large';
