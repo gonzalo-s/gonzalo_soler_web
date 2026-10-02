@@ -1,113 +1,87 @@
-@use '@/styles/variables.scss' as *;
 @use '@/styles/mixins.scss' as *;
-@use '@/styles/animations.scss' as *;
-
-@mixin section-gap {
-  gap: 1.5rem;
-}
-
-@mixin section-padding {
-  padding: 1rem 0;
-
-  @include desktop {
-    padding: 1.5rem 0;
-  }
-}
 
 .project-page {
-  @include section-base;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 3rem;
-  max-width: 70ch;
+  width: min(100%, 62rem);
   margin: 0 auto;
-
+  padding: clamp(3rem, 6vw, 6rem) 0 6rem;
   &__heading {
-    @include display-font;
-
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    color: var(--accent);
-
-    &__icon {
-      display: inline-flex;
-      font-size: 0.8em;
-      color: var(--brand);
-    }
+    gap: 0.7rem;
+    font-size: clamp(1.6rem, 3vw, 2.3rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
   }
-
+  &__heading__icon {
+    display: grid;
+    place-items: center;
+    width: 2.7rem;
+    height: 2.7rem;
+    flex: 0 0 2.7rem;
+    color: var(--brick-ink);
+    background: var(--brick-yellow);
+    border: 2px solid var(--brick-ink);
+    border-radius: 4px;
+    font-size: 1.1rem;
+  }
+  &__studs {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    --stud-color: var(--brick-blue);
+  }
   &__header {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-
-    @include section-gap;
-    @include appear-animation;
-    @include section-padding;
-
+    align-items: flex-start;
+    gap: 1.2rem;
     h1 {
-      @include display-font;
-      @include text-gradient;
-
-      font-size: clamp(2.5rem, 9vw, 4.5rem);
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 700;
+      letter-spacing: -0.075em;
+      line-height: 0.95;
     }
-
     &__short-description {
-      color: var(--primary);
-      font-size: clamp(1.1rem, 3vw, 1.4rem);
       max-width: 50ch;
+      color: var(--tertiary);
+      font-size: clamp(1.15rem, 2vw, 1.5rem);
     }
-
     &__image {
       position: relative;
-      width: 80vw;
-      max-width: 38rem;
+      width: 100%;
       margin-top: 1rem;
-      border-radius: $border-radius-2;
-      overflow: hidden;
-      border: 1px solid var(--glass-border);
-
+      padding: 1.2rem 0.7rem 0.7rem;
+      background: var(--brick-blue);
+      border: 3px solid var(--brick-ink);
+      border-radius: 7px;
+      box-shadow: 9px 9px 0 var(--brick-shadow);
       img {
         display: block;
         width: 100%;
         height: auto;
-        filter: drop-shadow(0 0 2rem var(--shadow-color-a));
-        transform: scale(1);
-        transition: transform $dur-slow $ease-out;
-
-        &:hover {
-          transform: scale(1.04);
-        }
       }
     }
   }
-
   &__tech_list {
     @include reset-list;
-
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-
-    &__item {
-      @include glass-surface($radius-pill);
-
-      display: flex;
-      padding: 0.4rem 0.9rem;
-      font-size: 0.85rem;
-      color: var(--primary);
-    }
+    gap: 0.6rem;
   }
-
+  &__tech_list__item {
+    padding: 0.4rem 0.7rem;
+    background: var(--surface);
+    border: 2px solid var(--brick-ink);
+    border-radius: 4px;
+    box-shadow: 3px 3px 0 var(--brick-shadow);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
   &__overview,
   &__stack,
   &__goals,
@@ -115,72 +89,41 @@
   &__example-links {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 1.2rem;
     width: 100%;
-
-    @include section-gap;
-    @include appear-animation;
-    @include section-padding;
+    padding: 2rem 0 0;
+    border-top: 2px solid var(--brick-ink);
   }
-
   &__overview__description,
   &__goalsDetails__description {
+    max-width: 70ch;
     color: var(--primary);
     font-size: 1.1rem;
     line-height: 1.7;
   }
-
-  &__stack {
-    section {
-      padding: 1rem 0 0;
-      width: 100%;
-    }
-  }
-
   &__goals__list {
     @include reset-list;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    width: 100%;
-
-    &__item {
-      position: relative;
-      padding-left: 1.75rem;
-      color: var(--primary);
-      font-size: 1.05rem;
-      line-height: 1.6;
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0.6rem;
-        left: 0;
-        width: 0.55rem;
-        height: 0.55rem;
-        border-radius: 50%;
-        background-image: var(--brand-gradient-soft);
-      }
-    }
+    display: grid;
+    gap: 0.8rem;
   }
-
+  &__goals__list__item {
+    padding: 1rem 1.25rem;
+    background: var(--surface);
+    border-left: 0.6rem solid var(--brick-green);
+    border-radius: 4px;
+    line-height: 1.5;
+  }
   &__example-links__list {
     @include reset-list;
-
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
     gap: 1rem;
   }
 }
-
 .visible {
   opacity: 1;
-  transform: translateY(0);
 }
-
 .highlight {
-  @include highlight;
+  color: var(--brick-red);
+  font-weight: 700;
 }

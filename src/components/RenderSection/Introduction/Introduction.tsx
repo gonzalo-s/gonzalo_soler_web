@@ -6,6 +6,7 @@ import { getId } from '@/components/utils/getHref';
 import Image from 'next/image';
 import Button, { ButtonProps } from '@/components/Button/Button';
 import { useParallax } from '@/hooks/useParallax';
+import BrickStuds from '@/components/BrickStuds/BrickStuds';
 
 export type IntroductionSection = Section & {
   type: Extract<SectionType, 'Introduction'>;
@@ -29,9 +30,16 @@ function Introduction(props: IntroductionSection) {
     <section className={styles.introduction} id={getId(props.href)}>
       {props.image && (
         <div ref={avatarRef} className={styles.introduction__avatar}>
+          <BrickStuds className={styles.introduction__studs} />
           <Image alt={props.image.alt || ''} src={props.image.src} fill priority />
         </div>
       )}
+
+      <div className={styles.introduction__build} aria-hidden="true">
+        <span className={styles.introduction__build__blue} />
+        <span className={styles.introduction__build__red} />
+        <span className={styles.introduction__build__green} />
+      </div>
 
       <h1 className={styles['introduction__text-wrapper']}>
         {props.description?.highlightText && (

@@ -1,116 +1,101 @@
-@use '@/styles/variables.scss' as *;
 @use '@/styles/mixins.scss' as *;
 
 .experience {
-  @include section-base;
-
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-
+  gap: 2.5rem;
+  padding: clamp(4rem, 8vw, 7rem) clamp(0.5rem, 2vw, 2rem);
+  border-top: 3px solid var(--brick-ink);
+  scroll-margin-top: 6rem;
   &__title {
     display: flex;
-    gap: 1rem;
     align-items: center;
-    justify-content: center;
-    width: 100%;
-
-    @include primary-title;
-
+    gap: 1rem;
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 700;
+    letter-spacing: -0.07em;
+    line-height: 1;
     &__icon {
-      display: inline-flex;
-      font-size: 0.6em;
-      color: var(--brand);
+      display: grid;
+      place-items: center;
+      width: 3.5rem;
+      height: 3.5rem;
+      flex: 0 0 3.5rem;
+      color: var(--brick-ink);
+      background: var(--brick-yellow);
+      border: 2px solid var(--brick-ink);
+      border-radius: 5px;
+      font-size: 1.5rem;
+      box-shadow: 4px 4px 0 var(--brick-shadow);
     }
+  }
+  &__studs {
+    position: absolute;
+    z-index: 1;
+    // The card's thick top border sits above its padding box.
+    top: calc(1px - 0.85rem);
+    left: 0;
+    right: 0;
   }
 
   &__list {
     @include reset-list;
-
-    display: flex;
-    flex-direction: column;
-    position: relative;
-
-    // The timeline spine.
-    padding-left: 1.5rem;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0.5rem;
-      bottom: 0.5rem;
-      left: 0;
-      width: 2px;
-      background: linear-gradient(to bottom, var(--brand), var(--brand-2), transparent);
-    }
-
+    display: grid;
+    gap: 2.2rem;
     &__item {
-      display: flex;
-      gap: 1.5rem 3rem;
-      padding: 1.75rem 0;
-      justify-content: space-between;
       position: relative;
-      border-bottom: 1px solid var(--quaternary);
-
-      &:last-child {
-        border-bottom: 0;
+      display: grid;
+      --stud-color: var(--brick-blue);
+      grid-template-columns: minmax(13rem, 0.75fr) 1.25fr;
+      gap: 2rem;
+      padding: clamp(1.5rem, 3vw, 2.5rem);
+      background: var(--surface);
+      background: color-mix(in srgb, var(--stud-color) var(--brick-body-tint), var(--surface));
+      border: 2px solid var(--brick-ink);
+      border-left: 1rem solid var(--stud-color);
+      border-top: 0.85rem solid var(--stud-color);
+      border-radius: 6px;
+      box-shadow: 6px 6px 0 var(--brick-shadow);
+      &:nth-child(3n + 2) {
+        --stud-color: var(--brick-green);
       }
-
-      // Node on the spine.
-      &::before {
-        content: '';
-        position: absolute;
-        top: 2.25rem;
-        left: calc(-1.5rem - 5px);
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        background-color: var(--brand);
-        box-shadow: 0 0 12px var(--shadow-color-a);
-        border: 2px solid var(--background);
+      &:nth-child(3n + 3) {
+        --stud-color: var(--brick-red);
       }
-
-      @include tablet {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
-      @include mobile {
-        flex-direction: column;
-        gap: 0.75rem;
-      }
-
       &__left {
         display: flex;
         flex-direction: column;
-        gap: 0.35rem;
-        width: 100%;
+        gap: 0.3rem;
       }
-
       &__company {
-        @include display-font;
-
-        font-size: 1.4rem;
-        color: var(--accent);
+        font-size: 1.45rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
       }
-
       &__position {
         color: var(--primary);
-        font-weight: 500;
+        font-weight: 600;
       }
-
       &__duration {
-        @include eyebrow;
-
-        font-size: 0.72rem;
         color: var(--tertiary);
+        font-size: 0.9rem;
       }
-
       &__right {
-        width: 100%;
         color: var(--primary);
-        line-height: 1.7;
+        line-height: 1.6;
       }
     }
+  }
+}
+@media (max-width: 760px) {
+  .experience__list__item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .experience__title__icon {
+    width: 2.8rem;
+    height: 2.8rem;
+    flex-basis: 2.8rem;
+    font-size: 1.25rem;
   }
 }

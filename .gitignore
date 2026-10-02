@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+/.next-dev/
 /out/
 
 # production
@@ -49,3 +50,6 @@ dist/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Local visual references; never commit these example images.
+/examples/

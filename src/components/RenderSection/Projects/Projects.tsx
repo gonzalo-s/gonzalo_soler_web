@@ -12,6 +12,7 @@ import { ICONS } from '@/constants/icons';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { useTilt } from '@/hooks/useTilt';
 import type { CSSProperties } from 'react';
+import BrickStuds from '@/components/BrickStuds/BrickStuds';
 
 export type Project = {
   title: string;
@@ -70,6 +71,7 @@ function Card(props: ProjectsSection['projects'][0] & { index: number; visible: 
         href={getHref(props.cta?.href)}
         aria-label={`View project: ${props.title}`}
       >
+        <BrickStuds className={styles.card__studs} />
         <div className={styles.card__content__media}>
           <Image src={props.image.src} alt={props.image.alt} className={styles.card__content__media__image} fill />
           <span className={styles.card__content__media__scrim} aria-hidden="true" />

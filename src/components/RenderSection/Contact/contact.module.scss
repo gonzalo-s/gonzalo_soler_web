@@ -1,79 +1,72 @@
-@use '@/styles/variables.scss' as *;
-@use '@/styles/mixins.scss' as *;
-
 .contact {
-  @include section-base;
-
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-
-  // Inner glass panel with an aurora glow.
-  @include glass-surface($border-radius-2);
-
-  position: relative;
   gap: 1.5rem;
-
-  // Override section-base padding for the contained glass panel, and add
-  // outer breathing room so it doesn't slam into neighbouring sections.
-  padding: 4rem 1.5rem;
-  margin: 3rem 0 5rem;
-  overflow: hidden;
-
-  @include tablet {
-    padding: 5rem 3rem;
-  }
-
-  &::before {
-    content: '';
+  margin: 4rem 0 6rem;
+  padding: clamp(3rem, 7vw, 6rem) 1.5rem;
+  color: var(--brick-ink);
+  text-align: center;
+  background: var(--brick-yellow);
+  border: 3px solid var(--brick-ink);
+  border-radius: 9px;
+  box-shadow: 10px 10px 0 var(--brick-shadow);
+  scroll-margin-top: 7rem;
+  &__studs {
     position: absolute;
-    inset: -40% 20% auto;
-    height: 60%;
-    background: radial-gradient(circle, var(--shadow-color-a), transparent 70%);
-    filter: blur(40px);
-    pointer-events: none;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    --stud-color: var(--brick-yellow);
   }
-
-  > * {
-    position: relative;
-    z-index: 1;
-  }
-
   &__title {
-    @include primary-title;
-    @include text-gradient;
+    max-width: 15ch;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 700;
+    letter-spacing: -0.075em;
+    line-height: 1;
   }
-
+  > p {
+    max-width: 55ch;
+    font-size: 1.1rem;
+  }
   &__wrapper {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     gap: 1.5rem;
     width: 100%;
-
     &__email {
-      @include eyebrow;
-
-      color: var(--primary);
-      font-size: 0.95rem;
-      letter-spacing: 0.05em;
-      text-transform: none;
-      min-height: 1.25rem;
-      transition: color $dur $ease-out;
-
-      &:hover {
-        color: var(--brand);
-      }
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      overflow-wrap: anywhere;
     }
-
     &__cta {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 1rem;
     }
   }
+}
+
+.contact__wrapper__cta a {
+  min-height: 2.8rem;
+  padding: 0.6rem 1rem;
+  background: var(--surface);
+  border: 2px solid var(--brick-ink);
+  border-radius: 5px;
+  box-shadow: 3px 3px 0 var(--brick-shadow);
+  color: var(--brick-ink);
+}
+
+.contact__title__icon {
+  display: inline-block;
+  margin-left: 0.35em;
+  font-size: 0.68em;
+  vertical-align: 0.05em;
 }

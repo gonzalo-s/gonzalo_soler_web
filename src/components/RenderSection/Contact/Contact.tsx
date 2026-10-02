@@ -8,6 +8,8 @@ import useSetEmail from '@/hooks/useSetEmail';
 import Button, { ButtonProps } from '@/components/Button/Button';
 import { toDriveDownloadUrl } from '@/components/utils/driveDownloadUrl';
 import AudioPlayer from './AudioPlayer';
+import { ICONS } from '@/constants/icons';
+import BrickStuds from '@/components/BrickStuds/BrickStuds';
 
 /** Turn the resume CTA into an in-place download (direct Drive link, same tab). */
 function toResumeDownload(resume: ButtonProps): ButtonProps {
@@ -36,10 +38,19 @@ export type ContactSection = Section & {
 
 export default function Contact(props: ContactSection) {
   useSetEmail(props.email, 'contact-email');
+  const hasSpock = props.sectionTitle.includes('🖖');
 
   return (
     <section className={styles.contact} id={getId(props.href)}>
-      <h2 className={styles.contact__title}>{props.sectionTitle}</h2>
+      <BrickStuds className={styles.contact__studs} />
+      <h2 className={styles.contact__title} aria-label={props.sectionTitle}>
+        {hasSpock ? props.sectionTitle.replace('🖖', '').trim() : props.sectionTitle}
+        {hasSpock && (
+          <span className={styles.contact__title__icon} aria-hidden="true">
+            {ICONS.handSpock}
+          </span>
+        )}
+      </h2>
       {props?.description && <p>{props.description}</p>}
       <div className={styles.contact__wrapper}>
         <a className={clsx('contact-email', styles.contact__wrapper__email)} href="#"></a>

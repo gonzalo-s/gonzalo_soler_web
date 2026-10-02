@@ -22,8 +22,7 @@ export function ThemeContextProvider({ children }: { children: React.ReactNode }
     if (cookieTheme === 'light' || cookieTheme === 'dark') {
       setTheme(cookieTheme);
     } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setTheme(prefersDark ? 'dark' : 'light');
+      setTheme('light');
     }
   }, []);
 

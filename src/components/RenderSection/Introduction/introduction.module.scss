@@ -1,97 +1,133 @@
-@use '@/styles/variables.scss' as *;
 @use '@/styles/mixins.scss' as *;
-@use '@/styles/animations.scss' as *;
 
 .introduction {
-  @include section-base;
-
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.82fr);
+  grid-template-areas: 'headline avatar' 'cta avatar';
+  align-content: center;
   align-items: center;
-  gap: 2rem;
-  text-align: center;
-  min-height: calc(100dvh - 8rem);
+  column-gap: clamp(2rem, 6vw, 6rem);
+  min-height: min(43rem, calc(100dvh - 7rem));
+  padding: clamp(4rem, 8vw, 7rem) clamp(0.5rem, 2vw, 2rem);
+  scroll-margin-top: 6rem;
 
-  // Contain the image to the hero as it parallax-drifts (no bleed into the
-  // section below).
-  overflow: clip;
-
-  // Foreground image, sitting ABOVE the text in flow. z-index below the text
-  // so that, as it drifts down on scroll, it slips a bit behind the type.
   &__avatar {
+    grid-area: avatar;
     position: relative;
-    z-index: 0;
-    width: 50vw;
-    height: 50vw;
-
-    @include desktop {
-      width: 30vw;
-      height: 30vw;
-    }
+    z-index: 2;
+    justify-self: center;
+    width: min(100%, 29rem);
+    aspect-ratio: 1;
+    padding: 1.2rem;
+    background: var(--brick-yellow);
+    border: 3px solid var(--brick-ink);
+    border-radius: 13px;
+    box-shadow:
+      inset -0.6rem -0.5rem rgb(0 0 0 / 10%),
+      12px 12px 0 var(--brick-shadow);
 
     img {
       object-fit: cover;
-      filter: drop-shadow(0 0 1rem var(--shadow-color-a));
+      padding: 1.2rem;
+      border-radius: 17px;
     }
   }
 
-  &__eyebrow {
-    @include eyebrow;
+  &__studs {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    right: 0;
+    --stud-color: var(--brick-yellow);
+  }
 
+  &__build {
+    grid-area: avatar;
     position: relative;
     z-index: 1;
-
-    &__dot {
-      width: 0.5rem;
-      height: 0.5rem;
-      border-radius: 50%;
-      background-color: var(--brand-2);
-      box-shadow: 0 0 10px var(--brand-2);
+    justify-self: center;
+    align-self: end;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: min(100%, 29rem);
+    margin: 0 0 -4rem;
+    span {
+      display: block;
+      height: 2.4rem;
+      border: 2px solid var(--brick-ink);
+      border-radius: 5px;
+      box-shadow:
+        inset 0 0.35rem rgb(255 255 255 / 26%),
+        4px 4px 0 var(--brick-shadow);
+    }
+    &__blue {
+      grid-column: 1 / -1;
+      background: var(--brick-blue);
+    }
+    &__red {
+      background: var(--brick-red);
+    }
+    &__green {
+      background: var(--brick-green);
     }
   }
 
   &__text-wrapper {
-    @include display-font;
-
-    position: relative;
-    z-index: 1;
+    grid-area: headline;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    width: 100%;
-    font-size: clamp(2.8rem, 9vw, 6rem);
-
-    @include tablet {
-      width: 90%;
-    }
-
-    @include desktop {
-      width: 80%;
-    }
+    align-items: flex-start;
+    gap: 1rem;
+    max-width: 13ch;
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: clamp(3.5rem, 7vw, 7rem);
+    font-weight: 700;
+    letter-spacing: -0.075em;
+    line-height: 0.98;
 
     &__highlight {
-      @include text-gradient;
-
-      font-weight: 700;
-
-      // Slow shimmer that pans the aurora across the name.
-      background-size: 220% auto;
-      animation: gradient-pan 9s linear infinite;
+      color: var(--foreground);
     }
-
     &__text {
-      color: var(--primary);
+      max-width: 28ch;
+      color: var(--tertiary);
+      font-size: clamp(1.25rem, 2vw, 1.85rem);
       font-weight: 500;
-      font-size: clamp(1.4rem, 4vw, 2.2rem);
-      letter-spacing: -0.01em;
+      letter-spacing: -0.035em;
+      line-height: 1.25;
     }
   }
 
   &__cta {
-    position: relative;
-    z-index: 1;
-    margin-top: 1rem;
+    grid-area: cta;
+    align-self: start;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 760px) {
+  .introduction {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'avatar' 'headline' 'cta';
+    gap: 2rem;
+    min-height: auto;
+    padding: 5rem 0.5rem 5rem;
+
+    &__avatar {
+      width: min(72vw, 20rem);
+    }
+    &__build {
+      width: min(72vw, 20rem);
+      margin: 0 0 -3.5rem;
+    }
+    &__text-wrapper {
+      margin-top: 3.5rem;
+      font-size: clamp(3rem, 12vw, 5rem);
+    }
+    &__cta {
+      margin-top: 0;
+    }
   }
 }

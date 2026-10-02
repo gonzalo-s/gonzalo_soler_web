@@ -131,3 +131,25 @@
     }
   }
 }
+
+.player {
+  color: var(--brick-ink);
+  background: var(--surface);
+  border: 2px solid var(--brick-ink);
+  border-radius: 6px;
+  box-shadow: 5px 5px 0 var(--brick-shadow);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  &__title,
+  &__caption,
+  &__time,
+  &__button {
+    color: var(--brick-ink);
+  }
+  &__bar {
+    border-radius: 2px;
+  }
+  &__bar--played {
+    background: var(--brick-blue);
+  }
+}

@@ -1,64 +1,79 @@
-@use '@/styles/variables.scss' as *;
-@use '@/styles/mixins.scss' as *;
-
 .about-me {
-  @include section-base;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 2.5rem;
-  text-align: center;
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+  padding: clamp(4rem, 8vw, 7rem) clamp(0.5rem, 2vw, 2rem);
+  border-top: 3px solid var(--brick-ink);
+  scroll-margin-top: 6rem;
 
   &__text-wrapper {
-    @include display-font;
-
-    display: block;
-    width: 100%;
-    font-size: clamp(2rem, 6vw, 3.4rem);
-
-    @include desktop {
-      width: 80%;
+    position: relative;
+    font-size: clamp(2.8rem, 5vw, 5rem);
+    font-weight: 700;
+    letter-spacing: -0.07em;
+    line-height: 1.02;
+    &::before {
+      content: '';
+      display: block;
+      width: 5rem;
+      height: 1rem;
+      margin-bottom: 1.5rem;
+      background: var(--brick-red);
+      border: 2px solid var(--brick-ink);
+      border-radius: 4px;
+      box-shadow: 3px 3px 0 var(--brick-shadow);
     }
-
     &__highlight {
-      @include text-gradient;
-
-      font-weight: 700;
+      color: var(--foreground);
     }
-
     &__text {
-      color: var(--accent);
-      font-weight: 500;
+      color: var(--brick-blue);
     }
   }
 
+  &__studs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
   &__description {
+    --stud-color: var(--brick-red);
+    position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: space-between;
     gap: 1.5rem;
+    padding: clamp(1.5rem, 3vw, 3rem);
+    background: var(--surface);
+    background: color-mix(in srgb, var(--stud-color) var(--brick-body-tint), var(--surface));
+    border: 2px solid var(--brick-ink);
+    border-radius: 8px;
+    box-shadow: 8px 8px 0 var(--brick-shadow);
     color: var(--primary);
-    font-size: 1.2rem;
-    line-height: 1.7;
-    text-align: left;
-    width: 100%;
-    max-width: 65ch;
-
-    @include tablet {
-      font-size: 1.35rem;
+    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+    line-height: 1.55;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 0.9rem;
+      background: var(--stud-color);
+      border-bottom: 2px solid var(--brick-ink);
+      border-radius: 6px 6px 0 0;
     }
-
     &__highlight {
-      @include highlight;
-
-      font-size: inherit;
+      color: color-mix(in srgb, var(--stud-color) 65%, var(--primary));
+      font-weight: 700;
     }
+  }
+}
 
-    &__text {
-      color: var(--primary);
-    }
+@media (max-width: 760px) {
+  .about-me {
+    grid-template-columns: 1fr;
   }
 }

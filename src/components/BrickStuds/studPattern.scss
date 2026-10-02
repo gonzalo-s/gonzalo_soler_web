@@ -1,0 +1,44 @@
+// The row queries its own rendered width, so the brick's content still sets
+// the block size. Every tile contains one complete stud.
+@mixin stud-row {
+  container-type: inline-size;
+  pointer-events: none;
+}
+
+@mixin studs {
+  content: '';
+  position: absolute;
+  inset: auto 0 0;
+  display: block;
+  --lego-stud-count: 2;
+  height: clamp(0.5rem, calc(22cqw / var(--lego-stud-count)), 1.75rem);
+  pointer-events: none;
+  background-image:
+    linear-gradient(
+      to right,
+      transparent 0 calc(20% + var(--lego-border-width, 2px)),
+      var(--lego-stud-color, var(--lego-background, var(--stud-color, var(--brick-yellow)))) 0
+        calc(80% - var(--lego-border-width, 2px)),
+      transparent 0
+    ),
+    linear-gradient(to right, transparent 0 20%, var(--lego-border-color, var(--brick-ink)) 0 80%, transparent 0);
+  background-size:
+    calc(100% / var(--lego-stud-count)) calc(100% - var(--lego-border-width, 2px)),
+    calc(100% / var(--lego-stud-count)) 100%;
+  background-position:
+    left bottom,
+    left top;
+  background-repeat: repeat-x;
+
+  @container (min-width: 16rem) {
+    --lego-stud-count: 4;
+  }
+
+  @container (min-width: 32rem) {
+    --lego-stud-count: 6;
+  }
+
+  @container (min-width: 48rem) {
+    --lego-stud-count: 8;
+  }
+}

@@ -1,0 +1,97 @@
+.examples {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  width: min(100%, 54rem);
+  margin: 0 auto;
+  padding: 5rem 0 7rem;
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1;
+  }
+
+  > p {
+    max-width: 55ch;
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.paragraph {
+  width: fit-content;
+  max-width: 24rem;
+  line-height: 1.5;
+}
+
+.fullWidth {
+  width: 100%;
+  --lego-background: var(--brick-blue);
+  color: var(--surface);
+}
+
+.grow {
+  flex: 1;
+  min-width: 12rem;
+  --lego-background: var(--brick-green);
+}
+
+.responsive {
+  width: min(100%, 38rem);
+  --lego-background: var(--brick-red);
+  color: var(--surface);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .examples button {
+    transition: transform 0.15s;
+  }
+
+  .examples button:active {
+    transform: translate(2px, 2px);
+  }
+}
+
+.detailGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: start;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.avatarSlot {
+  width: min(100%, 20rem);
+}
+
+.aboutPreview,
+.contactPreview,
+.cardPreview {
+  width: 100%;
+}
+
+.cardPreview {
+  max-width: 34rem;
+}
+
+.previewLabel {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  color: var(--brick-ink);
+  font-weight: 700;
+}
+
+@media (max-width: 760px) {
+  .detailGrid {
+    grid-template-columns: 1fr;
+  }
+}
