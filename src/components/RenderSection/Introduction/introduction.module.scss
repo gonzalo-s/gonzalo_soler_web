@@ -136,7 +136,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .introduction__yellowBrick {
-    transform: none;
+    transform: translate3d(0, -10.694390715667312%, 0) rotate(-0.258164deg);
     will-change: auto;
   }
 }

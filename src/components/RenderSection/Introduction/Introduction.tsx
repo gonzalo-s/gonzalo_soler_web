@@ -33,8 +33,10 @@ function Introduction(props: IntroductionSection) {
       const distance = Math.min(section.offsetHeight * 0.55, 440);
       const progress = motionPreference.matches ? 1 : Math.min(1, Math.max(0, (window.scrollY - start) / distance));
 
-      art.style.setProperty('--yellow-lift', `${-17 * (1 - progress)}%`);
-      art.style.setProperty('--yellow-rotation', `${-2 * (1 - progress)}deg`);
+      const lift = progress === 1 ? '-10.694390715667312%' : `${-17 + 6.305609284332688 * progress}%`;
+      const rotation = progress === 1 ? '-0.258164deg' : `${-2 + 1.741836 * progress}deg`;
+      art.style.setProperty('--yellow-lift', lift);
+      art.style.setProperty('--yellow-rotation', rotation);
     };
 
     const schedule = () => {
