@@ -77,6 +77,14 @@ function Introduction(props: IntroductionSection) {
           priority
           sizes="(max-width: 900px) 70vw, 42vw"
         />
+        <Image
+          className={styles.introduction__blueStuds}
+          src="/images/lego-brick-blue.png"
+          alt=""
+          width={1254}
+          height={1254}
+          sizes="(max-width: 900px) 70vw, 42vw"
+        />
       </div>
       <div className={styles.introduction__content}>
         <span className={styles.introduction__rule} aria-hidden="true" />

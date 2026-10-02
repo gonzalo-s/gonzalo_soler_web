@@ -25,7 +25,8 @@
     }
   }
   &__blueBrick,
-  &__yellowBrick {
+  &__yellowBrick,
+  &__blueStuds {
     position: absolute;
     display: block;
     width: 65%;
@@ -36,6 +37,16 @@
     z-index: 1;
     left: 7%;
     bottom: 0;
+  }
+  &__blueStuds {
+    z-index: 3;
+    left: 7%;
+    bottom: 0;
+    // Only the two exposed stud caps pass in front of the yellow brick.
+    mask-image:
+      radial-gradient(ellipse 10.5% 8.5% at 22.5% 40%, #000 93%, transparent 100%),
+      radial-gradient(ellipse 10.5% 8.5% at 34.3% 53%, #000 93%, transparent 100%);
+    mask-composite: add;
   }
   &__yellowBrick {
     z-index: 2;
