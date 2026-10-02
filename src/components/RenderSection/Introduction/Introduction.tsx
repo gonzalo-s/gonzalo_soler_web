@@ -30,10 +30,10 @@ function Introduction(props: IntroductionSection) {
       frame = 0;
       const top = section.getBoundingClientRect().top + window.scrollY;
       const start = Math.max(0, top - 120);
-      const distance = Math.min(section.offsetHeight * 0.55, 440);
+      const distance = Math.min(section.offsetHeight * 0.4, 320);
       const progress = motionPreference.matches ? 1 : Math.min(1, Math.max(0, (window.scrollY - start) / distance));
 
-      const lift = progress === 1 ? '-10.694390715667312%' : `${-17 + 6.305609284332688 * progress}%`;
+      const lift = progress === 1 ? '-10.694390715667312%' : `${-30 + 19.305609284332688 * progress}%`;
       const rotation = progress === 1 ? '-0.258164deg' : `${-2 + 1.741836 * progress}deg`;
       art.style.setProperty('--yellow-lift', lift);
       art.style.setProperty('--yellow-rotation', rotation);
