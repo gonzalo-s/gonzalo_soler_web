@@ -5,7 +5,7 @@
 .switch {
   position: relative;
   display: block;
-  width: 3.4rem;
+  width: 3.5rem;
   height: 2rem;
 }
 .switch__input {
@@ -14,31 +14,31 @@
   margin: 0;
   cursor: pointer;
   appearance: none;
-  background: var(--brick-yellow);
-  border: 2px solid var(--brick-ink);
-  border-radius: 5px;
-  box-shadow: 3px 3px 0 var(--brick-shadow);
-  transition: background-color 0.2s;
+  background: var(--secondary);
+  border: 1px solid var(--rule);
+  border-radius: 2rem;
+  transition: background-color 0.25s;
   &::after {
     content: '';
     position: absolute;
-    top: 0.31rem;
-    left: 0.3rem;
-    width: 1.15rem;
-    height: 1.15rem;
-    background: var(--surface);
-    border: 2px solid var(--brick-ink);
-    border-radius: 3px;
-    transition: transform 0.2s;
+    top: 0.25rem;
+    left: 0.25rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: var(--foreground);
+    border-radius: 50%;
+    box-shadow: 0 2px 5px var(--shadow-color-a);
+    transition: transform 0.25s;
   }
   &:checked {
-    background: var(--brick-blue);
+    background: var(--brand);
   }
   &:checked::after {
-    transform: translateX(1.35rem);
+    transform: translateX(1.5rem);
+    background: var(--background);
   }
   &:focus-visible {
-    outline: 3px solid var(--brick-blue);
+    outline: 2px solid var(--brand);
     outline-offset: 4px;
   }
 }

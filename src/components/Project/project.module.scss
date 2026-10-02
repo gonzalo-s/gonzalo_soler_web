@@ -1,69 +1,63 @@
 @use '@/styles/mixins.scss' as *;
-
 .project-page {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  width: min(100%, 62rem);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  width: min(100%, 70rem);
   margin: 0 auto;
-  padding: clamp(3rem, 6vw, 6rem) 0 6rem;
+  padding: clamp(4rem, 7vw, 7rem) 0 7rem;
   &__heading {
     display: flex;
     align-items: center;
-    gap: 0.7rem;
-    font-size: clamp(1.6rem, 3vw, 2.3rem);
-    font-weight: 700;
-    letter-spacing: -0.04em;
+    gap: 0.75rem;
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 600;
+    letter-spacing: -0.05em;
   }
   &__heading__icon {
     display: grid;
     place-items: center;
-    width: 2.7rem;
-    height: 2.7rem;
-    flex: 0 0 2.7rem;
-    color: var(--brick-ink);
-    background: var(--brick-yellow);
-    border: 2px solid var(--brick-ink);
-    border-radius: 4px;
-    font-size: 1.1rem;
-  }
-  &__studs {
-    position: absolute;
-    z-index: 2;
-    top: 0;
-    left: 0;
-    right: 0;
-    --stud-color: var(--brick-blue);
+    flex: 0 0 2.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    color: var(--brand);
+    font-size: 1.3rem;
   }
   &__header {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.2rem;
+    gap: 1.4rem;
     h1 {
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 700;
-      letter-spacing: -0.075em;
-      line-height: 0.95;
+      max-width: 13ch;
+      font-family: var(--font-space-grotesk), sans-serif;
+      font-size: clamp(3.5rem, 8vw, 8rem);
+      font-weight: 600;
+      letter-spacing: -0.08em;
+      line-height: 0.97;
     }
     &__short-description {
-      max-width: 50ch;
+      max-width: 55ch;
       color: var(--tertiary);
       font-size: clamp(1.15rem, 2vw, 1.5rem);
+      line-height: 1.5;
     }
     &__image {
       position: relative;
       width: 100%;
-      margin-top: 1rem;
-      padding: 1.2rem 0.7rem 0.7rem;
-      background: var(--brick-blue);
-      border: 3px solid var(--brick-ink);
-      border-radius: 7px;
-      box-shadow: 9px 9px 0 var(--brick-shadow);
+      margin-top: 1.5rem;
+      padding: 0.75rem;
+      background: var(--panel);
+      border: 1px solid var(--glass-border);
+      border-radius: 1.25rem;
+      box-shadow: 0 1rem 3rem var(--shadow-color-a);
+      backdrop-filter: blur(18px);
       img {
         display: block;
         width: 100%;
         height: auto;
+        border-radius: 0.7rem;
       }
     }
   }
@@ -71,16 +65,16 @@
     @include reset-list;
     display: flex;
     flex-wrap: wrap;
-    gap: 0.6rem;
+    gap: 0.55rem;
   }
   &__tech_list__item {
-    padding: 0.4rem 0.7rem;
-    background: var(--surface);
-    border: 2px solid var(--brick-ink);
-    border-radius: 4px;
-    box-shadow: 3px 3px 0 var(--brick-shadow);
+    padding: 0.45rem 0.8rem;
+    color: var(--primary);
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 2rem;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 500;
   }
   &__overview,
   &__stack,
@@ -89,17 +83,17 @@
   &__example-links {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: 1.5rem;
     width: 100%;
-    padding: 2rem 0 0;
-    border-top: 2px solid var(--brick-ink);
+    padding: 2.5rem 0 0;
+    border-top: 1px solid var(--rule);
   }
   &__overview__description,
   &__goalsDetails__description {
     max-width: 70ch;
     color: var(--primary);
-    font-size: 1.1rem;
-    line-height: 1.7;
+    font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+    line-height: 1.75;
   }
   &__goals__list {
     @include reset-list;
@@ -108,10 +102,11 @@
   }
   &__goals__list__item {
     padding: 1rem 1.25rem;
-    background: var(--surface);
-    border-left: 0.6rem solid var(--brick-green);
-    border-radius: 4px;
-    line-height: 1.5;
+    color: var(--primary);
+    background: var(--panel);
+    border-left: 2px solid var(--brand);
+    border-radius: 0.4rem;
+    line-height: 1.6;
   }
   &__example-links__list {
     @include reset-list;
@@ -124,6 +119,6 @@
   opacity: 1;
 }
 .highlight {
-  color: var(--brick-red);
-  font-weight: 700;
+  color: var(--brand);
+  font-weight: 600;
 }

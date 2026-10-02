@@ -133,23 +133,20 @@
 }
 
 .player {
-  color: var(--brick-ink);
-  background: var(--surface);
-  border: 2px solid var(--brick-ink);
-  border-radius: 6px;
-  box-shadow: 5px 5px 0 var(--brick-shadow);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+  color: var(--foreground);
+  background: var(--panel);
+  border: 1px solid var(--glass-border);
+  border-radius: 0.9rem;
+  box-shadow: inset 0 1px var(--glass-highlight);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   &__title,
   &__caption,
   &__time,
   &__button {
-    color: var(--brick-ink);
-  }
-  &__bar {
-    border-radius: 2px;
+    color: var(--foreground);
   }
   &__bar--played {
-    background: var(--brick-blue);
+    background: var(--brand);
   }
 }

@@ -1,7 +1,6 @@
 import { Section, SectionType } from '@/types/sections';
 import styles from './experience.module.scss';
 import { ICONS } from '@/constants/icons';
-import BrickStuds from '@/components/BrickStuds/BrickStuds';
 
 export type ExperienceSection = Section & {
   type: Extract<SectionType, 'Experience'>;
@@ -25,7 +24,6 @@ function Experience(props: ExperienceSection) {
       <ol className={styles.experience__list}>
         {props.experience.map((exp, index) => (
           <li key={exp.company + index} className={styles.experience__list__item}>
-            <BrickStuds className={styles.experience__studs} />
             <div className={styles.experience__list__item__left}>
               <h3 className={styles.experience__list__item__company}>{exp.company}</h3>
               <p className={styles.experience__list__item__position}>{exp.position}</p>

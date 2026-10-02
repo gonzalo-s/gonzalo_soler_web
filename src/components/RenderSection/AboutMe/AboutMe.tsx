@@ -1,7 +1,6 @@
 import { getId } from '@/components/utils/getHref';
 import { Section, SectionType } from '@/types/sections';
 import styles from './aboutMe.module.scss';
-import BrickStuds from '@/components/BrickStuds/BrickStuds';
 
 export type AboutMeSection = Section & {
   type: Extract<SectionType, 'AboutMe'>;
@@ -30,7 +29,6 @@ function AboutMe(props: AboutMeSection) {
         {props.header?.text && <span className={styles['about-me__text-wrapper__text']}>{props.header.text}</span>}
       </h2>
       <p className={styles['about-me__description']}>
-        <BrickStuds className={styles['about-me__studs']} />
         {props.description?.highlightText && (
           <span className={styles['about-me__description__highlight']}>{props.description.highlightText}</span>
         )}{' '}

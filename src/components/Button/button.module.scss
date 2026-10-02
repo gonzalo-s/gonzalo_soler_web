@@ -1,55 +1,47 @@
 @use '../../styles/mixins.scss' as *;
-
 .link,
 .button {
   @include button-reset;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  min-height: 2.7rem;
-  padding: 0.55rem 0.85rem;
-  font-weight: 700;
-  line-height: 1.1;
-  border: 2px solid transparent;
-  border-radius: 5px;
+  gap: 0.55rem;
+  min-height: 2.75rem;
+  padding: 0.65rem 0.95rem;
+  font-weight: 600;
+  line-height: 1.15;
+  border: 1px solid transparent;
+  border-radius: 0.65rem;
   transition:
-    transform 0.18s,
-    box-shadow 0.18s,
-    background-color 0.18s;
-
+    background-color 0.25s,
+    color 0.25s,
+    transform 0.25s,
+    border-color 0.25s;
   &:hover {
     transform: translateY(-2px);
   }
   &:active {
-    transform: translateY(2px);
-    box-shadow: 0 1px 0 var(--brick-shadow);
+    transform: translateY(0);
   }
-
-  &_primary {
-    color: var(--foreground);
-  }
-  &_primary:hover {
-    background: var(--secondary);
-  }
+  &_primary,
   &_secondary {
     color: var(--foreground);
   }
+  &_primary:hover,
   &_secondary:hover {
-    background: var(--secondary);
+    background: var(--panel);
+    border-color: var(--rule);
   }
   &_accent {
-    color: #fff;
-    background: var(--brick-red);
-    border-color: var(--brick-ink);
-    box-shadow: 4px 4px 0 var(--brick-shadow);
-    padding-inline: 1.2rem;
+    color: var(--button-text);
+    background: var(--button-fill);
+    border-color: var(--button-fill);
+    padding-inline: 1.35rem;
   }
   &_accent:hover {
-    box-shadow: 5px 6px 0 var(--brick-shadow);
+    background: var(--button-hover);
   }
 }
-
 .icon {
   display: inline-flex;
   align-items: center;

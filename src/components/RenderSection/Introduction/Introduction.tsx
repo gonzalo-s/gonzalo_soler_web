@@ -5,56 +5,40 @@ import styles from './introduction.module.scss';
 import { getId } from '@/components/utils/getHref';
 import Image from 'next/image';
 import Button, { ButtonProps } from '@/components/Button/Button';
-import { useParallax } from '@/hooks/useParallax';
-import BrickStuds from '@/components/BrickStuds/BrickStuds';
 
 export type IntroductionSection = Section & {
   type: Extract<SectionType, 'Introduction'>;
-  description: {
-    highlightText?: string;
-    text?: string;
-  };
+  description: { highlightText?: string; text?: string };
   cta: ButtonProps;
-  image?: {
-    src: string;
-    alt: string;
-  };
+  image?: { src: string; alt: string };
 };
 
 function Introduction(props: IntroductionSection) {
-  // Top-anchored parallax: image starts in place (above the text) and only
-  // drifts downward — slipping a bit behind the text — as you scroll.
-  const avatarRef = useParallax<HTMLDivElement>(0.2, 'top');
-
   return (
     <section className={styles.introduction} id={getId(props.href)}>
-      {props.image && (
-        <div ref={avatarRef} className={styles.introduction__avatar}>
-          <BrickStuds className={styles.introduction__studs} />
-          <Image alt={props.image.alt || ''} src={props.image.src} fill priority />
-        </div>
-      )}
-
-      <div className={styles.introduction__build} aria-hidden="true">
-        <span className={styles.introduction__build__blue} />
-        <span className={styles.introduction__build__red} />
-        <span className={styles.introduction__build__green} />
+      <div className={styles.introduction__art} aria-hidden="true">
+        <Image src="/images/two-bricks-hero.webp" alt="" fill priority sizes="(max-width: 760px) 100vw, 65vw" />
       </div>
-
-      <h1 className={styles['introduction__text-wrapper']}>
-        {props.description?.highlightText && (
-          <span className={styles['introduction__text-wrapper__highlight']}>{props.description.highlightText}</span>
-        )}
-        {props.description?.text && (
-          <span className={styles['introduction__text-wrapper__text']}>{props.description.text}</span>
-        )}
-      </h1>
-
-      {props?.cta && (
-        <div className={styles.introduction__cta}>
-          <Button {...props.cta} />
+      <div className={styles.introduction__content}>
+        <span className={styles.introduction__rule} aria-hidden="true" />
+        <h1 className={styles.introduction__textWrapper}>
+          {props.description?.highlightText && <span>{props.description.highlightText}</span>}
+          {props.description?.text && (
+            <span className={styles.introduction__description}>{props.description.text}</span>
+          )}
+        </h1>
+        <div className={styles.introduction__bottom}>
+          {props.cta && <Button {...props.cta} />}
+          {props.image && (
+            <div className={styles.introduction__portrait}>
+              <Image src={props.image.src} alt={props.image.alt || ''} fill sizes="72px" />
+            </div>
+          )}
         </div>
-      )}
+      </div>
+      <span className={styles.introduction__index} aria-hidden="true">
+        01 / 05
+      </span>
     </section>
   );
 }

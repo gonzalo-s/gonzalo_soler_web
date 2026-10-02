@@ -1,79 +1,48 @@
 .about-me {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: clamp(2rem, 5vw, 6rem);
+  grid-template-columns: minmax(13rem, 0.75fr) minmax(0, 1.25fr);
+  gap: clamp(2rem, 6vw, 7rem);
   align-items: start;
-  padding: clamp(4rem, 8vw, 7rem) clamp(0.5rem, 2vw, 2rem);
-  border-top: 3px solid var(--brick-ink);
-  scroll-margin-top: 6rem;
-
+  padding: clamp(5rem, 9vw, 9rem) 0;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 7rem;
   &__text-wrapper {
     position: relative;
-    font-size: clamp(2.8rem, 5vw, 5rem);
-    font-weight: 700;
-    letter-spacing: -0.07em;
-    line-height: 1.02;
-    &::before {
-      content: '';
-      display: block;
-      width: 5rem;
-      height: 1rem;
-      margin-bottom: 1.5rem;
-      background: var(--brick-red);
-      border: 2px solid var(--brick-ink);
-      border-radius: 4px;
-      box-shadow: 3px 3px 0 var(--brick-shadow);
-    }
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    font-weight: 600;
+    letter-spacing: -0.065em;
+    line-height: 1.03;
     &__highlight {
       color: var(--foreground);
     }
     &__text {
-      color: var(--brick-blue);
+      color: var(--tertiary);
     }
   }
-
-  &__studs {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
   &__description {
-    --stud-color: var(--brick-red);
-    position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    padding: clamp(1.5rem, 3vw, 3rem);
-    background: var(--surface);
-    background: color-mix(in srgb, var(--stud-color) var(--brick-body-tint), var(--surface));
-    border: 2px solid var(--brick-ink);
-    border-radius: 8px;
-    box-shadow: 8px 8px 0 var(--brick-shadow);
+    gap: 1.25rem;
+    max-width: 65ch;
+    margin: 0;
+    padding: 0.75rem 0 0 clamp(1.5rem, 3vw, 3rem);
     color: var(--primary);
-    font-size: clamp(1.1rem, 1.8vw, 1.4rem);
-    line-height: 1.55;
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 0.9rem;
-      background: var(--stud-color);
-      border-bottom: 2px solid var(--brick-ink);
-      border-radius: 6px 6px 0 0;
-    }
+    border-left: 1px solid var(--rule);
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    line-height: 1.75;
     &__highlight {
-      color: color-mix(in srgb, var(--stud-color) 65%, var(--primary));
-      font-weight: 700;
+      color: var(--foreground);
+      font-weight: 600;
     }
   }
 }
-
 @media (max-width: 760px) {
   .about-me {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    &__description {
+      padding-left: 1.5rem;
+    }
   }
 }

@@ -1,7 +1,6 @@
 @use '@/styles/mixins.scss' as *;
-
 .footer {
-  border-top: 3px solid var(--brick-ink);
+  border-top: 1px solid var(--rule);
   &__top {
     display: flex;
     justify-content: space-between;
@@ -20,7 +19,7 @@
       color: var(--tertiary);
     }
     &__details__email {
-      font-weight: 700;
+      font-weight: 600;
       text-decoration: underline;
       text-underline-offset: 4px;
     }
@@ -33,13 +32,14 @@
   }
   &__bottom {
     padding: 1rem 0 2rem;
-    border-top: 2px solid var(--brick-ink);
+    border-top: 1px solid var(--rule);
     &__border-gradient__text {
       display: block;
       color: var(--foreground);
+      font-family: var(--font-space-grotesk), sans-serif;
       font-size: clamp(2.4rem, 12vw, 10rem);
-      font-weight: 700;
-      letter-spacing: -0.085em;
+      font-weight: 600;
+      letter-spacing: -0.09em;
       line-height: 1;
       text-align: center;
       white-space: nowrap;

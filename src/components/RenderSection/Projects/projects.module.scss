@@ -1,112 +1,83 @@
 @use '@/styles/mixins.scss' as *;
-
 .projects-wrapper {
   display: flex;
   flex-direction: column;
   gap: clamp(2rem, 4vw, 4rem);
-  padding: clamp(4rem, 8vw, 7rem) clamp(0.5rem, 2vw, 2rem);
-  border-top: 3px solid var(--brick-ink);
-  scroll-margin-top: 6rem;
-
-  &__header {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    &__title {
-      max-width: 15ch;
-      font-size: clamp(2.8rem, 6vw, 5.5rem);
-      font-weight: 700;
-      letter-spacing: -0.07em;
-      line-height: 1.02;
-    }
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 7rem;
+  &__header__title {
+    max-width: 18ch;
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: clamp(3rem, 5.8vw, 6rem);
+    font-weight: 600;
+    letter-spacing: -0.065em;
+    line-height: 1.03;
   }
   &__cards {
     @include reset-list;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: clamp(1.5rem, 3vw, 3rem);
+    gap: clamp(2rem, 3vw, 3.5rem);
   }
 }
-
 .card {
   @include reset-list;
   min-width: 0;
-  --stud-color: var(--brick-red);
-
-  &__studs {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
   &__content {
-    display: block;
-    position: relative;
+    display: flex;
+    flex-direction: column;
     height: 100%;
-    padding-top: 1.15rem;
-    background: var(--surface);
-    background: color-mix(in srgb, var(--stud-color) var(--brick-body-tint), var(--surface));
-    border: 3px solid var(--brick-ink);
-    border-radius: 8px;
-    box-shadow: 8px 8px 0 var(--brick-shadow);
+    padding: 0.65rem;
+    background: var(--panel);
+    border: 1px solid var(--glass-border);
+    border-radius: 1.2rem;
+    box-shadow:
+      0 1rem 3rem var(--shadow-color-a),
+      inset 0 1px var(--glass-highlight);
+    backdrop-filter: blur(16px);
     transition:
-      transform 0.2s,
-      box-shadow 0.2s;
+      transform 0.35s ease,
+      box-shadow 0.35s ease;
     &:hover,
     &:focus-visible {
-      transform: translate(-2px, -3px);
-      box-shadow: 11px 12px 0 var(--brick-shadow);
+      transform: translateY(-5px);
+      box-shadow:
+        0 1.4rem 3.5rem var(--shadow-color-a),
+        inset 0 1px var(--glass-highlight);
     }
-    &::before {
-      content: '';
-      position: absolute;
-      z-index: 1;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1.15rem;
-      background: var(--stud-color, var(--brick-red));
-      border-bottom: 3px solid var(--brick-ink);
-      border-radius: 4px 4px 0 0;
-      box-shadow: inset 0 0.3rem rgb(255 255 255 / 22%);
-    }
-
     &__media {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 10;
       overflow: hidden;
-      border-bottom: 3px solid var(--brick-ink);
-      background: var(--brick-blue);
+      background: var(--secondary);
+      border-radius: 0.75rem;
       &__image {
         object-fit: cover;
-        transition: transform 0.25s;
+        transition: transform 0.6s cubic-bezier(0.2, 0.75, 0.2, 1);
       }
       &__scrim {
         position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgb(0 0 0 / 55%), transparent 55%);
+        inset: 50% 0 0;
+        background: linear-gradient(transparent, rgb(0 0 0 / 55%));
       }
       &__stack {
         @include reset-list;
         position: absolute;
-        left: 0.75rem;
-        right: 0.75rem;
-        bottom: 0.75rem;
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
         display: flex;
         flex-wrap: wrap;
         gap: 0.4rem;
         &__chip {
-          border-top: 0.25rem solid var(--brick-yellow);
           padding: 0.3rem 0.55rem;
-          color: var(--primary);
-          background: var(--surface);
-          border-left: 2px solid var(--brick-ink);
-          border-right: 2px solid var(--brick-ink);
-          border-bottom: 2px solid var(--brick-ink);
-          border-radius: 4px;
+          color: var(--foreground);
+          background: var(--panel-strong);
+          border: 1px solid var(--glass-border);
+          border-radius: 4rem;
+          backdrop-filter: blur(16px);
           font-size: 0.7rem;
           :global(.tsi) {
             transform: scale(0.78);
@@ -118,49 +89,49 @@
     &__meta {
       display: flex;
       justify-content: space-between;
-      gap: 1rem;
       align-items: center;
-      padding: clamp(1rem, 2vw, 1.8rem);
+      gap: 1rem;
+      flex: 1;
+      padding: clamp(1.2rem, 2vw, 1.8rem) 0.65rem 0.55rem;
       &__title {
-        font-size: clamp(1.35rem, 2vw, 1.8rem);
-        font-weight: 700;
-        letter-spacing: -0.04em;
+        font-family: var(--font-space-grotesk), sans-serif;
+        font-size: clamp(1.5rem, 2.1vw, 2.2rem);
+        font-weight: 600;
+        letter-spacing: -0.045em;
       }
       &__desc {
+        max-width: 46ch;
+        margin-top: 0.45rem;
         color: var(--tertiary);
-        margin-top: 0.4rem;
-        line-height: 1.4;
+        line-height: 1.55;
       }
       &__arrow {
         display: grid;
         place-items: center;
-        flex: 0 0 2.7rem;
-        width: 2.7rem;
-        height: 2.7rem;
-        background: var(--brick-yellow);
-        color: var(--brick-ink);
-        border: 2px solid var(--brick-ink);
-        border-radius: 5px;
+        flex: 0 0 2.6rem;
+        width: 2.6rem;
+        height: 2.6rem;
+        border: 1px solid var(--rule);
+        border-radius: 50%;
+        color: var(--foreground);
+        transition:
+          background 0.25s,
+          transform 0.25s;
       }
     }
     &:hover .card__content__media__image {
-      transform: scale(1.04);
+      transform: scale(1.035);
+    }
+    &:hover .card__content__meta__arrow {
+      background: var(--brand);
+      color: var(--surface);
+      transform: rotate(-45deg);
     }
   }
-  &:nth-child(4n + 2) {
-    --stud-color: var(--brick-blue);
-  }
-  &:nth-child(4n + 3) {
-    --stud-color: var(--brick-yellow);
-  }
-  &:nth-child(4n + 4) {
-    --stud-color: var(--brick-green);
-  }
 }
-
 @media (max-width: 760px) {
   .projects-wrapper__cards {
     grid-template-columns: 1fr;
-    gap: 2.2rem;
+    gap: 1.5rem;
   }
 }

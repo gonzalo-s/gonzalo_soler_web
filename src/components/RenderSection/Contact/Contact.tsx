@@ -9,7 +9,6 @@ import Button, { ButtonProps } from '@/components/Button/Button';
 import { toDriveDownloadUrl } from '@/components/utils/driveDownloadUrl';
 import AudioPlayer from './AudioPlayer';
 import { ICONS } from '@/constants/icons';
-import BrickStuds from '@/components/BrickStuds/BrickStuds';
 
 /** Turn the resume CTA into an in-place download (direct Drive link, same tab). */
 function toResumeDownload(resume: ButtonProps): ButtonProps {
@@ -42,7 +41,6 @@ export default function Contact(props: ContactSection) {
 
   return (
     <section className={styles.contact} id={getId(props.href)}>
-      <BrickStuds className={styles.contact__studs} />
       <h2 className={styles.contact__title} aria-label={props.sectionTitle}>
         {hasSpock ? props.sectionTitle.replace('🖖', '').trim() : props.sectionTitle}
         {hasSpock && (

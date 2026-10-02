@@ -1,133 +1,138 @@
-@use '@/styles/mixins.scss' as *;
-
 .introduction {
   position: relative;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(17rem, 0.82fr);
-  grid-template-areas: 'headline avatar' 'cta avatar';
-  align-content: center;
+  display: flex;
   align-items: center;
-  column-gap: clamp(2rem, 6vw, 6rem);
-  min-height: min(43rem, calc(100dvh - 7rem));
-  padding: clamp(4rem, 8vw, 7rem) clamp(0.5rem, 2vw, 2rem);
-  scroll-margin-top: 6rem;
-
-  &__avatar {
-    grid-area: avatar;
-    position: relative;
-    z-index: 2;
-    justify-self: center;
-    width: min(100%, 29rem);
-    aspect-ratio: 1;
-    padding: 1.2rem;
-    background: var(--brick-yellow);
-    border: 3px solid var(--brick-ink);
-    border-radius: 13px;
-    box-shadow:
-      inset -0.6rem -0.5rem rgb(0 0 0 / 10%),
-      12px 12px 0 var(--brick-shadow);
-
+  min-height: clamp(42rem, 82svh, 55rem);
+  padding: clamp(6rem, 10vw, 10rem) 0 clamp(4rem, 7vw, 7rem);
+  isolation: isolate;
+  scroll-margin-top: 7rem;
+  &__art {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: -9%;
+    bottom: 0;
+    width: min(78%, 72rem);
+    opacity: 0;
+    transform: translate(4%, 2%) scale(0.96);
+    animation: artwork-arrive 1.2s 0.15s cubic-bezier(0.2, 0.75, 0.2, 1) forwards;
     img {
-      object-fit: cover;
-      padding: 1.2rem;
-      border-radius: 17px;
+      object-fit: contain;
+      object-position: right center;
+      filter: drop-shadow(0 2rem 3rem var(--shadow-color-a));
     }
   }
-
-  &__studs {
-    position: absolute;
-    z-index: 3;
-    top: 0;
-    left: 0;
-    right: 0;
-    --stud-color: var(--brick-yellow);
-  }
-
-  &__build {
-    grid-area: avatar;
+  &__content {
     position: relative;
     z-index: 1;
-    justify-self: center;
-    align-self: end;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: min(100%, 29rem);
-    margin: 0 0 -4rem;
-    span {
-      display: block;
-      height: 2.4rem;
-      border: 2px solid var(--brick-ink);
-      border-radius: 5px;
-      box-shadow:
-        inset 0 0.35rem rgb(255 255 255 / 26%),
-        4px 4px 0 var(--brick-shadow);
-    }
-    &__blue {
-      grid-column: 1 / -1;
-      background: var(--brick-blue);
-    }
-    &__red {
-      background: var(--brick-red);
-    }
-    &__green {
-      background: var(--brick-green);
-    }
+    max-width: min(58%, 46rem);
   }
-
-  &__text-wrapper {
-    grid-area: headline;
+  &__rule {
+    display: block;
+    width: 3.5rem;
+    height: 2px;
+    margin-bottom: 2.3rem;
+    background: var(--brand);
+  }
+  &__textWrapper {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    max-width: 13ch;
+    gap: clamp(1.5rem, 3vw, 2.5rem);
     font-family: var(--font-space-grotesk), sans-serif;
-    font-size: clamp(3.5rem, 7vw, 7rem);
-    font-weight: 700;
+    font-size: clamp(4rem, 6.7vw, 7.5rem);
+    font-weight: 600;
     letter-spacing: -0.075em;
     line-height: 0.98;
-
-    &__highlight {
-      color: var(--foreground);
-    }
-    &__text {
-      max-width: 28ch;
-      color: var(--tertiary);
-      font-size: clamp(1.25rem, 2vw, 1.85rem);
-      font-weight: 500;
-      letter-spacing: -0.035em;
-      line-height: 1.25;
+    text-wrap: balance;
+  }
+  &__description {
+    max-width: 31ch;
+    color: var(--primary);
+    font-family: var(--font-inter-sans), sans-serif;
+    font-size: clamp(1.14rem, 1.6vw, 1.5rem);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.45;
+  }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+  &__portrait {
+    position: relative;
+    width: 3.5rem;
+    height: 3.5rem;
+    overflow: hidden;
+    border: 1px solid var(--rule);
+    border-radius: 50%;
+    background: var(--surface);
+    img {
+      object-fit: cover;
     }
   }
-
-  &__cta {
-    grid-area: cta;
-    align-self: start;
-    margin-top: 2rem;
+  &__index {
+    position: absolute;
+    left: 0;
+    bottom: 2rem;
+    color: var(--tertiary);
+    font-size: 0.76rem;
+    letter-spacing: 0.12em;
   }
 }
-
-@media (max-width: 760px) {
+@keyframes artwork-arrive {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@media (max-width: 900px) {
   .introduction {
-    grid-template-columns: 1fr;
-    grid-template-areas: 'avatar' 'headline' 'cta';
-    gap: 2rem;
-    min-height: auto;
-    padding: 5rem 0.5rem 5rem;
-
-    &__avatar {
-      width: min(72vw, 20rem);
+    min-height: 0;
+    padding: 3rem 0 5rem;
+    flex-direction: column;
+    align-items: stretch;
+    &__art {
+      position: relative;
+      right: auto;
+      width: 100%;
+      height: min(55vw, 28rem);
+      order: 1;
     }
-    &__build {
-      width: min(72vw, 20rem);
-      margin: 0 0 -3.5rem;
+    &__content {
+      max-width: 100%;
+      order: 2;
+      margin-top: -1rem;
     }
-    &__text-wrapper {
-      margin-top: 3.5rem;
-      font-size: clamp(3rem, 12vw, 5rem);
+    &__textWrapper {
+      max-width: 14ch;
+      font-size: clamp(3.4rem, 10vw, 6rem);
     }
-    &__cta {
-      margin-top: 0;
+    &__index {
+      bottom: 1rem;
     }
+  }
+}
+@media (max-width: 560px) {
+  .introduction {
+    &__art {
+      height: 17rem;
+      margin: 0 -1rem;
+      width: calc(100% + 2rem);
+    }
+    &__textWrapper {
+      font-size: clamp(3rem, 12vw, 4.5rem);
+    }
+    &__bottom {
+      margin-top: 2rem;
+    }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .introduction__art {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }

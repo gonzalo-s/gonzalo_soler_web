@@ -7,7 +7,6 @@ import styles from './project.module.scss';
 import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { useHighlightWords } from '@/hooks/useHighlightWords';
 import { ICONS } from '@/constants/icons';
-import BrickStuds from '@/components/BrickStuds/BrickStuds';
 import type { ReactNode } from 'react';
 
 function SectionHeading({ icon, children }: { icon: ReactNode; children: ReactNode }) {
@@ -43,7 +42,6 @@ export default function Project({ project }: { project: ProjectsSection['project
         <h1>{project.title}</h1>
         <p className={styles['project-page__header__short-description']}>{project.shortDescription}</p>
         <div className={styles['project-page__header__image']}>
-          <BrickStuds className={styles['project-page__studs']} />
           <Image
             src={project.image.src}
             alt={project.image.alt}
