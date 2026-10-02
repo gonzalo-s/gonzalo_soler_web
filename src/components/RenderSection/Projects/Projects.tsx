@@ -68,15 +68,14 @@ function Card(props: ProjectsSection['projects'][0] & { index: number; visible: 
       >
         <div className={styles.card__content__media}>
           <Image src={props.image.src} alt={props.image.alt} className={styles.card__content__media__image} fill />
-          <span className={styles.card__content__media__scrim} aria-hidden="true" />
-          <ul className={styles.card__content__media__stack}>
-            {props.stack.slice(0, 6).map((stackIcon) => (
-              <li key={stackIcon.stackIconName} className={styles.card__content__media__stack__chip}>
-                <StackIcon {...stackIcon} />
-              </li>
-            ))}
-          </ul>
         </div>
+        <ul className={styles.card__content__media__stack}>
+          {props.stack.slice(0, 6).map((stackIcon) => (
+            <li key={stackIcon.stackIconName} className={styles.card__content__media__stack__chip}>
+              <StackIcon {...stackIcon} />
+            </li>
+          ))}
+        </ul>
         <div className={styles.card__content__meta}>
           <div>
             <h3 className={styles.card__content__meta__title}>{props.title}</h3>
