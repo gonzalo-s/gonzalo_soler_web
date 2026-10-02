@@ -52,14 +52,6 @@
     z-index: 2;
     left: 21.3%;
     bottom: 22%;
-    // Preserve the solid studs while letting the blue brick show through the lower shell.
-    mask-image: linear-gradient(
-      to bottom,
-      #000 0 45%,
-      rgb(0 0 0 / 90%) 58%,
-      rgb(0 0 0 / 68%) 82%,
-      rgb(0 0 0 / 75%) 100%
-    );
     transform: translate3d(0, var(--yellow-lift, -30%), 0) rotate(var(--yellow-rotation, -2deg));
     will-change: transform;
   }
