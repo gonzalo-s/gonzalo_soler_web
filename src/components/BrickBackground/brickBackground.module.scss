@@ -1,0 +1,93 @@
+.background {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 70% 48%, var(--hero-halo), transparent 62%);
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    z-index: 4;
+    inset: 0;
+    background: linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--background) 84%, transparent) 0%,
+      color-mix(in srgb, var(--background) 58%, transparent) 40%,
+      transparent 77%
+    );
+  }
+
+  &__composition {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: min(82vw, 63rem);
+    aspect-ratio: 1.5;
+    transform: translateX(-50%);
+  }
+  &__blueBrick,
+  &__yellowBrick,
+  &__blueStuds {
+    position: absolute;
+    display: block;
+    width: 65%;
+    height: auto;
+    filter: drop-shadow(0 1.5rem 1.5rem var(--shadow-color-a));
+  }
+  &__blueBrick {
+    z-index: 1;
+    left: 7%;
+    bottom: 0;
+  }
+  &__blueStuds {
+    z-index: 3;
+    left: 7%;
+    bottom: 0;
+    // Only the two exposed stud caps pass in front of the yellow brick.
+    mask-image:
+      radial-gradient(10.5% 8.5% at 21.5% 40%, #000 93%, #0000 100%),
+      radial-gradient(10.5% 8.5% at 33.3% 53%, #000 93%, #0000 100%);
+    mask-composite: add;
+  }
+  &__yellowBrick {
+    z-index: 2;
+    left: 21.3%;
+    bottom: 22%;
+    transform: translate3d(0, var(--yellow-lift, -30%), 0) rotate(var(--yellow-rotation, -2deg));
+    will-change: transform;
+  }
+}
+@media (max-width: 900px) {
+  .background {
+    &::after {
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--background) 55%, transparent) 50%,
+        var(--background) 88%
+      );
+    }
+    &__composition {
+      top: 12%;
+      width: min(115%, 48rem);
+    }
+  }
+}
+@media (max-width: 560px) {
+  .background__composition {
+    top: 23%;
+    width: calc(100% + 13rem);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .background__yellowBrick {
+    transform: translate3d(0, -10.694390715667312%, 0) rotate(-0.258164deg);
+    will-change: auto;
+  }
+}
