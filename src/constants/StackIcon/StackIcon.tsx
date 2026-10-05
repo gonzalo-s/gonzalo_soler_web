@@ -40,11 +40,13 @@ const sizeMap = {
 function StackIcon(props: StackIconProps) {
   return (
     <span className={styles['stack-icon']}>
-      <StackIcon2
-        name={props.stackIconName}
-        style={{ width: sizeMap[props.size], height: sizeMap[props.size] }}
-        grayscale={props?.grayscale}
-      />{' '}
+      <span className={styles['stack-icon__image']}>
+        <StackIcon2
+          name={props.stackIconName}
+          style={{ width: sizeMap[props.size], height: sizeMap[props.size] }}
+          grayscale={props?.grayscale}
+        />
+      </span>
       {props.displayName}
     </span>
   );

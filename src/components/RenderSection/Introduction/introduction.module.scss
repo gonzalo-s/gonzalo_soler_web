@@ -50,18 +50,6 @@
     justify-content: center;
     margin-top: 2.5rem;
   }
-  &__portrait {
-    position: relative;
-    width: 3.5rem;
-    height: 3.5rem;
-    overflow: hidden;
-    border: 1px solid var(--rule);
-    border-radius: 50%;
-    background: var(--surface);
-    img {
-      object-fit: cover;
-    }
-  }
 }
 @media (max-width: 900px) {
   .introduction {

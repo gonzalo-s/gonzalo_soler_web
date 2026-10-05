@@ -4,7 +4,6 @@ import BrickAnimation from '@/components/BrickAnimation/BrickAnimation';
 import { Section, SectionType } from '@/types/sections';
 import styles from './introduction.module.scss';
 import { getId } from '@/components/utils/getHref';
-import Image from 'next/image';
 import Button, { ButtonProps } from '@/components/Button/Button';
 
 export type IntroductionSection = Section & {
@@ -25,14 +24,7 @@ function Introduction(props: IntroductionSection) {
             <span className={styles.introduction__description}>{props.description.text}</span>
           )}
         </h1>
-        <div className={styles.introduction__bottom}>
-          {props.cta && <Button {...props.cta} />}
-          {props.image && (
-            <div className={styles.introduction__portrait}>
-              <Image src={props.image.src} alt={props.image.alt || ''} fill sizes="72px" />
-            </div>
-          )}
-        </div>
+        <div className={styles.introduction__bottom}>{props.cta && <Button {...props.cta} />}</div>
       </div>
       <BrickAnimation />
     </section>
