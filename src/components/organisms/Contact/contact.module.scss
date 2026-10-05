@@ -1,3 +1,5 @@
+@use '@/styles/mixins.scss' as *;
+
 .contact {
   position: relative;
   display: flex;
@@ -72,7 +74,7 @@
   border-radius: 0.65rem;
   color: var(--foreground);
 }
-@media (max-width: 760px) {
+@include compact-layout {
   .contact {
     --surface-radius: 1rem;
   }

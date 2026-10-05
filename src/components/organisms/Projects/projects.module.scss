@@ -25,7 +25,7 @@
   min-width: 0;
   list-style: none;
 }
-@media (max-width: 760px) {
+@include compact-layout {
   .projects-wrapper__cards {
     grid-template-columns: 1fr;
     gap: 2.5rem;

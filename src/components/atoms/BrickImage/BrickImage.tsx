@@ -11,7 +11,7 @@ export default function BrickImage({ color, className, priority }: BrickImagePro
       width={1254}
       height={1254}
       priority={priority}
-      sizes="(max-width: 900px) 70vw, 42vw"
+      sizes="(max-width: 1099px) 70vw, 42vw"
     />
   );
 }

@@ -82,6 +82,43 @@ test('portfolio UI interactions and server rendering', async (t) => {
         true,
       );
     });
+    await t.test('tablets use the mobile menu and stacked content; desktop starts at 1100px', async () => {
+      for (const width of [768, 1024, 1099]) {
+        await call('Emulation.setDeviceMetricsOverride', { width, height: 900, deviceScaleFactor: 1, mobile: false });
+        assert.equal(
+          await evaluate(
+            `getComputedStyle(document.querySelector('button[aria-controls]')).display !== 'none' && document.querySelector('button[aria-controls]').getClientRects().length > 0`,
+          ),
+          true,
+        );
+        assert.equal(
+          await evaluate(
+            `getComputedStyle(document.querySelector('#projects ul')).gridTemplateColumns.split(' ').length`,
+          ),
+          1,
+        );
+        assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true);
+      }
+      await call('Emulation.setDeviceMetricsOverride', {
+        width: 1100,
+        height: 900,
+        deviceScaleFactor: 1,
+        mobile: false,
+      });
+      assert.equal(await evaluate(`document.querySelector('button[aria-controls]').getClientRects().length`), 0);
+      assert.equal(
+        await evaluate(
+          `getComputedStyle(document.querySelector('#projects ul')).gridTemplateColumns.split(' ').length`,
+        ),
+        2,
+      );
+      await call('Emulation.setDeviceMetricsOverride', {
+        width: 1440,
+        height: 900,
+        deviceScaleFactor: 1,
+        mobile: false,
+      });
+    });
     await t.test('chips keep their spacing and isolated rounded icons', async () => {
       const value = await evaluate(
         `(()=>{const chip=document.querySelector('article li');const icon=chip.querySelector('span[aria-hidden="true"]');return {padding:getComputedStyle(chip).padding,radius:getComputedStyle(icon).borderRadius,overflow:getComputedStyle(icon).overflow,src:icon.querySelector('img').getAttribute('src')}})()`,

@@ -1,3 +1,5 @@
+@use '@/styles/mixins.scss' as *;
+
 .storytelling {
   display: grid;
   gap: clamp(2rem, 4vw, 4rem);
@@ -99,7 +101,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@include compact-layout {
   .narrative > div {
     grid-template-columns: 1fr;
     gap: 0.5rem;

@@ -1,11 +1,22 @@
 @use '@/styles/mixins.scss' as *;
 .card {
   @include reset-list;
+  position: relative;
   min-width: 0;
   height: 100%;
   transition:
     border-color 0.25s,
     box-shadow 0.25s;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: min(35%, 18rem);
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--brand-2));
+    pointer-events: none;
+  }
   &:hover,
   &:focus-within {
     border-color: var(--rule);

@@ -28,7 +28,7 @@ export default function ProjectDetails({ project }: { project: ProjectData }) {
             alt={project.image.alt}
             width={1200}
             height={750}
-            sizes="(max-width: 760px) 90vw, (max-width: 1600px) 80vw, 1120px"
+            sizes="(max-width: 1099px) 90vw, (max-width: 1600px) 80vw, 1120px"
             priority
           />
         </div>

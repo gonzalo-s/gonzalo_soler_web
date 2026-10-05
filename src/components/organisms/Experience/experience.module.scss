@@ -67,7 +67,7 @@
     }
   }
 }
-@media (max-width: 760px) {
+@include compact-layout {
   .experience__list__item {
     grid-template-columns: 1fr;
     gap: 1rem;

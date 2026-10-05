@@ -21,7 +21,7 @@ export default function ProjectCard({ project }: { project: Project }) {
             alt={project.image.alt}
             className={styles.card__content__media__image}
             fill
-            sizes="(max-width: 760px) 90vw, (max-width: 1600px) 43vw, 650px"
+            sizes="(max-width: 1099px) 90vw, (max-width: 1600px) 43vw, 650px"
           />
         </div>
         <ChipList

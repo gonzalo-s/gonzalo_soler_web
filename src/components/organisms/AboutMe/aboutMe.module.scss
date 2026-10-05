@@ -1,3 +1,5 @@
+@use '@/styles/mixins.scss' as *;
+
 .about-me {
   display: grid;
   grid-template-columns: minmax(13rem, 0.75fr) minmax(0, 1.25fr);
@@ -37,7 +39,7 @@
     }
   }
 }
-@media (max-width: 760px) {
+@include compact-layout {
   .about-me {
     grid-template-columns: 1fr;
     gap: 2rem;

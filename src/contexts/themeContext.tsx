@@ -9,7 +9,7 @@ type ThemeContextType = { theme: Theme; toggleTheme: () => void };
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeContextProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('dark');
   useEffect(() => {
     const cookie = Cookies.get('theme');
     const initial: Theme = cookie === 'dark' ? 'dark' : 'light';

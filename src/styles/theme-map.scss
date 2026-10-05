@@ -3,7 +3,7 @@ $themes: (
   light: (
     background: #f3f1ec,
     background-light: #fbfaf7,
-    icon-surface: #ffffff,
+    icon-surface: #fff,
     surface: #fffefa,
     foreground: #20262b,
     primary: #343c40,
@@ -15,7 +15,7 @@ $themes: (
     brand: #20262b,
     button-fill: #20262b,
     button-hover: #454d52,
-    button-text: #ffffff,
+    button-text: #fff,
     brand-2: #a06e37,
     brand-3: #3052b7,
     brick-green: #4e786d,
@@ -42,12 +42,12 @@ $themes: (
     glass-shadow-color: rgb(32 38 43 / 7%),
     rule: rgb(32 38 43 / 17%),
     panel: rgb(255 254 250 / 68%),
-    panel-strong: rgb(255 254 250 / 90%),
+    panel-strong: rgb(255 254 250 / 90%)
   ),
   dark: (
     background: #0d1219,
     background-light: #141c26,
-    icon-surface: #ffffff,
+    icon-surface: #fff,
     surface: #1b2530,
     foreground: #f3f4f1,
     primary: #d8dde0,
@@ -86,13 +86,13 @@ $themes: (
     glass-shadow-color: rgb(0 0 0 / 20%),
     rule: rgb(255 255 255 / 16%),
     panel: rgb(29 40 52 / 64%),
-    panel-strong: rgb(29 40 52 / 88%),
-  ),
+    panel-strong: rgb(29 40 52 / 88%)
+  )
 );
 
 @mixin generate-theme($themes) {
   @each $theme-name, $theme-map in $themes {
-    [data-theme='#{$theme-name}'] {
+    [data-theme="#{$theme-name}"] {
       @each $token, $value in $theme-map {
         #{'--' + $token}: #{$value};
       }

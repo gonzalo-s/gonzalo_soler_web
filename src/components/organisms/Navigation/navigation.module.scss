@@ -19,9 +19,6 @@
   display: none;
   align-items: center;
   gap: clamp(0.15rem, 0.8vw, 0.7rem);
-  @include tablet {
-    display: flex;
-  }
   @include desktop {
     display: flex;
   }

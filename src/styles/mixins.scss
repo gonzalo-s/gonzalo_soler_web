@@ -19,6 +19,13 @@
   }
 }
 
+// Shared stacked layout for phones and tablets; desktop starts at $desktop.
+@mixin compact-layout {
+  @media (max-width: ($desktop - 1px)) {
+    @content;
+  }
+}
+
 // Display font — Space Grotesk — used for all headings / hero type.
 @mixin display-font {
   font-family: var(--font-space-grotesk), var(--font-inter-sans), system-ui, sans-serif;

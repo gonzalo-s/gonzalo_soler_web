@@ -1,3 +1,5 @@
+@use '@/styles/mixins.scss' as *;
+
 .introduction {
   position: relative;
   display: flex;
@@ -51,7 +53,7 @@
     margin-top: 2.5rem;
   }
 }
-@media (max-width: 900px) {
+@include compact-layout {
   .introduction {
     padding: 3rem 0 2rem;
 
