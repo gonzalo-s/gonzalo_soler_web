@@ -6,6 +6,7 @@ import type {
   TechnologiesSection,
   ExperienceSection,
   ContactSection,
+  StorytellingSection,
 } from '@/types/sections';
 import { SECTIONS_COMPONENTS } from './sections_components';
 import styles from './renderSection.module.scss';
@@ -28,6 +29,9 @@ export default function RenderSection(section: Section) {
       break;
     case 'Experience':
       content = <SECTIONS_COMPONENTS.Experience {...(section as ExperienceSection)} />;
+      break;
+    case 'Storytelling':
+      content = <SECTIONS_COMPONENTS.Storytelling {...(section as StorytellingSection)} />;
       break;
     case 'Contact':
       content = <SECTIONS_COMPONENTS.Contact {...(section as ContactSection)} />;

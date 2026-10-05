@@ -21,6 +21,29 @@ test('portfolio UI interactions and server rendering', async (t) => {
     await call('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
     await navigate('/');
     await waitFor('!!document.querySelector("[data-locked]")');
+    await t.test('storytelling expands by keyboard and preserves independent stories', async (t) => {
+      if (!(await evaluate('!!document.querySelector("[data-storytelling]")'))) {
+        t.skip('Configure draft storytelling CSV URLs to exercise this section.');
+        return;
+      }
+      await evaluate('document.querySelector("[data-storytelling] summary").focus()');
+      await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await waitFor('document.querySelector("[data-storytelling] details").open');
+      assert.equal(
+        await evaluate('document.querySelector("[data-storytelling] details").querySelectorAll("dt").length'),
+        3,
+      );
+      assert.equal(
+        await evaluate(
+          '[...document.querySelectorAll("[data-storytelling] details")].slice(1).every(story => !story.open)',
+        ),
+        true,
+      );
+      await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await waitFor('!document.querySelector("[data-storytelling] details").open');
+    });
     await t.test('chips keep their spacing and isolated rounded icons', async () => {
       const value = await evaluate(
         `(()=>{const chip=document.querySelector('article li');const icon=chip.querySelector('span[aria-hidden="true"]');return {padding:getComputedStyle(chip).padding,radius:getComputedStyle(icon).borderRadius,overflow:getComputedStyle(icon).overflow,src:icon.querySelector('img').getAttribute('src')}})()`,

@@ -1,6 +1,6 @@
 import type { ProjectsSection, Project } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
-import CSV_URLS from '../config/csvUrls';
+import { contentUrls } from '@/config/content';
 import type {
   CsvProjectsSectionRow,
   CsvProjectRow,
@@ -14,11 +14,11 @@ import getHrefGuard from '../utils/getHrefGuard';
 import { parseProject } from './parseProject';
 
 export default async function parseProjectsSection(): Promise<ProjectsSection> {
-  const projectsSectionRaw: CsvProjectsSectionRow[] = await fetchCsv(CSV_URLS.ProjectsSection);
-  const projectsRaw: CsvProjectRow[] = await fetchCsv(CSV_URLS.Project);
-  const projectGoalsRaw: CsvProjectGoalRow[] = await fetchCsv(CSV_URLS.ProjectGoals);
-  const projectStackRaw: CsvProjectStackRow[] = await fetchCsv(CSV_URLS.ProjectStack);
-  const projectLinksRaw: CsvProjectExampleLinkRow[] = await fetchCsv(CSV_URLS.ProjectExampleLinks);
+  const projectsSectionRaw: CsvProjectsSectionRow[] = await fetchCsv(contentUrls.projectsSection);
+  const projectsRaw: CsvProjectRow[] = await fetchCsv(contentUrls.project);
+  const projectGoalsRaw: CsvProjectGoalRow[] = await fetchCsv(contentUrls.projectGoals);
+  const projectStackRaw: CsvProjectStackRow[] = await fetchCsv(contentUrls.projectStack);
+  const projectLinksRaw: CsvProjectExampleLinkRow[] = await fetchCsv(contentUrls.projectExampleLinks);
   const projectHighlightWords = await parseHighlightWords();
 
   if (!projectsSectionRaw.length) throw new Error('No ProjectsSection rows found.');

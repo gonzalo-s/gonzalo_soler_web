@@ -1,14 +1,14 @@
 import type { ExperienceSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
-import CSV_URLS from '../config/csvUrls';
+import { contentUrls } from '@/config/content';
 import type { CsvExperienceSectionRow, CsvExperienceItemRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
 import { replaceEscapedNewlines } from '../utils/replaceEscapedNewlines';
 
 export default async function parseExperienceSection(): Promise<ExperienceSection> {
-  const expSectionRaw: CsvExperienceSectionRow[] = await fetchCsv(CSV_URLS.ExperienceSection);
-  const expItemsRaw: CsvExperienceItemRow[] = await fetchCsv(CSV_URLS.ExperienceItems);
+  const expSectionRaw: CsvExperienceSectionRow[] = await fetchCsv(contentUrls.experienceSection);
+  const expItemsRaw: CsvExperienceItemRow[] = await fetchCsv(contentUrls.experienceItems);
 
   if (!expSectionRaw.length) throw new Error('No ExperienceSection rows found.');
 

@@ -1,12 +1,12 @@
 import type { ButtonProps } from '@/types/ui';
 import fetchCsv from '../utils/fetchCsv';
-import CSV_URLS from '../config/csvUrls';
+import { contentUrls } from '@/config/content';
 import { CsvLogoRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { buildIcon } from '../utils/resolveIcon';
 
 export default async function parseLogo(): Promise<ButtonProps> {
-  const raw: Array<CsvLogoRow> = await fetchCsv(CSV_URLS.Logo);
+  const raw: Array<CsvLogoRow> = await fetchCsv(contentUrls.logo);
   if (!raw.length) throw new Error('No Logo row found.');
 
   const row = raw[0];

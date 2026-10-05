@@ -1,13 +1,13 @@
 import type { AboutMeSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
-import CSV_URLS from '../config/csvUrls';
+import { contentUrls } from '@/config/content';
 import type { CsvAboutMeSectionRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
 import { replaceEscapedNewlines } from '../utils/replaceEscapedNewlines';
 
 export default async function parseAboutMeSection(): Promise<AboutMeSection> {
-  const raw: Array<CsvAboutMeSectionRow> = await fetchCsv(CSV_URLS.AboutMeSection);
+  const raw: Array<CsvAboutMeSectionRow> = await fetchCsv(contentUrls.aboutMeSection);
   if (!raw.length) throw new Error('No AboutMeSection rows found.');
 
   const row = raw[0];

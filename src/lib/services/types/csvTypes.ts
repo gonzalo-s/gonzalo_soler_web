@@ -210,3 +210,42 @@ export type CsvSocialSectionRow = {
   iconPre: 'TRUE' | 'FALSE';
   iconName?: string;
 };
+
+export type CsvStorytellingSectionRow = CsvExperienceSectionRow & {
+  heading: string;
+  introduction: string;
+  ownershipClosingHeading?: string;
+  ownershipClosing: string;
+};
+
+export type CsvStorytellingItemRow = {
+  id: string;
+  storytellingSectionId: string;
+  projectName: string;
+  heading: string;
+  challenge: string;
+  ownership: string;
+  outcome: string;
+  displayOrder: string;
+  linkText?: string;
+  linkHrefType?: HrefType;
+  linkHrefValue?: string;
+};
+
+export type CsvStorytellingRow = CsvStorytellingItemRow & {
+  recordType: 'section' | 'story';
+  sectionId: string;
+  sectionType: string;
+  sectionTitle: string;
+  sectionHrefType: HrefType;
+  sectionHrefValue: string;
+  sectionIsMain: 'TRUE' | 'FALSE';
+  sectionIsNav: 'TRUE' | 'FALSE';
+  sectionIsFooter: 'TRUE' | 'FALSE';
+  sectionButtonVariant: ButtonVariant;
+  sectionSectionTitle: string;
+  sectionIntroduction: string;
+  sectionClosingTitle: string;
+  sectionClosingText: string;
+  narrative: string;
+};

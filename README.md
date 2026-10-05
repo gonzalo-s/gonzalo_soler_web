@@ -105,3 +105,9 @@ See [AGENTS.md](./AGENTS.md) for project conventions and the full maintenance ma
 Components follow atomic design: atoms, molecules, organisms, and page templates. See [UI architecture](docs/ui-architecture.md) for dependency rules, server/client boundaries, shared styling, and accessibility conventions.
 
 Use Node 22.14 or newer. Run `npm test` for interaction contracts. For browser integration, start the production build and run `npm run test:browser` with `UI_TEST_BASE_URL` and `UI_TEST_CHROME` set to its URL and a Chromium executable. These checks do not capture screenshots.
+
+## Content environment variables
+
+Copy `.env.example` to `.env.local` before running or building locally. The example includes every public Google Sheets CSV endpoint. Configure the same variables in Vercel before deploying; content is fetched during static generation and requires a rebuild when URLs or sheet content change. Loaders import `contentUrls` from `src/config/content.ts`, which owns all content environment-variable reads. Missing required values fail the build with the variable name. Variables are server-side and do not need the `NEXT_PUBLIC_` prefix.
+
+`STORYTELLING_CSV_URL` uses the combined storytelling tab. `STORYTELLING_SECTION_CSV_URL` and `STORYTELLING_ITEMS_CSV_URL` are optional separate-tab overrides and must be set together.

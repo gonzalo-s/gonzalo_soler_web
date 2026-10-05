@@ -1,14 +1,14 @@
 import type { TechnologiesSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
-import CSV_URLS from '../config/csvUrls';
+import { contentUrls } from '@/config/content';
 import type { CsvTechnologiesSectionRow, CsvStackIconRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
 import type { StackIconProps } from '@/types/technology';
 
 export default async function parseTechnologiesSection(): Promise<TechnologiesSection> {
-  const techSectionRaw: CsvTechnologiesSectionRow[] = await fetchCsv(CSV_URLS.TechnologiesSection);
-  const stackIconsRaw: CsvStackIconRow[] = await fetchCsv(CSV_URLS.StackIconProps);
+  const techSectionRaw: CsvTechnologiesSectionRow[] = await fetchCsv(contentUrls.technologiesSection);
+  const stackIconsRaw: CsvStackIconRow[] = await fetchCsv(contentUrls.stackIconProps);
 
   if (!techSectionRaw.length) throw new Error('No TechnologiesSection rows found.');
 

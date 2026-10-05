@@ -5,4 +5,6 @@ import Technologies from '@/components/organisms/Technologies/Technologies';
 import Experience from '@/components/organisms/Experience/Experience';
 import Contact from '@/components/organisms/Contact/Contact';
 
-export const SECTIONS_COMPONENTS = { Introduction, Projects, AboutMe, Technologies, Experience, Contact };
+import Storytelling from '@/components/organisms/Storytelling/Storytelling';
+
+export const SECTIONS_COMPONENTS = { Introduction, Projects, AboutMe, Technologies, Experience, Storytelling, Contact };
