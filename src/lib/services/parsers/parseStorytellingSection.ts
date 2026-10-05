@@ -89,16 +89,6 @@ export function buildCombinedStorytellingSection(rows: CsvStorytellingRow[]): St
 }
 
 export default async function parseStorytellingSection(): Promise<StorytellingSection> {
-  const sectionUrl = contentUrls.storytellingSection;
-  const itemsUrl = contentUrls.storytellingItems;
-  if (!sectionUrl && !itemsUrl) {
-    const rows = await fetchCsv<CsvStorytellingRow>(contentUrls.storytelling);
-    return buildCombinedStorytellingSection(rows);
-  }
-  if (!sectionUrl || !itemsUrl) throw new Error('Configure both StorytellingSection and StorytellingItems CSV URLs.');
-  const [sections, items] = await Promise.all([
-    fetchCsv<CsvStorytellingSectionRow>(sectionUrl),
-    fetchCsv<CsvStorytellingItemRow>(itemsUrl),
-  ]);
-  return buildStorytellingSection(sections, items);
+  const rows = await fetchCsv<CsvStorytellingRow>(contentUrls.storytelling);
+  return buildCombinedStorytellingSection(rows);
 }

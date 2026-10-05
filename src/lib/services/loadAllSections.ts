@@ -20,5 +20,5 @@ export async function loadAllSections(): Promise<Sections> {
     parseSocialSection(),
   ]);
 
-  return [intro, projects, ...(storytelling ? [storytelling] : []), aboutMe, tech, experience, contact, social];
+  return [intro, storytelling, projects, aboutMe, tech, experience, contact, social];
 }

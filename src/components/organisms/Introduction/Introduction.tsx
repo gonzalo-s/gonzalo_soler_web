@@ -1,3 +1,4 @@
+import CmsText from '@/components/atoms/CmsText/CmsText';
 import type { IntroductionSection } from '@/types/sections';
 export type { IntroductionSection } from '@/types/sections';
 
@@ -13,9 +14,15 @@ function Introduction(props: IntroductionSection) {
       <div className={styles.introduction__content}>
         <span className={styles.introduction__rule} aria-hidden="true" />
         <Heading as="h1" className={styles.introduction__textWrapper}>
-          {props.description?.highlightText && <span>{props.description.highlightText}</span>}
+          {props.description?.highlightText && (
+            <span>
+              <CmsText text={props.description.highlightText} />
+            </span>
+          )}
           {props.description?.text && (
-            <span className={styles.introduction__description}>{props.description.text}</span>
+            <span className={styles.introduction__description}>
+              <CmsText text={props.description.text} />
+            </span>
           )}
         </Heading>
         <div className={styles.introduction__bottom}>{props.cta && <Button {...props.cta} />}</div>

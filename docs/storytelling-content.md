@@ -1,6 +1,6 @@
 # Storytelling content
 
-Storytelling is built statically alongside the existing homepage sections, immediately after Projects. The supplied combined Storytelling CSV is configured through `STORYTELLING_CSV_URL`. All CSV endpoints are listed in `.env.example` and loaded from environment variables.
+Storytelling is built statically alongside the existing homepage sections, immediately before Projects. The supplied combined Storytelling CSV is configured through `STORYTELLING_CSV_URL`. All CSV endpoints are listed in `.env.example` and loaded from environment variables.
 
 Optional separate-tab overrides use both build-time environment variables:
 

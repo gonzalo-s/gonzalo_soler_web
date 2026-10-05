@@ -90,19 +90,15 @@ test('missing content, invalid orders, and duplicate identifiers fail clearly', 
   assert.throws(() => build([section], [item('x', 1), item('x', 2)]), /Duplicate/);
 });
 
-test('draft sources must be enabled together and configured empty sources fail', async () => {
+test('an empty configured combined source fails clearly', async () => {
   await assert.rejects(parser().default(), /exactly one storytelling section/);
-  await assert.rejects(parser({ StorytellingSection: 'section' }).default(), /Configure both/);
-  await assert.rejects(
-    parser({ StorytellingSection: 'section', StorytellingItems: 'items' }).default(),
-    /No StorytellingSection/,
-  );
 });
 
 test('storytelling renders every narrative and shared closing before hydration', async () => {
   const { renderToStaticMarkup } = require('react-dom/server');
   const { createElement } = require('react');
   const Storytelling = loadTs('../../src/components/organisms/Storytelling/Storytelling.tsx', {
+    '@/components/atoms/CmsText/CmsText': { default: ({ text }) => text },
     '@/components/atoms/Heading/Heading': { default: ({ as = 'h2', children }) => createElement(as, null, children) },
     '@/components/atoms/Button/Button': {
       default: ({ text, href }) => createElement('a', { href: href.internal }, text),
@@ -146,4 +142,28 @@ test('published combined CSV maps shared content, flags, story order, and option
   assert.ok(result.ownershipClosing.includes('handoff'));
   assert.throws(() => build(rows.filter((row) => row.recordType !== 'section')), /exactly one/);
   assert.throws(() => build([rows[0], ...rows]), /exactly one/);
+});
+
+test('section composition puts storytelling before projects in the homepage and navigation', async () => {
+  const dependencies = {};
+  const sectionParsers = [
+    ['parseIntroducttionSection', 'Introduction'],
+    ['parseProjectsSection', 'Projects'],
+    ['parseAboutMeSection', 'AboutMe'],
+    ['parseTechnologiesSection', 'Technologies'],
+    ['parseExperienceSection', 'Experience'],
+    ['parseStorytellingSection', 'Storytelling'],
+    ['parseContactSection', 'Contact'],
+    ['parseSocialSection', 'Social'],
+  ];
+  for (const [parser, type] of sectionParsers) {
+    dependencies[`./parsers/${parser}`] = { default: async () => ({ type, isMain: true, isNav: true }) };
+  }
+  const sections = await loadTs('../../src/lib/services/loadAllSections.ts', dependencies).loadAllSections();
+  for (const list of [sections.filter((section) => section.isMain), sections.filter((section) => section.isNav)]) {
+    assert.ok(
+      list.findIndex((section) => section.type === 'Storytelling') <
+        list.findIndex((section) => section.type === 'Projects'),
+    );
+  }
 });

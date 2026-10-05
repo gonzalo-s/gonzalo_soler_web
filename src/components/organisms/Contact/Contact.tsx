@@ -1,3 +1,4 @@
+import CmsText from '@/components/atoms/CmsText/CmsText';
 import type { ContactSection } from '@/types/sections';
 export type { ContactSection } from '@/types/sections';
 
@@ -39,7 +40,11 @@ export default function Contact(props: ContactSection) {
           </span>
         )}
       </Heading>
-      {props?.description && <p>{props.description}</p>}
+      {props?.description && (
+        <p>
+          <CmsText text={props.description} />
+        </p>
+      )}
       <div className={styles.contact__wrapper}>
         <EmailLink email={props.email} className={styles.contact__wrapper__email} />
         <div className={styles.contact__wrapper__cta}>

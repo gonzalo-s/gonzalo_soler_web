@@ -1,3 +1,4 @@
+import CmsText from '@/components/atoms/CmsText/CmsText';
 import type { StorytellingSection } from '@/types/sections';
 import Heading from '@/components/atoms/Heading/Heading';
 import Button from '@/components/atoms/Button/Button';
@@ -9,7 +10,9 @@ export default function Storytelling(props: StorytellingSection) {
     <section id={getId(props.href)} className={styles.storytelling} data-storytelling>
       <header className={styles.header}>
         <Heading className={styles.title}>{props.heading}</Heading>
-        <p className={styles.text}>{props.introduction}</p>
+        <p className={styles.text}>
+          <CmsText text={props.introduction} />
+        </p>
       </header>
       <ul className={styles.stories}>
         {props.stories.map((story) => (
@@ -23,15 +26,21 @@ export default function Storytelling(props: StorytellingSection) {
                 <dl className={styles.narrative}>
                   <div>
                     <dt>Challenge</dt>
-                    <dd>{story.challenge}</dd>
+                    <dd>
+                      <CmsText text={story.challenge} />
+                    </dd>
                   </div>
                   <div>
                     <dt>Ownership</dt>
-                    <dd>{story.ownership}</dd>
+                    <dd>
+                      <CmsText text={story.ownership} />
+                    </dd>
                   </div>
                   <div>
                     <dt>Outcome</dt>
-                    <dd>{story.outcome}</dd>
+                    <dd>
+                      <CmsText text={story.outcome} />
+                    </dd>
                   </div>
                 </dl>
                 {story.link && <Button {...story.link} variant="secondary" />}
@@ -44,7 +53,9 @@ export default function Storytelling(props: StorytellingSection) {
         <Heading as="h3" className={styles.heading}>
           {props.ownershipClosingHeading}
         </Heading>
-        <p className={styles.text}>{props.ownershipClosing}</p>
+        <p className={styles.text}>
+          <CmsText text={props.ownershipClosing} />
+        </p>
       </footer>
     </section>
   );

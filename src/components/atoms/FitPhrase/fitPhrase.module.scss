@@ -1,0 +1,12 @@
+.wrapper {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: baseline;
+  font-size: 0.85em;
+}
+
+.phrase {
+  display: inline-block;
+  white-space: nowrap;
+  color: var(--tertiary);
+}
