@@ -1,3 +1,4 @@
+import CmsText from '@/components/atoms/CmsText/CmsText';
 import type { ExperienceSection } from '@/types/sections';
 export type { ExperienceSection } from '@/types/sections';
 import styles from './experience.module.scss';
@@ -23,7 +24,9 @@ function Experience(props: ExperienceSection) {
               <p className={styles.experience__list__item__position}>{exp.position}</p>
               <p className={styles.experience__list__item__duration}>{exp.duration}</p>
             </div>
-            <p className={styles.experience__list__item__right}>{exp.description}</p>
+            <p className={styles.experience__list__item__right}>
+              <CmsText text={exp.description} />
+            </p>
           </li>
         ))}
       </ol>

@@ -21,6 +21,67 @@ test('portfolio UI interactions and server rendering', async (t) => {
     await call('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
     await navigate('/');
     await waitFor('!!document.querySelector("[data-locked]")');
+    await t.test('storytelling expands by keyboard and preserves independent stories', async (t) => {
+      if (!(await evaluate('!!document.querySelector("[data-storytelling]")'))) {
+        t.skip('Configure draft storytelling CSV URLs to exercise this section.');
+        return;
+      }
+      await evaluate('document.querySelector("[data-storytelling] summary").focus()');
+      await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await waitFor('document.querySelector("[data-storytelling] details").open');
+      assert.equal(
+        await evaluate('document.querySelector("[data-storytelling] details").querySelectorAll("dt").length'),
+        3,
+      );
+      assert.equal(
+        await evaluate(
+          '[...document.querySelectorAll("[data-storytelling] details")].slice(1).every(story => !story.open)',
+        ),
+        true,
+      );
+      await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await waitFor('!document.querySelector("[data-storytelling] details").open');
+    });
+    await t.test('CMS marked phrases stay on one line and fit on narrow viewports', async (t) => {
+      if (!(await evaluate('!!document.querySelector("[data-fit-phrase]")'))) {
+        t.skip('CMS content has no marked phrases.');
+        return;
+      }
+      await call('Emulation.setDeviceMetricsOverride', { width: 320, height: 844, deviceScaleFactor: 1, mobile: true });
+      await evaluate('document.fonts.ready');
+      await waitFor(
+        `[...document.querySelectorAll('[data-fit-phrase]')].every(wrapper => wrapper.firstElementChild.getBoundingClientRect().width <= wrapper.clientWidth + 1)`,
+      );
+      assert.equal(
+        await evaluate(
+          `[...document.querySelectorAll('[data-fit-phrase]')].every(wrapper => getComputedStyle(wrapper.firstElementChild).whiteSpace === 'nowrap')`,
+        ),
+        true,
+      );
+      assert.equal(await evaluate('document.documentElement.scrollWidth <= innerWidth'), true);
+      await call('Emulation.setDeviceMetricsOverride', {
+        width: 1440,
+        height: 900,
+        deviceScaleFactor: 1,
+        mobile: false,
+      });
+    });
+    await t.test('experience and impact precedes projects in content and both navigation menus', async () => {
+      assert.equal(
+        await evaluate(
+          `!!(document.getElementById('experience-impact').compareDocumentPosition(document.getElementById('projects')) & Node.DOCUMENT_POSITION_FOLLOWING)`,
+        ),
+        true,
+      );
+      assert.equal(
+        await evaluate(
+          `(()=>{const links=[...document.querySelectorAll('nav a')];const stories=links.filter(link=>link.getAttribute('href')?.endsWith('#experience-impact'));return stories.length>=2&&stories.every(story=>links.slice(links.indexOf(story)+1).some(link=>link.getAttribute('href')?.endsWith('#projects')))})()`,
+        ),
+        true,
+      );
+    });
     await t.test('chips keep their spacing and isolated rounded icons', async () => {
       const value = await evaluate(
         `(()=>{const chip=document.querySelector('article li');const icon=chip.querySelector('span[aria-hidden="true"]');return {padding:getComputedStyle(chip).padding,radius:getComputedStyle(icon).borderRadius,overflow:getComputedStyle(icon).overflow,src:icon.querySelector('img').getAttribute('src')}})()`,

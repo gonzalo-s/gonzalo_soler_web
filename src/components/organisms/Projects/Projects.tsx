@@ -1,3 +1,4 @@
+import CmsText from '@/components/atoms/CmsText/CmsText';
 import type { ProjectsSection } from '@/types/sections';
 export type { Project, ProjectsSection } from '@/types/sections';
 import { getId } from '@/lib/ui/getHref';
@@ -9,7 +10,9 @@ export default function Projects(props: ProjectsSection) {
   return (
     <section id={getId(props.href)} className={styles['projects-wrapper']}>
       <header className={styles['projects-wrapper__header']}>
-        <Heading className={styles['projects-wrapper__header__title']}>{props.description}</Heading>
+        <Heading className={styles['projects-wrapper__header__title']}>
+          <CmsText text={props.description} />
+        </Heading>
       </header>
       <ul className={styles['projects-wrapper__cards']}>
         {props.projects.map((project) => (

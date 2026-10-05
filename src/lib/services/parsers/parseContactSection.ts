@@ -1,13 +1,13 @@
 import type { ContactSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
-import CSV_URLS from '../config/csvUrls';
+import { contentUrls } from '@/config/content';
 import type { CsvContactSectionRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
 import { buildIcon } from '../utils/resolveIcon';
 
 export default async function parseContactSection(): Promise<ContactSection> {
-  const raw: CsvContactSectionRow[] = await fetchCsv(CSV_URLS.ContactSection);
+  const raw: CsvContactSectionRow[] = await fetchCsv(contentUrls.contactSection);
   if (!raw.length) throw new Error('No ContactSection rows found.');
 
   const row = raw[0];

@@ -1,11 +1,11 @@
 import type { FooterProps } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
-import CSV_URLS from '../config/csvUrls';
+import { contentUrls } from '@/config/content';
 import parseLogo from './parseLogo';
 import { CsvFooterDetailsRow } from '../types/csvTypes';
 
 export default async function parseFooterDetails(): Promise<FooterProps['details']> {
-  const raw: Array<CsvFooterDetailsRow> = await fetchCsv(CSV_URLS.FooterDetail);
+  const raw: Array<CsvFooterDetailsRow> = await fetchCsv(contentUrls.footerDetail);
   if (!raw.length) throw new Error('No FooterDetail row found.');
 
   const row = raw[0];

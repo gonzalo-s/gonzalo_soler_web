@@ -8,7 +8,8 @@ export type SectionType =
   | 'Contact'
   | 'Social'
   | 'Technologies'
-  | 'Experience';
+  | 'Experience'
+  | 'Storytelling';
 export type Section = {
   title: string;
   type: SectionType;
@@ -50,6 +51,26 @@ export type ExperienceSection = Section & {
     duration: string;
     description: string;
   }>;
+};
+
+export type StorytellingItem = {
+  id: string;
+  projectName: string;
+  heading: string;
+  challenge: string;
+  ownership: string;
+  outcome: string;
+  displayOrder: number;
+  link?: ButtonProps;
+};
+
+export type StorytellingSection = Section & {
+  type: 'Storytelling';
+  heading: string;
+  introduction: string;
+  ownershipClosingHeading: string;
+  ownershipClosing: string;
+  stories: StorytellingItem[];
 };
 
 export type TechnologiesSection = Section & {
@@ -105,5 +126,6 @@ export type ContentSection =
   | AboutMeSection
   | TechnologiesSection
   | ExperienceSection
+  | StorytellingSection
   | ContactSection;
 export type Sections = Array<ContentSection | Section>;

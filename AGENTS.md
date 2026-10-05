@@ -18,18 +18,18 @@
 ## Adding content-backed UI
 
 1. Define CSV and rendered shapes in `src/lib/services/types/csvTypes.ts` and `src/types/sections.ts`.
-2. Add the sheet endpoint in `src/lib/services/config/csvUrls.ts` and a parser in `src/lib/services/parsers/`.
+2. Add the sheet endpoint as a build-time environment variable in `.env.example` and `.env.local`, register it in `src/config/content.ts`, and a parser in `src/lib/services/parsers/`.
 3. Register the parsed section in `src/lib/services/loadAllSections.ts`, `src/components/RenderSection/sections_components.ts`, and the `RenderSection` switch.
 4. For stack icons, update `StackIconName` in `src/types/technology.ts`, the curated registry in `src/constants/StackIcon/lib/index.js`, and its SVG asset in `public/icons/stack/`.
 
 ## Maintenance matrix
 
-| Change                               | Also update                                                                                         |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------- |
-| Add or rename a content section      | CSV types, parser, `loadAllSections.ts`, section types, component registry, and `RenderSection.tsx` |
-| Add a Google Sheets data source      | `csvUrls.ts`, its parser, input/output types, and every page that fetches the data directly         |
-| Add a stack icon                     | `StackIconName`, the local SVG registry, and the matching Google Sheets icon name                   |
-| Change a CMS-provided button or icon | CSV types, parser fallback behavior, and the matching component accessibility label                 |
+| Change                               | Also update                                                                                                                    |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| Add or rename a content section      | CSV types, parser, `loadAllSections.ts`, section types, component registry, and `RenderSection.tsx`                            |
+| Add a Google Sheets data source      | `.env.example`, local/Vercel environment values, its parser, input/output types, and every page that fetches the data directly |
+| Add a stack icon                     | `StackIconName`, the local SVG registry, and the matching Google Sheets icon name                                              |
+| Change a CMS-provided button or icon | CSV types, parser fallback behavior, and the matching component accessibility label                                            |
 
 ## Done means
 

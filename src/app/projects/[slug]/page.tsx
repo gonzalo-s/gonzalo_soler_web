@@ -1,5 +1,5 @@
 import fetchCsv from '@/lib/services/utils/fetchCsv';
-import CSV_URLS from '@/lib/services/config/csvUrls';
+import { contentUrls } from '@/config/content';
 import type {
   CsvProjectRow,
   CsvProjectGoalRow,
@@ -12,17 +12,17 @@ import { parseProject } from '@/lib/services/parsers/parseProject';
 import parseHighlightWords from '@/lib/services/parsers/parseHighlightWords';
 
 export async function generateStaticParams() {
-  const projectsRaw: Array<CsvProjectRow> = await fetchCsv(CSV_URLS.Project);
+  const projectsRaw: Array<CsvProjectRow> = await fetchCsv(contentUrls.project);
   return projectsRaw.map((project) => ({ slug: project.slug }));
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const [projectsRaw, projectGoalsRaw, projectStackRaw, projectLinksRaw, highlightWords] = await Promise.all([
-    fetchCsv<CsvProjectRow>(CSV_URLS.Project),
-    fetchCsv<CsvProjectGoalRow>(CSV_URLS.ProjectGoals),
-    fetchCsv<CsvProjectStackRow>(CSV_URLS.ProjectStack),
-    fetchCsv<CsvProjectExampleLinkRow>(CSV_URLS.ProjectExampleLinks),
+    fetchCsv<CsvProjectRow>(contentUrls.project),
+    fetchCsv<CsvProjectGoalRow>(contentUrls.projectGoals),
+    fetchCsv<CsvProjectStackRow>(contentUrls.projectStack),
+    fetchCsv<CsvProjectExampleLinkRow>(contentUrls.projectExampleLinks),
     parseHighlightWords(),
   ]);
 
