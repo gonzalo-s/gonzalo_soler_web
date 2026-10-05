@@ -4,6 +4,7 @@
   position: relative;
   min-width: 0;
   height: 100%;
+  overflow: hidden;
   transition:
     border-color 0.25s,
     box-shadow 0.25s;
@@ -30,6 +31,11 @@
     flex-direction: column;
     height: 100%;
     padding: clamp(1rem, 2vw, 1.5rem);
+    border-radius: inherit;
+    &:focus-visible {
+      outline: 2px solid var(--brand);
+      outline-offset: -4px;
+    }
     &__media {
       position: relative;
       width: 100%;
