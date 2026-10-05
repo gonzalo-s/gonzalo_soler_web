@@ -2,7 +2,7 @@
 .technologies {
   width: 100%;
   overflow: hidden;
-  padding: 1rem 0 4rem;
+  padding: 1rem 0;
   &__list {
     @include reset-list;
     display: flex;
