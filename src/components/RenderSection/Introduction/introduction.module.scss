@@ -2,27 +2,43 @@
   position: relative;
   display: flex;
   align-items: center;
-  min-height: clamp(42rem, 86svh, 57rem);
+  min-height: calc(100svh - 5.5rem);
   padding: clamp(6rem, 10vw, 10rem) 0 clamp(5rem, 8vw, 8rem);
   isolation: isolate;
   scroll-margin-top: 7rem;
 
   &__art {
     position: absolute;
-    z-index: -1;
-    top: 26%;
-    right: -5%;
-    width: min(66%, 51rem);
-    aspect-ratio: 1.5;
+    z-index: 0;
+    inset: 0;
+    overflow: hidden;
     pointer-events: none;
     &::before {
       content: '';
       position: absolute;
-      inset: 18% 6% 5% 2%;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, var(--hero-halo), transparent 70%);
-      filter: blur(2rem);
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 48%, var(--hero-halo), transparent 62%);
     }
+    &::after {
+      content: '';
+      position: absolute;
+      z-index: 4;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        color-mix(in srgb, var(--background) 84%, transparent) 0%,
+        color-mix(in srgb, var(--background) 58%, transparent) 40%,
+        transparent 77%
+      );
+    }
+  }
+  &__composition {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    width: min(82vw, 63rem);
+    aspect-ratio: 1.5;
+    transform: translateX(-50%);
   }
   &__blueBrick,
   &__yellowBrick,
@@ -108,22 +124,24 @@
 }
 @media (max-width: 900px) {
   .introduction {
-    min-height: 0;
-    padding: 2rem 0 5rem;
-    flex-direction: column;
-    align-items: stretch;
-    &__art {
-      position: relative;
-      top: auto;
-      right: auto;
-      width: min(100%, 42rem);
-      align-self: center;
-      order: 1;
+    align-items: flex-end;
+    padding: 22rem 0 4rem;
+    &__art::after {
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        color-mix(in srgb, var(--background) 55%, transparent) 50%,
+        var(--background) 88%
+      );
+    }
+    &__composition {
+      top: 12%;
+      left: 50%;
+      width: min(115%, 48rem);
+      transform: translateX(-50%);
     }
     &__content {
       max-width: 100%;
-      order: 2;
-      margin-top: -1rem;
     }
     &__textWrapper {
       max-width: 14ch;
@@ -133,9 +151,10 @@
 }
 @media (max-width: 560px) {
   .introduction {
-    &__art {
-      width: calc(100% + 2rem);
-      margin: 0 -1rem;
+    padding-top: clamp(19rem, 48vh, 27rem);
+    &__composition {
+      top: 23%;
+      width: calc(100% + 13rem);
     }
     &__textWrapper {
       font-size: clamp(3rem, 12vw, 4.5rem);

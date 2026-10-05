@@ -59,32 +59,34 @@ function Introduction(props: IntroductionSection) {
   return (
     <section ref={sectionRef} className={styles.introduction} id={getId(props.href)}>
       <div ref={artRef} className={styles.introduction__art} aria-hidden="true">
-        <Image
-          className={styles.introduction__blueBrick}
-          src="/images/lego-brick-blue.png"
-          alt=""
-          width={1254}
-          height={1254}
-          priority
-          sizes="(max-width: 900px) 70vw, 42vw"
-        />
-        <Image
-          className={styles.introduction__yellowBrick}
-          src="/images/lego-brick-yellow.png"
-          alt=""
-          width={1254}
-          height={1254}
-          priority
-          sizes="(max-width: 900px) 70vw, 42vw"
-        />
-        <Image
-          className={styles.introduction__blueStuds}
-          src="/images/lego-brick-blue.png"
-          alt=""
-          width={1254}
-          height={1254}
-          sizes="(max-width: 900px) 70vw, 42vw"
-        />
+        <div className={styles.introduction__composition}>
+          <Image
+            className={styles.introduction__blueBrick}
+            src="/images/lego-brick-blue.png"
+            alt=""
+            width={1254}
+            height={1254}
+            priority
+            sizes="(max-width: 900px) 70vw, 42vw"
+          />
+          <Image
+            className={styles.introduction__yellowBrick}
+            src="/images/lego-brick-yellow.png"
+            alt=""
+            width={1254}
+            height={1254}
+            priority
+            sizes="(max-width: 900px) 70vw, 42vw"
+          />
+          <Image
+            className={styles.introduction__blueStuds}
+            src="/images/lego-brick-blue.png"
+            alt=""
+            width={1254}
+            height={1254}
+            sizes="(max-width: 900px) 70vw, 42vw"
+          />
+        </div>
       </div>
       <div className={styles.introduction__content}>
         <span className={styles.introduction__rule} aria-hidden="true" />
