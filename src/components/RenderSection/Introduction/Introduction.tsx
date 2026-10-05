@@ -1,5 +1,6 @@
 'use client';
 
+import BrickAnimation from '@/components/BrickAnimation/BrickAnimation';
 import { Section, SectionType } from '@/types/sections';
 import styles from './introduction.module.scss';
 import { getId } from '@/components/utils/getHref';
@@ -33,6 +34,7 @@ function Introduction(props: IntroductionSection) {
           )}
         </div>
       </div>
+      <BrickAnimation />
     </section>
   );
 }

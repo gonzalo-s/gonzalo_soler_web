@@ -1,0 +1,51 @@
+.animation {
+  position: relative;
+  width: min(100%, 50rem);
+  aspect-ratio: 1.1;
+  flex: none;
+  pointer-events: none;
+  &__composition {
+    position: absolute;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    aspect-ratio: 1.5;
+  }
+  &__blueBrick,
+  &__yellowBrick,
+  &__blueStuds {
+    position: absolute;
+    display: block;
+    width: 65%;
+    height: auto;
+    filter: drop-shadow(0 1.5rem 1.5rem var(--shadow-color-a));
+  }
+  &__blueBrick {
+    z-index: 1;
+    left: 7%;
+    bottom: 0;
+  }
+  &__blueStuds {
+    z-index: 3;
+    left: 7%;
+    bottom: 0;
+    // Only the two exposed stud caps pass in front of the yellow brick.
+    mask-image:
+      radial-gradient(10.5% 8.5% at 21.5% 40%, #000 93%, #0000 100%),
+      radial-gradient(10.5% 8.5% at 33.3% 53%, #000 93%, #0000 100%);
+    mask-composite: add;
+  }
+  &__yellowBrick {
+    z-index: 2;
+    left: 21.3%;
+    bottom: 22%;
+    transform: translate3d(0, var(--yellow-lift, -30%), 0) rotate(var(--yellow-rotation, -2deg));
+    will-change: transform;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animation__yellowBrick {
+    transform: translate3d(0, -10.694390715667312%, 0) rotate(-0.258164deg);
+    will-change: auto;
+  }
+}
