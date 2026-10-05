@@ -1,27 +1,8 @@
-import { Section } from '@/types/sections';
-import { JSX } from 'react';
-import Projects, { ProjectsSection } from './Projects';
-import Introduction, { IntroductionSection } from './Introduction';
-import AboutMe, { AboutMeSection } from './AboutMe';
-import Technologies, { TechnologiesSection } from './Technologies';
-import Experience, { ExperienceSection } from './Experience';
-import Contact, { ContactSection } from './Contact';
+import Introduction from '@/components/organisms/Introduction/Introduction';
+import Projects from '@/components/organisms/Projects/Projects';
+import AboutMe from '@/components/organisms/AboutMe/AboutMe';
+import Technologies from '@/components/organisms/Technologies/Technologies';
+import Experience from '@/components/organisms/Experience/Experience';
+import Contact from '@/components/organisms/Contact/Contact';
 
-type SectionComponents = {
-  Introduction?: (section: IntroductionSection) => JSX.Element;
-  Projects?: (section: ProjectsSection) => JSX.Element;
-  AboutMe?: (section: AboutMeSection) => JSX.Element;
-  Contact?: (section: ContactSection) => JSX.Element;
-  Social?: (section: Section) => JSX.Element;
-  Technologies?: (section: TechnologiesSection) => JSX.Element;
-  Experience?: (section: ExperienceSection) => JSX.Element;
-};
-
-export const SECTIONS_COMPONENTS: SectionComponents = {
-  Introduction,
-  Projects,
-  AboutMe,
-  Technologies,
-  Experience,
-  Contact,
-};
+export const SECTIONS_COMPONENTS = { Introduction, Projects, AboutMe, Technologies, Experience, Contact };

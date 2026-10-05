@@ -1,79 +1,39 @@
-'use client';
-
-import { Section } from '@/types/sections';
+import type {
+  Section,
+  IntroductionSection,
+  ProjectsSection,
+  AboutMeSection,
+  TechnologiesSection,
+  ExperienceSection,
+  ContactSection,
+} from '@/types/sections';
 import { SECTIONS_COMPONENTS } from './sections_components';
-import { JSX } from 'react';
-import { AboutMeSection } from './AboutMe';
-import { ExperienceSection } from './Experience';
-import { IntroductionSection } from './Introduction';
-import { ProjectsSection } from './Projects';
-import { TechnologiesSection } from './Technologies';
-import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
-
 import styles from './renderSection.module.scss';
-import { ContactSection } from './Contact';
 
-function RenderSection(section: Section) {
-  return SectionToRender(section);
-}
-
-export default RenderSection;
-
-function SectionToRender(section: Section): JSX.Element | null {
-  const [setRef, isVisible] = useIntersectionObserver();
-
-  const sectionClassName = isVisible ? `${styles.section} ${styles['section--visible']}` : styles.section;
-
+/** Server composition boundary; interactive behavior belongs to individual children. */
+export default function RenderSection(section: Section) {
+  let content;
   switch (section.type) {
-    case 'Introduction': {
-      const TypedComponent = SECTIONS_COMPONENTS['Introduction'];
-      return TypedComponent ? (
-        <div ref={setRef} className={sectionClassName}>
-          <TypedComponent {...(section as IntroductionSection)} />
-        </div>
-      ) : null;
-    }
-    case 'Projects': {
-      const TypedComponent = SECTIONS_COMPONENTS['Projects'];
-      return TypedComponent ? (
-        <div ref={setRef} className={sectionClassName}>
-          <TypedComponent {...(section as ProjectsSection)} />
-        </div>
-      ) : null;
-    }
-    case 'AboutMe': {
-      const TypedComponent = SECTIONS_COMPONENTS['AboutMe'];
-      return TypedComponent ? (
-        <div ref={setRef} className={sectionClassName}>
-          <TypedComponent {...(section as AboutMeSection)} />
-        </div>
-      ) : null;
-    }
-    case 'Technologies': {
-      const TypedComponent = SECTIONS_COMPONENTS['Technologies'];
-      return TypedComponent ? (
-        <div ref={setRef} className={sectionClassName}>
-          <TypedComponent {...(section as TechnologiesSection)} />
-        </div>
-      ) : null;
-    }
-    case 'Experience': {
-      const TypedComponent = SECTIONS_COMPONENTS['Experience'];
-      return TypedComponent ? (
-        <div ref={setRef} className={sectionClassName}>
-          <TypedComponent {...(section as ExperienceSection)} />
-        </div>
-      ) : null;
-    }
-    case 'Contact': {
-      const TypedComponent = SECTIONS_COMPONENTS['Contact'];
-      return TypedComponent ? (
-        <div ref={setRef} className={sectionClassName}>
-          <TypedComponent {...(section as ContactSection)} />
-        </div>
-      ) : null;
-    }
+    case 'Introduction':
+      content = <SECTIONS_COMPONENTS.Introduction {...(section as IntroductionSection)} />;
+      break;
+    case 'Projects':
+      content = <SECTIONS_COMPONENTS.Projects {...(section as ProjectsSection)} />;
+      break;
+    case 'AboutMe':
+      content = <SECTIONS_COMPONENTS.AboutMe {...(section as AboutMeSection)} />;
+      break;
+    case 'Technologies':
+      content = <SECTIONS_COMPONENTS.Technologies {...(section as TechnologiesSection)} />;
+      break;
+    case 'Experience':
+      content = <SECTIONS_COMPONENTS.Experience {...(section as ExperienceSection)} />;
+      break;
+    case 'Contact':
+      content = <SECTIONS_COMPONENTS.Contact {...(section as ContactSection)} />;
+      break;
     default:
       return null;
   }
+  return <div className={styles.section}>{content}</div>;
 }

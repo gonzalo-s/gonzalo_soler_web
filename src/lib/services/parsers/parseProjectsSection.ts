@@ -1,4 +1,4 @@
-import { ProjectsSection, Project } from '@/components/RenderSection/Projects';
+import type { ProjectsSection, Project } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import type {

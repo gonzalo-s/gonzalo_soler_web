@@ -1,7 +1,7 @@
 import 'server-only';
 import { JSX } from 'react';
 import type { IconType } from 'react-icons';
-import type { ButtonIcon } from '@/components/Button/Button';
+import type { ButtonIcon } from '@/types/ui';
 import { ICONS } from '@/constants/icons';
 
 // Module namespaces also carry a `default` export, so the values are widened to

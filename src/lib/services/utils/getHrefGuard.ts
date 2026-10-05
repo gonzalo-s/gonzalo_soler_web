@@ -1,4 +1,4 @@
-import { InternalHref, ExternalHref, ButtonHref } from '@/components/Button/Button';
+import type { InternalHref, ExternalHref, ButtonHref } from '@/types/ui';
 import { HrefType } from '../types/csvTypes';
 
 type GetHrefProps = {

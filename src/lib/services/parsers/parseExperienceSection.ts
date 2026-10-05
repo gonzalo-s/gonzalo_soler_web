@@ -1,4 +1,4 @@
-import { ExperienceSection } from '@/components/RenderSection/Experience';
+import type { ExperienceSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import type { CsvExperienceSectionRow, CsvExperienceItemRow } from '../types/csvTypes';

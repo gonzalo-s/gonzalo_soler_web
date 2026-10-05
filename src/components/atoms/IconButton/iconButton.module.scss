@@ -1,0 +1,16 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  cursor: pointer;
+  font: inherit;
+  &:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+  }
+  > span {
+    display: inline-flex;
+  }
+}

@@ -1,4 +1,4 @@
-import { IntroductionSection } from '@/components/RenderSection/Introduction';
+import type { IntroductionSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import type { CsvIntroductionSectionRow } from '../types/csvTypes';

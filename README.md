@@ -99,3 +99,9 @@ For more details, see the code in `src/lib/services/parsers/`, `src/lib/services
 4. Open a pull request describing the change and its Google Sheets/content-model impact.
 
 See [AGENTS.md](./AGENTS.md) for project conventions and the full maintenance matrix.
+
+## UI architecture and tests
+
+Components follow atomic design: atoms, molecules, organisms, and page templates. See [UI architecture](docs/ui-architecture.md) for dependency rules, server/client boundaries, shared styling, and accessibility conventions.
+
+Use Node 22.14 or newer. Run `npm test` for interaction contracts. For browser integration, start the production build and run `npm run test:browser` with `UI_TEST_BASE_URL` and `UI_TEST_CHROME` set to its URL and a Chromium executable. These checks do not capture screenshots.

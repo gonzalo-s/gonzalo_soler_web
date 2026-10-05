@@ -1,0 +1,25 @@
+.placeholder {
+  width: min(300px, 100%);
+  height: 200px;
+  border-radius: 1rem;
+  background: linear-gradient(90deg, var(--secondary), var(--panel-strong), var(--secondary));
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+.label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .placeholder {
+    animation: none;
+  }
+}

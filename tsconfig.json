@@ -28,8 +28,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".next-dev/types/**/*.ts",
-    "src/constants/OpenIcon",
-    "src/constants/CloseIcon",
     "src/constants/StackIcon"
   ],
   "exclude": ["node_modules"]

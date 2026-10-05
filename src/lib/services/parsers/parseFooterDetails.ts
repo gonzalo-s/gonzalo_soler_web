@@ -1,4 +1,4 @@
-import { FooterProps } from '@/components/Footer/Footer';
+import type { FooterProps } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import parseLogo from './parseLogo';

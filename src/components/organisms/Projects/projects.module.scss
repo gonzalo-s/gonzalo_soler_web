@@ -1,0 +1,33 @@
+@use '@/styles/mixins.scss' as *;
+.projects-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: clamp(4rem, 7vw, 7rem) 0;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 7rem;
+  &__header__title {
+    max-width: 18ch;
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: clamp(3rem, 5.8vw, 6rem);
+    font-weight: 600;
+    letter-spacing: -0.065em;
+    line-height: 1.03;
+  }
+  &__cards {
+    @include reset-list;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(2.5rem, 5vw, 5rem) clamp(1.5rem, 3vw, 3.5rem);
+  }
+}
+.projects-wrapper__item {
+  min-width: 0;
+  list-style: none;
+}
+@media (max-width: 760px) {
+  .projects-wrapper__cards {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}

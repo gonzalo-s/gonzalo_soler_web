@@ -1,0 +1,10 @@
+.surface {
+  background: var(--surface-background, var(--panel));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--surface-radius, 1.1rem);
+  box-shadow:
+    var(--surface-shadow, 0 0.75rem 2rem var(--shadow-color-a)),
+    inset 0 1px var(--glass-highlight);
+  backdrop-filter: blur(var(--surface-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--surface-blur, 16px));
+}

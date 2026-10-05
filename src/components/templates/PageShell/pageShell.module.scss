@@ -1,0 +1,45 @@
+.page-wrapper {
+  position: relative;
+  min-height: 100dvh;
+  isolation: isolate;
+  overflow: clip;
+  color: var(--foreground);
+  background:
+    radial-gradient(ellipse at 85% 6%, var(--glow-a), transparent 35%),
+    radial-gradient(ellipse at 12% 36%, var(--glow-b), transparent 34%), var(--background);
+  white-space: pre-line;
+  transition:
+    background-color 0.35s,
+    color 0.35s;
+}
+.content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 1600px);
+  min-height: 100dvh;
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4.5vw, 5rem);
+}
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  width: 100%;
+}
+
+.skipLink {
+  position: fixed;
+  z-index: 101;
+  top: 1rem;
+  left: 1.25rem;
+  padding: 0.75rem 1rem;
+  color: var(--foreground);
+  background: var(--surface);
+  border-radius: 0.5rem;
+  transform: translateY(-200%);
+  &:focus-visible {
+    transform: none;
+  }
+}

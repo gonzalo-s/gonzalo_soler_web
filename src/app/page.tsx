@@ -1,5 +1,5 @@
 import RenderSection from '@/components/RenderSection/RenderSection';
-import HashScrollHandler from '@/components/utils/HashScrollHandler';
+import HashScrollHandler from '@/components/molecules/HashScrollHandler/HashScrollHandler';
 import { loadAllSections } from '@/lib/services/loadAllSections';
 
 export default async function Home() {

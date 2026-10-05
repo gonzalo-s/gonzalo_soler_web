@@ -1,10 +1,10 @@
-import { TechnologiesSection } from '@/components/RenderSection/Technologies';
+import type { TechnologiesSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import type { CsvTechnologiesSectionRow, CsvStackIconRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';
-import { StackIconProps } from '@/constants/StackIcon/StackIcon';
+import type { StackIconProps } from '@/types/technology';
 
 export default async function parseTechnologiesSection(): Promise<TechnologiesSection> {
   const techSectionRaw: CsvTechnologiesSectionRow[] = await fetchCsv(CSV_URLS.TechnologiesSection);

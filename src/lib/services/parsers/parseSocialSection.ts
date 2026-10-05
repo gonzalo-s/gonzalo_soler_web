@@ -1,6 +1,6 @@
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
-import { Section } from '@/types/sections';
+import type { Section } from '@/types/sections';
 import type { CsvSocialSectionRow } from '../types/csvTypes';
 import getHrefGuard from '../utils/getHrefGuard';
 import { toBoolean } from '../utils/toBoolean';

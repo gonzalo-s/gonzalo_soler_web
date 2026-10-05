@@ -9,7 +9,9 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --experimental-strip-types --test tests/ui/*.test.mjs",
+    "test:browser": "node --test tests/ui/browser.integration.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
