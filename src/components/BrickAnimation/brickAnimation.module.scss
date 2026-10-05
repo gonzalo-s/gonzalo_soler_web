@@ -14,12 +14,12 @@
       content: '';
       position: absolute;
       z-index: 0;
-      inset: -25% -5% -10%;
+      inset: -40% -20% -25%;
       background:
-        radial-gradient(ellipse at 35% 70%, var(--brick-blue-glow), transparent 48%),
-        radial-gradient(ellipse at 57% 30%, var(--brick-yellow-glow), transparent 48%);
+        radial-gradient(ellipse at 35% 70%, var(--brick-blue-glow), transparent 68%),
+        radial-gradient(ellipse at 57% 30%, var(--brick-yellow-glow), transparent 68%);
       opacity: 0;
-      filter: blur(2rem);
+      filter: blur(3.5rem);
       transition: opacity 0.6s ease;
     }
   }
@@ -53,12 +53,12 @@
       opacity: 1;
     }
     .animation__blueBrick {
-      filter: grayscale(75%) drop-shadow(0 0 0.8rem var(--brick-blue-glow))
-        drop-shadow(0 0 2.5rem var(--brick-blue-glow));
+      filter: grayscale(75%) drop-shadow(0 0 1.8rem var(--brick-blue-glow))
+        drop-shadow(0 0 4.5rem var(--brick-blue-glow));
     }
     .animation__yellowBrick {
-      filter: grayscale(75%) drop-shadow(0 0 0.8rem var(--brick-yellow-glow))
-        drop-shadow(0 0 2.5rem var(--brick-yellow-glow));
+      filter: grayscale(75%) drop-shadow(0 0 1.8rem var(--brick-yellow-glow))
+        drop-shadow(0 0 4.5rem var(--brick-yellow-glow));
     }
   }
   &__yellowBrick {
