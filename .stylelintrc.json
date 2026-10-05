@@ -2,6 +2,11 @@
   "extends": ["stylelint-config-standard-scss"],
   "plugins": ["stylelint-scss"],
   "rules": {
+    "rule-empty-line-before": null,
+    "at-rule-empty-line-before": null,
+    "declaration-empty-line-before": null,
+    "scss/double-slash-comment-empty-line-before": null,
+    "number-max-precision": 15,
     "selector-pseudo-class-no-unknown": [
       true,
       {

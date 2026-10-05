@@ -1,4 +1,4 @@
-import { ButtonProps } from '@/components/Button/Button';
+import type { ButtonProps } from '@/types/ui';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import { CsvLogoRow } from '../types/csvTypes';

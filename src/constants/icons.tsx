@@ -15,12 +15,12 @@ import {
   FaPause,
   FaStop,
 } from 'react-icons/fa';
-import CloseIcon from './CloseIcon/CloseIcon';
-import OpenIcon from './OpenIcon/OpenIcon';
+import CloseIcon from '@/components/atoms/CloseIcon/CloseIcon';
+import OpenIcon from '@/components/atoms/OpenIcon/OpenIcon';
 
 export const ICONS = {
   linkedin: <FaLinkedin />,
-  github: <FaGithub color="#000" />,
+  github: <FaGithub />,
   arrowAltRight: <FaArrowRight style={{ transform: 'rotate(-45deg)' }} />,
   logo: <FaCode size="20px" />,
   menuOpen: <OpenIcon />,

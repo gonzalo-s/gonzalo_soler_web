@@ -1,4 +1,4 @@
-import { ContactSection } from '@/components/RenderSection/Contact';
+import type { ContactSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import type { CsvContactSectionRow } from '../types/csvTypes';

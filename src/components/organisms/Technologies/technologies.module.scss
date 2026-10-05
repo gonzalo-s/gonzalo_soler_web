@@ -1,0 +1,31 @@
+@use "@/styles/mixins.scss" as *;
+.technologies {
+  width: 100%;
+  overflow: hidden;
+  padding: 1rem 0;
+  &__list {
+    @include reset-list;
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 0.75rem 0.25rem 1rem;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    cursor: grab;
+    &:active {
+      cursor: grabbing;
+    }
+    &__item {
+      display: flex;
+      align-items: center;
+      flex: 0 0 auto;
+      min-height: 2.8rem;
+      white-space: nowrap;
+      color: var(--primary);
+      font-size: 0.88rem;
+    }
+  }
+}

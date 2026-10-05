@@ -20,7 +20,7 @@
 1. Define CSV and rendered shapes in `src/lib/services/types/csvTypes.ts` and `src/types/sections.ts`.
 2. Add the sheet endpoint in `src/lib/services/config/csvUrls.ts` and a parser in `src/lib/services/parsers/`.
 3. Register the parsed section in `src/lib/services/loadAllSections.ts`, `src/components/RenderSection/sections_components.ts`, and the `RenderSection` switch.
-4. For stack icons, update both `StackIconName` in `src/constants/StackIcon/StackIcon.tsx` and the bundled registry in `src/constants/StackIcon/lib/index.js`.
+4. For stack icons, update `StackIconName` in `src/types/technology.ts`, the curated registry in `src/constants/StackIcon/lib/index.js`, and its SVG asset in `public/icons/stack/`.
 
 ## Maintenance matrix
 
@@ -34,7 +34,8 @@
 ## Done means
 
 - `npm run lint`, `npm run typecheck`, and `npm run build` exit successfully.
-- Any behavior change includes a test that would fail without that change, once a test runner is established.
+- Any behavior change includes a regression test (`npm test` and relevant browser integration checks).
+- UI composition follows the atomic layers documented in `docs/ui-architecture.md`; content contracts belong in `src/types`.
 
 ## Never merges without a human
 

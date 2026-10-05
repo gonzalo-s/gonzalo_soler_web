@@ -1,0 +1,13 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<linearGradient id="ai_gradient" x1="0" y1="100" x2="100" y2="0" gradientUnits="userSpaceOnUse">
+<stop stop-color="#8B5CF6"/>
+<stop offset="1" stop-color="#EC4899"/>
+</linearGradient>
+</defs>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M38.5 25L18 80H29.5L33.5 68H51.5L55.5 80H67L46.5 25H38.5ZM42.5 41L48.5 58H36.5L42.5 41Z" fill="url(#ai_gradient)"/>
+<path d="M72 25H83V80H72V25Z" fill="url(#ai_gradient)"/>
+<path d="M90 5L92.5 12.5L100 15L92.5 17.5L90 25L87.5 17.5L80 15L87.5 12.5L90 5Z" fill="#FBBF24"/>
+<path d="M12 10L13.5 15L18.5 16.5L13.5 18L12 23L10.5 18L5.5 16.5L10.5 15L12 10Z" fill="#FBBF24"/>
+<path d="M85 75L86.5 80L91.5 81.5L86.5 83L85 88L83.5 83L78.5 81.5L83.5 80L85 75Z" fill="#FBBF24"/>
+</svg>

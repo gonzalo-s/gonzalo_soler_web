@@ -1,5 +1,5 @@
-import { Project } from '@/components/RenderSection/Projects';
-import { StackIconProps } from '@/constants/StackIcon/StackIcon';
+import type { Project } from '@/types/sections';
+import type { StackIconProps } from '@/types/technology';
 import getHrefGuard from '../utils/getHrefGuard';
 import { replaceEscapedNewlines } from '../utils/replaceEscapedNewlines';
 import { buildIcon } from '../utils/resolveIcon';

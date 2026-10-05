@@ -1,0 +1,75 @@
+@use '@/styles/mixins.scss' as *;
+.experience {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 4rem);
+  padding: clamp(5rem, 8vw, 8rem) 0;
+  border-top: 1px solid var(--rule);
+  scroll-margin-top: 7rem;
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: var(--font-space-grotesk), sans-serif;
+    font-size: clamp(3rem, 5.8vw, 6rem);
+    font-weight: 600;
+    letter-spacing: -0.065em;
+    line-height: 1.03;
+    &__icon {
+      display: grid;
+      place-items: center;
+      flex: 0 0 2.7rem;
+      width: 2.7rem;
+      height: 2.7rem;
+      color: var(--brand);
+      font-size: 1.5rem;
+    }
+  }
+  &__list {
+    @include reset-list;
+    display: grid;
+    gap: 0;
+    &__item {
+      display: grid;
+      grid-template-columns: minmax(13rem, 0.72fr) minmax(0, 1.28fr);
+      gap: clamp(2rem, 5vw, 6rem);
+      padding: clamp(1.8rem, 3vw, 3rem) 0;
+      border-top: 1px solid var(--rule);
+      &:last-child {
+        border-bottom: 1px solid var(--rule);
+      }
+      &__left {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        padding-left: 1.1rem;
+        border-left: 2px solid var(--brand);
+      }
+      &__company {
+        font-family: var(--font-space-grotesk), sans-serif;
+        font-size: clamp(1.45rem, 2vw, 2rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+      }
+      &__position {
+        color: var(--primary);
+        font-weight: 600;
+      }
+      &__duration {
+        color: var(--tertiary);
+        font-size: 0.9rem;
+      }
+      &__right {
+        max-width: 67ch;
+        color: var(--primary);
+        line-height: 1.7;
+      }
+    }
+  }
+}
+@media (max-width: 760px) {
+  .experience__list__item {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}

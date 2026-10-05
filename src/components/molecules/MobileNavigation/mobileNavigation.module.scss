@@ -1,0 +1,47 @@
+@use '@/styles/mixins.scss' as *;
+.mobile {
+  display: block;
+  @include tablet {
+    display: none;
+  }
+  @include desktop {
+    display: none;
+  }
+  &__button {
+    @include button-reset;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    color: var(--foreground);
+    background: var(--panel);
+    border: 1px solid var(--rule);
+    border-radius: 0.7rem;
+  }
+  &__menu {
+    position: absolute;
+    top: calc(100% + 0.65rem);
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: min(100%, 23rem);
+    padding: 1rem;
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    box-shadow: 0 1rem 3rem var(--shadow-color-a);
+    backdrop-filter: blur(24px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition:
+      opacity 0.25s,
+      transform 0.25s;
+  }
+  &__menu__show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+}

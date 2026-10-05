@@ -1,4 +1,4 @@
-import { AboutMeSection } from '@/components/RenderSection/AboutMe';
+import type { AboutMeSection } from '@/types/sections';
 import fetchCsv from '../utils/fetchCsv';
 import CSV_URLS from '../config/csvUrls';
 import type { CsvAboutMeSectionRow } from '../types/csvTypes';

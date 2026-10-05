@@ -1,5 +1,5 @@
-import { ButtonVariant, ExternalHref, InternalHref } from '@/components/Button/Button';
-import { Size, StackIconName } from '@/constants/StackIcon/StackIcon';
+import type { ButtonVariant, ExternalHref, InternalHref } from '@/types/ui';
+import type { Size, StackIconName } from '@/types/technology';
 
 export type HrefType = keyof ExternalHref | keyof InternalHref;
 

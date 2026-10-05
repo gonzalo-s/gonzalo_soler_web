@@ -1,0 +1,20 @@
+.stack-icon {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--primary);
+  &__image {
+    display: flex;
+    flex-shrink: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    img {
+      display: block;
+      object-fit: contain;
+    }
+    &--grayscale {
+      filter: grayscale(1);
+    }
+  }
+}

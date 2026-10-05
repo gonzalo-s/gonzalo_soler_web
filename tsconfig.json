@@ -27,8 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "src/constants/OpenIcon",
-    "src/constants/CloseIcon",
+    ".next-dev/types/**/*.ts",
     "src/constants/StackIcon"
   ],
   "exclude": ["node_modules"]
