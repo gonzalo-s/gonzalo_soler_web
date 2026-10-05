@@ -25,6 +25,7 @@ export default function BrickAnimation() {
       const rotation = progress === 1 ? '-0.258164deg' : `${-2 + 1.741836 * progress}deg`;
       art.style.setProperty('--yellow-lift', lift);
       art.style.setProperty('--yellow-rotation', rotation);
+      art.dataset.locked = String(progress === 1);
     };
 
     const schedule = () => {
