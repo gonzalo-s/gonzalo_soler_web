@@ -1,4 +1,4 @@
-@use '@/styles/mixins.scss' as *;
+@use "@/styles/mixins.scss" as *;
 .technologies {
   width: 100%;
   overflow: hidden;
@@ -25,7 +25,6 @@
       min-height: 2.8rem;
       white-space: nowrap;
       color: var(--primary);
-      background: var(--panel);
       font-size: 0.88rem;
     }
   }

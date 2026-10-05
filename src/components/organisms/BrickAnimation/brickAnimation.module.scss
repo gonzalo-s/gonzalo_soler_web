@@ -1,15 +1,17 @@
 .animation {
   position: relative;
-  width: min(100%, 50rem);
+  width: min(100%, 35rem);
   aspect-ratio: 1.1;
   flex: none;
   pointer-events: none;
+
   &__composition {
     position: absolute;
     top: 25%;
     left: 0;
     width: 100%;
     aspect-ratio: 1.5;
+
     &::before {
       content: '';
       position: absolute;
@@ -23,6 +25,7 @@
       transition: opacity 0.6s ease;
     }
   }
+
   &__blueBrick,
   &__yellowBrick,
   &__blueStuds {
@@ -30,37 +33,28 @@
     display: block;
     width: 65%;
     height: auto;
-    filter: grayscale(75%) drop-shadow(0 1.5rem 1.5rem var(--shadow-color-a));
-    transition: filter 0.6s ease;
+    filter: grayscale(80%) drop-shadow(0 1.5rem 1.5rem var(--shadow-color-a));
+    transition: filter 0.1s ease;
   }
+
   &__blueBrick {
     z-index: 1;
     left: 7%;
     bottom: 0;
   }
+
   &__blueStuds {
     z-index: 3;
     left: 7%;
     bottom: 0;
+
     // Only the two exposed stud caps pass in front of the yellow brick.
     mask-image:
       radial-gradient(10.5% 8.5% at 21.5% 40%, #000 93%, #0000 100%),
       radial-gradient(10.5% 8.5% at 33.3% 53%, #000 93%, #0000 100%);
     mask-composite: add;
   }
-  &[data-locked='true'] {
-    .animation__composition::before {
-      opacity: 1;
-    }
-    .animation__blueBrick {
-      filter: grayscale(75%) drop-shadow(0 0 1.8rem var(--brick-blue-glow))
-        drop-shadow(0 0 4.5rem var(--brick-blue-glow));
-    }
-    .animation__yellowBrick {
-      filter: grayscale(75%) drop-shadow(0 0 1.8rem var(--brick-yellow-glow))
-        drop-shadow(0 0 4.5rem var(--brick-yellow-glow));
-    }
-  }
+
   &__yellowBrick {
     z-index: 2;
     left: 21.3%;
@@ -68,7 +62,25 @@
     transform: translate3d(0, var(--yellow-lift, -30%), 0) rotate(var(--yellow-rotation, -2deg));
     will-change: transform;
   }
+
+  &[data-locked='true'] {
+    .animation__composition::before {
+      opacity: 1;
+    }
+
+    .animation__blueBrick,
+    .animation__blueStuds {
+      filter: grayscale(70%) drop-shadow(0 0 1.8rem var(--brick-blue-glow))
+        drop-shadow(0 0 4.5rem var(--brick-blue-glow));
+    }
+
+    .animation__yellowBrick {
+      filter: grayscale(70%) drop-shadow(0 0 1.8rem var(--brick-yellow-glow))
+        drop-shadow(0 0 4.5rem var(--brick-yellow-glow));
+    }
+  }
 }
+
 @media (prefers-reduced-motion: reduce) {
   .animation__yellowBrick {
     transform: translate3d(0, -10.694390715667312%, 0) rotate(-0.258164deg);
