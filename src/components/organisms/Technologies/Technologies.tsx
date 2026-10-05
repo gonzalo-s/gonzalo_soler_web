@@ -10,6 +10,7 @@ export default function Technologies(props: TechnologiesSection) {
       <ChipList
         items={props.stack}
         scrollable
+        autoScroll
         label={props.title}
         className={styles.technologies__list}
         itemClassName={styles.technologies__list__item}

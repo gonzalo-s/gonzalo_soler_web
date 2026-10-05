@@ -11,6 +11,7 @@ type ChipListProps = {
   itemClassName?: string;
   limit?: number;
   scrollable?: boolean;
+  autoScroll?: boolean;
   label?: string;
 };
 
@@ -20,6 +21,7 @@ export default function ChipList({
   itemClassName,
   limit,
   scrollable,
+  autoScroll,
   label = 'Technologies',
 }: ChipListProps) {
   const children = (limit === undefined ? items : items.slice(0, limit)).map((item) => (
@@ -29,7 +31,7 @@ export default function ChipList({
   ));
   const listClass = clsx(styles.list, className);
   return scrollable ? (
-    <DragScrollList className={listClass} aria-label={label}>
+    <DragScrollList autoScroll={autoScroll} className={listClass} aria-label={label}>
       {children}
     </DragScrollList>
   ) : (

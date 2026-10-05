@@ -33,7 +33,7 @@ The theme provider always renders its children. A small validated cookie bootstr
 
 Chip owns the `8px 16px` padding. StackIcon owns its 8px rounded, clipped image wrapper. Surface owns shared glass material; consumers customize it through CSS properties rather than competing selectors. Heading owns the decorative icon semantics.
 
-Use a native button for actions and a link for navigation. IconButton requires an accessible label. Disabled links cannot be activated or tabbed to. Hash navigation preserves modifier clicks and uses native scrolling with CSS scroll margins and reduced-motion support. Closed mobile navigation is inert; Escape closes it and restores trigger focus. PageShell includes a skip link.
+Use a native button for actions and a link for navigation. IconButton requires an accessible label. Disabled links cannot be activated or tabbed to. Hash navigation preserves modifier clicks and uses native scrolling with CSS scroll margins and reduced-motion support. Closed mobile navigation is inert; Escape closes it and restores trigger focus. PageShell includes a skip link. Technology lists hide their scrollbar and use slow automatic scrolling with a pause control; hover, focus, manual interaction, reduced motion, and an offscreen list suspend movement.
 
 Highlights are rendered as React text and spans; never rewrite the React-owned DOM. EmailLink reveals only its own address, without selectors that modify other components. Audio playback state follows media events and playback failures are announced.
 

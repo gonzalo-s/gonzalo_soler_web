@@ -90,6 +90,33 @@ test('portfolio UI interactions and server rendering', async (t) => {
       );
       assert.ok(scroll > 0);
     });
+    await t.test('technology autoplay moves gently and pauses on focus and explicit control', async () => {
+      await call('Input.dispatchMouseEvent', { type: 'mouseMoved', x: 0, y: 0 });
+      await evaluate(
+        `document.activeElement.blur();document.querySelector('ul[tabindex="0"]').scrollIntoView({behavior:'instant',block:'center'})`,
+      );
+      await waitFor(`!!document.querySelector('button[aria-label="Pause technology scrolling"]')`);
+      assert.equal(
+        await evaluate(`getComputedStyle(document.querySelector('ul[tabindex="0"]')).scrollbarWidth`),
+        'none',
+      );
+      const moving = await evaluate(
+        `(async()=>{const list=document.querySelector('ul[tabindex="0"]');const before=list.scrollLeft;await new Promise(r=>setTimeout(r,600));return list.scrollLeft-before})()`,
+      );
+      assert.ok(moving > 0, 'visible list should move automatically');
+      const focused = await evaluate(
+        `(async()=>{const list=document.querySelector('ul[tabindex="0"]');list.focus();const before=list.scrollLeft;await new Promise(r=>setTimeout(r,350));return list.scrollLeft-before})()`,
+      );
+      assert.equal(focused, 0, 'keyboard focus must stop movement');
+      await evaluate(
+        `document.activeElement.blur();document.querySelector('button[aria-label="Pause technology scrolling"]').click()`,
+      );
+      await waitFor(`!!document.querySelector('button[aria-label="Resume technology scrolling"]')`);
+      const paused = await evaluate(
+        `(async()=>{const list=document.querySelector('ul[tabindex="0"]');const before=list.scrollLeft;await new Promise(r=>setTimeout(r,350));return list.scrollLeft-before})()`,
+      );
+      assert.equal(paused, 0, 'pause control must keep the list still');
+    });
     await t.test('theme cookie restores dark mode and the switch persists changes', async () => {
       await call('Network.setCookie', { name: 'theme', value: 'dark', url: baseUrl, path: '/' });
       await navigate('/');
@@ -105,6 +132,15 @@ test('portfolio UI interactions and server rendering', async (t) => {
       await navigate('/');
       await waitFor('document.querySelector("[data-locked]")?.dataset.locked === "true"');
       assert.equal(await evaluate('scrollY'), 0);
+      await evaluate(`document.querySelector('ul[tabindex="0"]').scrollIntoView({behavior:'instant',block:'center'})`);
+      const still = await evaluate(
+        `(async()=>{const list=document.querySelector('ul[tabindex="0"]');const before=list.scrollLeft;await new Promise(r=>setTimeout(r,350));return list.scrollLeft-before})()`,
+      );
+      assert.equal(still, 0, 'reduced motion must disable technology autoplay');
+      assert.equal(
+        await evaluate(`!!document.querySelector('button[aria-label="Pause technology scrolling"]')`),
+        false,
+      );
     });
     await t.test('project pages render highlights within their content and keep navigation functional', async () => {
       await navigate('/projects/metagenics-gecom');
