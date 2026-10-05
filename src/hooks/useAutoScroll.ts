@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import type { RefObject } from 'react';
 import { advanceAutoScroll } from '@/lib/ui/autoScroll';
 
-export default function useAutoScroll(ref: RefObject<HTMLElement | null>, enabled: boolean, paused: boolean) {
-  const [available, setAvailable] = useState(false);
+export default function useAutoScroll(ref: RefObject<HTMLElement | null>, enabled: boolean) {
   useEffect(() => {
     const element = ref.current;
     if (!element || !enabled) return;
@@ -17,38 +16,33 @@ export default function useAutoScroll(ref: RefObject<HTMLElement | null>, enable
     let frame = 0;
     let timer = 0;
     let previousTime = 0;
-    let holdUntil = 0;
+    let cycleWidth = 0;
     let position = element.scrollLeft;
-    let direction: 1 | -1 = 1;
     const canRun = () =>
-      !paused &&
       !preference.matches &&
       !document.hidden &&
       visible &&
       !hovering &&
       !focused &&
       !interacting &&
-      element.scrollWidth > element.clientWidth;
+      cycleWidth > element.clientWidth;
     const tick = (time: number) => {
       frame = 0;
       if (!canRun()) return;
-      if (previousTime && time >= holdUntil) {
-        const next = advanceAutoScroll(
-          position,
-          direction,
-          time - previousTime,
-          element.scrollWidth - element.clientWidth,
-        );
-        position = next.position;
-        direction = next.direction;
+      if (previousTime) {
+        position = advanceAutoScroll(position, time - previousTime, cycleWidth);
         element.scrollLeft = position;
-        if (next.atEdge) holdUntil = time + 1000;
       }
       previousTime = time;
       frame = window.requestAnimationFrame(tick);
     };
     const sync = () => {
-      setAvailable(!preference.matches && element.scrollWidth > element.clientWidth);
+      const originals = element.querySelectorAll<HTMLElement>('[data-scroll-original]');
+      const first = originals[0];
+      const last = originals[originals.length - 1];
+      const gap = parseFloat(getComputedStyle(element).columnGap) || 0;
+      cycleWidth = first && last ? last.offsetLeft + last.offsetWidth - first.offsetLeft + gap : 0;
+      element.dataset.loop = String(!preference.matches && cycleWidth > element.clientWidth);
       if (frame) window.cancelAnimationFrame(frame);
       frame = 0;
       previousTime = 0;
@@ -114,6 +108,5 @@ export default function useAutoScroll(ref: RefObject<HTMLElement | null>, enable
       document.removeEventListener('visibilitychange', sync);
       preference.removeEventListener('change', sync);
     };
-  }, [ref, enabled, paused]);
-  return enabled && available;
+  }, [ref, enabled]);
 }

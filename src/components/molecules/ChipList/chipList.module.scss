@@ -7,22 +7,14 @@
   gap: 0.75rem;
 }
 
-.scrollable {
-  min-width: 0;
+.list > [data-scroll-copy] {
+  display: none;
 }
-.controls {
-  display: flex;
-  justify-content: flex-end;
+.list[data-loop='true'] > [data-scroll-copy] {
+  display: inline-flex;
 }
-.control {
-  padding: 0;
-  color: var(--tertiary);
-  background: transparent;
-  border: 1px solid var(--rule);
-  border-radius: 50%;
-  font-size: 0.7rem;
-  &:hover {
-    color: var(--foreground);
-    background: var(--panel);
+@media (prefers-reduced-motion: reduce) {
+  .list[data-loop='true'] > [data-scroll-copy] {
+    display: none;
   }
 }

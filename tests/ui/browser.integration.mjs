@@ -90,32 +90,43 @@ test('portfolio UI interactions and server rendering', async (t) => {
       );
       assert.ok(scroll > 0);
     });
-    await t.test('technology autoplay moves gently and pauses on focus and explicit control', async () => {
+    await t.test('technology track loops with no controls and pauses on hover and focus', async () => {
       await call('Input.dispatchMouseEvent', { type: 'mouseMoved', x: 0, y: 0 });
       await evaluate(
         `document.activeElement.blur();document.querySelector('ul[tabindex="0"]').scrollIntoView({behavior:'instant',block:'center'})`,
       );
-      await waitFor(`!!document.querySelector('button[aria-label="Pause technology scrolling"]')`);
+      await waitFor(`document.querySelector('ul[tabindex="0"]').dataset.loop === 'true'`);
+      assert.equal(
+        await evaluate(`!!document.querySelector('button[aria-label="Pause technology scrolling"]')`),
+        false,
+      );
       assert.equal(
         await evaluate(`getComputedStyle(document.querySelector('ul[tabindex="0"]')).scrollbarWidth`),
         'none',
       );
+      assert.equal(
+        await evaluate(
+          `[...document.querySelectorAll('[data-scroll-copy]')].every(chip=>chip.getAttribute('aria-hidden')==='true')`,
+        ),
+        true,
+      );
       const moving = await evaluate(
         `(async()=>{const list=document.querySelector('ul[tabindex="0"]');const before=list.scrollLeft;await new Promise(r=>setTimeout(r,600));return list.scrollLeft-before})()`,
       );
-      assert.ok(moving > 0, 'visible list should move automatically');
+      assert.ok(moving > 0);
+      const point = await evaluate(
+        `(()=>{const rect=document.querySelector('ul[tabindex="0"]').getBoundingClientRect();return {x:rect.x+20,y:rect.y+20}})()`,
+      );
+      await call('Input.dispatchMouseEvent', { type: 'mouseMoved', ...point });
+      const hovered = await evaluate(
+        `(async()=>{const list=document.querySelector('ul[tabindex="0"]');const before=list.scrollLeft;await new Promise(r=>setTimeout(r,350));return list.scrollLeft-before})()`,
+      );
+      assert.equal(hovered, 0);
+      await call('Input.dispatchMouseEvent', { type: 'mouseMoved', x: 0, y: 0 });
       const focused = await evaluate(
         `(async()=>{const list=document.querySelector('ul[tabindex="0"]');list.focus();const before=list.scrollLeft;await new Promise(r=>setTimeout(r,350));return list.scrollLeft-before})()`,
       );
-      assert.equal(focused, 0, 'keyboard focus must stop movement');
-      await evaluate(
-        `document.activeElement.blur();document.querySelector('button[aria-label="Pause technology scrolling"]').click()`,
-      );
-      await waitFor(`!!document.querySelector('button[aria-label="Resume technology scrolling"]')`);
-      const paused = await evaluate(
-        `(async()=>{const list=document.querySelector('ul[tabindex="0"]');const before=list.scrollLeft;await new Promise(r=>setTimeout(r,350));return list.scrollLeft-before})()`,
-      );
-      assert.equal(paused, 0, 'pause control must keep the list still');
+      assert.equal(focused, 0);
     });
     await t.test('theme cookie restores dark mode and the switch persists changes', async () => {
       await call('Network.setCookie', { name: 'theme', value: 'dark', url: baseUrl, path: '/' });

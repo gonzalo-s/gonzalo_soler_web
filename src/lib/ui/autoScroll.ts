@@ -1,8 +1,6 @@
-/** Bounce at each edge rather than jumping or duplicating accessible content. */
-export function advanceAutoScroll(position: number, direction: 1 | -1, elapsedMs: number, maximum: number) {
-  if (maximum <= 0) return { position: 0, direction: 1 as const, atEdge: false };
-  const next = position + direction * Math.min(100, Math.max(0, elapsedMs)) * 0.02;
-  if (next >= maximum) return { position: maximum, direction: -1 as const, atEdge: true };
-  if (next <= 0) return { position: 0, direction: 1 as const, atEdge: true };
-  return { position: next, direction, atEdge: false };
+/** Positive scrollLeft moves the track visually right-to-left; wrap at an identical copy. */
+export function advanceAutoScroll(position: number, elapsedMs: number, cycleWidth: number) {
+  if (cycleWidth <= 0) return 0;
+  const next = position + Math.min(100, Math.max(0, elapsedMs)) * 0.02;
+  return ((next % cycleWidth) + cycleWidth) % cycleWidth;
 }

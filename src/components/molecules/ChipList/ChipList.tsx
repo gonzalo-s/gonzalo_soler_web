@@ -24,8 +24,9 @@ export default function ChipList({
   autoScroll,
   label = 'Technologies',
 }: ChipListProps) {
-  const children = (limit === undefined ? items : items.slice(0, limit)).map((item) => (
-    <Chip as="li" key={`${item.stackIconName}-${item.displayName}`} className={itemClassName}>
+  const displayedItems = limit === undefined ? items : items.slice(0, limit);
+  const children = displayedItems.map((item) => (
+    <Chip data-scroll-original as="li" key={`${item.stackIconName}-${item.displayName}`} className={itemClassName}>
       <StackIcon {...item} />
     </Chip>
   ));
@@ -33,6 +34,18 @@ export default function ChipList({
   return scrollable ? (
     <DragScrollList autoScroll={autoScroll} className={listClass} aria-label={label}>
       {children}
+      {autoScroll &&
+        displayedItems.map((item) => (
+          <Chip
+            as="li"
+            key={`copy-${item.stackIconName}-${item.displayName}`}
+            data-scroll-copy
+            aria-hidden="true"
+            className={itemClassName}
+          >
+            <StackIcon {...item} />
+          </Chip>
+        ))}
     </DragScrollList>
   ) : (
     <ul className={listClass} aria-label={label}>
