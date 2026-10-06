@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { Geist_Mono, Inter, Space_Grotesk } from 'next/font/google';
 import PageShell from '@/components/templates/PageShell/PageShell';
 import './globals.scss';
@@ -7,6 +8,20 @@ import { ThemeContextProvider } from '@/contexts/themeContext';
 import { loadAllSections } from '@/lib/services/loadAllSections';
 import parseFooterDetails from '@/lib/services/parsers/parseFooterDetails';
 import parseLogo from '@/lib/services/parsers/parseLogo';
+
+const title = 'Gonzalo Soler — Your Next Frontend Engineer';
+const description =
+  'Frontend Engineer specializing in Next.js, composable commerce, checkout, payments, and scalable digital experiences.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+    type: 'website',
+  },
+};
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
