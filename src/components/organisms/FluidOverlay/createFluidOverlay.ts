@@ -1,6 +1,4 @@
 import { Color, ShaderMaterial, Uniform, WebGLRenderer } from 'three';
-import { FluidHeading, createHeadingUniforms } from './FluidHeading';
-import { FLUID_FRAGMENT } from './fluidShader';
 import { FluidSimulation, FullscreenPass, FULLSCREEN_VERTEX } from 'three-fluid-fx';
 
 /** Transparent adaptation of the minimal density-overlay example. */
@@ -19,13 +17,22 @@ export function createFluidOverlay(canvas: HTMLCanvasElement): () => void {
     reflectWalls: true,
     densityDissipation: 0.96,
   });
-  const headingUniforms = createHeadingUniforms();
   const material = new ShaderMaterial({
     vertexShader: FULLSCREEN_VERTEX,
-    fragmentShader: FLUID_FRAGMENT,
+    fragmentShader: `
+      varying vec2 vUv;
+      uniform sampler2D density;
+      uniform vec3 cobalt;
+      uniform vec3 amber;
+      void main() {
+        float ink = max(texture2D(density, vUv).b, 0.0);
+        float strength = 1.0 - exp(-ink * 1.5);
+        vec3 tint = mix(cobalt, amber, smoothstep(0.2, 0.85, strength));
+        gl_FragColor = vec4(tint, strength * 0.3);
+        #include <colorspace_fragment>
+      }
+    `,
     uniforms: {
-      ...headingUniforms,
-      velocity: new Uniform(fluid.velocityTexture),
       density: new Uniform(fluid.densityTexture),
       cobalt: new Uniform(new Color()),
       amber: new Uniform(new Color()),
@@ -35,19 +42,12 @@ export function createFluidOverlay(canvas: HTMLCanvasElement): () => void {
     depthWrite: false,
   });
   const pass = new FullscreenPass(material);
-  const heading = new FluidHeading(headingUniforms, () => {
-    if (!renderer.getContext().isContextLost()) pass.render(renderer, null);
-  });
   const updateTheme = () => {
     const css = getComputedStyle(document.documentElement);
     material.uniforms.cobalt.value.setStyle(css.getPropertyValue('--brick-blue').trim());
     material.uniforms.amber.value.setStyle('#9bb4fa');
-    heading.refresh();
   };
-  const themeObserver = new MutationObserver(() => {
-    updateTheme();
-    heading.themeChanged();
-  });
+  const themeObserver = new MutationObserver(updateTheme);
   themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   updateTheme();
   let previous: { x: number; y: number; id: number } | undefined;
@@ -61,18 +61,13 @@ export function createFluidOverlay(canvas: HTMLCanvasElement): () => void {
     fluid.step(Math.min((time - lastFrame) / 1000 || 1 / 60, 1 / 60));
     lastFrame = time;
     material.uniforms.density.value = fluid.densityTexture;
-    material.uniforms.velocity.value = fluid.velocityTexture;
     pass.render(renderer, null);
     if (time < activeUntil) frame = requestAnimationFrame(draw);
-    else {
-      heading.deactivate();
-      renderer.clear();
-    }
+    else renderer.clear();
   };
   const wake = () => {
     activeUntil = performance.now() + 4000;
     if (!frame && !document.hidden) {
-      heading.activate();
       lastFrame = performance.now();
       frame = requestAnimationFrame(draw);
     }
@@ -88,8 +83,8 @@ export function createFluidOverlay(canvas: HTMLCanvasElement): () => void {
       const dy = previous.y - current.y;
       if (Math.abs(dx) + Math.abs(dy) > 0 && Math.hypot(dx, dy) < 200) {
         fluid.addSplat(
-          current.x / headingUniforms.viewport.value.x,
-          1 - current.y / headingUniforms.viewport.value.y,
+          current.x / innerWidth,
+          1 - current.y / innerHeight,
           dx * fluid.splatForce,
           dy * fluid.splatForce,
         );
@@ -100,19 +95,14 @@ export function createFluidOverlay(canvas: HTMLCanvasElement): () => void {
   };
   const resize = () => {
     renderer.setPixelRatio(Math.min(devicePixelRatio || 1, 1.5));
-    const width = canvas.clientWidth || innerWidth;
-    const height = canvas.clientHeight || innerHeight;
-    renderer.setSize(width, height, false);
-    fluid.resize(width, height);
-    headingUniforms.viewport.value.set(width, height);
-    heading.refresh();
+    renderer.setSize(innerWidth, innerHeight, false);
+    fluid.resize(innerWidth, innerHeight);
     resetPointer();
   };
   const visibility = () => {
     resetPointer();
     cancelAnimationFrame(frame);
     frame = 0;
-    heading.deactivate();
     renderer.clear();
   };
   const contextLost = (event: Event) => {
@@ -130,7 +120,6 @@ export function createFluidOverlay(canvas: HTMLCanvasElement): () => void {
     window.removeEventListener('resize', resize);
     document.removeEventListener('visibilitychange', visibility);
     canvas.removeEventListener('webglcontextlost', contextLost);
-    heading.dispose();
     if (!renderer.getContext().isContextLost()) renderer.clear();
     fluid.dispose();
     pass.dispose();
