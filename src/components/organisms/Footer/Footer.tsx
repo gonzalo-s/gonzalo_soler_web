@@ -28,7 +28,9 @@ function Footer(props: FooterProps) {
         </nav>
       </div>
       <div className={clsx(styles.footer__bottom, styles['footer__bottom__border-gradient'])}>
-        <span className={styles['footer__bottom__border-gradient__text']}>gonzalo soler</span>
+        <span data-fluid-footer data-fluid-gradient className={styles['footer__bottom__border-gradient__text']}>
+          gonzalo soler
+        </span>
       </div>
     </footer>
   );

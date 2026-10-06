@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import FluidOverlay from '@/components/organisms/FluidOverlay/FluidOverlay';
 import Navigation from '@/components/organisms/Navigation/Navigation';
 import Footer from '@/components/organisms/Footer/Footer';
 import type { FooterProps, Section } from '@/types/sections';
@@ -16,6 +17,7 @@ type PageShellProps = {
 export default function PageShell({ children, navigationLinks, footerLinks, footerDetails, logo }: PageShellProps) {
   return (
     <div className={styles['page-wrapper']}>
+      <FluidOverlay />
       <a className={styles.skipLink} href="#main-content">
         Skip to content
       </a>

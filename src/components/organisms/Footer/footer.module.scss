@@ -1,4 +1,4 @@
-@use '@/styles/mixins.scss' as *;
+@use "@/styles/mixins.scss" as *;
 .footer {
   border-top: 1px solid var(--rule);
   &__top {
@@ -31,11 +31,13 @@
     }
   }
   &__bottom {
-    padding: 1rem 0 2rem;
+    padding: 1rem 0 4rem;
     border-top: 1px solid var(--rule);
     &__border-gradient__text {
       display: block;
-      color: var(--foreground);
+      background-image: linear-gradient(90deg, var(--brand-3), var(--brand-2));
+      background-clip: text;
+      color: transparent;
       font-family: var(--font-space-grotesk), sans-serif;
       font-size: clamp(2.4rem, 12vw, 10rem);
       font-weight: 600;
@@ -43,6 +45,7 @@
       line-height: 1;
       text-align: center;
       white-space: nowrap;
+      padding: 1rem 0;
     }
   }
 }

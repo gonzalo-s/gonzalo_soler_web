@@ -21,13 +21,37 @@ test('portfolio UI interactions and server rendering', async (t) => {
     await call('Emulation.setDeviceMetricsOverride', { width: 1440, height: 900, deviceScaleFactor: 1, mobile: false });
     await navigate('/');
     await waitFor('!!document.querySelector("[data-locked]")');
+    await waitFor('!!document.querySelector("[data-fluid-overlay]")?.dataset.fluidReady');
+    await t.test('all heading levels and nested text use the theme gradient', async () => {
+      assert.equal(
+        await evaluate(`(()=>{
+        const main=document.querySelector('main');
+        const sample=document.createElement('section');
+        sample.innerHTML=[1,2,3,4,5,6].map(level=>'<h'+level+'><span>Gradient heading</span></h'+level+'>').join('');
+        main.append(sample);
+        const valid=[...document.querySelectorAll('h1,h2,h3,h4,h5,h6')].every(heading=>{
+          const style=getComputedStyle(heading);
+          return style.backgroundImage.includes('linear-gradient')&&style.webkitTextFillColor==='rgba(0, 0, 0, 0)'&&[...heading.querySelectorAll('span')].every(span=>getComputedStyle(span).webkitTextFillColor==='rgba(0, 0, 0, 0)');
+        });
+        sample.remove();return valid;
+      })()`),
+        true,
+      );
+    });
     await t.test('storytelling expands by keyboard and preserves independent stories', async (t) => {
       if (!(await evaluate('!!document.querySelector("[data-storytelling]")'))) {
         t.skip('Configure draft storytelling CSV URLs to exercise this section.');
         return;
       }
       await evaluate('document.querySelector("[data-storytelling] summary").focus()');
-      await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await call('Input.dispatchKeyEvent', {
+        type: 'keyDown',
+        key: 'Enter',
+        code: 'Enter',
+        windowsVirtualKeyCode: 13,
+        text: '\r',
+        unmodifiedText: '\r',
+      });
       await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
       await waitFor('document.querySelector("[data-storytelling] details").open');
       assert.equal(
@@ -40,7 +64,14 @@ test('portfolio UI interactions and server rendering', async (t) => {
         ),
         true,
       );
-      await call('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
+      await call('Input.dispatchKeyEvent', {
+        type: 'keyDown',
+        key: 'Enter',
+        code: 'Enter',
+        windowsVirtualKeyCode: 13,
+        text: '\r',
+        unmodifiedText: '\r',
+      });
       await call('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13 });
       await waitFor('!document.querySelector("[data-storytelling] details").open');
     });

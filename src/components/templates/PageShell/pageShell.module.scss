@@ -1,3 +1,5 @@
+@use '@/styles/mixins.scss' as *;
+
 .page-wrapper {
   position: relative;
   min-height: 100dvh;
@@ -42,4 +44,18 @@
   &:focus-visible {
     transform: none;
   }
+}
+
+// The original h1 stays in the accessibility tree and keeps its layout.
+@include desktop {
+  .page-wrapper :global([data-fluid-text-active='true']) {
+    opacity: 0;
+  }
+}
+
+.page-wrapper :global(:is(h1, h2, h3, h4, h5, h6)) {
+  background-image: linear-gradient(90deg, var(--brand-3), var(--brand-2));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
