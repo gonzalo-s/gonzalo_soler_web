@@ -99,6 +99,10 @@ test('storytelling renders every narrative and shared closing before hydration',
   const { createElement } = require('react');
   const Storytelling = loadTs('../../src/components/organisms/Storytelling/Storytelling.tsx', {
     '@/components/atoms/CmsText/CmsText': { default: ({ text }) => text },
+    '@/components/molecules/AnimatedDisclosure/AnimatedDisclosure': {
+      default: ({ summary, children }) =>
+        createElement('details', null, createElement('summary', null, summary), createElement('div', null, children)),
+    },
     '@/components/atoms/Heading/Heading': { default: ({ as = 'h2', children }) => createElement(as, null, children) },
     '@/components/atoms/Button/Button': {
       default: ({ text, href }) => createElement('a', { href: href.internal }, text),

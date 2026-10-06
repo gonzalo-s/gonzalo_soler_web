@@ -28,4 +28,6 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm run typecheck
+      - name: Configure public content sources
+        run: cp .env.example .env.local
       - run: npm run build

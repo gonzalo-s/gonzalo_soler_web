@@ -11,7 +11,7 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit",
     "test": "node --experimental-strip-types --test tests/ui/*.test.mjs",
-    "test:browser": "node --test tests/ui/browser.integration.mjs"
+    "test:browser": "node --test --test-concurrency=1 tests/ui/browser.integration.mjs tests/ui/fluid.browser.mjs tests/ui/fluidHeading.browser.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.5.0",
@@ -25,7 +25,9 @@
     "react-icons": "^5.5.0",
     "react-loading-skeleton": "^3.5.0",
     "react-spinners": "^0.15.0",
-    "server-only": "^0.0.1"
+    "server-only": "^0.0.1",
+    "three": "^0.183.2",
+    "three-fluid-fx": "^0.1.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

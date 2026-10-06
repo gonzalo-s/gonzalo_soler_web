@@ -5,7 +5,7 @@ The portfolio follows atomic design without forcing every element into a separat
 | Layer                      | Responsibility                                                                   | Examples                                                                                 |
 | -------------------------- | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
 | `src/components/atoms`     | Small reusable visual or interaction primitives, independent of content sections | Button, IconButton, Chip, StackIcon, Heading, Surface, EmailLink, HighlightedText        |
-| `src/components/molecules` | Focused combinations of atoms with one purpose                                   | ProjectCard, ChipList, MobileNavigation, AudioPlayer                                     |
+| `src/components/molecules` | Focused combinations of atoms with one purpose                                   | ProjectCard, ChipList, MobileNavigation, AudioPlayer, AnimatedDisclosure                 |
 | `src/components/organisms` | Complete content sections and larger site regions                                | Introduction, Projects, AboutMe, Experience, Contact, Navigation, Footer, BrickAnimation |
 | `src/components/templates` | Page composition and layout                                                      | PageShell, ProjectDetails                                                                |
 | `src/app`                  | Next.js routes and data loading                                                  | Home and statically generated project pages                                              |
@@ -25,7 +25,7 @@ Templates compose organisms and molecules. Organisms compose molecules and atoms
 
 ## Server and client boundaries
 
-Use server components for content, cards, headings, icons, and page layouts. Add `use client` only where browser events or state are required. Keep those boundaries small: Button, ThemeSwitch, EmailLink, MobileNavigation, AudioPlayer, DragScrollList, HashScrollHandler, and BrickAnimation. Render children on the server and pass them into interactive containers where possible.
+Use server components for content, cards, headings, icons, and page layouts. Add `use client` only where browser events or state are required. Keep those boundaries small: Button, ThemeSwitch, EmailLink, MobileNavigation, AudioPlayer, DragScrollList, HashScrollHandler, BrickAnimation, and FluidOverlay. Render children on the server and pass them into interactive containers where possible.
 
 The theme provider always renders its children. A small validated cookie bootstrap applies the theme before the page paints, while React manages the switch afterward. Pages retain static generation and their HTML remains usable before hydration.
 
@@ -36,6 +36,8 @@ Chip owns the `8px 16px` padding. StackIcon owns its 8px rounded, clipped image 
 Use a native button for actions and a link for navigation. IconButton requires an accessible label. Disabled links cannot be activated or tabbed to. Hash navigation preserves modifier clicks and uses native scrolling with CSS scroll margins and reduced-motion support. Closed mobile navigation is inert; Escape closes it and restores trigger focus. PageShell includes a skip link. Technology lists hide their scrollbar and use continuous right-to-left scrolling; hover, focus, manual interaction, reduced motion, and an offscreen list suspend movement. Visual copies create a seamless loop and are hidden from assistive technology.
 
 Highlights are rendered as React text and spans; never rewrite the React-owned DOM. EmailLink reveals only its own address, without selectors that modify other components. Audio playback state follows media events and playback failures are announced.
+
+The fluid overlay is a decorative client organism composed by PageShell. Its Three.js implementation loads on first mouse input, reads colors from theme properties, ignores touch input, and never captures pointer events. Reduced motion disables it; hidden tabs and idle cursors stop GPU rendering. GPU resources and listeners are disposed on unmount or reduced-motion changes. Content remains available without WebGL. Marked h1 headings use a cached browser-rasterized texture in the same fluid draw pass. The DOM h1 stays semantic and retains its layout; it is temporarily transparent only when the GPU version is active. Idle, reduced motion, selection, and context loss restore the HTML. Theme, font, content, and layout changes refresh the cache; animation frames reuse it.
 
 ## Stack icons
 

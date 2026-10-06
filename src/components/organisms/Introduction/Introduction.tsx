@@ -13,7 +13,7 @@ function Introduction(props: IntroductionSection) {
     <section data-brick-hero className={styles.introduction} id={getId(props.href)}>
       <div className={styles.introduction__content}>
         <span className={styles.introduction__rule} aria-hidden="true" />
-        <Heading as="h1" className={styles.introduction__textWrapper}>
+        <Heading data-fluid-heading data-fluid-gradient as="h1" className={styles.introduction__textWrapper}>
           {props.description?.highlightText && (
             <span>
               <CmsText text={props.description.highlightText} />

@@ -12,7 +12,7 @@ export default function ProjectDetails({ project }: { project: ProjectData }) {
   return (
     <div className={styles['project-page']}>
       <section className={styles['project-page__header']}>
-        <Heading as="h1">
+        <Heading data-fluid-heading data-fluid-gradient as="h1">
           <HighlightedText text={project.title} words={project.highlightWords} className={styles.highlight} />
         </Heading>
         <p className={styles['project-page__header__short-description']}>

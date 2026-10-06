@@ -1,3 +1,4 @@
+import AnimatedDisclosure from '@/components/molecules/AnimatedDisclosure/AnimatedDisclosure';
 import CmsText from '@/components/atoms/CmsText/CmsText';
 import type { StorytellingSection } from '@/types/sections';
 import Heading from '@/components/atoms/Heading/Heading';
@@ -17,35 +18,39 @@ export default function Storytelling(props: StorytellingSection) {
       <ul className={styles.stories}>
         {props.stories.map((story) => (
           <li key={story.id}>
-            <details className={styles.story}>
-              <summary className={styles.summary}>
-                <span className={styles.project}>{story.projectName}</span>
-                <h3 className={styles.heading}>{story.heading}</h3>
-              </summary>
-              <div className={styles.content}>
-                <dl className={styles.narrative}>
-                  <div>
-                    <dt>Challenge</dt>
-                    <dd>
-                      <CmsText text={story.challenge} />
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>Ownership</dt>
-                    <dd>
-                      <CmsText text={story.ownership} />
-                    </dd>
-                  </div>
-                  <div>
-                    <dt>Outcome</dt>
-                    <dd>
-                      <CmsText text={story.outcome} />
-                    </dd>
-                  </div>
-                </dl>
-                {story.link && <Button {...story.link} variant="secondary" />}
-              </div>
-            </details>
+            <AnimatedDisclosure
+              className={styles.story}
+              summaryClassName={styles.summary}
+              contentClassName={styles.content}
+              summary={
+                <>
+                  <span className={styles.project}>{story.projectName}</span>
+                  <h3 className={styles.heading}>{story.heading}</h3>
+                </>
+              }
+            >
+              <dl className={styles.narrative}>
+                <div>
+                  <dt>Challenge</dt>
+                  <dd>
+                    <CmsText text={story.challenge} />
+                  </dd>
+                </div>
+                <div>
+                  <dt>Ownership</dt>
+                  <dd>
+                    <CmsText text={story.ownership} />
+                  </dd>
+                </div>
+                <div>
+                  <dt>Outcome</dt>
+                  <dd>
+                    <CmsText text={story.outcome} />
+                  </dd>
+                </div>
+              </dl>
+              {story.link && <Button {...story.link} variant="secondary" />}
+            </AnimatedDisclosure>
           </li>
         ))}
       </ul>
