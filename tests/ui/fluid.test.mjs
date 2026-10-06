@@ -15,13 +15,14 @@ test('fluid runtime tracks mouse input, updates theme, sleeps, and disposes its 
     addEventListener: (name, handler) => events.set(prefix + name, handler),
     removeEventListener: (name) => events.delete(prefix + name),
   });
-  const canvas = { ...target('canvas:'), dataset: {} };
+  const canvas = { ...target('canvas:'), dataset: {}, clientWidth: 1000, clientHeight: 500 };
   const document = { ...target('document:'), hidden: false, documentElement: {} };
   let now = 0,
     frame,
     observer,
     material,
     theme = 'light';
+  const headingCalls = { activate: 0, deactivate: 0, theme: 0, refresh: 0, dispose: 0 };
   const calls = { splats: [], steps: [], renders: 0, clears: 0, disposed: [] };
   const exports = {};
   const three = {
@@ -68,6 +69,7 @@ test('fluid runtime tracks mouse input, updates theme, sleeps, and disposes its 
     FluidSimulation: class {
       splatForce = 6;
       densityTexture = {};
+      velocityTexture = {};
       resize() {}
       addSplat(...args) {
         calls.splats.push(args);
@@ -96,11 +98,21 @@ test('fluid runtime tracks mouse input, updates theme, sleeps, and disposes its 
         return {
           createHeadingUniforms: () => ({ viewport: new three.Uniform(new three.Vector2()) }),
           FluidHeading: class {
-            themeChanged() {}
-            refresh() {}
-            activate() {}
-            deactivate() {}
-            dispose() {}
+            themeChanged() {
+              headingCalls.theme++;
+            }
+            refresh() {
+              headingCalls.refresh++;
+            }
+            activate() {
+              headingCalls.activate++;
+            }
+            deactivate() {
+              headingCalls.deactivate++;
+            }
+            dispose() {
+              headingCalls.dispose++;
+            }
           },
         };
       if (name === './fluidShader') return { FLUID_FRAGMENT: '' };
@@ -108,7 +120,7 @@ test('fluid runtime tracks mouse input, updates theme, sleeps, and disposes its 
     },
     window: target('window:'),
     document,
-    innerWidth: 1000,
+    innerWidth: 1015, // Scrollbar width must not enter canvas/pointer coordinates.
     innerHeight: 500,
     devicePixelRatio: 2,
     performance: { now: () => now },
@@ -137,19 +149,24 @@ test('fluid runtime tracks mouse input, updates theme, sleeps, and disposes its 
   move(100);
   move(120);
   assert.equal(calls.splats.length, 1);
+  assert.equal(headingCalls.activate, 1, 'mouse movement must activate text distortion');
   assert.equal(calls.splats[0][0], 0.12);
   assert.equal(calls.splats[0][1], 0.8);
   assert.equal(calls.splats[0][2], 120);
   now = 20;
   frame(now);
   assert.equal(calls.renders, 1);
+  assert.ok(material.uniforms.velocity.value, 'the shared shader must receive the live velocity texture');
+  assert.ok(headingCalls.refresh > 0);
   assert.ok(calls.steps[0] <= 1 / 60);
   now = 5000;
   frame(now);
   assert.ok(calls.clears > 0);
+  assert.ok(headingCalls.deactivate > 0, 'idle must restore native text');
   theme = 'dark';
   observer();
   assert.equal(material.uniforms.cobalt.value.value, 'dark:--brick-blue');
+  assert.equal(headingCalls.theme, 2, 'text texture must follow theme changes');
   document.hidden = true;
   events.get('document:visibilitychange')();
   move(140);
@@ -159,4 +176,5 @@ test('fluid runtime tracks mouse input, updates theme, sleeps, and disposes its 
   assert.equal(events.size, 0);
   assert.deepEqual(calls.disposed, ['observer', 'fluid', 'pass', 'renderer']);
   assert.equal(canvas.dataset.fluidReady, 'false');
+  assert.equal(headingCalls.dispose, 1);
 });
