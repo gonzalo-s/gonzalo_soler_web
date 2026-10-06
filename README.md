@@ -108,6 +108,8 @@ Use Node 22.14 or newer. Run `npm test` for interaction contracts. For browser i
 
 ## Content environment variables
 
+GitHub Actions copies the checked-in `.env.example` to `.env.local` before building. These endpoints are public; CI does not inherit Vercel environment settings. Keep `.env.example` up to date when changing the content sources used for CI.
+
 Copy `.env.example` to `.env.local` before running or building locally. The example includes every public Google Sheets CSV endpoint. Configure the same variables in Vercel before deploying; content is fetched during static generation and requires a rebuild when URLs or sheet content change. Loaders import `contentUrls` from `src/config/content.ts`, which owns all content environment-variable reads. Missing required values fail the build with the variable name. Variables are server-side and do not need the `NEXT_PUBLIC_` prefix.
 
 `STORYTELLING_CSV_URL` uses the combined storytelling tab. `STORYTELLING_SECTION_CSV_URL` and `STORYTELLING_ITEMS_CSV_URL` are optional separate-tab overrides and must be set together.
